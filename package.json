@@ -1,0 +1,35 @@
+{
+  "name": "mundo-aove-blog",
+  "version": "2.0.0",
+  "description": "Blog professionnel Alejandra Galván - Oléiculture Péruvienne",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "build": "python3 tools/build.py",
+    "deploy": "bash tools/deploy.sh",
+    "test": "python3 -m pytest tests/",
+    "lint": "echo 'Linting JS...' && echo 'Linting CSS...'",
+    "optimize": "python3 tools/optimize-images.py",
+    "add-article": "python3 tools/add-article.py",
+    "backup": "python3 tools/backup.py",
+    "stats": "python3 tools/stats.py"
+  },
+  "keywords": [
+    "blog",
+    "agriculture",
+    "oléiculture",
+    "pérou",
+    "tacna",
+    "durable"
+  ],
+  "author": "Alejandra Galván Gómez <mundo.aove.tacna@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mundo-Aove/Mundo-Aove.git"
+  },
+  "homepage": "https://mundo-aove.github.io/Mundo-Aove/",
+  "devDependencies": {
+    "prettier": "^2.8.0"
+  }
+}

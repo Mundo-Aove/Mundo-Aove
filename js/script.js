@@ -50,8 +50,8 @@ const translations = {
         
         // Page À propos
         aboutTitle: 'Alejandra Galván Gómez',
-        aboutDescription1: 'Ingénieure agroalimentaire spécialisée dans l\'oléiculture péruvienne avec plus de 10 ans d\'expérience dans le développement de méthodes durables de culture de l\'olive.',
-        aboutDescription2: 'Diplômée de l\'Universidad Nacional Agraria La Molina, j\'ai consacré ma carrière à l\'amélioration des pratiques agricoles dans les régions arides du Pérou.',
+        aboutDescription1: 'Diplômée de l’Universidad Nacional Jorge Basadre Grohmann (Pérou) et de l’Universidad Nacional de Jaén (Espagne), je me suis spécialisée dans la production d’huile d’olive et le traitement des olives de table au Pérou.',
+        aboutDescription2: 'Diplômée de l’Universidad Nacional Jorge Basadre Grohmann (Pérou) et de l’Universidad Nacional de Jaén (Espagne), je me suis spécialisée dans la production d’huile d’olive et le traitement des olives de table au Pérou.',
         specialties: 'Spécialités :',
         specialty1: 'Agriculture agroécologique',
         specialty2: 'Gestion de la fertilité des sols',

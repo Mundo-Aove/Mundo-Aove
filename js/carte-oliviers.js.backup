@@ -1,0 +1,515 @@
+// ============================================
+// CARTE INTERACTIVE DES OLIVIERS CENTENAIRES
+// Version complète et corrigée - Alejandra Galván
+// ============================================
+
+const carteOliviers = {
+    map: null,
+    markers: [],
+    currentLang: 'fr',
+    
+    // ========== CONFIGURATION ==========
+    config: {
+        center: [-17.5, -70.8], // Centre Tacna-Moquegua-Ilo
+        zoom: 8,
+        minZoom: 6,
+        maxZoom: 18
+    },
+
+    // ========== STYLES DES MARQUEURS ==========
+    markerStyles: {
+        excellent: { color: '#22c55e', fillColor: '#22c55e', icon: '🫒' },
+        good: { color: '#eab308', fillColor: '#eab308', icon: '🟡' },
+        poor: { color: '#ef4444', fillColor: '#ef4444', icon: '🔴' }
+    },
+
+    // ========== DONNÉES DES OLIVIERS ==========
+    oliviers: [
+        {
+            id: 'OLV001',
+            lat: -17.8986,
+            lng: -70.2833,
+            region: 'Tacna',
+            secteur: 'Valle de Cinto',
+            age: 150,
+            variete: 'Sevillana',
+            etat: 'excellent',
+            note: 8,
+            proprietaire: 'Familia Mendoza',
+            production: '80kg/an',
+            details: {
+                fr: {
+                    nom: 'Olivier de Cinto',
+                    description: 'Spécimen exceptionnel de 150 ans dans la vallée de Cinto. Tronc creux mais très vigoureux.',
+                    localisation: 'Fundo San Antonio, Valle de Cinto, Pocollay',
+                    caracteristiques: 'Circonférence: 2.8m, Hauteur: 8.5m, Envergure: 12m',
+                    sante: 'Excellent état général, aucune maladie détectée'
+                },
+                es: {
+                    nom: 'Olivo de Cinto', 
+                    description: 'Espécimen excepcional de 150 años en el valle de Cinto. Tronco hueco pero muy vigoroso.',
+                    localisation: 'Fundo San Antonio, Valle de Cinto, Pocollay',
+                    caracteristiques: 'Circunferencia: 2.8m, Altura: 8.5m, Envergadura: 12m',
+                    sante: 'Excelente estado general, ninguna enfermedad detectada'
+                }
+            }
+        },
+        {
+            id: 'OLV002',
+            lat: -17.1934,
+            lng: -70.9357,
+            region: 'Moquegua',
+            secteur: 'Centro Histórico',
+            age: 200,
+            variete: 'Manzanilla',
+            etat: 'good',
+            note: 6,
+            proprietaire: 'Municipalidad de Moquegua',
+            production: '25kg/an',
+            details: {
+                fr: {
+                    nom: 'Olivier de la Plaza',
+                    description: 'Olivier bicentenaire mi culo au cœur de Moquegua. Témoin de l\'histoire coloniale de la région.',
+                    localisation: 'Plaza de Armas, Centro Histórico, Moquegua',
+                    caracteristiques: 'Circonférence: 3.2m, Hauteur: 6.8m, Envergure: 10.5m',
+                    sante: 'État correct, légère chlorose, cochenilles traitées'
+                },
+                es: {
+                    nom: 'Olivo de la Plaza',
+                    description: 'Olivo bicentenario de mi pipilin en el corazón de Moquegua. Testigo de la historia colonial de la región.',
+                    localisation: 'Plaza de Armas, Centro Histórico, Moquegua', 
+                    caracteristiques: 'Circunferencia: 3.2m, Altura: 6.8m, Envergadura: 10.5m',
+                    sante: 'Estado correcto, ligera clorosis, cochinillas tratadas'
+                }
+            }
+        },
+        {
+            id: 'OLV003',
+            lat: -17.6394,
+            lng: -71.3369,
+            region: 'Ilo',
+            secteur: 'Zona Rural',
+            age: 120,
+            variete: 'Sevillana',
+            etat: 'excellent',
+            note: 9,
+            proprietaire: 'Cooperativa Olivarera Ilo',
+            production: '120kg/an',
+            details: {
+                fr: {
+                    nom: 'Olivier Côtier d\'Ilo',
+                    description: 'Olivier exceptionnel bénéficiant du climat côtier. Production d\'huile de qualité remarquable.',
+                    localisation: 'Fundo Las Palmeras, Zona Rural, Ilo',
+                    caracteristiques: 'Circonférence: 2.1m, Hauteur: 7.2m, Envergure: 9.8m',
+                    sante: 'Excellent état, prévention bio, très productive'
+                },
+                es: {
+                    nom: 'Olivo Costero de Ilo',
+                    description: 'Olivo excepcional que se beneficia del clima costero. Producción de aceite de calidad notable.',
+                    localisation: 'Fundo Las Palmeras, Zona Rural, Ilo',
+                    caracteristiques: 'Circunferencia: 2.1m, Altura: 7.2m, Envergadura: 9.8m',
+                    sante: 'Excelente estado, prevención bio, muy productivo'
+                }
+            }
+        }
+    ],
+
+    // ========== INITIALISATION ==========
+    init() {
+        console.log('🗺️ Initialisation carte oliviers...');
+        
+        if (typeof L === 'undefined') {
+            console.error('❌ Leaflet.js non chargé');
+            this.showError('Leaflet.js non disponible');
+            return false;
+        }
+
+        const container = document.getElementById('carte-oliviers');
+        if (!container) {
+            console.error('❌ Container carte-oliviers non trouvé');
+            return false;
+        }
+
+        try {
+            this.createMap();
+            this.addMarkers();
+            this.hideLoading();
+            console.log('✅ Carte initialisée avec succès');
+            return true;
+        } catch (error) {
+            console.error('❌ Erreur initialisation:', error);
+            this.showError('Erreur de chargement de la carte');
+            return false;
+        }
+    },
+
+    // ========== CRÉATION DE LA CARTE ==========
+    createMap() {
+        // Détruire la carte existante si elle existe
+        if (this.map) {
+            this.map.remove();
+            this.map = null;
+            this.markers = [];
+        }
+
+        this.map = L.map('carte-oliviers', {
+            center: this.config.center,
+            zoom: this.config.zoom,
+            minZoom: this.config.minZoom,
+            maxZoom: this.config.maxZoom,
+            zoomControl: true,
+            scrollWheelZoom: true
+        });
+
+        // Tuiles OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap | Oliviers Centenaires - Alejandra Galván',
+            maxZoom: 18
+        }).addTo(this.map);
+
+        console.log('🗺️ Carte de base créée');
+    },
+
+    // ========== AJOUT DES MARQUEURS ==========
+    addMarkers() {
+        this.markers = []; // Reset des marqueurs
+        
+        this.oliviers.forEach((olivier, index) => {
+            const style = this.markerStyles[olivier.etat];
+            
+            // Marqueur CircleMarker pour un rendu uniforme
+            const marker = L.circleMarker([olivier.lat, olivier.lng], {
+                radius: 12,
+                fillColor: style.fillColor,
+                color: '#ffffff',
+                weight: 3,
+                opacity: 1,
+                fillOpacity: 0.9
+            });
+
+            // Popup avec contenu dynamique
+            const popupContent = this.createPopupContent(olivier);
+            marker.bindPopup(popupContent, {
+                maxWidth: 320,
+                minWidth: 280,
+                className: 'olivier-popup',
+                closeOnClick: false,
+                autoClose: false
+            });
+
+            // Événements du marqueur
+            marker.on('click', () => {
+                this.animateMarker(marker);
+            });
+
+            marker.on('mouseover', () => {
+                marker.setStyle({ radius: 14 });
+            });
+
+            marker.on('mouseout', () => {
+                marker.setStyle({ radius: 12 });
+            });
+
+            // Ajouter à la carte
+            marker.addTo(this.map);
+            this.markers.push(marker);
+        });
+
+        // Ajuster la vue pour tous les marqueurs
+        if (this.markers.length > 0) {
+            const group = new L.featureGroup(this.markers);
+            this.map.fitBounds(group.getBounds().pad(0.1));
+        }
+
+        console.log(`📍 ${this.markers.length} marqueurs ajoutés`);
+    },
+
+    // ========== ANIMATION MARQUEUR ==========
+    animateMarker(marker) {
+        marker.setStyle({ radius: 16 });
+        setTimeout(() => {
+            marker.setStyle({ radius: 12 });
+        }, 300);
+    },
+
+    // ========== CRÉATION POPUP ==========
+    createPopupContent(olivier) {
+        const lang = this.getCurrentLanguage();
+        const details = olivier.details[lang];
+        
+        const etatLabels = {
+            fr: { excellent: 'Excellent', good: 'Bon', poor: 'Préoccupant' },
+            es: { excellent: 'Excelente', good: 'Bueno', poor: 'Preocupante' }
+        };
+
+        const etatColors = {
+            excellent: 'bg-green-500',
+            good: 'bg-yellow-500', 
+            poor: 'bg-red-500'
+        };
+
+        return `
+            <div class="olivier-popup-content">
+                <div class="popup-header">
+                    <h3>${details.nom}</h3>
+                    <p>${olivier.region} • ${olivier.secteur}</p>
+                </div>
+                
+                <div class="popup-body">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                        <span style="font-size: 24px;">${this.markerStyles[olivier.etat].icon}</span>
+                        <div style="text-align: right;">
+                            <div style="font-size: 18px; font-weight: bold;">${olivier.age} ans</div>
+                            <div style="font-size: 14px; color: #666;">${olivier.variete}</div>
+                        </div>
+                    </div>
+                    
+                    <p style="color: #555; font-size: 14px; line-height: 1.4; margin-bottom: 12px;">
+                        ${details.description}
+                    </p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; font-size: 12px;">
+                        <div>
+                            <strong>${lang === 'fr' ? 'État' : 'Estado'}:</strong><br>
+                            <span class="etat-badge ${etatColors[olivier.etat]}" style="display: inline-block; padding: 2px 6px; border-radius: 4px; color: white; font-size: 11px;">
+                                ${etatLabels[lang][olivier.etat]} (${olivier.note}/10)
+                            </span>
+                        </div>
+                        <div>
+                            <strong>${lang === 'fr' ? 'Production' : 'Producción'}:</strong><br>
+                            ${olivier.production}
+                        </div>
+                    </div>
+                    
+                    <div style="font-size: 12px; color: #666; margin-bottom: 12px;">
+                        <strong>${lang === 'fr' ? 'Propriétaire' : 'Propietario'}:</strong> ${olivier.proprietaire}
+                    </div>
+                    
+                    <div style="border-top: 1px solid #eee; padding-top: 8px;">
+                        <button onclick="carteOliviers.showDetails('${olivier.id}')" class="popup-button">
+                            ${lang === 'fr' ? 'Voir détails complets' : 'Ver detalles completos'}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+    },
+
+    // ========== MODAL DÉTAILS ==========
+    showDetails(olivierId) {
+        const olivier = this.oliviers.find(o => o.id === olivierId);
+        if (!olivier) {
+            console.error('Olivier non trouvé:', olivierId);
+            return;
+        }
+
+        const lang = this.getCurrentLanguage();
+        const details = olivier.details[lang];
+        
+        const modal = `
+            <div id="olivier-modal">
+                <div class="modal-backdrop" onclick="carteOliviers.closeModal()"></div>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div>
+                            <h2>${details.nom}</h2>
+                            <p>${olivier.region} • ${olivier.secteur}</p>
+                        </div>
+                        <button onclick="carteOliviers.closeModal()" class="modal-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <div class="info-grid">
+                            <div class="info-section">
+                                <h3>${lang === 'fr' ? 'Informations générales' : 'Información general'}</h3>
+                                <ul>
+                                    <li><strong>${lang === 'fr' ? 'Âge' : 'Edad'}:</strong> ${olivier.age} ans (${lang === 'fr' ? 'planté vers' : 'plantado hacia'} ${2025 - olivier.age})</li>
+                                    <li><strong>${lang === 'fr' ? 'Variété' : 'Variedad'}:</strong> ${olivier.variete}</li>
+                                    <li><strong>${lang === 'fr' ? 'Production' : 'Producción'}:</strong> ${olivier.production}</li>
+                                    <li><strong>${lang === 'fr' ? 'Note état' : 'Nota estado'}:</strong> ${olivier.note}/10</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="info-section">
+                                <h3>${lang === 'fr' ? 'Localisation' : 'Localización'}</h3>
+                                <p>${details.localisation}</p>
+                                <p class="gps-coords">GPS: ${olivier.lat.toFixed(4)}, ${olivier.lng.toFixed(4)}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h3>${lang === 'fr' ? 'Description' : 'Descripción'}</h3>
+                            <p>${details.description}</p>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h3>${lang === 'fr' ? 'Caractéristiques physiques' : 'Características físicas'}</h3>
+                            <p>${details.caracteristiques}</p>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h3>${lang === 'fr' ? 'État sanitaire' : 'Estado sanitario'}</h3>
+                            <p>${details.sante}</p>
+                        </div>
+                        
+                        <div class="contact-section">
+                            <h3>${lang === 'fr' ? 'Contact propriétaire' : 'Contacto propietario'}</h3>
+                            <p><strong>${olivier.proprietaire}</strong></p>
+                            <p class="contact-note">${lang === 'fr' ? 'Pour visites sur rendez-vous' : 'Para visitas con cita previa'}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.insertAdjacentHTML('beforeend', modal);
+        
+        // Événement clic extérieur + ESC
+        setTimeout(() => {
+            document.addEventListener('keydown', this.handleModalKeydown);
+        }, 100);
+    },
+
+    // ========== FERMETURE MODAL ==========
+    closeModal() {
+        const modal = document.getElementById('olivier-modal');
+        if (modal) {
+            modal.style.opacity = '0';
+            modal.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                modal.remove();
+                document.removeEventListener('keydown', this.handleModalKeydown);
+            }, 200);
+        }
+    },
+
+    // ========== GESTION CLAVIER MODAL ==========
+    handleModalKeydown(e) {
+        if (e.key === 'Escape') {
+            carteOliviers.closeModal();
+        }
+    },
+
+    // ========== UTILITAIRES ==========
+    getCurrentLanguage() {
+        return (typeof simpleBlog !== 'undefined' && simpleBlog.currentLang) ? simpleBlog.currentLang : 'fr';
+    },
+
+    hideLoading() {
+        const loading = document.getElementById('carte-loading');
+        if (loading) {
+            loading.style.opacity = '0';
+            setTimeout(() => {
+                loading.style.display = 'none';
+            }, 300);
+        }
+    },
+
+    showError(message) {
+        const container = document.getElementById('carte-oliviers');
+        if (container) {
+            container.innerHTML = `
+                <div style="display: flex; align-items: center; justify-content: center; height: 400px; background: #f9fafb;">
+                    <div style="text-align: center; color: #666;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 48px; margin-bottom: 16px; color: #f59e0b;"></i>
+                        <h3 style="margin-bottom: 8px;">Erreur de chargement</h3>
+                        <p>${message}</p>
+                    </div>
+                </div>
+            `;
+        }
+    },
+
+    // ========== MISE À JOUR LANGUE ==========
+    updateLanguage(lang) {
+        this.currentLang = lang;
+        
+        // Mettre à jour les popups ouverts
+        this.markers.forEach((marker, index) => {
+            if (marker.isPopupOpen()) {
+                const olivier = this.oliviers[index];
+                const newContent = this.createPopupContent(olivier);
+                marker.setPopupContent(newContent);
+            }
+        });
+        
+        console.log(`🌍 Carte langue: ${lang}`);
+    },
+
+    // ========== REDIMENSIONNEMENT ==========
+    resize() {
+        if (this.map) {
+            setTimeout(() => {
+                this.map.invalidateSize();
+            }, 100);
+        }
+    },
+
+    // ========== DESTRUCTION ==========
+    destroy() {
+        if (this.map) {
+            this.map.remove();
+            this.map = null;
+            this.markers = [];
+        }
+    }
+};
+
+// ========== OBSERVER DE PAGE ==========
+const initCarteObserver = () => {
+    if (typeof MutationObserver !== 'undefined') {
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    const target = mutation.target;
+                    if (target.id === 'carte-oliviers-page') {
+                        if (!target.classList.contains('hidden')) {
+                            // Page visible
+                            setTimeout(() => {
+                                if (!carteOliviers.map) {
+                                    carteOliviers.init();
+                                } else {
+                                    carteOliviers.resize();
+                                }
+                            }, 150);
+                        } else {
+                            // Page cachée - fermer modal si ouverte
+                            const modal = document.getElementById('olivier-modal');
+                            if (modal) carteOliviers.closeModal();
+                        }
+                    }
+                }
+            });
+        });
+
+        // Observer la page carte
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartePage = document.getElementById('carte-oliviers-page');
+            if (cartePage) {
+                observer.observe(cartePage, { attributes: true });
+            }
+        });
+    }
+};
+
+// ========== INTÉGRATION AVEC SIMPLE-BLOG ==========
+if (typeof simpleBlog !== 'undefined') {
+    // Hook sur le changement de langue
+    const originalToggleLanguage = simpleBlog.toggleLanguage;
+    if (originalToggleLanguage) {
+        simpleBlog.toggleLanguage = function() {
+            originalToggleLanguage.call(this);
+            carteOliviers.updateLanguage(this.currentLang);
+        };
+    }
+}
+
+// ========== INITIALISATION ==========
+initCarteObserver();
+
+// ========== EXPORT GLOBAL ==========
+window.carteOliviers = carteOliviers;
+
+console.log('🗺️ Module carte-oliviers chargé proprement');

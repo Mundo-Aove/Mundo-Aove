@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oliviers_centenaires region="Tacna-Moquegua-Ilo">
+  <metadata>
+    <title>Recensement des Oliviers Centenaires - Région Sud Pérou</title>
+    <description>Inventaire des oliviers de plus de 100 ans dans les régions de Tacna, Moquegua et Ilo</description>
+    <author>Alejandra Galván Gómez</author>
+    <date_creation>2025-07-22</date_creation>
+    <version>1.0</version>
+  </metadata>
+  
+  <!-- Exemple : Olivier dans la vallée de Cinto -->
+  <olivier id="OLV001">
+    <localisation>
+      <latitude>-17.8986</latitude>
+      <longitude>-70.2833</longitude>
+      <region>Tacna</region>
+      <province>Tacna</province>
+      <district>Pocollay</district>
+      <secteur>Valle de Cinto</secteur>
+      <parcelle>Fundo San Antonio</parcelle>
+      <propriétaire>
+        <nom>Familia Mendoza</nom>
+        <contact>mendoza.olivar@gmail.com</contact>
+        <telephone>+51 952 123 456</telephone>
+      </propriétaire>
+      <acces>Privé avec autorisation</acces>
+    </localisation>
+    
+    <caracteristiques>
+      <age_estime>150</age_estime>
+      <annee_plantation>1875</annee_plantation>
+      <variete>Sevillana</variete>
+      <circonference_tronc>2.8</circonference_tronc>
+      <hauteur>8.5</hauteur>
+      <envergure>12.0</envergure>
+    </caracteristiques>
+    
+    <etat_sanitaire>
+      <note_generale>8/10</note_generale>
+      <vitalite>Excellent</vitalite>
+      <maladies>Aucune détectée</maladies>
+      <parasites>Traitement préventif</parasites>
+      <production>Productive - 80kg/an</production>
+      <notes>Spécimen exceptionnel, tronc creux mais très vigoureux</notes>
+    </etat_sanitaire>
+    
+    <documentation>
+      <photos>
+        <photo type="general">images/oliviers/OLV001_general.jpg</photo>
+        <photo type="tronc">images/oliviers/OLV001_tronc.jpg</photo>
+        <photo type="canopee">images/oliviers/OLV001_canopee.jpg</photo>
+      </photos>
+      <date_visite>2025-06-15</date_visite>
+      <visiteur>Alejandra Galván</visiteur>
+      <coordonnees_gps_verifiees>true</coordonnees_gps_verifiees>
+    </documentation>
+  </olivier>
+
+  <!-- Exemple : Olivier historique de Moquegua -->
+  <olivier id="OLV002">
+    <localisation>
+      <latitude>-17.1934</latitude>
+      <longitude>-70.9357</longitude>
+      <region>Moquegua</region>
+      <province>Mariscal Nieto</province>
+      <district>Moquegua</district>
+      <secteur>Centro Histórico</secteur>
+      <parcelle>Plaza de Armas - Olivar Municipal</parcelle>
+      <propriétaire>
+        <nom>Municipalidad de Moquegua</nom>
+        <contact>turismo@munimoquegua.gob.pe</contact>
+        <telephone>+51 53 461 447</telephone>
+      </propriétaire>
+      <acces>Public</acces>
+    </localisation>
+    
+    <caracteristiques>
+      <age_estime>200</age_estime>
+      <annee_plantation>1825</annee_plantation>
+      <variete>Manzanilla</variete>
+      <circonference_tronc>3.2</circonference_tronc>
+      <hauteur>6.8</hauteur>
+      <envergure>10.5</envergure>
+    </caracteristiques>
+    
+    <etat_sanitaire>
+      <note_generale>6/10</note_generale>
+      <vitalite>Correct</vitalite>
+      <maladies>Légère chlorose</maladies>
+      <parasites>Cochenilles traitées</parasites>
+      <production>Faible - 25kg/an</production>
+      <notes>Olivier patrimonial, nécessite soins spécialisés</notes>
+    </etat_sanitaire>
+    
+    <documentation>
+      <photos>
+        <photo type="general">images/oliviers/OLV002_general.jpg</photo>
+        <photo type="historique">images/oliviers/OLV002_plaza.jpg</photo>
+      </photos>
+      <date_visite>2025-07-01</date_visite>
+      <visiteur>Alejandra Galván</visiteur>
+      <coordonnees_gps_verifiees>true</coordonnees_gps_verifiees>
+    </documentation>
+  </olivier>
+
+  <!-- Exemple : Olivier côtier de Ilo -->
+  <olivier id="OLV003">
+    <localisation>
+      <latitude>-17.6394</latitude>
+      <longitude>-71.3369</longitude>
+      <region>Moquegua</region>
+      <province>Ilo</province>
+      <district>Ilo</district>
+      <secteur>Zona Rural</secteur>
+      <parcelle>Fundo Las Palmeras</parcelle>
+      <propriétaire>
+        <nom>Cooperativa Olivarera Ilo</nom>
+        <contact>cooperativa.ilo@outlook.com</contact>
+        <telephone>+51 53 481 234</telephone>
+      </propriétaire>
+      <acces>Visite sur rendez-vous</acces>
+    </localisation>
+    
+    <caracteristiques>
+      <age_estime>120</age_estime>
+      <annee_plantation>1905</annee_plantation>
+      <variete>Sevillana</variete>
+      <circonference_tronc>2.1</circonference_tronc>
+      <hauteur>7.2</hauteur>
+      <envergure>9.8</envergure>
+    </caracteristiques>
+    
+    <etat_sanitaire>
+      <note_generale>9/10</note_generale>
+      <vitalite>Excellent</vitalite>
+      <maladies>Aucune</maladies>
+      <parasites>Prévention bio</parasites>
+      <production>Très productive - 120kg/an</production>
+      <notes>Bénéficie du climat côtier, qualité huile exceptionnelle</notes>
+    </etat_sanitaire>
+    
+    <documentation>
+      <photos>
+        <photo type="general">images/oliviers/OLV003_general.jpg</photo>
+        <photo type="fruits">images/oliviers/OLV003_olives.jpg</photo>
+      </photos>
+      <date_visite>2025-07-10</date_visite>
+      <visiteur>Alejandra Galván</visiteur>
+      <coordonnees_gps_verifiees>true</coordonnees_gps_verifiees>
+    </documentation>
+  </olivier>
+</oliviers_centenaires>

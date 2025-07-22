@@ -1,0 +1,22 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "Révision de la récolte d'oliviers à Ica",
+      "date": "2025-07-22",
+      "author": "Alejandra Galván Gómez",
+      "excerpt": "La saison de récolte cette année a été marquée par un climat irrégulier, mais les résultats sont prometteurs.",
+      "content": "# Révision de la récolte d'oliviers à Ica\n\nLa saison de récolte cette année a été marquée par un climat irrégulier, mais les résultats sont prometteurs.\n\n## Données importantes\n\n- **Variétés remarquables :** Sevillana et Arbequina\n- **Production moyenne :** 1 800 kg/ha\n- **Qualité :** Extra vierge pour 85% de la production",
+      "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=200&fit=crop"
+    },
+    {
+      "id": 2,
+      "title": "Techniques de taille pour jeunes oliviers",
+      "date": "2025-07-15",
+      "author": "Alejandra Galván Gómez",
+      "excerpt": "La taille correcte dans les premières années définit la productivité future de l'olivier.",
+      "content": "# Techniques de taille pour jeunes oliviers\n\nLa taille correcte définit la productivité future.\n\n## Principes fondamentaux\n\n- Équilibre entre croissance végétative et productive\n- Aération pour éviter les maladies\n- Exposition solaire maximale",
+      "image": "https://images.unsplash.com/photo-1611909023032-2d4b3c66d5b9?w=400&h=200&fit=crop"
+    }
+  ]
+}

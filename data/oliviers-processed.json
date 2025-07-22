@@ -1,0 +1,2028 @@
+{
+  "schema_version": "1.0",
+  "last_update": "2025-07-22T10:45:36.793342",
+  "source": "kml_import",
+  "stats": {
+    "total_oliviers": 67,
+    "with_photos": 67,
+    "zones": {
+      "Tacna_Norte": 1,
+      "Tacna_Centro": 7,
+      "Tacna_Valle": 44,
+      "Tacna_Sud": 15
+    },
+    "enriched": 65
+  },
+  "oliviers": [
+    {
+      "id": "OLV_ALFÈREZ_703115",
+      "lat": -18.077714,
+      "lng": -70.311508,
+      "region": "Tacna Norte",
+      "secteur": "Zone Norte",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250710_103438_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier alfèrez",
+          "description": "Olivier alfèrez - Données à enrichir",
+          "localisation": "Tacna Norte, Tacna",
+          "caracteristiques": "Alt: 369.9m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo alfèrez",
+          "description": "Olivo alfèrez - Datos por enriquecer",
+          "localisation": "Tacna Norte, Tacna",
+          "caracteristiques": "Alt: 369.9m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY1_703635",
+      "lat": -18.136153,
+      "lng": -70.363531,
+      "region": "Tacna Centro",
+      "secteur": "Zone Centro",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_071821_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY1",
+          "description": "Olivier TY1 - Données à enrichir",
+          "localisation": "Tacna Centro, Tacna",
+          "caracteristiques": "Alt: 229.5m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY1",
+          "description": "Olivo TY1 - Datos por enriquecer",
+          "localisation": "Tacna Centro, Tacna",
+          "caracteristiques": "Alt: 229.5m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY2_703639",
+      "lat": -18.136272,
+      "lng": -70.363889,
+      "region": "Tacna Centro",
+      "secteur": "Zone Centro",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_072104_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY2",
+          "description": "Olivier TY2 - Données à enrichir",
+          "localisation": "Tacna Centro, Tacna",
+          "caracteristiques": "Alt: 232.7m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY2",
+          "description": "Olivo TY2 - Datos por enriquecer",
+          "localisation": "Tacna Centro, Tacna",
+          "caracteristiques": "Alt: 232.7m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY3_703640",
+      "lat": -18.136603,
+      "lng": -70.364,
+      "region": "Tacna Centro",
+      "secteur": "Zone Centro",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_072224_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY3",
+          "description": "Olivier TY3 - Données à enrichir",
+          "localisation": "Tacna Centro, Tacna",
+          "caracteristiques": "Alt: 229.8m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY3",
+          "description": "Olivo TY3 - Datos por enriquecer",
+          "localisation": "Tacna Centro, Tacna",
+          "caracteristiques": "Alt: 229.8m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY4_703645",
+      "lat": -18.135986,
+      "lng": -70.364458,
+      "region": "Tacna Centro",
+      "secteur": "Zone Centro",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_072656_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY4",
+          "description": "Olivier TY4 - Données à enrichir",
+          "localisation": "Tacna Centro, Tacna",
+          "caracteristiques": "Alt: 231.9m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY4",
+          "description": "Olivo TY4 - Datos por enriquecer",
+          "localisation": "Tacna Centro, Tacna",
+          "caracteristiques": "Alt: 231.9m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_INGE_703644",
+      "lat": -18.135581,
+      "lng": -70.364403,
+      "region": "Tacna Centro",
+      "secteur": "Zone Centro",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_072810_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier inge",
+          "description": "Olivier inge - Données à enrichir",
+          "localisation": "Tacna Centro, Tacna",
+          "caracteristiques": "Alt: 237.0m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo inge",
+          "description": "Olivo inge - Datos por enriquecer",
+          "localisation": "Tacna Centro, Tacna",
+          "caracteristiques": "Alt: 237.0m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY5_703644",
+      "lat": -18.135583,
+      "lng": -70.364406,
+      "region": "Tacna Centro",
+      "secteur": "Zone Centro",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_072859_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY5",
+          "description": "Olivier TY5 - Données à enrichir",
+          "localisation": "Tacna Centro, Tacna",
+          "caracteristiques": "Alt: 241.5m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY5",
+          "description": "Olivo TY5 - Datos por enriquecer",
+          "localisation": "Tacna Centro, Tacna",
+          "caracteristiques": "Alt: 241.5m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY6_703641",
+      "lat": -18.135372,
+      "lng": -70.364072,
+      "region": "Tacna Centro",
+      "secteur": "Zone Centro",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_073159_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY6",
+          "description": "Olivier TY6 - Données à enrichir",
+          "localisation": "Tacna Centro, Tacna",
+          "caracteristiques": "Alt: 230.5m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY6",
+          "description": "Olivo TY6 - Datos por enriquecer",
+          "localisation": "Tacna Centro, Tacna",
+          "caracteristiques": "Alt: 230.5m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY7_703704",
+      "lat": -18.204467,
+      "lng": -70.370378,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_080705_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY7",
+          "description": "Olivier TY7 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 166.4m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY7",
+          "description": "Olivo TY7 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 166.4m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY8_703704",
+      "lat": -18.204533,
+      "lng": -70.370436,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_081120_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY8",
+          "description": "Olivier TY8 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 153.7m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY8",
+          "description": "Olivo TY8 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 153.7m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY9_703706",
+      "lat": -18.204717,
+      "lng": -70.370558,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_081305_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY9",
+          "description": "Olivier TY9 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 155.3m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY9",
+          "description": "Olivo TY9 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 155.3m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY12_703706",
+      "lat": -18.204836,
+      "lng": -70.370628,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_081909_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY12",
+          "description": "Olivier TY12 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 149.8m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY12",
+          "description": "Olivo TY12 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 149.8m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY11_703707",
+      "lat": -18.204867,
+      "lng": -70.370692,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_081935_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY11",
+          "description": "Olivier TY11 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 165.1m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY11",
+          "description": "Olivo TY11 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 165.1m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY10_703706",
+      "lat": -18.204819,
+      "lng": -70.370631,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_082002_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY10",
+          "description": "Olivier TY10 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 157.4m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY10",
+          "description": "Olivo TY10 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 157.4m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY14_703685",
+      "lat": -18.211758,
+      "lng": -70.368533,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_090415_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY14",
+          "description": "Olivier TY14 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 149.1m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY14",
+          "description": "Olivo TY14 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 149.1m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY15_703685",
+      "lat": -18.211789,
+      "lng": -70.36855,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_090846_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY15",
+          "description": "Olivier TY15 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 143.8m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY15",
+          "description": "Olivo TY15 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 143.8m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY16_703686",
+      "lat": -18.211889,
+      "lng": -70.368619,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_091052_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY16",
+          "description": "Olivier TY16 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 143.6m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY16",
+          "description": "Olivo TY16 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 143.6m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY17_703686",
+      "lat": -18.211956,
+      "lng": -70.368631,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_091312_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY17",
+          "description": "Olivier TY17 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 140.7m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY17",
+          "description": "Olivo TY17 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 140.7m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY18_703687",
+      "lat": -18.212008,
+      "lng": -70.368697,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_091440_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY18",
+          "description": "Olivier TY18 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 143.4m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY18",
+          "description": "Olivo TY18 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 143.4m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY21_703897",
+      "lat": -18.206089,
+      "lng": -70.389731,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_095449_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY21",
+          "description": "Olivier TY21 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 136.8m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY21",
+          "description": "Olivo TY21 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 136.8m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY22_703897",
+      "lat": -18.206075,
+      "lng": -70.389747,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_095626_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY22",
+          "description": "Olivier TY22 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 135.9m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY22",
+          "description": "Olivo TY22 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 135.9m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY23_703901",
+      "lat": -18.206006,
+      "lng": -70.390139,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_100029_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY23",
+          "description": "Olivier TY23 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 154.4m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY23",
+          "description": "Olivo TY23 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 154.4m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY24_703899",
+      "lat": -18.205839,
+      "lng": -70.38995,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_100214_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY24",
+          "description": "Olivier TY24 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 137.7m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY24",
+          "description": "Olivo TY24 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 137.7m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY25_703900",
+      "lat": -18.205814,
+      "lng": -70.389969,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_100406_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY25",
+          "description": "Olivier TY25 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 137.1m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY25",
+          "description": "Olivo TY25 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 137.1m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY26_703915",
+      "lat": -18.211411,
+      "lng": -70.391458,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_103234_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY26",
+          "description": "Olivier TY26 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 140.6m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY26",
+          "description": "Olivo TY26 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 140.6m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY27_703911",
+      "lat": -18.211614,
+      "lng": -70.391133,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_103459_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY27",
+          "description": "Olivier TY27 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 129.8m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY27",
+          "description": "Olivo TY27 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 129.8m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY28_703914",
+      "lat": -18.211722,
+      "lng": -70.391433,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_103651_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY28",
+          "description": "Olivier TY28 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 136.3m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY28",
+          "description": "Olivo TY28 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 136.3m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY29_703915",
+      "lat": -18.211683,
+      "lng": -70.391461,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_103928_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY29",
+          "description": "Olivier TY29 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 134.4m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY29",
+          "description": "Olivo TY29 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 134.4m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY30_703915",
+      "lat": -18.211681,
+      "lng": -70.391475,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_104158_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY30",
+          "description": "Olivier TY30 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 133.2m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY30",
+          "description": "Olivo TY30 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 133.2m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY31_703915",
+      "lat": -18.211689,
+      "lng": -70.391472,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_104446_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY31",
+          "description": "Olivier TY31 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 133.3m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY31",
+          "description": "Olivo TY31 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 133.3m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY32_704079",
+      "lat": -18.22125,
+      "lng": -70.407892,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_110949_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY32",
+          "description": "Olivier TY32 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 110.7m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY32",
+          "description": "Olivo TY32 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 110.7m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY33_704079",
+      "lat": -18.221253,
+      "lng": -70.4079,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_111231_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY33",
+          "description": "Olivier TY33 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 116.7m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY33",
+          "description": "Olivo TY33 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 116.7m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY34_704079",
+      "lat": -18.221225,
+      "lng": -70.4079,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_111428_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY34",
+          "description": "Olivier TY34 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 117.1m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY34",
+          "description": "Olivo TY34 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 117.1m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY35_704079",
+      "lat": -18.221211,
+      "lng": -70.407881,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_111617_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY35",
+          "description": "Olivier TY35 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 118.3m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY35",
+          "description": "Olivo TY35 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 118.3m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY36_704079",
+      "lat": -18.221208,
+      "lng": -70.407867,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_111810_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY36",
+          "description": "Olivier TY36 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 117.4m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY36",
+          "description": "Olivo TY36 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 117.4m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY37_704078",
+      "lat": -18.221375,
+      "lng": -70.407822,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_112546_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY37",
+          "description": "Olivier TY37 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 123.2m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY37",
+          "description": "Olivo TY37 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 123.2m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY38_704429",
+      "lat": -18.225642,
+      "lng": -70.442881,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_120256_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY38",
+          "description": "Olivier TY38 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 99.3m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY38",
+          "description": "Olivo TY38 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 99.3m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY39_704429",
+      "lat": -18.225642,
+      "lng": -70.4429,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_120502_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY39",
+          "description": "Olivier TY39 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 87.0m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY39",
+          "description": "Olivo TY39 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 87.0m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY40_704429",
+      "lat": -18.225547,
+      "lng": -70.442917,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_120631_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY40",
+          "description": "Olivier TY40 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 94.2m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY40",
+          "description": "Olivo TY40 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 94.2m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY41_704429",
+      "lat": -18.225539,
+      "lng": -70.44295,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_120813_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY41",
+          "description": "Olivier TY41 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 80.6m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY41",
+          "description": "Olivo TY41 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 80.6m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY42_704429",
+      "lat": -18.225511,
+      "lng": -70.442936,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_121039_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY42",
+          "description": "Olivier TY42 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 85.2m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY42",
+          "description": "Olivo TY42 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 85.2m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY43_704429",
+      "lat": -18.225517,
+      "lng": -70.442917,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_121213_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY43",
+          "description": "Olivier TY43 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 86.5m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY43",
+          "description": "Olivo TY43 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 86.5m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY44_704529",
+      "lat": -18.228533,
+      "lng": -70.452878,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_122921_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY44",
+          "description": "Olivier TY44 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 87.3m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY44",
+          "description": "Olivo TY44 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 87.3m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY45_704529",
+      "lat": -18.228539,
+      "lng": -70.452886,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_123132_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY45",
+          "description": "Olivier TY45 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 80.5m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY45",
+          "description": "Olivo TY45 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 80.5m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY46_704527",
+      "lat": -18.228658,
+      "lng": -70.452742,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_123337_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY46",
+          "description": "Olivier TY46 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 95.2m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY46",
+          "description": "Olivo TY46 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 95.2m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY47_704528",
+      "lat": -18.228733,
+      "lng": -70.452778,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_123445_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY47",
+          "description": "Olivier TY47 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 77.7m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY47",
+          "description": "Olivo TY47 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 77.7m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY48_704528",
+      "lat": -18.228817,
+      "lng": -70.452797,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_123530_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY48",
+          "description": "Olivier TY48 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 77.1m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY48",
+          "description": "Olivo TY48 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 77.1m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY49_704533",
+      "lat": -18.228892,
+      "lng": -70.453278,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_123706_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY49",
+          "description": "Olivier TY49 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 82.0m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY49",
+          "description": "Olivo TY49 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 82.0m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY50_704568",
+      "lat": -18.249175,
+      "lng": -70.456833,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_130858_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY50",
+          "description": "Olivier TY50 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 61.2m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY50",
+          "description": "Olivo TY50 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 61.2m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY51_704569",
+      "lat": -18.249106,
+      "lng": -70.456858,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_131004_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY51",
+          "description": "Olivier TY51 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 60.0m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY51",
+          "description": "Olivo TY51 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 60.0m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY53_704569",
+      "lat": -18.249114,
+      "lng": -70.456903,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_131209_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY53",
+          "description": "Olivier TY53 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 63.3m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY53",
+          "description": "Olivo TY53 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 63.3m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY55_704569",
+      "lat": -18.249142,
+      "lng": -70.456867,
+      "region": "Tacna Valle",
+      "secteur": "Zone Valle",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_131419_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY55",
+          "description": "Olivier TY55 - Données à enrichir",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 56.4m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY55",
+          "description": "Olivo TY55 - Datos por enriquecer",
+          "localisation": "Tacna Valle, Tacna",
+          "caracteristiques": "Alt: 56.4m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY56_704220",
+      "lat": -18.280253,
+      "lng": -70.421997,
+      "region": "Tacna Sud",
+      "secteur": "Zone Sud",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_145636_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY56",
+          "description": "Olivier TY56 - Données à enrichir",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 69.4m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY56",
+          "description": "Olivo TY56 - Datos por enriquecer",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 69.4m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY57_704221",
+      "lat": -18.2802,
+      "lng": -70.422108,
+      "region": "Tacna Sud",
+      "secteur": "Zone Sud",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_145853_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY57",
+          "description": "Olivier TY57 - Données à enrichir",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 69.4m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY57",
+          "description": "Olivo TY57 - Datos por enriquecer",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 69.4m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY58_704221",
+      "lat": -18.280211,
+      "lng": -70.422103,
+      "region": "Tacna Sud",
+      "secteur": "Zone Sud",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_150022_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY58",
+          "description": "Olivier TY58 - Données à enrichir",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 56.3m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY58",
+          "description": "Olivo TY58 - Datos por enriquecer",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 56.3m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY61_704221",
+      "lat": -18.280286,
+      "lng": -70.422125,
+      "region": "Tacna Sud",
+      "secteur": "Zone Sud",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_150511_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY61",
+          "description": "Olivier TY61 - Données à enrichir",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 69.4m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY61",
+          "description": "Olivo TY61 - Datos por enriquecer",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 69.4m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY61_704244",
+      "lat": -18.2775,
+      "lng": -70.424436,
+      "region": "Tacna Sud",
+      "secteur": "Zone Sud",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_151452_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY61",
+          "description": "Olivier TY61 - Données à enrichir",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 75.0m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY61",
+          "description": "Olivo TY61 - Datos por enriquecer",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 75.0m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY62_704387",
+      "lat": -18.291386,
+      "lng": -70.438664,
+      "region": "Tacna Sud",
+      "secteur": "Zone Sud",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_152835_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY62",
+          "description": "Olivier TY62 - Données à enrichir",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 56.8m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY62",
+          "description": "Olivo TY62 - Datos por enriquecer",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 56.8m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY63_704386",
+      "lat": -18.291433,
+      "lng": -70.43865,
+      "region": "Tacna Sud",
+      "secteur": "Zone Sud",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_153018_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY63",
+          "description": "Olivier TY63 - Données à enrichir",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 56.8m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY63",
+          "description": "Olivo TY63 - Datos por enriquecer",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 56.8m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY64_704387",
+      "lat": -18.29145,
+      "lng": -70.438678,
+      "region": "Tacna Sud",
+      "secteur": "Zone Sud",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_153148_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY64",
+          "description": "Olivier TY64 - Données à enrichir",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 56.8m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY64",
+          "description": "Olivo TY64 - Datos por enriquecer",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 56.8m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY65_704387",
+      "lat": -18.291475,
+      "lng": -70.438708,
+      "region": "Tacna Sud",
+      "secteur": "Zone Sud",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_153301_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY65",
+          "description": "Olivier TY65 - Données à enrichir",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 56.8m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY65",
+          "description": "Olivo TY65 - Datos por enriquecer",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 56.8m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY67_704388",
+      "lat": -18.2916,
+      "lng": -70.438792,
+      "region": "Tacna Sud",
+      "secteur": "Zone Sud",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_153654_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY67",
+          "description": "Olivier TY67 - Données à enrichir",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 56.8m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY67",
+          "description": "Olivo TY67 - Datos por enriquecer",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 56.8m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY69_703822",
+      "lat": -18.287461,
+      "lng": -70.382228,
+      "region": "Tacna Sud",
+      "secteur": "Zone Sud",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_163619_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY69",
+          "description": "Olivier TY69 - Données à enrichir",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 58.0m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY69",
+          "description": "Olivo TY69 - Datos por enriquecer",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 58.0m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY70_703823",
+      "lat": -18.287411,
+      "lng": -70.382267,
+      "region": "Tacna Sud",
+      "secteur": "Zone Sud",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_163732_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY70",
+          "description": "Olivier TY70 - Données à enrichir",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 58.0m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY70",
+          "description": "Olivo TY70 - Datos por enriquecer",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 58.0m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY71_703823",
+      "lat": -18.287422,
+      "lng": -70.382267,
+      "region": "Tacna Sud",
+      "secteur": "Zone Sud",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_163822_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY71",
+          "description": "Olivier TY71 - Données à enrichir",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 58.0m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY71",
+          "description": "Olivo TY71 - Datos por enriquecer",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 58.0m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY72_703822",
+      "lat": -18.287433,
+      "lng": -70.382239,
+      "region": "Tacna Sud",
+      "secteur": "Zone Sud",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_163834_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY72",
+          "description": "Olivier TY72 - Données à enrichir",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 58.0m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY72",
+          "description": "Olivo TY72 - Datos por enriquecer",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 58.0m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    },
+    {
+      "id": "OLV_TY73_703821",
+      "lat": -18.287192,
+      "lng": -70.382144,
+      "region": "Tacna Sud",
+      "secteur": "Zone Sud",
+      "age": 0,
+      "variete": "N/A",
+      "etat": "good",
+      "note": 5,
+      "proprietaire": "N/A",
+      "production": "N/A",
+      "photo": "images/oliviers/20250712_164139_thumb.jpg",
+      "details": {
+        "fr": {
+          "nom": "Olivier TY73",
+          "description": "Olivier TY73 - Données à enrichir",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 58.0m",
+          "sante": "Score: None/10"
+        },
+        "es": {
+          "nom": "Olivo TY73",
+          "description": "Olivo TY73 - Datos por enriquecer",
+          "localisation": "Tacna Sud, Tacna",
+          "caracteristiques": "Alt: 58.0m",
+          "sante": "Puntaje: None/10"
+        }
+      }
+    }
+  ]
+}

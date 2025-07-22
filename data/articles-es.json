@@ -1,0 +1,22 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "Revisión de la cosecha de olivos en Ica",
+      "date": "2025-07-22",
+      "author": "Alejandra Galván Gómez",
+      "excerpt": "La temporada de cosecha este año ha estado marcada por un clima irregular, pero los resultados son prometedores.",
+      "content": "# Revisión de la cosecha de olivos en Ica\n\nLa temporada de cosecha este año ha estado marcada por un clima irregular, pero los resultados son prometedores.\n\n## Datos destacados\n\n- **Variedades destacadas:** Sevillana y Arbequina\n- **Producción promedio:** 1,800 kg/ha\n- **Calidad:** Extra virgen en 85% de la producción",
+      "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=200&fit=crop"
+    },
+    {
+      "id": 2,
+      "title": "Técnicas de poda para olivos jóvenes",
+      "date": "2025-07-15",
+      "author": "Alejandra Galván Gómez",
+      "excerpt": "La poda correcta en los primeros años define la productividad futura del olivo.",
+      "content": "# Técnicas de poda para olivos jóvenes\n\nLa poda correcta define la productividad futura.\n\n## Principios fundamentales\n\n- Equilibrio entre crecimiento vegetativo y productivo\n- Aireación para evitar enfermedades\n- Exposición solar máxima",
+      "image": "https://images.unsplash.com/photo-1611909023032-2d4b3c66d5b9?w=400&h=200&fit=crop"
+    }
+  ]
+}

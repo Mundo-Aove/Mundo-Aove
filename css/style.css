@@ -149,3 +149,627 @@ button:focus,
         transition: none;
     }
 }
+
+/* ========== STYLES CARTE OLIVIERS ========== */
+.olivier-popup .leaflet-popup-content-wrapper {
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    padding: 0;
+}
+
+.olivier-popup .leaflet-popup-content {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.olivier-popup .leaflet-popup-tip {
+    background: white;
+}
+
+/* Animation des marqueurs */
+.leaflet-marker-icon {
+    transition: all 0.2s ease;
+}
+
+/* ============================================ */
+/* CORRECTIONS CARTE LEAFLET - INTÉGRATION PROPRE */
+/* ============================================ */
+
+/* Container carte - hauteur fixe responsive */
+#carte-oliviers {
+    height: 500px !important;
+    min-height: 400px;
+    border-radius: 0 0 8px 8px;
+}
+
+@media (max-width: 768px) {
+    #carte-oliviers {
+        height: 350px !important;
+        min-height: 300px;
+    }
+}
+
+/* ========== CORRECTION POPUPS LEAFLET ========== */
+
+/* Popup principal - taille contrôlée */
+.leaflet-popup {
+    margin-bottom: 20px !important;
+}
+
+.leaflet-popup-content-wrapper {
+    border-radius: 8px !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+    max-width: 320px !important;
+    min-width: 280px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+.leaflet-popup-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    max-height: 400px !important;
+    overflow-y: auto !important;
+}
+
+.leaflet-popup-tip {
+    background: white !important;
+    box-shadow: none !important;
+}
+
+/* Mobile - popups plus petites */
+@media (max-width: 768px) {
+    .leaflet-popup-content-wrapper {
+        max-width: 260px !important;
+        min-width: 240px !important;
+    }
+    
+    .leaflet-popup-content {
+        font-size: 12px !important;
+        max-height: 300px !important;
+    }
+}
+
+/* ========== CONTENU DES POPUPS ========== */
+
+.olivier-popup-content {
+    width: 100%;
+    max-width: 100%;
+}
+
+.popup-header {
+    background-color: #2d5016 !important;
+    color: white !important;
+    padding: 12px !important;
+    margin: 0 !important;
+}
+
+.popup-header h3 {
+    font-size: 16px !important;
+    font-weight: bold !important;
+    margin: 0 0 4px 0 !important;
+    line-height: 1.2 !important;
+}
+
+.popup-header p {
+    font-size: 12px !important;
+    opacity: 0.9 !important;
+    margin: 0 !important;
+}
+
+.popup-body {
+    padding: 12px !important;
+}
+
+.popup-body > div {
+    margin-bottom: 8px !important;
+}
+
+.popup-body .grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    font-size: 11px !important;
+}
+
+.popup-body button {
+    width: 100% !important;
+    background-color: #d4af37 !important;
+    color: white !important;
+    padding: 8px 12px !important;
+    border: none !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s ease !important;
+}
+
+.popup-body button:hover {
+    background-color: #b8941f !important;
+}
+
+/* ========== MODAL DÉTAILS - Z-INDEX FIXÉ ========== */
+
+#olivier-modal {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    z-index: 9999 !important; /* Plus haut que Leaflet (1000) */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 20px !important;
+    overflow-y: auto !important;
+}
+
+#olivier-modal > div {
+    background: white !important;
+    border-radius: 12px !important;
+    max-width: 600px !important;
+    width: 100% !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3) !important;
+    position: relative !important;
+    z-index: 10000 !important;
+}
+
+/* Modal responsive */
+@media (max-width: 768px) {
+    #olivier-modal {
+        padding: 10px !important;
+    }
+    
+    #olivier-modal > div {
+        max-height: 95vh !important;
+        border-radius: 8px !important;
+    }
+}
+
+/* Header modal */
+#olivier-modal .bg-forest-green {
+    background-color: #2d5016 !important;
+    color: white !important;
+    padding: 20px !important;
+    border-radius: 12px 12px 0 0 !important;
+}
+
+#olivier-modal .bg-forest-green h2 {
+    font-size: 24px !important;
+    font-weight: bold !important;
+    margin: 0 0 8px 0 !important;
+}
+
+#olivier-modal .bg-forest-green button {
+    color: white !important;
+    font-size: 24px !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    width: 30px !important;
+    height: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    transition: background-color 0.2s ease !important;
+}
+
+#olivier-modal .bg-forest-green button:hover {
+    background-color: rgba(255,255,255,0.2) !important;
+}
+
+/* Contenu modal */
+#olivier-modal .p-6 {
+    padding: 20px !important;
+}
+
+#olivier-modal .grid {
+    display: grid !important;
+    gap: 20px !important;
+}
+
+@media (min-width: 768px) {
+    #olivier-modal .md\\:grid-cols-2 {
+        grid-template-columns: 1fr 1fr !important;
+    }
+}
+
+#olivier-modal h3 {
+    color: #2d5016 !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    margin: 0 0 8px 0 !important;
+}
+
+#olivier-modal ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#olivier-modal li {
+    margin-bottom: 4px !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+}
+
+#olivier-modal .bg-gray-50 {
+    background-color: #f9fafb !important;
+    padding: 16px !important;
+    border-radius: 8px !important;
+    border-left: 4px solid #d4af37 !important;
+}
+
+/* ========== MARQUEURS PERSONNALISÉS ========== */
+
+.leaflet-marker-icon {
+    transition: all 0.2s ease !important;
+    border: 3px solid white !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+}
+
+.leaflet-marker-icon:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
+}
+
+/* ========== CONTRÔLES CARTE ========== */
+
+.leaflet-control-zoom {
+    border: none !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+}
+
+.leaflet-control-zoom a {
+    background-color: white !important;
+    color: #2d5016 !important;
+    border: none !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    transition: all 0.2s ease !important;
+}
+
+.leaflet-control-zoom a:hover {
+    background-color: #2d5016 !important;
+    color: white !important;
+}
+
+/* ========== ATTRIBUTION CARTE ========== */
+
+.leaflet-control-attribution {
+    background-color: rgba(255,255,255,0.8) !important;
+    font-size: 10px !important;
+    border-radius: 4px 0 0 0 !important;
+}
+
+/* ========== LOADING OVERLAY ========== */
+
+#carte-loading {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-color: #f3f4f6 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 1000 !important;
+}
+
+/* ============================================ */
+/* STYLES MODAL OLIVIERS - CORRECTIFS COMPLETS */
+/* ============================================ */
+
+/* Modal backdrop */
+#olivier-modal {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 9999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 20px !important;
+    opacity: 1 !important;
+    transition: opacity 0.2s ease !important;
+}
+
+.modal-backdrop {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    cursor: pointer !important;
+}
+
+.modal-content {
+    background: white !important;
+    border-radius: 12px !important;
+    max-width: 600px !important;
+    width: 100% !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3) !important;
+    position: relative !important;
+    z-index: 10000 !important;
+    transform: scale(1) !important;
+    transition: transform 0.2s ease !important;
+}
+
+/* Header modal */
+.modal-header {
+    background-color: #2d5016 !important;
+    color: white !important;
+    padding: 20px !important;
+    border-radius: 12px 12px 0 0 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+}
+
+.modal-header h2 {
+    font-size: 24px !important;
+    font-weight: bold !important;
+    margin: 0 0 8px 0 !important;
+    font-family: 'Playfair Display', serif !important;
+}
+
+.modal-header p {
+    font-size: 14px !important;
+    opacity: 0.9 !important;
+    margin: 0 !important;
+}
+
+.modal-close {
+    background: none !important;
+    border: none !important;
+    color: white !important;
+    font-size: 24px !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    width: 30px !important;
+    height: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    transition: background-color 0.2s ease !important;
+}
+
+.modal-close:hover {
+    background-color: rgba(255,255,255,0.2) !important;
+}
+
+/* Body modal */
+.modal-body {
+    padding: 24px !important;
+}
+
+.info-grid {
+    display: grid !important;
+    gap: 24px !important;
+    margin-bottom: 24px !important;
+}
+
+@media (min-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr 1fr !important;
+    }
+}
+
+.info-section {
+    margin-bottom: 20px !important;
+}
+
+.info-section h3 {
+    color: #2d5016 !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    margin: 0 0 12px 0 !important;
+    font-family: 'Playfair Display', serif !important;
+    border-bottom: 2px solid #d4af37 !important;
+    padding-bottom: 4px !important;
+}
+
+.info-section p {
+    color: #374151 !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    margin: 0 0 8px 0 !important;
+}
+
+.info-section ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.info-section li {
+    color: #374151 !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 6px !important;
+    padding-left: 0 !important;
+}
+
+.info-section li strong {
+    color: #2d5016 !important;
+    font-weight: 600 !important;
+}
+
+.gps-coords {
+    font-size: 12px !important;
+    color: #6B7280 !important;
+    font-family: monospace !important;
+    background-color: #F3F4F6 !important;
+    padding: 4px 8px !important;
+    border-radius: 4px !important;
+    display: inline-block !important;
+    margin-top: 8px !important;
+}
+
+.contact-section {
+    background-color: #F9FAFB !important;
+    padding: 16px !important;
+    border-radius: 8px !important;
+    border-left: 4px solid #d4af37 !important;
+    margin-top: 20px !important;
+}
+
+.contact-section h3 {
+    color: #2d5016 !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    margin: 0 0 8px 0 !important;
+    border-bottom: none !important;
+}
+
+.contact-section p {
+    font-size: 14px !important;
+    margin: 0 0 4px 0 !important;
+}
+
+.contact-note {
+    font-size: 12px !important;
+    color: #6B7280 !important;
+    font-style: italic !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    #olivier-modal {
+        padding: 10px !important;
+    }
+    
+    .modal-content {
+        max-height: 95vh !important;
+        border-radius: 8px !important;
+    }
+    
+    .modal-header {
+        padding: 16px !important;
+        border-radius: 8px 8px 0 0 !important;
+    }
+    
+    .modal-header h2 {
+        font-size: 20px !important;
+    }
+    
+    .modal-body {
+        padding: 16px !important;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+    
+    .info-section h3 {
+        font-size: 16px !important;
+    }
+}
+
+/* ============================================ */
+/* STYLES POPUP AMÉLIORÉS */
+/* ============================================ */
+
+.popup-button {
+    width: 100% !important;
+    background-color: #d4af37 !important;
+    color: white !important;
+    padding: 8px 12px !important;
+    border: none !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s ease !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.popup-button:hover {
+    background-color: #b8941f !important;
+}
+
+.olivier-popup-content .popup-header {
+    background-color: #2d5016 !important;
+    color: white !important;
+    padding: 12px !important;
+    margin: -12px -12px 12px -12px !important;
+    border-radius: 8px 8px 0 0 !important;
+}
+
+.olivier-popup-content .popup-header h3 {
+    font-size: 16px !important;
+    font-weight: bold !important;
+    margin: 0 0 4px 0 !important;
+    line-height: 1.2 !important;
+    color: white !important;
+}
+
+.olivier-popup-content .popup-header p {
+    font-size: 12px !important;
+    opacity: 0.9 !important;
+    margin: 0 !important;
+    color: white !important;
+}
+
+.olivier-popup-content .popup-body {
+    padding: 12px !important;
+    margin: 0 !important;
+}
+
+.etat-badge {
+    display: inline-block !important;
+    padding: 3px 6px !important;
+    border-radius: 3px !important;
+    color: white !important;
+    font-size: 10px !important;
+    font-weight: 500 !important;
+}
+
+.bg-green-500 {
+    background-color: #22c55e !important;
+}
+
+.bg-yellow-500 {
+    background-color: #eab308 !important;
+}
+
+.bg-red-500 {
+    background-color: #ef4444 !important;
+}
+
+/* Scrollbar personnalisée pour la modal */
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #d4af37;
+    border-radius: 3px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: #b8941f;
+}

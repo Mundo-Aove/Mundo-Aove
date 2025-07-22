@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mundo-aove.github.io/Mundo-Aove/sitemap.xml

@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Mapa de Olivos - Perú</name>
+    <description>Ubicación GPS de olivos fotografiados el 10 y 12 de julio 2025</description>
+    
+    <Style id="olivoIcon">
+      <IconStyle>
+        <Icon>
+          <href>http://maps.google.com/mapfiles/kml/shapes/tree.png</href>
+        </Icon>
+        <scale>1.2</scale>
+      </IconStyle>
+    </Style>
+
+    <Placemark>
+      <name>Olivo alfèrez</name>
+      <description>📍 Título: 20250710_103438.jpg&#10;🫒 Olivo: alfèrez&#10;📍 Ubicación: 18°4'39.77"S, 70°18'41.43"W&#10;⛰️ Altitud: 369.9 metros sobre el nivel del mar&#10;📅 Fecha: 10 de julio 2025, 15:34:18 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.311508,-18.077714,369.9</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY1</name>
+      <description>📍 Título: 20250712_071821.jpg&#10;🫒 Olivo: TY1&#10;📍 Ubicación: 18°8'10.15"S, 70°21'50.71"W&#10;⛰️ Altitud: 229.5 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 12:18:02 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.363531,-18.136153,229.5</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY2</name>
+      <description>📍 Título: 20250712_072104.jpg&#10;🫒 Olivo: TY2&#10;📍 Ubicación: 18°8'10.58"S, 70°21'50.00"W&#10;⛰️ Altitud: 232.7 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 12:20:46 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.363889,-18.136272,232.7</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY3</name>
+      <description>📍 Título: 20250712_072224.jpg&#10;🫒 Olivo: TY3&#10;📍 Ubicación: 18°8'11.77"S, 70°21'50.40"W&#10;⛰️ Altitud: 229.8 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 12:22:10 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.364000,-18.136603,229.8</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY4</name>
+      <description>📍 Título: 20250712_072656.jpg&#10;🫒 Olivo: TY4&#10;📍 Ubicación: 18°8'9.55"S, 70°21'52.05"W&#10;⛰️ Altitud: 231.9 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 12:26:43 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.364458,-18.135986,231.9</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo inge</name>
+      <description>📍 Título: 20250712_072810.jpg&#10;🫒 Olivo: inge&#10;📍 Ubicación: 18°8'8.09"S, 70°21'51.85"W&#10;⛰️ Altitud: 237.0 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 12:27:45 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.364403,-18.135581,237.0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY5</name>
+      <description>📍 Título: 20250712_072859.jpg&#10;🫒 Olivo: TY5&#10;📍 Ubicación: 18°8'8.10"S, 70°21'51.86"W&#10;⛰️ Altitud: 241.5 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 12:28:33 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.364406,-18.135583,241.5</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY6</name>
+      <description>📍 Título: 20250712_073159.jpg&#10;🫒 Olivo: TY6&#10;📍 Ubicación: 18°8'7.34"S, 70°21'50.66"W&#10;⛰️ Altitud: 230.5 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 12:31:45 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.364072,-18.135372,230.5</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY7</name>
+      <description>📍 Título: 20250712_080705.jpg&#10;🫒 Olivo: TY7&#10;📍 Ubicación: 18°12'16.08"S, 70°22'13.36"W&#10;⛰️ Altitud: 166.4 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 13:06:41 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.370378,-18.204467,166.4</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY8</name>
+      <description>📍 Título: 20250712_081120.jpg&#10;🫒 Olivo: TY8&#10;📍 Ubicación: 18°12'16.32"S, 70°22'13.57"W&#10;⛰️ Altitud: 153.7 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 13:11:06 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.370436,-18.204533,153.7</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY9</name>
+      <description>📍 Título: 20250712_081305.jpg&#10;🫒 Olivo: TY9&#10;📍 Ubicación: 18°12'16.98"S, 70°22'14.01"W&#10;⛰️ Altitud: 155.3 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 13:12:55 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.370558,-18.204717,155.3</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY12</name>
+      <description>📍 Título: 20250712_081909.jpg&#10;🫒 Olivo: TY12&#10;📍 Ubicación: 18°12'17.41"S, 70°22'14.26"W&#10;⛰️ Altitud: 149.8 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 13:18:54 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.370628,-18.204836,149.8</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY11</name>
+      <description>📍 Título: 20250712_081935.jpg&#10;🫒 Olivo: TY11&#10;📍 Ubicación: 18°12'17.52"S, 70°22'14.49"W&#10;⛰️ Altitud: 165.1 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 13:19:23 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.370692,-18.204867,165.1</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY10</name>
+      <description>📍 Título: 20250712_082002.jpg&#10;🫒 Olivo: TY10&#10;📍 Ubicación: 18°12'17.35"S, 70°22'14.27"W&#10;⛰️ Altitud: 157.4 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 13:19:46 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.370631,-18.204819,157.4</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY14</name>
+      <description>📍 Título: 20250712_090415.jpg&#10;🫒 Olivo: TY14&#10;📍 Ubicación: 18°12'42.33"S, 70°22'6.72"W&#10;⛰️ Altitud: 149.1 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 14:04:00 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.368533,-18.211758,149.1</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY15</name>
+      <description>📍 Título: 20250712_090846.jpg&#10;🫒 Olivo: TY15&#10;📍 Ubicación: 18°12'42.44"S, 70°22'6.78"W&#10;⛰️ Altitud: 143.8 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 14:08:32 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.368550,-18.211789,143.8</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY16</name>
+      <description>📍 Título: 20250712_091052.jpg&#10;🫒 Olivo: TY16&#10;📍 Ubicación: 18°12'42.80"S, 70°22'7.03"W&#10;⛰️ Altitud: 143.6 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 14:10:40 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.368619,-18.211889,143.6</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY17</name>
+      <description>📍 Título: 20250712_091312.jpg&#10;🫒 Olivo: TY17&#10;📍 Ubicación: 18°12'43.04"S, 70°22'7.07"W&#10;⛰️ Altitud: 140.7 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 14:12:57 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.368631,-18.211956,140.7</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY18</name>
+      <description>📍 Título: 20250712_091440.jpg&#10;🫒 Olivo: TY18&#10;📍 Ubicación: 18°12'43.23"S, 70°22'7.31"W&#10;⛰️ Altitud: 143.4 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 14:14:28 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.368697,-18.212008,143.4</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY21</name>
+      <description>📍 Título: 20250712_095449.jpg&#10;🫒 Olivo: TY21&#10;📍 Ubicación: 18°12'21.92"S, 70°23'23.03"W&#10;⛰️ Altitud: 136.8 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 14:54:37 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.389731,-18.206089,136.8</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY22</name>
+      <description>📍 Título: 20250712_095626.jpg&#10;🫒 Olivo: TY22&#10;📍 Ubicación: 18°12'21.87"S, 70°23'23.09"W&#10;⛰️ Altitud: 135.9 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 14:56:17 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.389747,-18.206075,135.9</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY23</name>
+      <description>📍 Título: 20250712_100029.jpg&#10;🫒 Olivo: TY23&#10;📍 Ubicación: 18°12'21.62"S, 70°23'24.50"W&#10;⛰️ Altitud: 154.4 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 15:00:21 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.390139,-18.206006,154.4</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY24</name>
+      <description>📍 Título: 20250712_100214.jpg&#10;🫒 Olivo: TY24&#10;📍 Ubicación: 18°12'21.02"S, 70°23'23.82"W&#10;⛰️ Altitud: 137.7 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 15:02:04 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.389950,-18.205839,137.7</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY25</name>
+      <description>📍 Título: 20250712_100406.jpg&#10;🫒 Olivo: TY25&#10;📍 Ubicación: 18°12'20.93"S, 70°23'23.89"W&#10;⛰️ Altitud: 137.1 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 15:03:53 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.389969,-18.205814,137.1</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY26</name>
+      <description>📍 Título: 20250712_103234.jpg&#10;🫒 Olivo: TY26&#10;📍 Ubicación: 18°12'41.08"S, 70°23'29.25"W&#10;⛰️ Altitud: 140.6 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 15:32:22 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.391458,-18.211411,140.6</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY27</name>
+      <description>📍 Título: 20250712_103459.jpg&#10;🫒 Olivo: TY27&#10;📍 Ubicación: 18°12'41.81"S, 70°23'28.08"W&#10;⛰️ Altitud: 129.8 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 15:34:48 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.391133,-18.211614,129.8</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY28</name>
+      <description>📍 Título: 20250712_103651.jpg&#10;🫒 Olivo: TY28&#10;📍 Ubicación: 18°12'42.20"S, 70°23'29.16"W&#10;⛰️ Altitud: 136.3 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 15:36:40 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.391433,-18.211722,136.3</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY29</name>
+      <description>📍 Título: 20250712_103928.jpg&#10;🫒 Olivo: TY29&#10;📍 Ubicación: 18°12'42.06"S, 70°23'29.26"W&#10;⛰️ Altitud: 134.4 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 15:39:14 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.391461,-18.211683,134.4</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY30</name>
+      <description>📍 Título: 20250712_104158.jpg&#10;🫒 Olivo: TY30&#10;📍 Ubicación: 18°12'42.05"S, 70°23'29.31"W&#10;⛰️ Altitud: 133.2 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 15:41:46 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.391475,-18.211681,133.2</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY31</name>
+      <description>📍 Título: 20250712_104446.jpg&#10;🫒 Olivo: TY31&#10;📍 Ubicación: 18°12'42.08"S, 70°23'29.30"W&#10;⛰️ Altitud: 133.3 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 15:44:31 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.391472,-18.211689,133.3</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY32</name>
+      <description>📍 Título: 20250712_110949.jpg&#10;🫒 Olivo: TY32&#10;📍 Ubicación: 18°13'16.50"S, 70°24'28.41"W&#10;⛰️ Altitud: 110.7 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 16:09:38 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.407892,-18.221250,110.7</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY33</name>
+      <description>📍 Título: 20250712_111231.jpg&#10;🫒 Olivo: TY33&#10;📍 Ubicación: 18°13'16.51"S, 70°24'28.44"W&#10;⛰️ Altitud: 116.7 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 16:12:22 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.407900,-18.221253,116.7</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY34</name>
+      <description>📍 Título: 20250712_111428.jpg&#10;🫒 Olivo: TY34&#10;📍 Ubicación: 18°13'16.41"S, 70°24'28.44"W&#10;⛰️ Altitud: 117.1 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 16:14:20 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.407900,-18.221225,117.1</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY35</name>
+      <description>📍 Título: 20250712_111617.jpg&#10;🫒 Olivo: TY35&#10;📍 Ubicación: 18°13'16.36"S, 70°24'28.37"W&#10;⛰️ Altitud: 118.3 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 16:16:08 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.407881,-18.221211,118.3</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY36</name>
+      <description>📍 Título: 20250712_111810.jpg&#10;🫒 Olivo: TY36&#10;📍 Ubicación: 18°13'16.35"S, 70°24'28.32"W&#10;⛰️ Altitud: 117.4 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 16:17:56 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.407867,-18.221208,117.4</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY37</name>
+      <description>📍 Título: 20250712_112546.jpg&#10;🫒 Olivo: TY37&#10;📍 Ubicación: 18°13'16.95"S, 70°24'28.16"W&#10;⛰️ Altitud: 123.2 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 16:25:29 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.407822,-18.221375,123.2</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY38</name>
+      <description>📍 Título: 20250712_120256.jpg&#10;🫒 Olivo: TY38&#10;📍 Ubicación: 18°13'32.31"S, 70°26'34.37"W&#10;⛰️ Altitud: 99.3 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 17:02:48 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.442881,-18.225642,99.3</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY39</name>
+      <description>📍 Título: 20250712_120502.jpg&#10;🫒 Olivo: TY39&#10;📍 Ubicación: 18°13'32.31"S, 70°26'34.44"W&#10;⛰️ Altitud: 87.0 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 17:04:53 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.442900,-18.225642,87.0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY40</name>
+      <description>📍 Título: 20250712_120631.jpg&#10;🫒 Olivo: TY40&#10;📍 Ubicación: 18°13'31.97"S, 70°26'34.50"W&#10;⛰️ Altitud: 94.2 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 17:06:13 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.442917,-18.225547,94.2</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY41</name>
+      <description>📍 Título: 20250712_120813.jpg&#10;🫒 Olivo: TY41&#10;📍 Ubicación: 18°13'31.94"S, 70°26'34.62"W&#10;⛰️ Altitud: 80.6 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 17:08:06 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.442950,-18.225539,80.6</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY42</name>
+      <description>📍 Título: 20250712_121039.jpg&#10;🫒 Olivo: TY42&#10;📍 Ubicación: 18°13'31.84"S, 70°26'34.57"W&#10;⛰️ Altitud: 85.2 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 17:10:20 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.442936,-18.225511,85.2</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY43</name>
+      <description>📍 Título: 20250712_121213.jpg&#10;🫒 Olivo: TY43&#10;📍 Ubicación: 18°13'31.86"S, 70°26'34.50"W&#10;⛰️ Altitud: 86.5 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 17:12:01 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.442917,-18.225517,86.5</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY44</name>
+      <description>📍 Título: 20250712_122921.jpg&#10;🫒 Olivo: TY44&#10;📍 Ubicación: 18°13'42.72"S, 70°27'10.36"W&#10;⛰️ Altitud: 87.3 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 17:28:57 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.452878,-18.228533,87.3</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY45</name>
+      <description>📍 Título: 20250712_123132.jpg&#10;🫒 Olivo: TY45&#10;📍 Ubicación: 18°13'42.74"S, 70°27'10.39"W&#10;⛰️ Altitud: 80.5 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 17:31:22 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.452886,-18.228539,80.5</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY46</name>
+      <description>📍 Título: 20250712_123337.jpg&#10;🫒 Olivo: TY46&#10;📍 Ubicación: 18°13'43.17"S, 70°27'9.87"W&#10;⛰️ Altitud: 95.2 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 17:33:26 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.452742,-18.228658,95.2</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY47</name>
+      <description>📍 Título: 20250712_123445.jpg&#10;🫒 Olivo: TY47&#10;📍 Ubicación: 18°13'43.44"S, 70°27'10.00"W&#10;⛰️ Altitud: 77.7 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 17:34:35 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.452778,-18.228733,77.7</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY48</name>
+      <description>📍 Título: 20250712_123530.jpg&#10;🫒 Olivo: TY48&#10;📍 Ubicación: 18°13'43.74"S, 70°27'10.07"W&#10;⛰️ Altitud: 77.1 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 17:35:18 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.452797,-18.228817,77.1</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY49</name>
+      <description>📍 Título: 20250712_123706.jpg&#10;🫒 Olivo: TY49&#10;📍 Ubicación: 18°13'44.01"S, 70°27'11.80"W&#10;⛰️ Altitud: 82.0 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 17:36:56 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.453278,-18.228892,82.0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY50</name>
+      <description>📍 Título: 20250712_130858.jpg&#10;🫒 Olivo: TY50&#10;📍 Ubicación: 18°14'57.03"S, 70°27'24.60"W&#10;⛰️ Altitud: 61.2 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 18:08:46 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.456833,-18.249175,61.2</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY51</name>
+      <description>📍 Título: 20250712_131004.jpg&#10;🫒 Olivo: TY51&#10;📍 Ubicación: 18°14'56.78"S, 70°27'24.69"W&#10;⛰️ Altitud: 60.0 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 18:09:50 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.456858,-18.249106,60.0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY53</name>
+      <description>📍 Título: 20250712_131209.jpg&#10;🫒 Olivo: TY53&#10;📍 Ubicación: 18°14'56.81"S, 70°27'24.85"W&#10;⛰️ Altitud: 63.3 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 18:11:56 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.456903,-18.249114,63.3</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY55</name>
+      <description>📍 Título: 20250712_131419.jpg&#10;🫒 Olivo: TY55&#10;📍 Ubicación: 18°14'56.91"S, 70°27'24.72"W&#10;⛰️ Altitud: 56.4 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 18:14:07 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.456867,-18.249142,56.4</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY56</name>
+      <description>📍 Título: 20250712_145636.jpg&#10;🫒 Olivo: TY56&#10;📍 Ubicación: 18°16'48.91"S, 70°25'19.19"W&#10;⛰️ Altitud: 69.4 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 19:56:24 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.421997,-18.280253,69.4</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY57</name>
+      <description>📍 Título: 20250712_145853.jpg&#10;🫒 Olivo: TY57&#10;📍 Ubicación: 18°16'48.72"S, 70°25'19.59"W&#10;⛰️ Altitud: 69.4 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 19:58:39 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.422108,-18.280200,69.4</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY58</name>
+      <description>📍 Título: 20250712_150022.jpg&#10;🫒 Olivo: TY58&#10;📍 Ubicación: 18°16'48.76"S, 70°25'19.57"W&#10;⛰️ Altitud: 56.3 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 20:00:13 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.422103,-18.280211,56.3</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY61</name>
+      <description>📍 Título: 20250712_150511.jpg&#10;🫒 Olivo: TY61&#10;📍 Ubicación: 18°16'49.03"S, 70°25'19.65"W&#10;⛰️ Altitud: 69.4 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 20:05:02 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.422125,-18.280286,69.4</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY61</name>
+      <description>📍 Título: 20250712_151452.jpg&#10;🫒 Olivo: TY61&#10;📍 Ubicación: 18°16'39.00"S, 70°25'27.97"W&#10;⛰️ Altitud: 75.0 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 20:14:45 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.424436,-18.277500,75.0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY62</name>
+      <description>📍 Título: 20250712_152835.jpg&#10;🫒 Olivo: TY62&#10;📍 Ubicación: 18°17'28.99"S, 70°26'19.19"W&#10;⛰️ Altitud: 56.8 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 20:28:22 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.438664,-18.291386,56.8</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY63</name>
+      <description>📍 Título: 20250712_153018.jpg&#10;🫒 Olivo: TY63&#10;📍 Ubicación: 18°17'29.16"S, 70°26'19.14"W&#10;⛰️ Altitud: 56.8 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 20:30:08 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.438650,-18.291433,56.8</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY64</name>
+      <description>📍 Título: 20250712_153148.jpg&#10;🫒 Olivo: TY64&#10;📍 Ubicación: 18°17'29.22"S, 70°26'19.24"W&#10;⛰️ Altitud: 56.8 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 20:31:40 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.438678,-18.291450,56.8</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY65</name>
+      <description>📍 Título: 20250712_153301.jpg&#10;🫒 Olivo: TY65&#10;📍 Ubicación: 18°17'29.31"S, 70°26'19.35"W&#10;⛰️ Altitud: 56.8 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 20:32:50 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.438708,-18.291475,56.8</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY67</name>
+      <description>📍 Título: 20250712_153654.jpg&#10;🫒 Olivo: TY67&#10;📍 Ubicación: 18°17'29.76"S, 70°26'19.65"W&#10;⛰️ Altitud: 56.8 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 20:36:44 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.438792,-18.291600,56.8</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY69</name>
+      <description>📍 Título: 20250712_163619.jpg&#10;🫒 Olivo: TY69&#10;📍 Ubicación: 18°17'14.86"S, 70°22'56.02"W&#10;⛰️ Altitud: 58.0 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 21:36:08 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.382228,-18.287461,58.0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY70</name>
+      <description>📍 Título: 20250712_163732.jpg&#10;🫒 Olivo: TY70&#10;📍 Ubicación: 18°17'14.68"S, 70°22'56.16"W&#10;⛰️ Altitud: 58.0 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 21:37:21 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.382267,-18.287411,58.0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY71</name>
+      <description>📍 Título: 20250712_163822.jpg&#10;🫒 Olivo: TY71&#10;📍 Ubicación: 18°17'14.72"S, 70°22'56.16"W&#10;⛰️ Altitud: 58.0 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 21:37:54 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.382267,-18.287422,58.0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY72</name>
+      <description>📍 Título: 20250712_163834.jpg&#10;🫒 Olivo: TY72&#10;📍 Ubicación: 18°17'14.76"S, 70°22'56.06"W&#10;⛰️ Altitud: 58.0 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 21:38:25 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.382239,-18.287433,58.0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Olivo TY73</name>
+      <description>📍 Título: 20250712_164139.jpg&#10;🫒 Olivo: TY73&#10;📍 Ubicación: 18°17'13.89"S, 70°22'55.72"W&#10;⛰️ Altitud: 58.0 metros sobre el nivel del mar&#10;📅 Fecha: 12 de julio 2025, 21:41:33 UTC</description>
+      <styleUrl>#olivoIcon</styleUrl>
+      <Point>
+        <coordinates>-70.382144,-18.287192,58.0</coordinates>
+      </Point>
+    </Placemark>
+
+  </Document>
+</kml>
