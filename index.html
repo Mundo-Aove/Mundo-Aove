@@ -3,24 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Blog d'Alejandra Galván sur l'oléiculture péruvienne">
     <title>Alejandra Galván - Ingeniera Agroalimentaria</title>
-    
-    <!-- Connexions rapides aux polices Google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Styles externes (comme dans votre version originale) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Notre fichier CSS personnalisé -->
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family@Inter:wght@300;400;500;600&display=swap');
+        
+        :root {
+            --forest-green: #2d5016;
+            --earth-brown: #8b4513;
+            --matte-gold: #d4af37;
+            --stone-gray: #a0956b;
+            --off-white: #fafaf8;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--off-white);
+            color: var(--forest-green);
+        }
+        
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .olive-leaf {
+            transition: all 0.3s ease;
+        }
+        
+        .olive-leaf:hover {
+            transform: rotate(5deg) scale(1.1);
+        }
+        
+        .fade-in {
+            animation: fadeIn 2s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--off-white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeOut 3s ease-in-out forwards;
+        }
+        
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            70% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+        
+        .olive-logo {
+            width: 120px;
+            height: 120px;
+            animation: rotate 2s ease-in-out;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg) scale(0); }
+            50% { transform: rotate(180deg) scale(1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        .article-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .article-card:hover {
+            border-left-color: var(--matte-gold);
+            transform: translateX(5px);
+        }
+        
+        .bubble {
+            background: linear-gradient(135deg, var(--forest-green), var(--earth-brown));
+            color: white;
+            padding: 1rem;
+            border-radius: 20px;
+            position: relative;
+            margin: 1rem 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .bubble::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 20px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid var(--earth-brown);
+        }
+
+        .text-forest-green { color: var(--forest-green); }
+        .text-matte-gold { color: var(--matte-gold); }
+        .bg-forest-green { background-color: var(--forest-green); }
+        .bg-matte-gold { background-color: var(--matte-gold); }
+        .bg-stone-gray { background-color: var(--stone-gray); }
+    </style>
 </head>
 <body>
-    <!-- Écran de démarrage (exactement comme votre original) -->
+    <!-- Splash Screen -->
     <div class="splash-screen">
         <svg class="olive-logo" viewBox="0 0 100 100">
             <circle cx="50" cy="50" r="35" fill="none" stroke="#2d5016" stroke-width="3"/>
@@ -32,7 +130,7 @@
         <h1 class="serif text-3xl mt-4 fade-in">Bienvenidos</h1>
     </div>
 
-    <!-- Navigation (identique à votre original) -->
+    <!-- Navigation -->
     <nav class="bg-white shadow-lg sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-between items-center py-4">
@@ -55,13 +153,13 @@
         </div>
     </nav>
 
-    <!-- Contenu principal (exactement comme votre original) -->
+    <!-- Main Content -->
     <main class="max-w-4xl mx-auto px-4 py-8">
-        <!-- Page d'accueil -->
+        <!-- Home Page -->
         <div id="home-page">
             <h1 class="serif text-4xl mb-8 text-center">Blog de Oléiculture Péruvienne</h1>
             
-            <!-- Section bulles -->
+            <!-- Bubbles Section -->
             <div class="bg-stone-gray bg-opacity-20 p-6 rounded-lg mb-8">
                 <h2 class="serif text-2xl mb-4">Reflexiones de la Semana</h2>
                 <div class="bubble" id="bubble-content">
@@ -72,13 +170,13 @@
                 </button>
             </div>
 
-            <!-- Grille d'articles -->
+            <!-- Articles Grid -->
             <div id="articles-container" class="grid gap-6">
-                <!-- Les articles seront chargés ici -->
+                <!-- Articles will be loaded here -->
             </div>
         </div>
 
-        <!-- Page À propos -->
+        <!-- About Page -->
         <div id="about-page" class="hidden">
             <h1 class="serif text-4xl mb-8">Alejandra Galván Gómez</h1>
             <div class="bg-white rounded-lg shadow-lg p-8">
@@ -105,7 +203,7 @@
             </div>
         </div>
 
-        <!-- Page Contact -->
+        <!-- Contact Page -->
         <div id="contact-page" class="hidden">
             <h1 class="serif text-4xl mb-8">Contact</h1>
             <div class="bg-white rounded-lg shadow-lg p-8">
@@ -132,18 +230,18 @@
             </div>
         </div>
 
-        <!-- Détail d'article -->
+        <!-- Article Detail -->
         <div id="article-detail" class="hidden">
             <button onclick="navigate('home')" class="mb-4 text-matte-gold hover:text-yellow-600">
                 ← Retour aux articles
             </button>
             <div id="article-content" class="prose prose-lg max-w-none">
-                <!-- Le contenu de l'article sera chargé ici -->
+                <!-- Article content will be loaded here -->
             </div>
         </div>
     </main>
 
-    <!-- Footer (identique à votre original) -->
+    <!-- Footer -->
     <footer class="bg-forest-green text-white py-8 mt-12">
         <div class="max-w-4xl mx-auto px-4 text-center">
             <div class="flex justify-center space-x-6 mb-4">
@@ -158,7 +256,93 @@
         </div>
     </footer>
 
-    <!-- Chargement de notre JavaScript -->
-    <script src="js/script.js"></script>
+    <script>
+        // Configuration multilingue simplifiée
+        let currentLang = 'fr';
+        
+        const bubbleTexts = [
+            "La récolte 2025 s'annonce exceptionnelle avec une augmentation de 30% de la production.",
+            "Les nouvelles variétés adaptées au climat péruvien montrent une excellente résistance.",
+            "L'exportation d'huile d'olive péruvienne atteint de nouveaux marchés asiatiques.",
+            "Les méthodes de culture biologiques gagnent en popularité parmi les producteurs.",
+            "Le festival annuel de l'olive aura lieu à Tacna en octobre."
+        ];
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'fr' : 'es';
+            document.getElementById('lang-btn').textContent = currentLang === 'es' ? 'FR' : 'ES';
+        }
+
+        function newBubble() {
+            const bubble = document.getElementById('bubble-content');
+            const randomText = bubbleTexts[Math.floor(Math.random() * bubbleTexts.length)];
+            bubble.style.opacity = '0';
+            setTimeout(() => {
+                bubble.textContent = `"${randomText}"`;
+                bubble.style.opacity = '1';
+            }, 300);
+        }
+
+        function navigate(page) {
+            const pages = ['home-page', 'about-page', 'contact-page', 'article-detail'];
+            pages.forEach(p => document.getElementById(p).classList.add('hidden'));
+            
+            if (page === 'home') {
+                document.getElementById('home-page').classList.remove('hidden');
+            } else if (page === 'about') {
+                document.getElementById('about-page').classList.remove('hidden');
+            } else if (page === 'contact') {
+                document.getElementById('contact-page').classList.remove('hidden');
+            }
+        }
+
+        function loadArticles() {
+            const articles = [
+                {
+                    title: "Revisión de la cosecha de olivos en Ica",
+                    date: "22 de julio de 2025",
+                    author: "Alejandra Galván Gómez",
+                    excerpt: "La temporada de cosecha este año ha estado marcada por un clima irregular, pero los resultados son prometedores...",
+                    image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=200&fit=crop"
+                },
+                {
+                    title: "Nuevas técnicas de poda para olivos jóvenes",
+                    date: "15 de julio de 2025",
+                    author: "Alejandra Galván Gómez",
+                    excerpt: "La poda correcta en los primeros años define la productividad futura del olivo...",
+                    image: "https://images.unsplash.com/photo-1611909023032-2d4b3c66d5b9?w=400&h=200&fit=crop"
+                }
+            ];
+
+            const container = document.getElementById('articles-container');
+            container.innerHTML = articles.map((article, index) => `
+                <div class="article-card bg-white rounded-lg shadow-lg">
+                    <img src="${article.image}" alt="${article.title}" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-6">
+                        <h2 class="serif text-2xl mb-2">${article.title}</h2>
+                        <p class="text-gray-600 text-sm mb-2">${article.date} · ${article.author}</p>
+                        <p class="text-gray-700 mb-4">${article.excerpt}</p>
+                        <button onclick="showArticle(${index})" class="text-matte-gold hover:text-yellow-600 font-medium">
+                            Lire plus →
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function showArticle(index) {
+            document.getElementById('article-content').innerHTML = `
+                <h1>Article complet</h1>
+                <p>Contenu de l'article sélectionné...</p>
+            `;
+            navigate('detail');
+            document.getElementById('article-detail').classList.remove('hidden');
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            loadArticles();
+        });
+    </script>
 </body>
 </html>
