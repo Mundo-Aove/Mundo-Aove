@@ -81,7 +81,7 @@ const simpleBlog = {
                 title: "Olivos Centenarios de Tacna-Moquegua-Ilo",
                 description: "Descubra nuestro inventario de olivos centenarios de la región sur del Perú. Cada árbol cuenta la historia de la olivicultura peruana.",
                 map_title: "Mapa Interactivo",
-                total_trees: "🫒 3 olivos registrados",
+                total_trees: "🫒 67 olivos registrados",
                 last_update: "Última actualización: 22/07/2025",
                 loading: "Cargando el mapa...",
                 legend_title: "Leyenda",
