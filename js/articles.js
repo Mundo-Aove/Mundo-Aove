@@ -24,7 +24,7 @@ class ArticleManager {
     }
 
     /**
-     * Charge les articles depuis les fichiers JSON
+     * Charge les articles depuis les fichiers JSON + incoming
      */
     async loadArticles() {
         if (this.isLoading) return;
@@ -33,17 +33,32 @@ class ArticleManager {
         this.loadAttempts++;
 
         try {
-            console.log(`📖 Chargement des articles (tentative ${this.loadAttempts})`);
+            console.log(`📖 Chargement des articles avec AutoLoader (tentative ${this.loadAttempts})`);
 
-            const [frData, esData] = await Promise.all([
-                Utils.fetchWithCache('data/articles-fr.json'),
-                Utils.fetchWithCache('data/articles-es.json')
-            ]);
+            // ✅ NOUVELLE MÉTHODE : Utiliser l'auto-loader si disponible
+            if (window.autoLoader) {
+                const [frArticles, esArticles] = await Promise.all([
+                    window.autoLoader.loadAllArticles('fr'),
+                    window.autoLoader.loadAllArticles('es')
+                ]);
 
-            this.articles.fr = frData.articles || [];
-            this.articles.es = esData.articles || [];
+                this.articles.fr = frArticles || [];
+                this.articles.es = esArticles || [];
 
-            console.log(`✅ Articles chargés: ${this.articles.fr.length} FR, ${this.articles.es.length} ES`);
+                console.log(`✅ Articles chargés avec AutoLoader: ${this.articles.fr.length} FR, ${this.articles.es.length} ES`);
+            } else {
+                // ❌ FALLBACK : Méthode classique si auto-loader pas disponible
+                console.warn('⚠️ AutoLoader non disponible, chargement classique');
+                const [frData, esData] = await Promise.all([
+                    Utils.fetchWithCache('data/articles-fr.json'),
+                    Utils.fetchWithCache('data/articles-es.json')
+                ]);
+
+                this.articles.fr = frData.articles || [];
+                this.articles.es = esData.articles || [];
+
+                console.log(`✅ Articles chargés (classique): ${this.articles.fr.length} FR, ${this.articles.es.length} ES`);
+            }
             
             this.loadAttempts = 0; // Reset sur succès
         } catch (error) {
@@ -149,7 +164,8 @@ class ArticleManager {
      * @param {string} containerId 
      */
     renderArticles(lang = this.currentLang, containerId = 'articles-container') {
-        const container = Utils.$(containerId);
+        // ✅ CORRECTION : utiliser directement getElementById
+        const container = document.getElementById(containerId);
         if (!container) {
             console.error(`❌ Container ${containerId} introuvable`);
             return;
@@ -169,9 +185,6 @@ class ArticleManager {
 
         container.innerHTML = articles.map(article => this.renderArticleCard(article, t)).join('');
         
-        // Setup lazy loading pour les nouvelles images
-        Utils.setupLazyLoading();
-
         console.log(`📄 ${articles.length} articles rendus en ${lang}`);
     }
 

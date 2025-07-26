@@ -1,5 +1,6 @@
 // ================================
 // MOTEUR PRINCIPAL DU BLOG
+// Version corrigée pour le nouveau système
 // ================================
 
 class BlogEngine {
@@ -7,7 +8,7 @@ class BlogEngine {
         this.config = null;
         this.articleManager = null;
         this.currentLang = 'fr';
-        this.currentPage = 'home';
+        this.currentPage = 'blog';
         this.isInitialized = false;
         this.components = {};
         
@@ -16,6 +17,7 @@ class BlogEngine {
         this.toggleLanguage = this.toggleLanguage.bind(this);
         this.newBubble = this.newBubble.bind(this);
         this.showArticle = this.showArticle.bind(this);
+        this.showPage = this.showPage.bind(this);
     }
 
     /**
@@ -32,25 +34,25 @@ class BlogEngine {
             this.articleManager = new ArticleManager();
             await this.articleManager.init();
             
-            // 3. Initialiser les composants
-            this.initializeComponents();
-            
-            // 4. Setup des événements
+            // 3. Setup des événements
             this.setupEventListeners();
             
-            // 5. Charger la langue par défaut
-            this.currentLang = this.config.site.defaultLang || 'fr';
+            // 4. Charger la langue par défaut
+            this.currentLang = this.config?.site?.lang || 'fr';
             this.articleManager.setLanguage(this.currentLang);
             
-            // 6. Rendu initial
+            // 5. Rendu initial
             this.updateLanguage();
             this.articleManager.renderArticles(this.currentLang);
             
-            // 7. Optimisations performance
+            // 6. Optimisations performance
             this.setupPerformanceOptimizations();
             
-            // 8. Mise à jour de l'UI
+            // 7. Mise à jour de l'UI
             this.updateLanguageButton();
+            
+            // 8. Afficher la page par défaut
+            this.showPage('blog');
             
             this.isInitialized = true;
             console.log('✅ BlogEngine initialisé avec succès!');
@@ -66,7 +68,10 @@ class BlogEngine {
      */
     async loadConfig() {
         try {
-            this.config = await Utils.fetchWithCache('data/config.json');
+            const response = await fetch('data/config.json');
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            
+            this.config = await response.json();
             document.title = this.config.site.title;
             
             // Mise à jour des meta tags
@@ -86,7 +91,7 @@ class BlogEngine {
         return {
             site: {
                 title: "Alejandra Galván - Blog",
-                defaultLang: "fr",
+                lang: "fr",
                 author: "Alejandra Galván Gómez"
             },
             features: {
@@ -103,78 +108,18 @@ class BlogEngine {
         if (!this.config.seo) return;
         
         // Description
-        let metaDesc = Utils.$('meta[name="description"]');
-        if (!metaDesc) {
-            metaDesc = document.createElement('meta');
-            metaDesc.name = 'description';
-            document.head.appendChild(metaDesc);
+        let metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc && this.config.site.description) {
+            metaDesc.content = this.config.site.description;
         }
-        metaDesc.content = this.config.site.description;
-
-        // Keywords
-        if (this.config.seo.keywords) {
-            let metaKeywords = Utils.$('meta[name="keywords"]');
-            if (!metaKeywords) {
-                metaKeywords = document.createElement('meta');
-                metaKeywords.name = 'keywords';
-                document.head.appendChild(metaKeywords);
-            }
-            metaKeywords.content = this.config.seo.keywords;
-        }
-
-        // Open Graph
-        this.updateOpenGraphTags();
-    }
-
-    /**
-     * Met à jour les tags Open Graph
-     */
-    updateOpenGraphTags() {
-        const ogTags = [
-            { property: 'og:title', content: this.config.site.title },
-            { property: 'og:description', content: this.config.site.description },
-            { property: 'og:url', content: this.config.site.url },
-            { property: 'og:type', content: 'website' },
-            { property: 'og:image', content: `${this.config.site.url}/${this.config.seo.ogImage}` }
-        ];
-
-        ogTags.forEach(tag => {
-            let metaTag = Utils.$(`meta[property="${tag.property}"]`);
-            if (!metaTag) {
-                metaTag = document.createElement('meta');
-                metaTag.setAttribute('property', tag.property);
-                document.head.appendChild(metaTag);
-            }
-            metaTag.content = tag.content;
-        });
-    }
-
-    /**
-     * Initialise les composants modulaires
-     */
-    initializeComponents() {
-        console.log('🧩 Initialisation des composants...');
-        
-        // Les composants seront initialisés quand on les créera
-        this.components = {
-            navigation: null,
-            languageSwitcher: null,
-            articleCard: null
-        };
     }
 
     /**
      * Setup des événements globaux
      */
     setupEventListeners() {
-        // Événements de navigation
-        document.addEventListener('click', this.handleGlobalClick.bind(this));
-        
         // Événements clavier
         document.addEventListener('keydown', this.handleKeyboard.bind(this));
-        
-        // Événements de performance
-        window.addEventListener('beforeunload', this.handleBeforeUnload.bind(this));
         
         // Gestion erreurs globales
         window.addEventListener('error', this.handleGlobalError.bind(this));
@@ -183,85 +128,62 @@ class BlogEngine {
     }
 
     /**
-     * Gestion des clics globaux
-     */
-    handleGlobalClick(event) {
-        const target = event.target;
-        
-        // Navigation
-        if (target.hasAttribute('data-nav')) {
-            event.preventDefault();
-            this.navigate(target.dataset.nav);
-        }
-        
-        // Articles
-        if (target.hasAttribute('data-article-id')) {
-            event.preventDefault();
-            this.showArticle(parseInt(target.dataset.articleId));
-        }
-    }
-
-    /**
      * Gestion des raccourcis clavier
      */
     handleKeyboard(event) {
-        // Ctrl+K ou Cmd+K pour la recherche (futur)
-        if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
-            event.preventDefault();
-            console.log('🔍 Recherche à implémenter');
-        }
-        
         // Escape pour retour à l'accueil
-        if (event.key === 'Escape' && this.currentPage !== 'home') {
-            this.navigate('home');
+        if (event.key === 'Escape' && this.currentPage !== 'blog') {
+            this.showPage('blog');
         }
     }
 
     /**
-     * Navigation entre les pages
+     * Navigation entre les pages (compatible avec l'HTML existant)
      */
-    navigate(page) {
+    showPage(pageName) {
         if (!this.isInitialized) {
             console.warn('⚠️ BlogEngine pas encore initialisé');
             return;
         }
 
-        const pages = ['home-page', 'about-page', 'contact-page', 'article-detail'];
+        console.log(`📄 Navigation vers: ${pageName}`);
         
-        // Cacher toutes les pages
-        pages.forEach(pageId => {
-            const element = Utils.$(pageId);
-            if (element) element.classList.add('hidden');
-        });
+        // Masquer toutes les pages
+        const pages = document.querySelectorAll('.page-content');
+        pages.forEach(page => page.classList.add('hidden'));
         
         // Afficher la page demandée
-        let targetPageId;
-        switch(page) {
-            case 'home':
-                targetPageId = 'home-page';
-                this.articleManager.renderArticles(this.currentLang);
-                break;
-            case 'about':
-                targetPageId = 'about-page';
-                break;
-            case 'contact':
-                targetPageId = 'contact-page';
-                break;
-            default:
-                targetPageId = 'home-page';
-                page = 'home';
-        }
-        
-        const targetPage = Utils.$(targetPageId);
+        const targetPage = document.getElementById(`${pageName}-page`);
         if (targetPage) {
             targetPage.classList.remove('hidden');
-            this.currentPage = page;
+            this.currentPage = pageName;
+            
+            // Actions spécifiques par page
+            if (pageName === 'blog') {
+                // ✅ Ne rendre que si le container est vide
+                const container = document.getElementById('articles-container');
+                const hasArticles = container && container.children.length > 1; // > 1 car il y a le div de loading
+                
+                if (!hasArticles) {
+                    this.articleManager?.renderArticles(this.currentLang);
+                    console.log('📄 Articles rendus (container vide)');
+                } else {
+                    console.log('📄 Articles déjà présents, pas de re-rendu');
+                }
+            }
             
             // Scroll vers le haut
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            console.log(`📄 Navigation vers: ${page}`);
+        } else {
+            console.error(`❌ Page ${pageName}-page non trouvée`);
         }
+    }
+
+    /**
+     * Alias pour compatibilité
+     */
+    navigate(page) {
+        this.showPage(page);
     }
 
     /**
@@ -271,15 +193,15 @@ class BlogEngine {
         if (!this.isInitialized) return;
         
         this.currentLang = this.currentLang === 'es' ? 'fr' : 'es';
-        this.articleManager.setLanguage(this.currentLang);
+        this.articleManager?.setLanguage(this.currentLang);
         
         // Mise à jour UI
         this.updateLanguage();
         this.updateLanguageButton();
         
-        // Re-render articles si on est sur la page home
-        if (this.currentPage === 'home') {
-            this.articleManager.renderArticles(this.currentLang);
+        // Re-render articles si on est sur la page blog
+        if (this.currentPage === 'blog') {
+            this.articleManager?.renderArticles(this.currentLang);
         }
         
         console.log(`🌍 Langue changée vers: ${this.currentLang}`);
@@ -289,7 +211,7 @@ class BlogEngine {
      * Met à jour le bouton de langue
      */
     updateLanguageButton() {
-        const langBtn = Utils.$('#lang-btn');
+        const langBtn = document.getElementById('lang-btn');
         if (langBtn) {
             langBtn.textContent = this.currentLang === 'es' ? 'FR' : 'ES';
         }
@@ -299,77 +221,28 @@ class BlogEngine {
      * Met à jour tous les textes traduits
      */
     updateLanguage() {
-        if (!window.translations) {
-            console.warn('⚠️ Traductions non chargées');
-            return;
-        }
-        
-        const t = window.translations[this.currentLang];
-        if (!t) {
-            console.warn(`⚠️ Traductions manquantes pour: ${this.currentLang}`);
+        if (!window.translations || !window.getTranslation) {
+            console.warn('⚠️ Système de traductions non chargé');
             return;
         }
         
         // Mise à jour automatique des éléments avec data-translate
-        Utils.$$('[data-translate]').forEach(element => {
+        document.querySelectorAll('[data-translate]').forEach(element => {
             const key = element.getAttribute('data-translate');
-            if (t[key]) {
-                element.textContent = t[key];
+            const translation = window.getTranslation(key, this.currentLang);
+            
+            if (translation && translation !== key) {
+                if (element.tagName === 'INPUT' && element.type === 'text') {
+                    element.placeholder = translation;
+                } else if (element.tagName === 'TEXTAREA') {
+                    element.placeholder = translation;
+                } else {
+                    element.textContent = translation;
+                }
             }
         });
         
-        // Mise à jour spéciale pour les pages complexes
-        this.updateAboutPage(t);
-        this.updateContactPage(t);
-    }
-
-    /**
-     * Met à jour la page À propos
-     */
-    updateAboutPage(t) {
-        const aboutTitle = Utils.$('#about-page h1');
-        if (aboutTitle) aboutTitle.textContent = t.aboutTitle;
-        
-        const aboutPs = Utils.$$('#about-page p');
-        if (aboutPs.length >= 2) {
-            aboutPs[0].textContent = t.aboutDescription1;
-            aboutPs[1].textContent = t.aboutDescription2;
-        }
-        
-        const specialtiesTitle = Utils.$('#about-page h3');
-        if (specialtiesTitle) specialtiesTitle.textContent = t.specialties;
-        
-        const specialtiesList = Utils.$$('#about-page li');
-        if (specialtiesList.length >= 4) {
-            specialtiesList[0].textContent = t.specialty1;
-            specialtiesList[1].textContent = t.specialty2;
-            specialtiesList[2].textContent = t.specialty3;
-            specialtiesList[3].textContent = t.specialty4;
-        }
-    }
-
-    /**
-     * Met à jour la page Contact
-     */
-    updateContactPage(t) {
-        const contactTitle = Utils.$('#contact-page h1');
-        if (contactTitle) contactTitle.textContent = t.contactTitle;
-        
-        const labels = Utils.$$('#contact-page label');
-        if (labels.length >= 3) {
-            labels[0].textContent = t.nameLabel;
-            labels[1].textContent = t.emailLabel;
-            labels[2].textContent = t.messageLabel;
-        }
-        
-        const sendBtn = Utils.$('#contact-page button[type="submit"]');
-        if (sendBtn) sendBtn.textContent = t.sendButton;
-        
-        const emailP = Utils.$('#contact-page p');
-        if (emailP && emailP.querySelector('a')) {
-            const emailLink = emailP.querySelector('a').outerHTML;
-            emailP.innerHTML = `${t.emailText} ${emailLink}`;
-        }
+        console.log(`🌍 Interface mise à jour en ${this.currentLang}`);
     }
 
     /**
@@ -378,7 +251,7 @@ class BlogEngine {
     newBubble() {
         if (!window.translations) return;
         
-        const bubble = Utils.$('#bubble-content');
+        const bubble = document.getElementById('bubble-content');
         if (!bubble) return;
         
         const bubbles = window.translations[this.currentLang]?.bubbles || [];
@@ -388,6 +261,8 @@ class BlogEngine {
         
         // Animation de changement
         bubble.style.opacity = '0';
+        bubble.style.transition = 'opacity 0.3s ease';
+        
         setTimeout(() => {
             bubble.textContent = `"${randomBubble}"`;
             bubble.style.opacity = '1';
@@ -406,30 +281,39 @@ class BlogEngine {
         }
         
         const articleContent = this.articleManager.renderFullArticle(articleId, this.currentLang);
-        const contentContainer = Utils.$('#article-content');
+        const contentContainer = document.getElementById('article-content');
         
         if (contentContainer) {
             contentContainer.innerHTML = articleContent;
-            
-            // Cacher les autres pages
-            const pages = ['home-page', 'about-page', 'contact-page'];
-            pages.forEach(pageId => {
-                const element = Utils.$(pageId);
-                if (element) element.classList.add('hidden');
-            });
-            
-            // Afficher la page article
-            const articlePage = Utils.$('#article-detail');
-            if (articlePage) {
-                articlePage.classList.remove('hidden');
-                this.currentPage = 'article';
-                
-                // Scroll vers le haut
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                
-                console.log(`📖 Article ${articleId} affiché`);
-            }
+            this.showPage('article-detail');
+            console.log(`📖 Article ${articleId} affiché`);
         }
+    }
+
+    /**
+     * Gestion de formulaire de contact
+     */
+    handleContactForm(event) {
+        event.preventDefault();
+        
+        // Simulation d'envoi
+        const button = event.target.querySelector('button[type="submit"]');
+        const originalText = button.innerHTML;
+        
+        button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Envoi en cours...';
+        button.disabled = true;
+        
+        setTimeout(() => {
+            alert(this.currentLang === 'fr' ? 
+                'Message envoyé avec succès ! Je vous répondrai bientôt.' :
+                'Mensaje enviado con éxito! Te responderé pronto.');
+            
+            event.target.reset();
+            button.innerHTML = originalText;
+            button.disabled = false;
+        }, 2000);
+        
+        console.log('📧 Formulaire de contact soumis');
     }
 
     /**
@@ -437,35 +321,52 @@ class BlogEngine {
      */
     setupPerformanceOptimizations() {
         // Lazy loading des images
-        if (this.config.features?.lazyLoading) {
-            Utils.setupLazyLoading();
-        }
-        
-        // Preload des ressources critiques
-        this.preloadCriticalResources();
+        this.setupLazyLoading();
         
         // Debounce pour resize
-        window.addEventListener('resize', Utils.debounce(() => {
+        window.addEventListener('resize', this.debounce(() => {
             console.log('📱 Redimensionnement détecté');
         }, 250));
     }
 
     /**
-     * Preload des ressources importantes
+     * Setup du lazy loading des images
      */
-    preloadCriticalResources() {
-        // Preload des images importantes
-        const criticalImages = [
-            'images/alejandra.jpeg'
-        ];
-        
-        criticalImages.forEach(src => {
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.as = 'image';
-            link.href = src;
-            document.head.appendChild(link);
-        });
+    setupLazyLoading() {
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        const src = img.getAttribute('data-src');
+                        if (src) {
+                            img.src = src;
+                            img.removeAttribute('data-src');
+                            observer.unobserve(img);
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+    }
+
+    /**
+     * Fonction debounce utilitaire
+     */
+    debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
     }
 
     /**
@@ -476,7 +377,7 @@ class BlogEngine {
         
         // Affichage d'un message d'erreur à l'utilisateur
         const errorContainer = document.createElement('div');
-        errorContainer.className = 'fixed top-4 right-4 bg-red-500 text-white p-4 rounded-lg shadow-lg z-50';
+        errorContainer.className = 'fixed top-4 right-4 bg-red-500 text-white p-4 rounded-lg shadow-lg z-50 max-w-sm';
         errorContainer.innerHTML = `
             <div class="flex items-center gap-2">
                 <i class="fas fa-exclamation-triangle"></i>
@@ -501,24 +402,12 @@ class BlogEngine {
      */
     handleGlobalError(event) {
         console.error('🚨 Erreur globale détectée:', event.error);
-        // Ici on pourrait envoyer l'erreur à un service de monitoring
-    }
-
-    /**
-     * Nettoyage avant fermeture
-     */
-    handleBeforeUnload() {
-        // Sauvegarder l'état si nécessaire
-        Utils.setLocalStorage('lastVisitedPage', this.currentPage);
-        Utils.setLocalStorage('lastLanguage', this.currentLang);
     }
 
     /**
      * Statistiques du blog
      */
     getStats() {
-        if (!this.articleManager) return null;
-        
         return {
             engine: {
                 initialized: this.isInitialized,
@@ -526,11 +415,7 @@ class BlogEngine {
                 currentPage: this.currentPage,
                 version: this.config?.site?.version || 'unknown'
             },
-            articles: this.articleManager.getStats(),
-            performance: {
-                cacheSize: Utils.cache.size,
-                deviceType: Utils.getDeviceType()
-            }
+            articles: this.articleManager?.getStats() || null
         };
     }
 }
@@ -543,18 +428,30 @@ class BlogEngine {
 window.blogApp = new BlogEngine();
 
 // Fonctions globales pour compatibilité avec l'HTML existant
-window.navigate = (page) => window.blogApp.navigate(page);
+window.showPage = (page) => window.blogApp.showPage(page);
 window.toggleLanguage = () => window.blogApp.toggleLanguage();
 window.newBubble = () => window.blogApp.newBubble();
 window.showArticle = (id) => window.blogApp.showArticle(id);
+window.handleContactForm = (event) => window.blogApp.handleContactForm(event);
 
 // Initialisation quand le DOM est prêt
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('🌿 Démarrage du Blog Alejandra Galván...');
+    
+    // Masquer le splash screen après un délai
+    setTimeout(() => {
+        const splash = document.querySelector('.splash-screen');
+        if (splash) {
+            splash.style.opacity = '0';
+            splash.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => splash.remove(), 500);
+        }
+    }, 3000);
+    
     await window.blogApp.init();
 });
 
 // Debug helper
 window.BlogStats = () => console.table(window.blogApp.getStats());
 
-console.log('🚀 BlogEngine (app.js) chargé');
+console.log('🚀 BlogEngine (app.js) chargé et optimisé');

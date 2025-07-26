@@ -1,5 +1,5 @@
 // ================================
-// UTILITAIRES RÉUTILISABLES
+// UTILITAIRES RÉUTILISABLES - VERSION OPTIMISÉE
 // ================================
 
 class Utils {
@@ -7,9 +7,7 @@ class Utils {
     static cache = new Map();
     
     /**
-     * Fetch avec cache intelligent
-     * @param {string} url - URL à charger
-     * @param {number} ttl - Time to live en ms (défaut: 5 min)
+     * Fetch avec cache intelligent - UTILISÉ par articles.js
      */
     static async fetchWithCache(url, ttl = 300000) {
         const cached = this.cache.get(url);
@@ -42,50 +40,7 @@ class Utils {
     }
 
     /**
-     * Débounce pour optimiser les performances
-     * @param {Function} func - Fonction à débouncer
-     * @param {number} wait - Délai en ms
-     */
-    static debounce(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => {
-                clearTimeout(timeout);
-                func(...args);
-            };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-        };
-    }
-
-    /**
-     * Lazy loading intelligent des images
-     */
-    static setupLazyLoading() {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy');
-                    img.classList.add('loaded');
-                    observer.unobserve(img);
-                    console.log(`🖼️ Image chargée: ${img.alt}`);
-                }
-            });
-        }, {
-            rootMargin: '50px'
-        });
-
-        document.querySelectorAll('img[data-src]').forEach(img => {
-            imageObserver.observe(img);
-        });
-    }
-
-    /**
-     * Formatage des dates intelligent selon la langue
-     * @param {string} dateString - Date ISO
-     * @param {string} lang - Langue (fr/es)
+     * Formatage des dates - UTILISÉ par articles.js
      */
     static formatDate(dateString, lang = 'fr') {
         try {
@@ -104,56 +59,7 @@ class Utils {
     }
 
     /**
-     * Validation d'email robuste
-     * @param {string} email 
-     */
-    static validateEmail(email) {
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return regex.test(email);
-    }
-
-    /**
-     * Génération de slugs SEO-friendly
-     * @param {string} text - Texte à convertir
-     */
-    static generateSlug(text) {
-        return text
-            .toLowerCase()
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '') // Supprime accents
-            .replace(/[^a-z0-9 -]/g, '') // Caractères spéciaux
-            .replace(/\s+/g, '-') // Espaces -> tirets
-            .replace(/-+/g, '-') // Tirets multiples
-            .trim('-');
-    }
-
-    /**
-     * Scroll fluide vers un élément
-     * @param {string} elementId 
-     */
-    static smoothScrollTo(elementId) {
-        const element = document.getElementById(elementId);
-        if (element) {
-            element.scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    }
-
-    /**
-     * Détection du device (mobile/tablet/desktop)
-     */
-    static getDeviceType() {
-        const width = window.innerWidth;
-        if (width <= 768) return 'mobile';
-        if (width <= 1024) return 'tablet';
-        return 'desktop';
-    }
-
-    /**
-     * Copy to clipboard moderne
-     * @param {string} text 
+     * Copy to clipboard - UTILISÉ par articles.js
      */
     static async copyToClipboard(text) {
         try {
@@ -167,10 +73,7 @@ class Utils {
     }
 
     /**
-     * Storage local avec expiration
-     * @param {string} key 
-     * @param {any} value 
-     * @param {number} ttl - En secondes
+     * Storage local avec expiration - UTILISÉ par language-switcher.js
      */
     static setLocalStorage(key, value, ttl = 86400) {
         const data = {
@@ -181,8 +84,7 @@ class Utils {
     }
 
     /**
-     * Récupération du storage local avec vérification d'expiration
-     * @param {string} key 
+     * Récupération storage local - UTILISÉ par language-switcher.js
      */
     static getLocalStorage(key) {
         try {
@@ -203,9 +105,7 @@ class Utils {
     }
 
     /**
-     * Throttle pour les événements scroll/resize
-     * @param {Function} func 
-     * @param {number} limit 
+     * Throttle - UTILISÉ par navigation.js
      */
     static throttle(func, limit) {
         let inThrottle;
@@ -221,8 +121,7 @@ class Utils {
     }
 
     /**
-     * Sélecteur sécurisé avec gestion d'erreur
-     * @param {string} selector 
+     * Sélecteur sécurisé - UTILISÉ par navigation.js et language-switcher.js
      */
     static $(selector) {
         try {
@@ -234,8 +133,7 @@ class Utils {
     }
 
     /**
-     * Sélecteur multiple sécurisé
-     * @param {string} selector 
+     * Sélecteur multiple sécurisé - UTILISÉ par navigation.js
      */
     static $$(selector) {
         try {
@@ -250,4 +148,4 @@ class Utils {
 // Export pour les autres modules
 window.Utils = Utils;
 
-console.log('🛠️ Utils.js chargé');
+console.log('🛠️ Utils.js optimisé chargé');

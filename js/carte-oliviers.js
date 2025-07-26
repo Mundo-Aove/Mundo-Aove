@@ -1,6 +1,7 @@
 // ============================================
 // CARTE INTERACTIVE DES OLIVIERS CENTENAIRES
 // Version finale - Alejandra Galván - 67 oliviers réels
+// Modification: Image complète dans modal détails
 // ============================================
 
 const carteOliviers = {
@@ -292,7 +293,7 @@ const carteOliviers = {
         `;
     },
 
-    // ========== MODAL DÉTAILS ==========
+    // ========== MODAL DÉTAILS AVEC IMAGE COMPLÈTE ==========
     showDetails(olivierId) {
         const olivier = this.oliviers.find(o => o.id === olivierId);
         if (!olivier) {
@@ -330,6 +331,10 @@ const carteOliviers = {
         
         const l = labels[lang] || labels.fr;
         
+        // 🆕 CHEMIN DE L'IMAGE COMPLÈTE
+        const fullImagePath = `images/oliviers/${olivier.id}_full.jpg`;
+        const fallbackFullImage = 'images/oliviers/default_full.jpg';
+        
         const modal = `
             <div id="olivier-modal">
                 <div class="modal-backdrop" onclick="carteOliviers.closeModal()"></div>
@@ -345,6 +350,15 @@ const carteOliviers = {
                     </div>
                     
                     <div class="modal-body">
+                        <!-- 🆕 IMAGE COMPLÈTE INTÉGRÉE -->
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <img src="${fullImagePath}" 
+                                 alt="${details.nom || 'Olivier'}"
+                                 style="width: 100%; max-width: 500px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"
+                                 onerror="this.src='${fallbackFullImage}'; this.onerror=null;">
+                        </div>
+                        
+                        <!-- Contenu existant -->
                         <div class="info-grid">
                             <div class="info-section">
                                 <h3>${l.generalInfo}</h3>
@@ -546,4 +560,4 @@ initCarteObserver();
 // ========== EXPORT GLOBAL ==========
 window.carteOliviers = carteOliviers;
 
-console.log('🗺️ Module carte-oliviers chargé - Version finale propre');
+console.log('🗺️ Module carte-oliviers chargé - Version avec image complète intégrée');

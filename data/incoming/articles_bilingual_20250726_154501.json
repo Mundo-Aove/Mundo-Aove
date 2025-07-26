@@ -1,0 +1,46 @@
+{
+  "schema_version": "2.0",
+  "language_support": [
+    "es",
+    "fr"
+  ],
+  "export_date": "2025-07-26T15:45:01.678890",
+  "articles": [
+    {
+      "id": 709957,
+      "title": {
+        "es": "Los Olivares Centenarios de Tacna: Guardianes del Patrimonio Oleícola Peruano",
+        "fr": "L'Art de la Dégustation d'Huile d'Olive : Guide Complet pour Apprécier l'Or Liquide"
+      },
+      "date": "2025-07-26",
+      "author": "Florent",
+      "excerpt": {
+        "es": "Descubre la fascinante historia de los olivares centenarios de Tacna, plantados por colonos españoles hace más de 400 años. Estos árboles milenarios no solo producen aceite de oliva de calidad excepcional, sino que también representan un legado cultural invaluable para el sur del Perú.",
+        "fr": "Apprenez à déguster l'huile d'olive comme un expert avec ce guide complet. De la reconnaissance des arômes à l'identification des défauts, découvrez les secrets des maîtres oléiculteurs pour apprécier pleinement la complexité de cet or liquide méditerranéen"
+      },
+      "content": {
+        "es": "En las áridas tierras del extremo sur de Perú, donde el desierto de Atacama se encuentra con los valles fértiles de Tacna, se alza un tesoro agrícola que ha resistido el paso de los siglos: los olivares centenarios que definen el paisaje y la identidad de esta región fronteriza.\n\nLa historia de estos olivares se remonta al siglo XVI, cuando los primeros colonizadores españoles trajeron consigo esquejes de olivos desde Andalucía y Extremadura. Buscando tierras similares a las de su península natal, encontraron en Tacna el clima y suelo ideales para el cultivo de la aceituna.\n\n**Un Patrimonio que Perdura**\n\nHoy en día, muchos de estos olivares originales continúan produciendo aceitunas de variedades tradicionales como la Sevillana y la Liguria. Los troncos retorcidos y milenarios, algunos con circunferencias que superan los 8 metros, son testigos silenciosos de generaciones de agricultores que han mantenido viva esta tradición.\n\nEl aceite de oliva tacneño se caracteriza por su sabor intenso y afrutado, con notas que van desde el verde hierba hasta los matices dulces de almendra. Esta calidad excepcional se debe no solo a las variedades cultivadas, sino también a las técnicas de producción artesanal que se han transmitido de padres a hijos.\n\n**Desafíos del Presente**\n\nSin embargo, estos guardianes verdes enfrentan amenazas modernas. La urbanización creciente, los cambios en los patrones de cultivo y la falta de relevo generacional ponen en riesgo este patrimonio invaluable. Organizaciones locales y el gobierno regional trabajan incansablemente para proteger y promocionar estos olivares como parte del patrimonio cultural y turístico de Tacna.\n\nLa denominación de origen \"Aceite de Oliva de Tacna\" representa no solo un producto, sino toda una cultura que merece ser preservada para las futuras generaciones. Cada gota de este aceite dorado cuenta una historia de resistencia, tradición y amor por la tierra.",
+        "fr": "L'huile d'olive extra vierge est bien plus qu'un simple condiment : c'est un produit gastronomique complexe dont la dégustation requiert technique, patience et sensibilité. Comme pour le vin, chaque huile possède sa propre personnalité, fruit du terroir, de la variété d'olive et du savoir-faire du producteur.\n\n**Préparation à la Dégustation**\n\nAvant de commencer, il est essentiel de créer les conditions optimales. La température idéale se situe entre 28 et 30°C - c'est pourquoi les dégustateurs professionnels réchauffent souvent le verre dans leurs mains. Utilisez de préférence un verre tulipe en verre bleu ou opaque pour éviter que la couleur influence votre jugement.\n\n**Les Trois Phases de la Dégustation**\n\n**1. L'Examen Olfactif**\nApprochez le verre de votre nez et inspirez profondément. Une huile d'olive de qualité doit présenter des arômes frais et végétaux. Recherchez les notes d'herbe fraîche, de tomate verte, d'artichaut, ou encore de fruits comme la pomme ou la banane. L'absence d'arôme ou des odeurs de moisi, de rance ou de vineux indiquent des défauts.\n\n**2. La Dégustation en Bouche**\nPrenez une petite quantité d'huile (environ une cuillère à café) et répartissez-la dans votre bouche. L'huile doit révéler sa complexité : douceur initiale, amertume caractéristique des olives vertes, et ardence (picotement) qui témoigne de la richesse en polyphénols antioxydants.\n\n**3. L'Analyse Rétro-nasale**\nAspirez légèrement de l'air pour faire remonter les arômes vers le nez par la voie rétro-nasale. Cette technique permet de percevoir des nuances subtiles qui échappent souvent à la dégustation directe.\n\n**Comprendre les Profils Gustatifs**\n\nLes huiles douces, souvent appréciées des néophytes, présentent peu d'amertume et d'ardence. À l'opposé, les huiles intenses offrent une expérience gustative plus marquée, avec des notes herbacées prononcées et une finale piquante distinctive.\n\n**Accords et Conservation**\n\nUne fois maîtrisée la dégustation, l'art réside dans l'accord avec les mets. Les huiles douces subliment les poissons délicats et les légumes vapeur, tandis que les huiles intenses s'accordent parfaitement aux grillades, légumes verts et fromages de caractère.\n\nConservez vos huiles à l'abri de la lumière, de la chaleur et de l'air dans des contenants opaques, et consommez-les dans les 18 mois suivant la récolte pour préserver toute leur richesse aromatique.\n\nLa dégustation d'huile d'olive est un voyage sensoriel qui révèle la passion et le savoir-faire des producteurs. Chaque dégustation est une découverte, une invitation à explorer la diversité infinie de cet or liquide méditerranéen."
+      },
+      "category": "",
+      "tags": [],
+      "status": "draft",
+      "image": "/home/kalif/Bureau/Nouveau dossier/20250712_081120.jpg",
+      "images": [
+        {
+          "path": "/home/kalif/Bureau/Nouveau dossier/20250712_081120.jpg",
+          "alt": {
+            "es": "",
+            "fr": ""
+          },
+          "caption": {
+            "es": "",
+            "fr": ""
+          },
+          "width": null,
+          "height": null
+        }
+      ]
+    }
+  ]
+}

@@ -773,3 +773,29 @@ button:focus,
 .modal-content::-webkit-scrollbar-thumb:hover {
     background: #b8941f;
 }
+
+/* =================================
+   STABILISATION DES IMAGES ARTICLES
+   ================================= */
+
+.article-card img {
+    min-height: 192px; /* h-48 = 12rem = 192px */
+    background: #f3f4f6; /* gray-100 */
+    transition: opacity 0.3s ease;
+}
+
+.article-card img[src*="images.unsplash.com"] {
+    opacity: 1;
+}
+
+/* Loading state pour les images */
+.article-card {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+/* Amélioration hover */
+.article-card:hover {
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}

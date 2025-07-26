@@ -16,7 +16,16 @@
       "author": "Alejandra Galván Gómez",
       "excerpt": "La poda correcta en los primeros años define la productividad futura del olivo.",
       "content": "# Técnicas de poda para olivos jóvenes\n\nLa poda correcta define la productividad futura.\n\n## Principios fundamentales\n\n- Equilibrio entre crecimiento vegetativo y productivo\n- Aireación para evitar enfermedades\n- Exposición solar máxima",
-      "image": "https://images.unsplash.com/photo-1611909023032-2d4b3c66d5b9?w=400&h=200&fit=crop"
+      "image": "images/articles/1.jpg"
+    },
+    {
+      "id": 3,
+      "title": "La CTM",
+      "date": "2025-07-22",
+      "author": "Alejandra Galván Gómez",
+      "excerpt": "América Latina, con el 65 de las reservas mundiales de litio, está en el centro de la transición energética.",
+      "content": "Réserves stratégiques : L’Argentine, la Bolivie et le Chili concentrent 65 % des réserves mondiales de lithium, un minerai essentiel pour les batteries lithium-ion.\n\nComparaisons révélatrices : Cette région est surnommée l’« Arabie Saoudite du XXIᵉ siècle », soulignant son rôle clé dans l’économie future.\n\nExploitation inégaleː\n\nChili : Leader actuel (1/4 de la production mondiale), via des sociétés privées (SQM, Albemarle).\n\nBolivieː Réserves les plus importantes, mais exploitation limitée par des défis technologiques et politiques.\n\nArgentineː Croissance rapide avec des investissements étrangers (Chine, États-Unis)",
+      "image": "images/articles/3.jpg"
     }
   ]
 }
