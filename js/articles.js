@@ -1,5 +1,6 @@
 // ================================
 // GESTIONNAIRE D'ARTICLES
+// Version améliorée avec gestion images
 // ================================
 
 class ArticleManager {
@@ -103,7 +104,6 @@ class ArticleManager {
 
     /**
      * Récupère les articles pour une langue donnée
-     * @param {string} lang - Langue (fr/es)
      */
     getArticles(lang = this.currentLang) {
         return this.articles[lang] || [];
@@ -111,8 +111,6 @@ class ArticleManager {
 
     /**
      * Récupère un article par ID
-     * @param {number} id 
-     * @param {string} lang 
      */
     getArticleById(id, lang = this.currentLang) {
         const articles = this.getArticles(lang);
@@ -121,8 +119,6 @@ class ArticleManager {
 
     /**
      * Récupère un article par slug
-     * @param {string} slug 
-     * @param {string} lang 
      */
     getArticleBySlug(slug, lang = this.currentLang) {
         const articles = this.getArticles(lang);
@@ -131,8 +127,6 @@ class ArticleManager {
 
     /**
      * Filtre les articles par catégorie
-     * @param {string} category 
-     * @param {string} lang 
      */
     getArticlesByCategory(category, lang = this.currentLang) {
         const articles = this.getArticles(lang);
@@ -141,8 +135,6 @@ class ArticleManager {
 
     /**
      * Recherche dans les articles
-     * @param {string} query 
-     * @param {string} lang 
      */
     searchArticles(query, lang = this.currentLang) {
         if (!query.trim()) return this.getArticles(lang);
@@ -159,12 +151,9 @@ class ArticleManager {
     }
 
     /**
-     * Rend les articles en HTML
-     * @param {string} lang 
-     * @param {string} containerId 
+     * Rend les articles en HTML avec gestion images améliorée
      */
     renderArticles(lang = this.currentLang, containerId = 'articles-container') {
-        // ✅ CORRECTION : utiliser directement getElementById
         const container = document.getElementById(containerId);
         if (!container) {
             console.error(`❌ Container ${containerId} introuvable`);
@@ -185,25 +174,61 @@ class ArticleManager {
 
         container.innerHTML = articles.map(article => this.renderArticleCard(article, t)).join('');
         
+        // ✅ NOUVEAU : Force le rechargement des images après rendu
+        this.refreshImages(container);
+        
         console.log(`📄 ${articles.length} articles rendus en ${lang}`);
     }
 
     /**
-     * Rend une carte d'article
-     * @param {Object} article 
-     * @param {Object} translations 
+     * ✅ NOUVEAU : Force le rechargement des images
+     */
+    refreshImages(container) {
+        setTimeout(() => {
+            const images = container.querySelectorAll('img');
+            images.forEach(img => {
+                const originalSrc = img.src;
+                
+                // Ajouter transition pour le changement
+                img.style.transition = 'opacity 0.3s ease';
+                img.style.opacity = '0.7';
+                
+                img.onload = () => {
+                    img.style.opacity = '1';
+                };
+                
+                img.onerror = () => {
+                    img.src = 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=200&fit=crop';
+                    img.style.opacity = '1';
+                };
+                
+                // Force reload avec timestamp pour éviter le cache
+                if (!originalSrc.includes('unsplash.com')) {
+                    img.src = originalSrc + (originalSrc.includes('?') ? '&' : '?') + 't=' + Date.now();
+                }
+            });
+        }, 100);
+    }
+
+    /**
+     * Rend une carte d'article avec gestion images robuste
      */
     renderArticleCard(article, translations = {}) {
         const readMore = translations.readMore || 'Lire plus →';
         
+        // Badge pour articles incoming
+        const incomingBadge = article.source === 'incoming' ? 
+            '<span class="absolute top-2 right-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full font-bold">Nouveau</span>' : '';
+        
         return `
             <article class="article-card bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300">
                 <div class="relative overflow-hidden">
-                    <img data-src="${article.image}" 
+                    <img src="${article.image}" 
                          alt="${article.title}" 
-                         class="lazy w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                         class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                          loading="lazy"
                          onerror="this.src='https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=200&fit=crop'">
+                    ${incomingBadge}
                     <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div class="p-6">
@@ -237,8 +262,6 @@ class ArticleManager {
 
     /**
      * Rend le contenu complet d'un article
-     * @param {number} articleId 
-     * @param {string} lang 
      */
     renderFullArticle(articleId, lang = this.currentLang) {
         const article = this.getArticleById(articleId, lang);
@@ -266,9 +289,11 @@ class ArticleManager {
                 <div class="mb-8">
                     <img src="${article.image}" 
                          alt="${article.title}" 
-                         class="w-full h-64 object-cover rounded-lg mb-6">
+                         class="w-full h-64 object-cover rounded-lg mb-6"
+                         onerror="this.src='https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=200&fit=crop'">
                     <div class="flex flex-wrap items-center gap-2 mb-4">
                         ${article.category ? `<span class="bg-forest-green text-white px-3 py-1 rounded-full text-sm font-medium">${article.category}</span>` : ''}
+                        ${article.source === 'incoming' ? '<span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">Nouveau</span>' : ''}
                         ${article.tags ? article.tags.map(tag => `<span class="bg-gray-100 text-gray-600 px-2 py-1 rounded-full text-xs">#${tag}</span>`).join('') : ''}
                     </div>
                 </div>
@@ -292,7 +317,6 @@ class ArticleManager {
 
     /**
      * Parser Markdown simple pour fallback
-     * @param {string} markdown 
      */
     simpleMarkdownParser(markdown) {
         return markdown
@@ -309,7 +333,6 @@ class ArticleManager {
 
     /**
      * Change la langue courante
-     * @param {string} lang 
      */
     setLanguage(lang) {
         if (this.articles[lang]) {
@@ -357,4 +380,4 @@ class ArticleManager {
 // Export global
 window.ArticleManager = ArticleManager;
 
-console.log('📚 ArticleManager.js chargé');
+console.log('📚 ArticleManager.js v1.1 chargé avec gestion images améliorée');

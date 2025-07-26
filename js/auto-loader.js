@@ -1,6 +1,6 @@
 // ================================
 // AUTO-LOADER POUR ARTICLES INCOMING
-// Version 1.0 - Intégration transparente
+// Version 1.1 - Gestion images améliorée
 // ================================
 
 class AutoLoader {
@@ -88,14 +88,15 @@ class AutoLoader {
     }
 
     /**
-     * Scanne le dossier data/incoming/ (simulation)
+     * Scanne le dossier data/incoming/ (détection auto + liste fixe)
      */
     async scanIncomingFiles() {
-        // Liste des fichiers à essayer
+        // Liste des fichiers à essayer (tu peux en ajouter)
         const possibleFiles = [
             'articles_bilingual_20250726_154501.json',
-            'articles_bilingual_20250726_154639.json'
-            // On peut en ajouter d'autres automatiquement
+            'articles_bilingual_20250726_154639.json',
+            // Détection automatique pour aujourd'hui
+            ...this.generateTodayFiles()
         ];
         
         const existingFiles = [];
@@ -111,7 +112,28 @@ class AutoLoader {
             }
         }
         
-        return existingFiles;
+        return [...new Set(existingFiles)]; // Supprimer doublons
+    }
+
+    /**
+     * Génère les noms de fichiers possibles pour aujourd'hui
+     */
+    generateTodayFiles() {
+        const today = new Date();
+        const dateStr = today.toISOString().slice(0, 10).replace(/-/g, '');
+        
+        const files = [];
+        // Essayer quelques heures autour de maintenant
+        const currentHour = today.getHours();
+        
+        for (let h = Math.max(0, currentHour - 2); h <= Math.min(23, currentHour + 2); h++) {
+            for (let m = 0; m < 60; m += 15) {
+                const timeStr = `${h.toString().padStart(2, '0')}${m.toString().padStart(2, '0')}`;
+                files.push(`articles_bilingual_${dateStr}_${timeStr}01.json`);
+            }
+        }
+        
+        return files;
     }
 
     /**
@@ -158,11 +180,20 @@ class AutoLoader {
                 return null;
             }
             
-            // Adapter le chemin de l'image si nécessaire
+            // ✅ GESTION ROBUSTE DES IMAGES
             let imagePath = bilingualArticle.image || '';
-            if (imagePath && imagePath.startsWith('/')) {
-                // Convertir chemin absolu en relatif pour le web
-                imagePath = `images/incoming/${bilingualArticle.id}.jpg`;
+            if (imagePath) {
+                if (imagePath.startsWith('/') || imagePath.includes('Bureau') || imagePath.includes('home')) {
+                    // Chemin absolu local -> relatif incoming
+                    imagePath = `images/incoming/${bilingualArticle.id}.jpg`;
+                } else if (!imagePath.startsWith('http') && !imagePath.startsWith('images/')) {
+                    // Pas d'URL complète et pas dans images/ -> ajouter incoming
+                    imagePath = `images/incoming/${bilingualArticle.id}.jpg`;
+                }
+                // Sinon garder le chemin original (URL ou images/articles/X.jpg)
+            } else {
+                // Fallback image par défaut
+                imagePath = 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=200&fit=crop';
             }
             
             return {
@@ -173,7 +204,8 @@ class AutoLoader {
                 excerpt: excerpt,
                 content: content,
                 image: imagePath,
-                source: 'incoming' // Marquer comme venant d'incoming
+                source: 'incoming', // Marquer comme venant d'incoming
+                category: bilingualArticle.category || 'Nouveau'
             };
             
         } catch (error) {
@@ -191,36 +223,6 @@ class AutoLoader {
             const dateB = new Date(b.date);
             return dateB - dateA; // Ordre décroissant
         });
-    }
-
-    /**
-     * Détecte automatiquement de nouveaux fichiers incoming
-     */
-    async autoDetectIncoming() {
-        const now = Date.now();
-        
-        // Scanner seulement si nécessaire
-        if (now - this.lastScanTime < this.scanInterval) {
-            return [];
-        }
-        
-        this.lastScanTime = now;
-        
-        // Générer noms de fichiers possibles basés sur la date actuelle
-        const today = new Date();
-        const dateStr = today.toISOString().slice(0, 10).replace(/-/g, '');
-        
-        const possibleFiles = [];
-        
-        // Essayer différents timestamps pour aujourd'hui
-        for (let hour = 0; hour < 24; hour++) {
-            for (let minute = 0; minute < 60; minute += 15) {
-                const timeStr = `${hour.toString().padStart(2, '0')}${minute.toString().padStart(2, '0')}`;
-                possibleFiles.push(`articles_bilingual_${dateStr}_${timeStr}*.json`);
-            }
-        }
-        
-        return possibleFiles;
     }
 
     /**
@@ -256,4 +258,4 @@ window.loadArticlesWithIncoming = async function(language) {
     return await window.autoLoader.loadAllArticles(language);
 };
 
-console.log('🚀 AutoLoader chargé et prêt');
+console.log('🚀 AutoLoader v1.1 chargé avec gestion images améliorée');
