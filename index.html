@@ -34,6 +34,102 @@
 
     <!-- Notre CSS -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* ==== NAVIGATION MOBILE RESPONSIVE ==== */
+        .mobile-menu-button {
+            display: none;
+        }
+        
+        .mobile-menu {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            /* Cache la navigation desktop sur mobile */
+            .desktop-nav {
+                display: none !important;
+            }
+            
+            /* Montre le bouton hamburger */
+            .mobile-menu-button {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                padding: 8px;
+                background: transparent;
+                border: none;
+                color: #2d5016;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+            
+            /* Menu mobile */
+            .mobile-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                border-top: 1px solid #e5e7eb;
+                z-index: 50;
+            }
+            
+            .mobile-menu.active {
+                display: block;
+            }
+            
+            .mobile-menu button {
+                display: block;
+                width: 100%;
+                text-align: left;
+                padding: 12px 16px;
+                border: none;
+                background: white;
+                color: #2d5016;
+                border-bottom: 1px solid #f3f4f6;
+                transition: background-color 0.2s;
+            }
+            
+            .mobile-menu button:hover {
+                background-color: #f9fafb;
+                color: #d4af37;
+            }
+            
+            .mobile-menu .language-btn {
+                background-color: #d4af37;
+                color: white;
+                border-radius: 0;
+                margin: 8px;
+                width: calc(100% - 16px);
+                border-radius: 8px;
+            }
+            
+            /* Responsive pour la section RSS */
+            .bg-stone-gray { 
+                padding: 1rem !important; 
+            }
+            
+            .text-2xl.rss-title { 
+                font-size: 1.5rem !important; 
+            }
+            
+            /* Boutons plus grands sur mobile */
+            button { 
+                min-height: 44px; 
+            }
+        }
+        
+        /* Animations CSS pour le menu mobile */
+        #next-icon {
+            transition: transform 0.2s ease;
+        }
+        
+        #rss-container {
+            transition: opacity 0.15s ease, transform 0.15s ease;
+        }
+    </style>
 </head>
 <body class="bg-off-white">
     <!-- Splash Screen -->
@@ -48,7 +144,7 @@
         <h1 class="text-3xl mt-4 font-bold text-forest-green" style="font-family: 'Playfair Display', serif;">Bienvenidos</h1>
     </div>
 
-    <!-- Navigation -->
+    <!-- Navigation avec support mobile -->
     <nav class="bg-white shadow-lg sticky top-0 z-40">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-between items-center py-4">
@@ -61,8 +157,8 @@
                     <span class="text-xl font-bold text-forest-green" style="font-family: 'Playfair Display', serif;">Alejandra Galván</span>
                 </div>
                 
-                <!-- Navigation -->
-                <div class="flex items-center space-x-6">
+                <!-- Navigation Desktop -->
+                <div class="desktop-nav flex items-center space-x-6">
                     <button onclick="showPage('blog')" class="nav-link text-forest-green hover:text-matte-gold transition duration-200" data-translate="nav.blog">
                         Blog
                     </button>
@@ -79,6 +175,30 @@
                         <span id="lang-btn">FR</span>
                     </button>
                 </div>
+                
+                <!-- Bouton Hamburger Mobile -->
+                <button class="mobile-menu-button" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars" id="hamburger-icon"></i>
+                </button>
+            </div>
+            
+            <!-- Menu Mobile -->
+            <div class="mobile-menu" id="mobile-menu">
+                <button onclick="showPage('blog'); closeMobileMenu()" data-translate="nav.blog">
+                    📝 Blog
+                </button>
+                <button onclick="showPage('carte-oliviers'); closeMobileMenu()" data-translate="nav.carte">
+                    🫒 Oliviers Centenaires
+                </button>
+                <button onclick="showPage('about'); closeMobileMenu()" data-translate="nav.about">
+                    👩‍🌾 À propos
+                </button>
+                <button onclick="showPage('contact'); closeMobileMenu()" data-translate="nav.contact">
+                    📞 Contact
+                </button>
+                <button onclick="toggleLanguage(); closeMobileMenu()" class="language-btn">
+                    🌍 <span id="lang-btn-mobile">FR</span>
+                </button>
             </div>
         </div>
     </nav>
@@ -94,7 +214,7 @@
             
             <!-- RSS Section -->
             <div class="bg-stone-gray bg-opacity-20 p-6 rounded-lg mb-8">
-                <h2 class="text-2xl mb-4 text-forest-green font-bold" style="font-family: 'Playfair Display', serif;" data-translate="home.rss_title">
+                <h2 class="text-2xl rss-title mb-4 text-forest-green font-bold" style="font-family: 'Playfair Display', serif;" data-translate="home.rss_title">
                     Actualités Oléicoles Internationales
                 </h2>
                 
@@ -109,13 +229,13 @@
                     <!-- RSS content will be inserted here -->
                 </div>
                 
-                <div class="flex items-center justify-between mt-4">
-                    <button onclick="rssLoader.nextItem()" class="bg-forest-green text-white px-4 py-2 rounded hover:bg-green-800 transition duration-200 flex items-center space-x-2">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-4 gap-4">
+                    <button onclick="rssLoader.nextItem()" class="bg-forest-green text-white px-4 py-2 rounded hover:bg-green-800 transition duration-200 flex items-center justify-center space-x-2">
                         <i class="fas fa-chevron-right" id="next-icon"></i>
                         <span data-translate="home.rss_next">Suivant</span>
                     </button>
                     
-                    <div class="text-sm text-gray-500">
+                    <div class="text-sm text-gray-500 text-center sm:text-right">
                         <span data-translate="home.rss_source">Source:</span> 
                         <a href="https://www.internationaloliveoil.org" target="_blank" class="text-matte-gold hover:underline">COI</a>
                         | <span id="rss-last-update"></span>

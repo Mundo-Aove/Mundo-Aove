@@ -1,6 +1,6 @@
 // ================================
 // MOTEUR PRINCIPAL DU BLOG
-// Version corrigée pour le nouveau système
+// Version optimisée avec navigation mobile
 // ================================
 
 class BlogEngine {
@@ -432,6 +432,103 @@ class BlogEngine {
 }
 
 // ================================
+// NAVIGATION MOBILE
+// ================================
+
+/**
+ * Toggle du menu mobile
+ */
+window.toggleMobileMenu = function() {
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('hamburger-icon');
+    
+    if (!menu || !icon) return;
+    
+    menu.classList.toggle('active');
+    
+    // Change l'icône hamburger ↔ croix
+    if (menu.classList.contains('active')) {
+        icon.className = 'fas fa-times';
+    } else {
+        icon.className = 'fas fa-bars';
+    }
+    
+    console.log('📱 Menu mobile:', menu.classList.contains('active') ? 'ouvert' : 'fermé');
+};
+
+/**
+ * Fermeture du menu mobile
+ */
+window.closeMobileMenu = function() {
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('hamburger-icon');
+    
+    if (!menu || !icon) return;
+    
+    menu.classList.remove('active');
+    icon.className = 'fas fa-bars';
+    
+    console.log('📱 Menu mobile fermé');
+};
+
+/**
+ * Synchronisation du bouton langue mobile
+ */
+function syncMobileLangButton() {
+    const desktopBtn = document.getElementById('lang-btn');
+    const mobileBtn = document.getElementById('lang-btn-mobile');
+    
+    if (desktopBtn && mobileBtn) {
+        mobileBtn.textContent = desktopBtn.textContent;
+    }
+}
+
+// ================================
+// EVENT LISTENERS NAVIGATION MOBILE
+// ================================
+
+// Fermeture du menu si clic à l'extérieur
+document.addEventListener('click', function(event) {
+    const menu = document.getElementById('mobile-menu');
+    const button = document.querySelector('.mobile-menu-button');
+    
+    if (menu && button && 
+        !menu.contains(event.target) && 
+        !button.contains(event.target)) {
+        window.closeMobileMenu();
+    }
+});
+
+// Fermeture du menu sur redimensionnement (si on passe desktop)
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+        window.closeMobileMenu();
+    }
+});
+
+// Synchronisation des boutons langue au changement
+document.addEventListener('DOMContentLoaded', function() {
+    // Observer les changements du bouton langue desktop
+    const desktopBtn = document.getElementById('lang-btn');
+    if (desktopBtn) {
+        const observer = new MutationObserver(function() {
+            syncMobileLangButton();
+        });
+        
+        observer.observe(desktopBtn, {
+            childList: true,
+            characterData: true,
+            subtree: true
+        });
+        
+        // Sync initial
+        syncMobileLangButton();
+    }
+});
+
+console.log('📱 Navigation mobile chargée');
+
+// ================================
 // INITIALISATION GLOBALE
 // ================================
 
@@ -440,7 +537,11 @@ window.blogApp = new BlogEngine();
 
 // Fonctions globales pour compatibilité avec l'HTML existant
 window.showPage = (page) => window.blogApp.showPage(page);
-window.toggleLanguage = () => window.blogApp.toggleLanguage();
+window.toggleLanguage = () => {
+    window.blogApp.toggleLanguage();
+    // Sync mobile après changement
+    setTimeout(syncMobileLangButton, 100);
+};
 window.newBubble = () => window.blogApp.newBubble();
 window.showArticle = (id) => window.blogApp.showArticle(id);
 window.handleContactForm = (event) => window.blogApp.handleContactForm(event);
