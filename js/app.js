@@ -7,7 +7,7 @@ class BlogEngine {
     constructor() {
         this.config = null;
         this.articleManager = null;
-        this.currentLang = 'fr';
+        this.currentLang = 'es';
         this.currentPage = 'blog';
         this.isInitialized = false;
         this.components = {};
@@ -38,7 +38,7 @@ class BlogEngine {
             this.setupEventListeners();
             
             // 4. Charger la langue par défaut
-            this.currentLang = this.config?.site?.lang || 'fr';
+            this.currentLang = this.config?.site?.lang || 'es';
             this.articleManager.setLanguage(this.currentLang);
             
             // 5. Rendu initial
