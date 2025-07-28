@@ -18,7 +18,15 @@ const translations = {
             title: 'Blog de Oléiculture Péruvienne',
             bubbles_title: 'Réflexions de la Semaine',
             new_bubble: 'Nouvelle réflexion',
-            loading: 'Chargement des articles...'
+            loading: 'Chargement des articles...',
+            rss_title: "Actualités Oléicoles Internationales",
+            rss_loading: "Chargement des actualités RSS...",
+            refresh_rss: "Actualiser",
+            rss_source: "Source",
+            rss_updated: "Mis à jour le",
+            rss_error: "Erreur de chargement RSS",
+            rss_read_more: "Lire l'article complet",
+            rss_next: "Suivant" 
         },
         
         // Page carte
@@ -102,7 +110,15 @@ const translations = {
             title: 'Blog de Olivicultura Peruana',
             bubbles_title: 'Reflexiones de la Semana',
             new_bubble: 'Nueva reflexión',
-            loading: 'Cargando artículos...'
+            loading: 'Cargando artículos...',
+            rss_title: "Noticias Oleícolas Internacionales",
+            rss_loading: "Cargando noticias RSS...",
+            refresh_rss: "Actualizar", 
+            rss_source: "Fuente",
+            rss_updated: "Actualizado el",
+            rss_error: "Error al cargar RSS",
+            rss_read_more: "Leer artículo completo",
+            rss_next: "Siguiente"
         },
         
         // Page carte

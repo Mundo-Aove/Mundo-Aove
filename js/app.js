@@ -199,8 +199,19 @@ class BlogEngine {
         this.updateLanguage();
         this.updateLanguageButton();
         
+        // ✅ CORRECTION : Re-render l'article si on est dedans
+        if (this.currentPage === 'article-detail') {
+            const hash = window.location.hash;
+            if (hash.includes('#article-')) {
+                const articleId = parseInt(hash.match(/\d+/)?.[0]);
+                if (articleId) {
+                    console.log(`🔄 Re-rendu article ${articleId} en ${this.currentLang}`);
+                    this.showArticle(articleId);
+                }
+            }
+        }
         // Re-render articles si on est sur la page blog
-        if (this.currentPage === 'blog') {
+        else if (this.currentPage === 'blog') {
             this.articleManager?.renderArticles(this.currentLang);
         }
         

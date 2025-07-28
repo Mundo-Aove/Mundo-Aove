@@ -1,0 +1,23 @@
+{
+  "articles": [
+    {
+      "id": 1002,
+      "title": {
+        "fr": "Test Article 002 Français",
+        "es": "Test Artículo 002 Español"
+      },
+      "content": {
+        "fr": "# Deuxième test\n\nDeuxième article pour tester l'ordre d'affichage.",
+        "es": "# Segunda prueba\n\nSegundo artículo para probar el orden de visualización."
+      },
+      "date": "2025-07-27",
+      "author": "Alejandra Galván Gómez",
+      "excerpt": {
+        "fr": "Deuxième article de test",
+        "es": "Segundo artículo de prueba"
+      },
+      "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=200&fit=crop",
+      "category": "Test"
+    }
+  ]
+}
