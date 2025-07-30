@@ -780,6 +780,9 @@ button:focus,
 
 .article-card img {
     min-height: 192px; /* h-48 = 12rem = 192px */
+    width: 100%;
+    object-fit: cover; /* AJOUT : évite la déformation/coupure */
+    object-position: center; /* AJOUT : centre l'image */
     background: #f3f4f6; /* gray-100 */
     transition: opacity 0.3s ease;
 }
