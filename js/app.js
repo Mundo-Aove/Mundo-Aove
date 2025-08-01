@@ -37,8 +37,9 @@ class BlogEngine {
             // 3. Setup des événements
             this.setupEventListeners();
             
-            // 4. Charger la langue par défaut
-            this.currentLang = this.config?.site?.lang || 'es';
+            // 4. Charger la langue par défaut (espagnol) ou sauvegardée
+            const savedLang = localStorage.getItem('preferred-language') || 'es';
+            this.currentLang = savedLang;
             this.articleManager.setLanguage(this.currentLang);
             
             // 5. Rendu initial
@@ -53,6 +54,9 @@ class BlogEngine {
             
             // 8. Afficher la page par défaut
             this.showPage('blog');
+
+            // 9. Traduire l'interface au démarrage
+            this.updateLanguage();
             
             this.isInitialized = true;
             console.log('✅ BlogEngine initialisé avec succès!');
@@ -243,15 +247,20 @@ class BlogEngine {
             const translation = window.getTranslation(key, this.currentLang);
             
             if (translation && translation !== key) {
-                if (element.tagName === 'INPUT' && element.type === 'text') {
-                    element.placeholder = translation;
-                } else if (element.tagName === 'TEXTAREA') {
+                // Gestion des placeholders
+                if (element.hasAttribute('placeholder')) {
                     element.placeholder = translation;
                 } else {
                     element.textContent = translation;
                 }
             }
         });
+        
+        // Mettre à jour l'attribut lang du HTML
+        document.documentElement.lang = this.currentLang;
+        
+        // Sauvegarder la préférence
+        localStorage.setItem('preferred-language', this.currentLang);
         
         console.log(`🌍 Interface mise à jour en ${this.currentLang}`);
     }
