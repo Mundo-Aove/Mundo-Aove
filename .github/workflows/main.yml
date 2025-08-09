@@ -1,0 +1,77 @@
+name: Fetch RSS Feed
+
+on:
+  schedule:
+    # Toutes les 6 heures
+    - cron: '0 8 * * *'
+  # Permet de lancer manuellement
+  workflow_dispatch:
+  # Lance au premier push
+  push:
+    branches: [ main ]
+
+jobs:
+  fetch-rss:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Fetch and convert RSS
+      run: |
+        node -e "
+        const https = require('https');
+        const fs = require('fs');
+        
+        const url = 'https://www.internationaloliveoil.org/feed/?lang=es';
+        
+        https.get(url, (res) => {
+          let data = '';
+          res.on('data', chunk => data += chunk);
+          res.on('end', () => {
+            // Parse XML simple
+            const items = [];
+            const itemRegex = /<item>(.*?)<\/item>/gs;
+            let match;
+            
+            while ((match = itemRegex.exec(data)) !== null) {
+              const item = match[1];
+              const title = (item.match(/<title><!\[CDATA\[(.*?)\]\]><\/title>/) || item.match(/<title>(.*?)<\/title>/))?.[1] || '';
+              const link = item.match(/<link>(.*?)<\/link>/)?.[1] || '';
+              const description = (item.match(/<description><!\[CDATA\[(.*?)\]\]><\/description>/) || item.match(/<description>(.*?)<\/description>/))?.[1] || '';
+              const pubDate = item.match(/<pubDate>(.*?)<\/pubDate>/)?.[1] || '';
+              
+              if (title) {
+                items.push({ title, link, description, pubDate });
+              }
+              
+              if (items.length >= 10) break;
+            }
+            
+            const output = {
+              updated: new Date().toISOString(),
+              items: items
+            };
+            
+            fs.writeFileSync('rss-data.json', JSON.stringify(output, null, 2));
+            console.log('RSS converti:', items.length, 'articles');
+          });
+        }).on('error', (err) => {
+          console.error('Erreur:', err.message);
+          process.exit(1);
+        });
+        "
+        
+    - name: Commit and push
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add rss-data.json
+        git diff --staged --quiet || git commit -m "Update RSS data"
+        git push

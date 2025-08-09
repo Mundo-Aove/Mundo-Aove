@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alejandra Galván Gomez - Ingeniera Agroalimentaria</title>
+    <meta name="description" content="Blog professionnel sur l'oléiculture péruvienne et l'agriculture durable">
+    
+    <!-- Styles externes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'forest-green': '#2d5016',
+                        'earth-brown': '#8b4513', 
+                        'matte-gold': '#d4af37',
+                        'stone-gray': '#a0956b',
+                        'off-white': '#fafaf8'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/favicon.svg">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Notre CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* ==== NAVIGATION MOBILE RESPONSIVE ==== */
+        .mobile-menu-button {
+            display: none;
+        }
+        
+        .mobile-menu {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            /* Cache la navigation desktop sur mobile */
+            .desktop-nav {
+                display: none !important;
+            }
+            
+            /* Montre le bouton hamburger */
+            .mobile-menu-button {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                padding: 8px;
+                background: transparent;
+                border: none;
+                color: #2d5016;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+            
+            /* Menu mobile */
+            .mobile-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                border-top: 1px solid #e5e7eb;
+                z-index: 50;
+            }
+            
+            .mobile-menu.active {
+                display: block;
+            }
+            
+            .mobile-menu button {
+                display: block;
+                width: 100%;
+                text-align: left;
+                padding: 12px 16px;
+                border: none;
+                background: white;
+                color: #2d5016;
+                border-bottom: 1px solid #f3f4f6;
+                transition: background-color 0.2s;
+            }
+            
+            .mobile-menu button:hover {
+                background-color: #f9fafb;
+                color: #d4af37;
+            }
+            
+            .mobile-menu .language-btn {
+                background-color: #d4af37;
+                color: white;
+                border-radius: 0;
+                margin: 8px;
+                width: calc(100% - 16px);
+                border-radius: 8px;
+            }
+            
+            /* Responsive pour la section RSS */
+            .bg-stone-gray { 
+                padding: 1rem !important; 
+            }
+            
+            .text-2xl.rss-title { 
+                font-size: 1.5rem !important; 
+            }
+            
+            /* Boutons plus grands sur mobile */
+            button { 
+                min-height: 44px; 
+            }
+        }
+        
+        /* Animations CSS pour le menu mobile */
+        #next-icon {
+            transition: transform 0.2s ease;
+        }
+        
+        #rss-container {
+            transition: opacity 0.15s ease, transform 0.15s ease;
+        }
+    </style>
+</head>
+<body class="bg-off-white">
+    <!-- Splash Screen -->
+    <div class="splash-screen fixed inset-0 bg-off-white flex flex-col items-center justify-center z-50">
+        <svg class="olive-logo w-24 h-24 animate-spin" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="35" fill="none" stroke="#2d5016" stroke-width="3"/>
+            <path d="M50 15 C30 30 30 70 50 85 C70 70 70 30 50 15" fill="#2d5016"/>
+            <circle cx="40" cy="40" r="3" fill="#d4af37"/>
+            <circle cx="60" cy="45" r="3" fill="#d4af37"/>
+            <circle cx="45" cy="60" r="3" fill="#d4af37"/>
+        </svg>
+        <h1 class="text-3xl mt-4 font-bold text-forest-green" style="font-family: 'Playfair Display', serif;">Bienvenidos</h1>
+    </div>
+
+    <!-- Navigation avec support mobile -->
+    <nav class="bg-white shadow-lg sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="w-8 h-8 mr-2 text-forest-green" viewBox="0 0 32 32">
+                        <path fill="currentColor" d="M16 2 C8 10, 8 22, 16 30 C24 22, 24 10, 16 2"/>
+                        <circle cx="13" cy="12" r="2" fill="#d4af37"/>
+                    </svg>
+                    <span class="text-xl font-bold text-forest-green" style="font-family: 'Playfair Display', serif;">Alejandra Galván Gomez</span>
+                </div>
+                
+                <!-- Navigation Desktop -->
+                <div class="desktop-nav flex items-center space-x-6">
+                    <button onclick="showPage('blog')" class="nav-link text-forest-green hover:text-matte-gold transition duration-200" data-translate="nav.blog">
+                        Blog
+                    </button>
+                    <button onclick="showPage('carte-oliviers')" class="nav-link text-forest-green hover:text-matte-gold transition duration-200" data-translate="nav.carte">
+                        Oliviers Centenaires
+                    </button>
+                    <button onclick="showPage('about')" class="nav-link text-forest-green hover:text-matte-gold transition duration-200" data-translate="nav.about">
+                        À propos
+                    </button>
+                    <button onclick="showPage('contact')" class="nav-link text-forest-green hover:text-matte-gold transition duration-200" data-translate="nav.contact">
+                        Contact
+                    </button>
+                    <button onclick="toggleLanguage()" class="bg-matte-gold text-white px-4 py-2 rounded-full hover:bg-yellow-600 transition duration-200">
+                        <span id="lang-btn">ES</span>
+                    </button>
+                </div>
+                
+                <!-- Bouton Hamburger Mobile -->
+                <button class="mobile-menu-button" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars" id="hamburger-icon"></i>
+                </button>
+            </div>
+            
+            <!-- Menu Mobile -->
+            <div class="mobile-menu" id="mobile-menu">
+                <button onclick="showPage('blog'); closeMobileMenu()" data-translate="nav.blog">
+                    📝 Blog
+                </button>
+                <button onclick="showPage('carte-oliviers'); closeMobileMenu()" data-translate="nav.carte">
+                    🫒 Oliviers Centenaires
+                </button>
+                <button onclick="showPage('about'); closeMobileMenu()" data-translate="nav.about">
+                    👩‍🌾 À propos
+                </button>
+                <button onclick="showPage('contact'); closeMobileMenu()" data-translate="nav.contact">
+                    📞 Contact
+                </button>
+                <button onclick="toggleLanguage(); closeMobileMenu()" class="language-btn">
+                    🌍 <span id="lang-btn-mobile">FR</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        
+        <!-- ========== PAGE BLOG ========== -->
+        <div id="blog-page" class="page-content">
+            <h1 class="text-4xl mb-8 text-center text-forest-green font-bold" style="font-family: 'Playfair Display', serif;" data-translate="home.title">
+                Blog de Oléiculture Péruvienne
+            </h1>
+            
+            <!-- RSS Section -->
+            <div class="bg-stone-gray bg-opacity-20 p-6 rounded-lg mb-8">
+                <h2 class="text-2xl rss-title mb-4 text-forest-green font-bold" style="font-family: 'Playfair Display', serif;" data-translate="home.rss_title">
+                    Actualités Oléicoles Internationales
+                </h2>
+                
+                <div id="rss-container" class="space-y-4">
+                    <!-- Loading state -->
+                    <div id="rss-loading" class="bg-white p-4 rounded-lg shadow-md border-l-4 border-matte-gold">
+                        <div class="flex items-center space-x-3">
+                            <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-forest-green"></div>
+                            <p class="text-gray-600" data-translate="home.rss_loading">Chargement des actualités RSS...</p>
+                        </div>
+                    </div>
+                    <!-- RSS content will be inserted here -->
+                </div>
+                
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-4 gap-4">
+                    <button onclick="rssLoader.nextItem()" class="bg-forest-green text-white px-4 py-2 rounded hover:bg-green-800 transition duration-200 flex items-center justify-center space-x-2">
+                        <i class="fas fa-chevron-right" id="next-icon"></i>
+                        <span data-translate="home.rss_next">Suivant</span>
+                    </button>
+                    
+                    <div class="text-sm text-gray-500 text-center sm:text-right">
+                        <span data-translate="home.rss_source">Source:</span> 
+                        <a href="https://www.internationaloliveoil.org" target="_blank" class="text-matte-gold hover:underline">COI</a>
+                        | <span id="rss-last-update"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Articles Grid -->
+            <div id="articles-container" class="grid md:grid-cols-2 gap-6">
+                <!-- Articles seront chargés ici par JavaScript -->
+                <div class="col-span-2 text-center py-12">
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-forest-green"></div>
+                    <p class="mt-4 text-gray-600" data-translate="home.loading">Chargement des articles...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== PAGE CARTE OLIVIERS ========== -->
+        <div id="carte-oliviers-page" class="page-content hidden">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-forest-green mb-4" style="font-family: 'Playfair Display', serif;" data-translate="carte.title">
+                    Oliviers Centenaires de Tacna-Moquegua-Ilo
+                </h1>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto" data-translate="carte.description">
+                    Découvrez notre inventaire des oliviers centenaires de la région sud du Pérou. 
+                    Chaque arbre raconte l'histoire de l'oléiculture péruviene.
+                </p>
+            </div>
+
+            <!-- Container pour la carte -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <!-- Barre d'outils -->
+                <div class="bg-forest-green text-white p-4">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                        <h2 class="text-xl font-semibold mb-2 md:mb-0" data-translate="carte.map_title">
+                            Carte Interactive
+                        </h2>
+                        <div class="flex items-center space-x-4 text-sm">
+                            <span data-translate="carte.total_trees">
+                                🫒 3 oliviers recensés
+                            </span>
+                            <span data-translate="carte.last_update">
+                                Dernière mise à jour : 22/07/2025
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zone carte -->
+                <div id="carte-container" class="relative">
+                    <div id="carte-oliviers" class="w-full h-96 lg:h-[500px] bg-gray-100 flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-map-marked-alt text-6xl text-forest-green mb-4"></i>
+                            <h3 class="text-xl text-forest-green mb-2">Carte Interactive</h3>
+                            <p class="text-gray-600">La carte sera implémentée avec Leaflet.js</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Légende -->
+            <div class="mt-8 bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-xl font-semibold text-forest-green mb-4" data-translate="carte.legend_title">
+                    Légende
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+                        <span data-translate="carte.legend.excellent">Excellent état (8-10/10)</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="w-4 h-4 bg-yellow-500 rounded-full"></div>
+                        <span data-translate="carte.legend.good">Bon état (6-7/10)</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="w-4 h-4 bg-red-500 rounded-full"></div>
+                        <span data-translate="carte.legend.poor">État préoccupant (1-5/10)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== PAGE À PROPOS ========== -->
+        <div id="about-page" class="page-content hidden">
+            <h1 class="text-4xl mb-8 text-forest-green font-bold" style="font-family: 'Playfair Display', serif;" data-translate="about.title">Alejandra Galván Gómez</h1>
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <img src="images/alejandra.jpeg" 
+                    alt="Alejandra Galván Gómez" 
+                    class="w-48 h-48 rounded-full mx-auto mb-6 object-cover border-4 border-matte-gold"
+                    onerror="this.src='https://images.unsplash.com/photo-1494790108755-2616c3b9c3c8?w=300&h=300&fit=crop'">
+                
+                <p class="text-lg mb-4 text-gray-700 leading-relaxed" data-translate="about.bio1">
+                    Ingeniera colegiada y habilitada en Industrias Alimentarias...
+                </p>
+                
+                <p class="mb-6 text-gray-700 leading-relaxed" data-translate="about.bio2">
+                    Coautora de primer libro para niños en Perú...
+                </p>
+                
+                <div class="mt-6">
+                    <h3 class="text-xl mb-4 text-forest-green font-bold" style="font-family: 'Playfair Display', serif;" data-translate="about.specialties_title">Especialidades:</h3>
+                    <div class="grid md:grid-cols-2 gap-3">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-leaf text-matte-gold"></i>
+                            <span data-translate="about.spec1">Análisis sensoriales</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-seedling text-matte-gold"></i>
+                            <span data-translate="about.spec2">Asistencia y consultoría en producción de aceite y aceitunas</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-tint text-matte-gold"></i>
+                            <span data-translate="about.spec3">Producción de aceite de oliva extra virgen</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-flask text-matte-gold"></i>
+                            <span data-translate="about.spec4">Asistencia en la creación de mezclas (blends)</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-clipboard-check text-matte-gold"></i>
+                            <span data-translate="about.spec5">Elaboración de manuales e implementación de BPM, POES, PGH, HACCP</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-certificate text-matte-gold"></i>
+                            <span data-translate="about.spec6">Asesoría para obtención de registro sanitario</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== PAGE CONTACT ========== -->
+        <div id="contact-page" class="page-content hidden">
+            <h1 class="text-4xl mb-8 text-forest-green font-bold" style="font-family: 'Playfair Display', serif;">Contact</h1>
+            
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <form id="contact-form" onsubmit="handleContactSubmit(event)">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Nom</label>
+                        <input type="text" name="name" required
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-forest-green focus:border-transparent">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Email</label>
+                        <input type="email" name="email" required
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-forest-green focus:border-transparent">
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">Message</label>
+                        <textarea name="message" rows="6" required placeholder="Votre message..."
+                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-forest-green focus:border-transparent resize-vertical"></textarea>
+                    </div>
+                    
+                    <button type="submit" 
+                            class="w-full bg-forest-green text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-colors duration-200 flex items-center justify-center gap-2">
+                        <i class="fas fa-paper-plane"></i>
+                        Envoyer le message
+                    </button>
+                </form>
+                
+                <div class="mt-8 pt-8 border-t border-gray-200 text-center">
+                    <p class="text-gray-600 mb-4">Ou contactez-moi directement :</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a href="mailto:mundo.aove.tacna@gmail.com" 
+                           class="flex items-center gap-2 text-matte-gold hover:text-yellow-600 transition duration-200">
+                            <i class="fas fa-envelope"></i>
+                            mundo.aove.tacna@gmail.com
+                        </a>
+                        <a href="https://www.linkedin.com/in/alejandra-paula-galv%C3%A1n-g%C3%B3mez/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="text-gray-300 hover:text-matte-gold transition duration-200 text-xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== PAGE DÉTAIL ARTICLE ========== -->
+        <div id="article-detail-page" class="page-content hidden">
+            <button onclick="showPage('blog')" 
+                    class="mb-6 flex items-center gap-2 text-matte-gold hover:text-yellow-600 transition duration-200 font-medium">
+                <i class="fas fa-arrow-left"></i>
+                <span data-translate="article.back">Retour aux articles</span>
+            </button>
+            <div id="article-content" class="prose prose-lg max-w-none bg-white rounded-lg shadow-lg p-8">
+                <!-- Le contenu de l'article sera chargé ici -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-forest-green text-white py-12 mt-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="text-xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Alejandra Galván Gomez</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed" data-translate="footer.description">
+                        Ingénieure agroalimentaire spécialisée dans l'oléiculture péruvienne.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4" data-translate="footer.navigation">Navigation</h4>
+                    <div class="space-y-2">
+                        <button onclick="showPage('blog')" class="block text-gray-300 hover:text-matte-gold transition duration-200" data-translate="nav.blog">Blog</button>
+                        <button onclick="showPage('carte-oliviers')" class="block text-gray-300 hover:text-matte-gold transition duration-200" data-translate="nav.carte">Oliviers Centenaires</button>
+                        <button onclick="showPage('about')" class="block text-gray-300 hover:text-matte-gold transition duration-200" data-translate="nav.about">À propos</button>
+                        <button onclick="showPage('contact')" class="block text-gray-300 hover:text-matte-gold transition duration-200" data-translate="nav.contact">Contact</button>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4" data-translate="footer.follow">Suivez-moi</h4>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="https://www.facebook.com/share/1HLLEM3rpJ/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="text-gray-300 hover:text-matte-gold transition duration-200 text-xl">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/mundoaove?utm_source=qr&igsh=cjN5YXc5NDlkZHZm" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="text-gray-300 hover:text-matte-gold transition duration-200 text-xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/alejandra-paula-galv%C3%A1n-g%C3%B3mez/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="text-gray-300 hover:text-matte-gold transition duration-200 text-xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-600 mt-8 pt-8 text-center">
+                <p class="text-gray-300 text-sm">
+                    &copy; 2025 Alejandra Galván. <span data-translate="footer.rights">Tous droits réservés</span>. | 
+                    <span class="text-matte-gold">Mundo Aove Pérou</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- TELEGRAM BOT CONTACT SCRIPT -->
+    <script>
+    async function handleContactSubmit(event) {
+        event.preventDefault();
+        
+        const formData = new FormData(event.target);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const message = formData.get('message');
+        
+        // Désactiver le bouton pendant l'envoi
+        const button = event.target.querySelector('button');
+        const originalText = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Envoi en cours...';
+        button.disabled = true;
+        
+        // Envoyer via Telegram
+        const success = await sendContactForm(name, email, message);
+        
+        if (success) {
+            event.target.reset(); // Vider le formulaire
+        }
+        
+        // Restaurer le bouton
+        button.innerHTML = originalText;
+        button.disabled = false;
+    }
+    </script>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/translations.js"></script>
+    <script src="js/auto-loader.js"></script>
+    <script src="js/articles.js"></script>
+    <script src="js/portfolio.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/carte-oliviers.js"></script>
+    <script src="js/telegram-contact.js"></script>
+    <script src="js/rss-loader.js"></script>
+
+</body>
+</html>

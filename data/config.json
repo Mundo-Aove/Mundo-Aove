@@ -1,0 +1,36 @@
+{
+  "site": {
+    "title": "Alejandra Galván - Ingeniera Agroalimentaria",
+    "description": "Blog professionnel sur l'oléiculture péruvienne et l'agriculture durable",
+    "url": "https://mundo-aove.github.io/Mundo-Aove",
+    "author": "Alejandra Galván Gómez",
+    "email": "mundo.aove.tacna@gmail.com",
+    "version": "2.0.0",
+    "buildDate": "2025-07-21",
+    "lang": "fr"
+  },
+  "features": {
+    "analytics": false,
+    "newsletter": false,
+    "comments": false,
+    "darkMode": false,
+    "lazyLoading": true,
+    "cache": true,
+    "errorTracking": false
+  },
+  "social": {
+    "facebook": "",
+    "instagram": "",
+    "linkedin": "",
+    "whatsapp": "+51-XXX-XXX-XXX"
+  },
+  "seo": {
+    "keywords": "oléiculture, Pérou, agriculture durable, olive, Tacna, ingénieur agroalimentaire",
+    "ogImage": "images/og-image.jpg"
+  },
+  "performance": {
+    "cacheTimeout": 300000,
+    "imageQuality": 85,
+    "lazyLoadOffset": 100
+  }
+}

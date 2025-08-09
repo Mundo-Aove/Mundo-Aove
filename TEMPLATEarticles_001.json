@@ -1,0 +1,23 @@
+{
+  "articles": [
+    {
+      "id": 1001,
+      "title": {
+        "fr": "Test Article 001 Français",
+        "es": "Test Artículo 001 Español"
+      },
+      "content": {
+        "fr": "# Contenu de test\n\nCeci est un article de test pour vérifier le système d'index MD.",
+        "es": "# Contenido de prueba\n\nEste es un artículo de prueba para verificar el sistema de índice MD."
+      },
+      "date": "2025-07-26",
+      "author": "Alejandra Galván Gómez",
+      "excerpt": {
+        "fr": "Article de test pour le nouveau système",
+        "es": "Artículo de prueba para el nuevo sistema"
+      },
+      "image": "images/incoming/1001.jpg",
+      "category": "Test"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+*.log
+
+# Build
+dist/
+*.min.css
+*.min.js
+
+# Cache
+.cache/
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/settings.json
+.idea/
+
+# Local config
+.env
+config.local.json

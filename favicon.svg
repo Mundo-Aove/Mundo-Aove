@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Fond transparent -->
+  <rect width="32" height="32" fill="none"/>
+  <!-- Olive verte -->
+  <ellipse cx="16" cy="16" rx="8" ry="12" fill="#2d5016"/>
+  <!-- Reflet doré -->
+  <ellipse cx="14" cy="12" rx="2" ry="3" fill="#d4af37" opacity="0.7"/>
+  <!-- Petit reflet -->
+  <circle cx="18" cy="14" r="1" fill="#8fbc8f"/>
+</svg>
