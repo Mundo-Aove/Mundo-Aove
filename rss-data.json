@@ -1,6 +1,12 @@
 {
-  "updated": "2025-09-19T08:32:20.670Z",
+  "updated": "2025-09-20T08:29:03.500Z",
   "items": [
+    {
+      "title": "Esta semana en el OHIS",
+      "link": "https://www.internationaloliveoil.org/esta-semana-en-el-ohis-12/?lang=es",
+      "description": "",
+      "pubDate": "Fri, 19 Sep 2025 15:35:30 +0000"
+    },
     {
       "title": "Ganadores del Premio a la Calidad Mario Solinas 2025 – Edición Hemisferio Sur",
       "link": "https://www.internationaloliveoil.org/ganadores-del-premio-a-la-calidad-mario-solinas-2025-edicion-hemisferio-sur/?lang=es",
@@ -54,12 +60,6 @@
       "link": "https://www.internationaloliveoil.org/premio-a-la-calidad-mario-solinas-hemisferio-sur-plazo-ampliado-hasta-el-19-de-agosto-2025/?lang=es",
       "description": "",
       "pubDate": "Mon, 28 Jul 2025 15:00:32 +0000"
-    },
-    {
-      "title": "Estadísticas del sector oleícola – junio/julio 2025",
-      "link": "https://www.internationaloliveoil.org/estadisticas-del-sector-oleicola-junio-julio-2025/?lang=es",
-      "description": "",
-      "pubDate": "Fri, 25 Jul 2025 07:00:04 +0000"
     }
   ]
 }
