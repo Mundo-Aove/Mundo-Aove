@@ -1,6 +1,12 @@
 {
-  "updated": "2025-10-27T08:35:23.873Z",
+  "updated": "2025-10-28T08:34:53.832Z",
   "items": [
+    {
+      "title": "Esta semana en el OHIS",
+      "link": "https://www.internationaloliveoil.org/esta-semana-en-el-ohis-16/?lang=es",
+      "description": "",
+      "pubDate": "Mon, 27 Oct 2025 12:26:24 +0000"
+    },
     {
       "title": "Estadísticas del sector oleícola – octubre 2025",
       "link": "https://www.internationaloliveoil.org/estadisticas-del-sector-oleicola-octubre-2025/?lang=es",
@@ -54,12 +60,6 @@
       "link": "https://www.internationaloliveoil.org/ioc-carbon-balance-project-advances-toward-climate-certification/?lang=es",
       "description": "",
       "pubDate": "Fri, 03 Oct 2025 15:00:30 +0000"
-    },
-    {
-      "title": "The IOC is hiring: Head of the Olive Growing, Olive Oil Technology and Environment Unit",
-      "link": "https://www.internationaloliveoil.org/the-ioc-is-hiring-head-of-the-olive-growing-olive-oil-technology-and-environment-unit/?lang=es",
-      "description": "",
-      "pubDate": "Thu, 02 Oct 2025 13:42:00 +0000"
     }
   ]
 }
