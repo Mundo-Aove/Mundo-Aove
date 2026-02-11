@@ -167,6 +167,77 @@ const translations = {
             "Des essais sont en cours à Moquegua pour adapter des variétés européennes au climat péruvien.",
             "La valorisation des olives de table représente une opportunité de diversification pour les petits producteurs locaux."
         ]
+    },
+        en: {
+        nav: {
+            blog: 'Blog',
+            carte: 'Ancient Olive Trees',
+            about: 'About',
+            contact: 'Contact'
+        },
+        home: {
+            title: 'Mundo Aove Peru Blog',
+            bubbles_title: 'Weekly Reflections',
+            new_bubble: 'New reflection',
+            loading: 'Loading articles...',
+            rss_title: "International Olive Oil News",
+            rss_loading: "Loading RSS news...",
+            refresh_rss: "Refresh",
+            rss_source: "Source",
+            rss_updated: "Updated on",
+            rss_error: "RSS loading error",
+            rss_read_more: "Read full article",
+            rss_next: "Next"
+        },
+        carte: {
+            title: 'Ancient Olive Trees of Tacna & Moquegua',
+            description: 'Discover our inventory of ancient olive trees in Southern Peru. Each tree tells a story of Peruvian olive heritage.',
+            map_title: 'Interactive Map',
+            total_trees: '🫒 67 registered trees',
+            last_update: 'Last update: 07/22/2025',
+            loading: 'Loading map...',
+            legend_title: 'Legend',
+            legend: {
+                excellent: 'Excellent condition (8-10/10)',
+                good: 'Good condition (6-7/10)',
+                poor: 'Concerning condition (1-5/10)'
+            }
+        },
+        about: {
+            title: 'Alejandra Galván Gómez',
+            bio1: 'Licensed and certified Food Industry Engineer with an Official Master’s degree in Olive Growing and Olive Oil obtained in Spain. She has over 12 years of experience in the Olive Oil sector, specializing in Quality Assurance, Quality Management, and production, leading both national and international quality audits and certifications.',
+            bio2: 'Co-author of the first children’s book in Peru, "Learning from the Peruvian Olive Tree," which won 1st place worldwide in the "Book for Children" category at the Gourmand World Cookbook Awards 2023 in Umeå, Sweden. She also serves as an international jury member for olive oil competitions. Currently, she is working on the "Olive Project" at the Regional Directorate of Agriculture in Tacna.',
+            specialties_title: 'Specialties:',
+            spec1: 'Sensory analysis (tasting)',
+            spec2: 'Technical assistance and consultancy in oil and olive production',
+            spec3: 'Extra virgin olive oil production management',
+            spec4: 'Expert assistance in creating olive oil blends',
+            spec5: 'Development and implementation of BPM, POES, PGH, and HACCP manuals',
+            spec6: 'Advisory services for obtaining sanitary registrations'
+        },
+        contact: {
+            title: 'Contact',
+            name: 'Name',
+            email: 'Email',
+            message: 'Message',
+            send: 'Send Message'
+        },
+        article: {
+            back: 'Back to articles',
+            read_more: 'Read more',
+            gallery: 'Photo Gallery'
+        },
+        footer: {
+            description: 'Agri-food engineer specialized in Peruvian olive growing and sustainable farming practices.',
+            navigation: 'Navigation',
+            follow: 'Follow me',
+            rights: 'All rights reserved'
+        },
+        bubbles: [
+            "Tacna region is home to some of the oldest olive groves in Peru.",
+            "Cold pressing techniques preserve the delicate aromas of EVOO.",
+            "Trials are underway in Moquegua to adapt European varieties to Peru."
+        ]
     }
 };
 

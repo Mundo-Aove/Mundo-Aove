@@ -196,7 +196,7 @@ class BlogEngine {
     toggleLanguage() {
         if (!this.isInitialized) return;
         
-        this.currentLang = this.currentLang === 'es' ? 'fr' : 'es';
+        const langs = ['es', 'fr', 'en']; this.currentLang = langs[(langs.indexOf(this.currentLang) + 1) % langs.length];
         this.articleManager?.setLanguage(this.currentLang);
         
         // Mise à jour UI
@@ -228,7 +228,7 @@ class BlogEngine {
     updateLanguageButton() {
         const langBtn = document.getElementById('lang-btn');
         if (langBtn) {
-            langBtn.textContent = this.currentLang === 'es' ? 'FR' : 'ES';
+            langBtn.textContent = this.currentLang.toUpperCase();
         }
     }
 

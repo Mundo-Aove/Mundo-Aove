@@ -505,7 +505,7 @@ class ArticleManager {
     formatDate(dateStr) {
         try {
             const date = new Date(dateStr);
-            return date.toLocaleDateString(this.currentLang === 'fr' ? 'fr-FR' : 'es-ES');
+            const locales = {fr: 'fr-FR', es: 'es-ES', en: 'en-GB'}; return date.toLocaleDateString(locales[this.currentLang] || 'es-ES');
         } catch {
             return dateStr;
         }

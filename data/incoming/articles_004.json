@@ -1,0 +1,49 @@
+{
+  "articles": [
+    {
+      "id": 1004,
+      "title": {
+        "fr": "Semer l'avenir : Les enfants à la découverte de la technologie oléicole",
+        "es": "Sembrando el futuro: Niños descubriendo la tecnología olivícola",
+        "en": "Sowing the Future: Children Discovering Olive Oil Technology"
+      },
+      "content": {
+        "fr": "L'éducation est le terreau sur lequel pousse l'innovation. Récemment, nous avons organisé une journée d'immersion technique pour un groupe d'enfants, une initiative réalisée conjointement entre **Olitambo** (Richard Merino Leon) et **Agrofundo Alex** (Sra. Jenny García Vellano).\n\nLes enfants ont commencé leur voyage à **Agrofundo Alex**, au milieu des oliviers, pour comprendre que tout commence par le soin de la terre. Puis, le contraste a été saisissant lorsqu'ils ont pénétré dans l'usine d'**Olitambo**. Face aux impressionnantes machines d'extraction, ils ont découvert comment la technologie se met au service de la tradition pour extraire le meilleur de chaque fruit.\n\nTransmettre le goût de l'industrie et de la rigueur technique aux jeunes est une nécessité pour la pérennité de notre secteur. En voyant ces futurs citoyens s'intéresser au processus de production, on se dit que la relève est prête à porter haut les couleurs de l'huile d'olive péruvienne.",
+        "es": "La educación es el terreno donde crece la innovación. Recientemente, organizamos una jornada de inmersión técnica para un grupo de niños, una iniciativa realizada en conjunto entre **Olitambo** (Richard Merino Leon) y **Agrofundo Alex** (Sra. Jenny García Vellano).\n\nLos niños comenzaron su viaje en **Agrofundo Alex**, entre los olivos, para comprender que todo empieza con el cuidado de la tierra. Luego, el contraste fue impactante cuando ingresaron a la planta de **Olitambo**. Frente a las impresionantes máquinas de extracción, descubrieron cómo la tecnología se pone al servicio de la tradición para extraer lo mejor de cada fruto.\n\nTransmitir el gusto por la industria y el rigor técnico a los jóvenes es una necesidad para la sostenibilidad de nuestro sector. Al ver a estos futuros ciudadanos interesarse por el proceso de producción, sentimos que el relevo está listo para dejar en alto el nombre del aceite de oliva peruano.",
+        "en": "Education is the soil where innovation grows. Recently, we organized a technical immersion day for a group of children, a joint initiative between **Olitambo** (Richard Merino Leon) and **Agrofundo Alex** (Sra. Jenny García Vellano).\n\nThe children began their journey at **Agrofundo Alex**, among the olive trees, to understand that everything starts with caring for the land. Then, the contrast was striking as they entered the **Olitambo** factory. Facing the impressive extraction machines, they discovered how technology serves tradition to extract the best from each fruit.\n\nTransmitting a taste for industry and technical rigor to young people is a necessity for the sustainability of our sector. Seeing these future citizens take an interest in the production process makes us feel that the next generation is ready to uphold the reputation of Peruvian olive oil."
+      },
+      "date": "2025-08-25",
+      "author": "Alejandra Galván Gómez",
+      "excerpt": {
+        "fr": "Une journée d'éveil technologique et agricole pour les enfants de Tacna.",
+        "es": "Una jornada de despertar tecnológico y agrícola para los niños de Tacna.",
+        "en": "A day of technological and agricultural discovery for the children of Tacna."
+      },
+      "image": "images/incoming/1004.jpg",
+      "category": "Éducation",
+      "portfolio": {
+        "enabled": true,
+        "photos": [
+          {
+            "src": "images/portfolio/1004/photo-01.jpg",
+            "thumbnail": "images/portfolio/1004/thumb-01.jpg",
+            "caption": {
+              "fr": "Apprendre le cycle de l'olivier à Agrofundo Alex",
+              "es": "Aprendiendo el ciclo del olivo en Agrofundo Alex",
+              "en": "Learning the olive tree cycle at Agrofundo Alex"
+            }
+          },
+          {
+            "src": "images/portfolio/1004/photo-02.jpg",
+            "thumbnail": "images/portfolio/1004/thumb-02.jpg",
+            "caption": {
+              "fr": "Découverte des machines industrielles chez Olitambo",
+              "es": "Descubriendo las máquinas industriales en Olitambo",
+              "en": "Discovering industrial machines at Olitambo"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

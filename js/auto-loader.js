@@ -200,25 +200,30 @@ class AutoLoader {
      * Convertit article bilingue → format standard
      */
     convertBilingual(article, language) {
-        const title = article.title?.[language];
-        const content = article.content?.[language];
-        const excerpt = article.excerpt?.[language] || '';
-        
-        if (!title || !content) return null;
+            // Système de priorité : Langue choisie > Espagnol > Français
+            const title = article.title?.[language] || article.title?.['es'] || article.title?.['fr'];
+            const content = article.content?.[language] || article.content?.['es'] || article.content?.['fr'];
+            const excerpt = article.excerpt?.[language] || article.excerpt?.['es'] || '';
+            
+            // Si vraiment aucun titre ni contenu, là on rejette
+            if (!title || !content) {
+                console.warn(`⚠️ Article ${article.id} ignoré : contenu manquant`);
+                return null;
+            }
 
-        return {
-            id: article.id,
-            title: title,
-            content: content,
-            excerpt: excerpt,
-            date: article.date,
-            author: article.author || 'Alejandra Galván Gómez',
-            image: this.cleanImagePath(article.image, article.id),
-            category: article.category || 'Nouveau',
-            portfolio: article.portfolio,
-            source: 'incoming'
-        };
-    }
+            return {
+                id: article.id,
+                title: title,
+                content: content,
+                excerpt: excerpt,
+                date: article.date,
+                author: article.author || 'Alejandra Galván Gómez',
+                image: this.cleanImagePath(article.image, article.id),
+                category: article.category || 'Nouveau',
+                portfolio: article.portfolio,
+                source: 'incoming'
+            };
+        }
 
     /**
      * Convertit article direct → format standard

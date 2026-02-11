@@ -1,0 +1,67 @@
+{
+  "articles": [
+    {
+      "id": 1003,
+      "title": {
+        "fr": "Excellence et Terroir : Assistance technique à Tacna",
+        "es": "Excelencia y Territorio: Asistencia técnica en Tacna",
+        "en": "Excellence and Terroir: Technical Assistance in Tacna"
+      },
+      "content": {
+        "fr": "Dans le cadre du « Projet Olivo » de la Direction Régionale de l'Agriculture, j'ai eu l'opportunité d'apporter mon assistance technique lors de la phase cruciale de l'élaboration de l'huile d'olive.\n\nTout commence en zone de réception. C'est ici que le destin d'une huile de qualité se joue : avant même d'entrer dans le processus de trituration, nous surveillons l'état sanitaire des fruits. Une huile d'exception ne naît que de fruits sains, récoltés au bon moment.\n\nLors de ma visite chez Olitambo, j'ai pu vérifier rigoureusement la qualité des différents lots entrants. Chaque détail compte : la température, la propreté, et l'homogénéité des olives. Ce travail est aussi une aventure humaine. J'ai été ravie de collaborer avec Richard Merino Leon, directeur général d'Olitambo.\n\nÉchanger avec des acteurs aussi engagés pour le développement oléicole de Tacna renforce ma conviction : notre région a tout le potentiel pour briller sur la scène internationale grâce à des processus maîtrisés et une passion partagée.",
+        "es": "Como parte de las actividades del « Proyecto Olivo » de la Dirección Regional de Agricultura, tuve la oportunidad de brindar asistencia técnica durante la fase crucial de la elaboración de aceite de oliva.\n\nTodo comienza en la zona de recepción. Es aquí donde se decide el destino de un aceite de calidad: incluso antes de entrar al proceso de molienda, supervisamos el estado sanitario de los frutos. Un aceite excepcional solo nace de frutos sanos, cosechados en el momento óptimo.\n\nDurante mi visita a Olitambo, pude verificar rigurosamente la calidad de los diferentes lotes recibidos. Cada detalle cuenta: la temperatura, la limpieza y la homogeneidad de las aceitunas. Este trabajo es también una aventura humana. Fue un placer colaborar con Richard Merino Leon, gerente general de Olitambo.\n\nIntercambiar conocimientos con actores tan comprometidos con el desarrollo olivícola de Tacna refuerza mi convicción: nuestra región tiene todo el potencial para brillar en el escenario internacional gracias a procesos controlados y una pasión compartida.",
+        "en": "As part of the 'Proyecto Olivo' by the Regional Directorate of Agriculture, I had the opportunity to provide technical assistance during the crucial stage of olive oil production.\n\nIt all starts in the reception area. This is where the fate of a quality oil is decided: even before entering the milling process, we monitor the health of the fruit. Exceptional oil is only born from healthy fruit, harvested at the right time.\n\nDuring my visit to Olitambo, I was able to rigorously check the quality of the incoming lots. Every detail counts: temperature, cleanliness, and the homogeneity of the olives. This work is also a human adventure. I was delighted to collaborate with Richard Merino Leon, General Manager of Olitambo.\n\nExchanging ideas with stakeholders so committed to the olive development of Tacna reinforces my conviction: our region has all the potential to shine on the international stage through controlled processes and shared passion."
+      },
+      "date": "2025-08-15",
+      "author": "Alejandra Galván Gómez",
+      "excerpt": {
+        "fr": "Immersion technique au sein du projet Olivo chez Olitambo.",
+        "es": "Inmersión técnica en el proyecto Olivo en las instalaciones de Olitambo.",
+        "en": "Technical immersion within the Olivo project at Olitambo facilities."
+      },
+      "image": "images/incoming/1003.jpg",
+      "category": "Producción",
+      "portfolio": {
+        "enabled": true,
+        "photos": [
+          {
+            "src": "images/portfolio/1003/photo-01.jpg",
+            "thumbnail": "images/portfolio/1003/thumb-01.jpg",
+            "caption": {
+              "fr": "Zone de réception avant le début du processus",
+              "es": "Zona de recepción antes del inicio del proceso",
+              "en": "Reception area before the process begins"
+            }
+          },
+          {
+            "src": "images/portfolio/1003/photo-02.jpg",
+            "thumbnail": "images/portfolio/1003/thumb-02.jpg",
+            "caption": {
+              "fr": "Supervision en zone de réception",
+              "es": "Supervisión en zona de recepción",
+              "en": "Supervision in the reception area"
+            }
+          },
+          {
+            "src": "images/portfolio/1003/photo-03.jpg",
+            "thumbnail": "images/portfolio/1003/thumb-03.jpg",
+            "caption": {
+              "fr": "Vérification de la qualité d'un lot d'olives",
+              "es": "Verificando la calidad de un lote",
+              "en": "Checking the quality of a lot"
+            }
+          },
+          {
+            "src": "images/portfolio/1003/photo-04.jpg",
+            "thumbnail": "images/portfolio/1003/thumb-04.jpg",
+            "caption": {
+              "fr": "Avec Richard Merino Leon, directeur général d'Olitambo",
+              "es": "Con Richard Merino Leon, director general de Olitambo",
+              "en": "With Richard Merino Leon, general manager of Olitambo"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
