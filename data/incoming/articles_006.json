@@ -1,0 +1,56 @@
+{
+  "articles": [
+    {
+      "id": 1006,
+      "title": {
+        "fr": "Visite historique : Le Directeur du COI au Salon de l'Olive 2025",
+        "es": "Visita histórica: El Director del COI en el III Salón de la Aceituna 2025",
+        "en": "Historic Visit: IOC Director at the 2025 Olive & Olive Oil Salon"
+      },
+      "content": {
+        "fr": "Un honneur immense pour le secteur : nous avons accueilli l'ingénieur **Jaime Lillo**, directeur exécutif du **Conseil Oléicole International (COI)**. Sa présence au **3ème Salon de l'Olive et de l'Huile d'Olive Péruvien 2025** souligne l'importance de Tacna sur l'échiquier mondial.\n\nEn tant que membre du **Proyecto Olivo** de la **DRAT**, j'ai pu échanger avec lui sur les enjeux de qualité. Ce salon au DM Hotel est un point de rencontre stratégique entre l'administration, l'industrie et les syndicats. Ensemble, nous portons l'excellence de notre terroir vers les standards internationaux de Madrid.",
+        "es": "Un honor inmenso para nuestro sector: recibimos al Ing. **Jaime Lillo**, director ejecutivo del **Consejo Oleícola Internacional (COI)**. Su presencia en el **III Salón de la Aceituna y Aceite de Oliva Peruano 2025** resalta la importancia de Tacna en el escenario mundial.\n\nComo parte del **Proyecto Olivo** de la **DRAT**, pude intercambiar visiones sobre la calidad y normalización. Este evento en el hotel DM es un punto de encuentro estratégico entre el sector público, industrial y gremial. Juntos, impulsamos la excelencia de nuestro territorio hacia los estándares internacionales de Madrid.",
+        "en": "A huge honor for our sector: we welcomed Eng. **Jaime Lillo**, Executive Director of the **International Olive Council (IOC)**. His presence at the **3rd Peruvian Olive and Olive Oil Salon 2025** highlights Tacna's growing importance on the world stage.\n\nRepresenting the **Proyecto Olivo** (DRAT), I had the chance to discuss quality standards and future goals. This event at the DM Hotel is a strategic hub for government, industry, and unions. Together, we are pushing our local excellence toward the international standards set in Madrid."
+      },
+      "date": "2025-09-12",
+      "author": "Alejandra Galván Gómez",
+      "excerpt": {
+        "fr": "Rencontre stratégique entre le Projet Olivo et la direction mondiale du COI.",
+        "es": "Encuentro estratégico entre el Proyecto Olivo y la dirección mundial del COI.",
+        "en": "Strategic meeting between the Olivo Project and the world leadership of the IOC."
+      },
+      "image": "images/incoming/1006.jpg",
+      "category": "Eventos",
+      "portfolio": {
+        "enabled": true,
+        "photos": [
+          {
+            "src": "images/portfolio/1006/photo-01.jpg",
+            "thumbnail": "images/portfolio/1006/thumb-01.jpg",
+            "caption": { "fr": "Affiche officielle du Salon 2025", "es": "Afiche oficial del Salón 2025", "en": "Official 2025 Salon Poster" }
+          },
+          {
+            "src": "images/portfolio/1006/photo-02.jpg",
+            "thumbnail": "images/portfolio/1006/thumb-02.jpg",
+            "caption": { "fr": "Programme des conférences - Jour 1", "es": "Programa de conferencias - Día 1", "en": "Conference Program - Day 1" }
+          },
+          {
+            "src": "images/portfolio/1006/photo-03.jpg",
+            "thumbnail": "images/portfolio/1006/thumb-03.jpg",
+            "caption": { "fr": "Programme des conférences - Jour 2", "es": "Programa de conferencias - Día 2", "en": "Conference Program - Day 2" }
+          },
+          {
+            "src": "images/portfolio/1006/photo-04.jpg",
+            "thumbnail": "images/portfolio/1006/thumb-04.jpg",
+            "caption": { "fr": "Avec Jaime Lillo, Directeur Exécutif du COI", "es": "Con Jaime Lillo, Director Ejecutivo del COI", "en": "With Jaime Lillo, IOC Executive Director" }
+          },
+          {
+            "src": "images/portfolio/1006/photo-05.jpg",
+            "thumbnail": "images/portfolio/1006/thumb-05.jpg",
+            "caption": { "fr": "Réunion avec les acteurs industriels et syndicaux", "es": "Reunión con actores industriales y gremiales", "en": "Meeting with industrial and union stakeholders" }
+          }
+        ]
+      }
+    }
+  ]
+}

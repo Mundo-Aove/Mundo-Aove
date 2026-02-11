@@ -1,0 +1,40 @@
+{
+  "articles": [
+    {
+      "id": 1005,
+      "title": {
+        "fr": "L'excellence récompensée : Ier Concours Régional d'Huile d'Olive",
+        "es": "Excelencia premiada: I Concurso Regional de Aceite de Oliva Extra Virgen",
+        "en": "Excellence Awarded: 1st Regional Extra Virgin Olive Oil Contest"
+      },
+      "content": {
+        "fr": "C'est un moment historique pour notre région : le Gouvernement Régional de Tacna a officiellement reconnu les gagnants du **Ier Concours Régional d'Huile d'Olive Vierge Extra**.\n\nCe n'était pas un simple concours, mais une véritable épreuve de rigueur. Les échantillons ont été évalués par **MS Tacna Innova** et un panel d'experts accrédité par le **Conseil Oléicole International (COI)**. Faire partie de ce processus garantit que chaque huile récompensée répond aux standards mondiaux les plus exigeants.\n\nCet événement est un levier majeur pour promouvoir la qualité de notre « Or Liquide ». En récompensant le travail des producteurs locaux, nous montrons que Tacna est une référence d'excellence oléicole. Félicitations à tous les lauréats !",
+        "es": "Es un momento histórico para nuestra región: el Gobierno Regional de Tacna reconoció oficialmente a los ganadores del **I Concurso Regional de Aceite de Oliva Extra Virgen**.\n\nEste no fue un concurso cualquiera, sino una verdadera prueba de rigor. Las muestras fueron evaluadas por **MS Tacna Innova** y un panel acreditado por el **Consejo Oleícola Internacional (COI)**. Ser parte de este proceso garantiza que cada aceite premiado cumpla con los estándares mundiales más exigentes.\n\nEste certamen es un motor clave para impulsar la calidad de nuestro “Oro Líquido”. Al reconocer el esfuerzo de los productores locales, demostramos que Tacna es un referente de excelencia olivícola. ¡Felicitaciones a todos los ganadores!",
+        "en": "It is a historic moment for our region: the Regional Government of Tacna has officially recognized the winners of the **1st Regional Extra Virgin Olive Oil Contest**.\n\nThis was not just any contest, but a true test of rigor. The samples were evaluated by **MS Tacna Innova** and a panel accredited by the **International Olive Council (IOC)**. Being part of this process ensures that every awarded oil meets the highest global standards.\n\nThis event is a key driver in promoting the quality of our “Liquid Gold.” By recognizing the hard work of local producers, we show that Tacna is a benchmark for olive excellence. Congratulations to all the winners!"
+      },
+      "date": "2025-08-30",
+      "author": "Alejandra Galván Gómez",
+      "excerpt": {
+        "fr": "Le Gouvernement Régional de Tacna célèbre la qualité exceptionnelle de l'huile d'olive locale.",
+        "es": "El Gobierno Regional de Tacna celebra la calidad excepcional del aceite de oliva local.",
+        "en": "The Regional Government of Tacna celebrates the exceptional quality of local olive oil."
+      },
+      "image": "images/incoming/1005.jpg",
+      "category": "Reconocimiento",
+      "portfolio": {
+        "enabled": true,
+        "photos": [
+          {
+            "src": "images/portfolio/1005/photo-01.jpg",
+            "thumbnail": "images/portfolio/1005/thumb-01.jpg",
+            "caption": {
+              "fr": "Cérémonie de remise des prix avec les autorités régionales",
+              "es": "Ceremonia de premiación con las autoridades regionales",
+              "en": "Award ceremony with regional authorities"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
