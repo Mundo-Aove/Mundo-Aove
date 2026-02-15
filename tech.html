@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech & Infrastructure | Mundo-AOVE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root { --forest-green: #2C4C3B; --matte-gold: #C5A059; }
+        body { font-family: 'Inter', sans-serif; background-color: #fdfdfd; }
+        .serif { font-family: 'Playfair Display', serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .tech-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .tech-card:hover { transform: translateY(-10px); }
+        .gradient-dark { background: linear-gradient(135deg, #1a1c1b 0%, #2c4c3b 100%); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="border-b border-gray-100 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-[#2C4C3B] rounded flex items-center justify-center text-[#C5A059]">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <span class="serif text-2xl font-bold text-[#2C4C3B]">Mundo-AOVE <span class="text-[#C5A059]">Tech</span></span>
+            </div>
+            <div class="flex items-center space-x-8">
+                <a href="index.html" class="text-gray-600 hover:text-[#2C4C3B] font-medium transition" data-translate="article.back">Retour au Blog</a>
+                <button onclick="toggleTechLanguage()" class="bg-[#C5A059] text-white px-5 py-2 rounded-full text-sm font-bold hover:shadow-lg transition">
+                    <span id="lang-btn-tech">FR</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="gradient-dark py-24 text-white overflow-hidden relative">
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+            <div class="inline-block px-4 py-1 border border-[#C5A059] text-[#C5A059] text-xs font-bold tracking-[0.2em] uppercase mb-6">Infrastructure & Edge Computing</div>
+            <h1 class="serif text-5xl md:text-7xl mb-8 leading-tight" data-translate="tech.main_title">L'Ingénierie au service de la Terre</h1>
+            <p class="text-xl text-gray-300 max-w-2xl leading-relaxed font-light" data-translate="tech.main_subtitle">Chargement...</p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 -mt-16 pb-24 relative z-10">
+        <div class="grid md:grid-cols-3 gap-8">
+            
+            <a href="maverick.html" class="tech-card block bg-white p-10 shadow-2xl rounded-xl border-b-4 border-[#2C4C3B] hover:border-[#C5A059] no-underline">
+                <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#2C4C3B] mb-8"><i class="fas fa-server"></i></div>
+                <h3 class="serif text-2xl font-bold mb-4 text-gray-800" data-translate="tech.pillar1_title">Maverick OS</h3>
+                <p class="text-gray-500 mb-6 leading-relaxed" data-translate="tech.pillar1_desc">Chargement...</p>
+                <ul class="space-y-3 mb-8 text-sm font-semibold text-gray-600">
+                    <li><i class="fas fa-check text-[#C5A059] mr-2"></i> <span data-translate="tech.pillar1_spec1">Edge</span></li>
+                    <li><i class="fas fa-check text-[#C5A059] mr-2"></i> <span data-translate="tech.pillar1_spec2">Souveraineté</span></li>
+                    <li><i class="fas fa-check text-[#C5A059] mr-2"></i> <span data-translate="tech.pillar1_spec3">Hardware</span></li>
+                </ul>
+                <div class="text-[#C5A059] font-bold text-sm uppercase tracking-wider">Explorer le système →</div>
+            </a>
+
+            <a href="map-audit.html" class="tech-card block bg-white p-10 shadow-2xl rounded-xl border-b-4 border-[#C5A059] hover:border-[#2C4C3B] no-underline">
+                <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#C5A059] mb-8"><i class="fas fa-satellite-dish"></i></div>
+                <h3 class="serif text-2xl font-bold mb-4 text-gray-800" data-translate="tech.pillar2_title">Geo-Tech Audit</h3>
+                <p class="text-gray-500 mb-6 leading-relaxed" data-translate="tech.pillar2_desc">Chargement...</p>
+                <div class="text-[#2C4C3B] font-bold text-sm uppercase tracking-wider" data-translate="tech.pillar2_btn">Voir la Carte →</div>
+            </a>
+
+            <a href="oleosuite_app.html" class="tech-card block bg-white p-10 shadow-2xl rounded-xl border-b-4 border-[#2C4C3B] hover:border-[#C5A059] no-underline">
+                <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#2C4C3B] mb-8"><i class="fas fa-mobile-alt"></i></div>
+                <h3 class="serif text-2xl font-bold mb-4 text-gray-800" data-translate="tech.pillar3_title">OleoSuite</h3>
+                <p class="text-gray-500 mb-6 leading-relaxed" data-translate="tech.pillar3_desc">L'application métier pour l'oléiculture : 10 modules, zéro abonnement, exports personnalisables.</p>
+                <div class="text-[#C5A059] font-bold text-sm uppercase tracking-wider text-right">Découvrir →</div>
+            </a>
+
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-gray-100 py-12 text-center">
+        <p class="text-gray-400 text-sm font-medium tracking-widest uppercase" data-translate="tech.footer_info">© 2026 Mundo-AOVE</p>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/tech-page.js"></script>
+</body>
+</html>

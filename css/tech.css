@@ -1,0 +1,64 @@
+/* css/tech.css */
+
+.tech-wrapper {
+    padding-top: 80px; /* Espace pour la navbar fixe */
+    background-color: #f8f9fa; /* Un gris très clair, propre */
+}
+
+.tech-hero {
+    background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+    border-bottom: 5px solid #556b2f; /* Ton vert olive pour la continuité */
+}
+
+.tech-card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border-top: 4px solid #bdc3c7;
+}
+
+.tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.tech-card.highlight {
+    border-top-color: #556b2f; /* Toujours le vert olive en accent */
+}
+
+.tech-icon {
+    font-size: 2.5rem;
+    color: #556b2f;
+    margin-bottom: 1.5rem;
+}
+
+.tech-desc {
+    color: #6c757d;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Style spécifique pour le Texas (un peu plus "impactant") */
+.tech-specs-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    font-size: 0.85rem;
+}
+
+.tech-specs-list li {
+    margin-bottom: 5px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.tech-specs-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #556b2f;
+}

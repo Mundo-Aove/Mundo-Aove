@@ -27,6 +27,14 @@ class NavigationComponent {
         
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+
+                // Si le lien est un fichier .html réel (comme tech.html), on laisse le navigateur bosser
+                if (href && href.includes('.html')) {
+                    return; // On ne fait pas de preventDefault()
+                }
+
+                // Sinon, on gère la navigation SPA interne
                 e.preventDefault();
                 const page = link.getAttribute('onclick')?.match(/navigate\('(\w+)'\)/)?.[1];
                 if (page) {
@@ -79,11 +87,11 @@ class NavigationComponent {
                     </button>
                 </div>
                 <nav class="space-y-4">
-                    <a href="#" data-nav="home" class="block py-3 px-4 text-forest-green hover:bg-gray-100 rounded-lg transition">
+                    <a href="index.html" class="block py-3 px-4 text-forest-green hover:bg-gray-100 rounded-lg transition">
                         <i class="fas fa-home mr-3"></i>Blog
                     </a>
-                    <a href="#" data-nav="about" class="block py-3 px-4 text-forest-green hover:bg-gray-100 rounded-lg transition">
-                        <i class="fas fa-user mr-3"></i>À propos
+                    <a href="tech.html" class="block py-3 px-4 text-forest-green hover:bg-gray-100 rounded-lg transition">
+                        <i class="fas fa-microchip mr-3"></i><span data-i18n="nav.tech">Tech & Infra</span>
                     </a>
                     <a href="#" data-nav="contact" class="block py-3 px-4 text-forest-green hover:bg-gray-100 rounded-lg transition">
                         <i class="fas fa-envelope mr-3"></i>Contact

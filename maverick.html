@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maverick Engine – OS métier pour moulins | Mundo-AOVE Tech</title>
+    
+    <!-- Tailwind + Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --forest-green: #2C4C3B; --matte-gold: #C5A059; }
+        body { font-family: 'Inter', sans-serif; background-color: #fdfdfd; }
+        .serif { font-family: 'Playfair Display', serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .tech-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .tech-card:hover { transform: translateY(-10px); }
+        .gradient-dark { background: linear-gradient(135deg, #1a1c1b 0%, #2c4c3b 100%); }
+        .comparison-table th { background-color: #f9fafb; font-weight: 600; color: #2C4C3B; }
+        .comparison-table td { border-bottom: 1px solid #e5e7eb; padding: 1rem 0.5rem; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- ======= NAVIGATION ======= -->
+    <nav class="border-b border-gray-100 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-[#2C4C3B] rounded flex items-center justify-center text-[#C5A059]">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <span class="serif text-2xl font-bold text-[#2C4C3B]">Mundo-AOVE <span class="text-[#C5A059]">Tech</span></span>
+            </div>
+            <div class="flex items-center space-x-8">
+                <a href="tech.html" class="text-gray-600 hover:text-[#2C4C3B] font-medium transition" data-translate="article.back">← Retour</a>
+                <button onclick="toggleTechLanguage()" class="bg-[#C5A059] text-white px-5 py-2 rounded-full text-sm font-bold hover:shadow-lg transition">
+                    <i class="fas fa-globe mr-2"></i><span id="lang-btn-tech">FR</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ======= HEADER ======= -->
+    <header class="gradient-dark py-24 text-white overflow-hidden relative">
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+            <div class="inline-block px-4 py-1 border border-[#C5A059] text-[#C5A059] text-xs font-bold tracking-[0.2em] uppercase mb-6" data-translate="maverick.badge">
+                🫒 Système d’exploitation métier
+            </div>
+            <h1 class="serif text-5xl md:text-7xl mb-8 leading-tight" data-translate="maverick.title">
+                Maverick <span class="text-[#C5A059]">Engine</span>
+            </h1>
+            <p class="text-xl text-gray-300 max-w-2xl leading-relaxed font-light" data-translate="maverick.subtitle">
+                Le système d’exploitation métier pour les moulins à huile<br> Souverain, flexible, économique.
+            </p>
+        </div>
+    </header>
+
+    <!-- ======= MAIN ======= -->
+    <main class="max-w-7xl mx-auto px-6 -mt-16 pb-24 relative z-10">
+
+        <!-- Intro / Problème -->
+        <section class="bg-white p-10 md:p-16 rounded-3xl shadow-2xl mb-20">
+            <p class="text-xl text-gray-700 leading-relaxed mb-6" data-translate="maverick.problem_text">
+                Vous gérez la réception, la production, le conditionnement et la traçabilité avec des outils qui ne sont pas faits pour vous ? Excel, carnets papier, solutions SaaS génériques… chacune de ces approches a ses limites : saisies multiples, perte de données, abonnements coûteux, dépendance à un éditeur.
+            </p>
+            <p class="text-xl text-[#2C4C3B] font-semibold" data-translate="maverick.solution_intro">
+                Maverick Engine change la donne.
+            </p>
+            <p class="text-gray-600 mt-4" data-translate="maverick.solution_desc">
+                C’est un système d’exploitation métier, conçu pour tourner sur un simple Raspberry Pi (80 €), qui digitalise vos process sans vous enfermer dans un cloud ou un abonnement.
+            </p>
+        </section>
+
+        <!-- Problème des solutions actuelles (tableau) -->
+        <section class="mb-20">
+            <h2 class="serif text-4xl font-bold text-[#2C4C3B] mb-8 text-center" data-translate="maverick.problem_title">Le problème des solutions actuelles</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full comparison-table">
+                    <thead>
+                        <tr class="border-b border-gray-200">
+                            <th class="text-left py-4 px-4" data-translate="maverick.table_tool">Outil</th>
+                            <th class="text-left py-4 px-4" data-translate="maverick.table_limit">Limites</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="font-semibold px-4" data-translate="maverick.table_excel">Tableurs</td><td class="px-4" data-translate="maverick.table_excel_desc">Fichiers multiples, erreurs de saisie, absence de traçabilité, difficulté à partager.</td></tr>
+                        <tr><td class="font-semibold px-4" data-translate="maverick.table_saas">SaaS</td><td class="px-4" data-translate="maverick.table_saas_desc">Abonnement mensuel, données hébergées chez un tiers, dépendance à une connexion internet, impossibilité de personnaliser profondément.</td></tr>
+                        <tr><td class="font-semibold px-4" data-translate="maverick.table_turnkey">Solutions clé en main</td><td class="px-4" data-translate="maverick.table_turnkey_desc">Souvent trop rigides, coûteuses, nécessitent un serveur dédié et des compétences informatiques.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Atouts en cartes -->
+        <section class="mb-20">
+            <h2 class="serif text-4xl font-bold text-[#2C4C3B] mb-12 text-center" data-translate="maverick.advantages_title">Les atouts de Maverick Engine</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 tech-card">
+                    <div class="w-14 h-14 bg-[#2C4C3B]/10 rounded-xl flex items-center justify-center text-3xl text-[#2C4C3B] mb-6"><i class="fas fa-lock"></i></div>
+                    <h3 class="font-bold text-xl text-[#2C4C3B] mb-3" data-translate="maverick.adv1_t">Souveraineté totale</h3>
+                    <p class="text-gray-600 text-sm" data-translate="maverick.adv1_d">Aucun cloud imposé. Vos données restent sur votre matériel. Base SQLite ultra‑robuste, même en cas de coupure.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 tech-card">
+                    <div class="w-14 h-14 bg-[#C5A059]/10 rounded-xl flex items-center justify-center text-3xl text-[#C5A059] mb-6"><i class="fas fa-euro-sign"></i></div>
+                    <h3 class="font-bold text-xl text-[#2C4C3B] mb-3" data-translate="maverick.adv2_t">Zéro abonnement</h3>
+                    <p class="text-gray-600 text-sm" data-translate="maverick.adv2_d">Une fois installé, plus de licence mensuelle. Matériel à 80 €, évolutions facturées à la carte.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 tech-card">
+                    <div class="w-14 h-14 bg-[#2C4C3B]/10 rounded-xl flex items-center justify-center text-3xl text-[#2C4C3B] mb-6"><i class="fas fa-puzzle-piece"></i></div>
+                    <h3 class="font-bold text-xl text-[#2C4C3B] mb-3" data-translate="maverick.adv3_t">Adaptabilité sans recompilation</h3>
+                    <p class="text-gray-600 text-sm" data-translate="maverick.adv3_d">Chaque formulaire est un simple fichier HTML. Modifiez, ajoutez, exportez sans dépendre d’un éditeur.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 tech-card">
+                    <div class="w-14 h-14 bg-[#C5A059]/10 rounded-xl flex items-center justify-center text-3xl text-[#C5A059] mb-6"><i class="fas fa-history"></i></div>
+                    <h3 class="font-bold text-xl text-[#2C4C3B] mb-3" data-translate="maverick.adv4_t">Traçabilité complète</h3>
+                    <p class="text-gray-600 text-sm" data-translate="maverick.adv4_d">Chaque saisie est horodatée et signée. Historique exhaustif, alertes Telegram optionnelles.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 tech-card">
+                    <div class="w-14 h-14 bg-[#2C4C3B]/10 rounded-xl flex items-center justify-center text-3xl text-[#2C4C3B] mb-6"><i class="fas fa-globe"></i></div>
+                    <h3 class="font-bold text-xl text-[#2C4C3B] mb-3" data-translate="maverick.adv5_t">Multi‑poste & multi‑langue</h3>
+                    <p class="text-gray-600 text-sm" data-translate="maverick.adv5_d">Accessible depuis tout navigateur sur le réseau local. Interface en FR/ES/EN, sélectionnable en un clic.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 tech-card">
+                    <div class="w-14 h-14 bg-[#C5A059]/10 rounded-xl flex items-center justify-center text-3xl text-[#C5A059] mb-6"><i class="fas fa-bolt"></i></div>
+                    <h3 class="font-bold text-xl text-[#2C4C3B] mb-3" data-translate="maverick.adv6_t">Infrastructure ultra‑légère</h3>
+                    <p class="text-gray-600 text-sm" data-translate="maverick.adv6_d">Binaire unique en Go, démarrage en secondes. Parfait pour environnements difficiles (poussière, chaleur).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comment ça fonctionne (étapes) -->
+        <section class="mb-20">
+            <h2 class="serif text-4xl font-bold text-[#2C4C3B] mb-12 text-center" data-translate="maverick.how_title">Comment ça fonctionne ?</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-[#2C4C3B] rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">1</div>
+                    <h4 class="font-bold text-[#2C4C3B]" data-translate="maverick.step1_t">Audit</h4>
+                    <p class="text-sm text-gray-600" data-translate="maverick.step1_d">Analyse de vos flux : réception, production, conditionnement…</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-[#C5A059] rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">2</div>
+                    <h4 class="font-bold text-[#2C4C3B]" data-translate="maverick.step2_t">Formulaires</h4>
+                    <p class="text-sm text-gray-600" data-translate="maverick.step2_d">Création des pages HTML sur mesure + exports (PDF, Excel).</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-[#2C4C3B] rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">3</div>
+                    <h4 class="font-bold text-[#2C4C3B]" data-translate="maverick.step3_t">Installation</h4>
+                    <p class="text-sm text-gray-600" data-translate="maverick.step3_d">Raspberry Pi préconfiguré posé dans l’atelier, connecté au réseau.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-[#C5A059] rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">4</div>
+                    <h4 class="font-bold text-[#2C4C3B]" data-translate="maverick.step4_t">Formation</h4>
+                    <p class="text-sm text-gray-600" data-translate="maverick.step4_d">Accès via http://maverick.local, comptes personnels, saisie immédiate.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-[#2C4C3B] rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">5</div>
+                    <h4 class="font-bold text-[#2C4C3B]" data-translate="maverick.step5_t">Évolutions</h4>
+                    <p class="text-sm text-gray-600" data-translate="maverick.step5_d">Nouveaux formulaires ou exports à la carte, vous repartez avec l’outil mis à jour.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tableau avant/après -->
+        <section class="bg-gray-50 p-10 rounded-3xl mb-20">
+            <h2 class="serif text-3xl font-bold text-[#2C4C3B] mb-8 text-center" data-translate="maverick.compare_title">Ce qui change concrètement</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-xl text-gray-700 mb-4 flex items-center"><i class="fas fa-times-circle text-red-500 mr-3"></i> <span data-translate="maverick.before">Avant</span></h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li data-translate="maverick.before1">📄 Saisies papier ou Excel, ressaisies multiples</li>
+                        <li data-translate="maverick.before2">🔍 Pas de traçabilité fiable</li>
+                        <li data-translate="maverick.before3">⏳ Difficulté à retrouver un historique</li>
+                        <li data-translate="maverick.before4">📤 Export manuel pour la compta</li>
+                        <li data-translate="maverick.before5">🚫 Pas d’alertes en cas d’anomalie</li>
+                        <li data-translate="maverick.before6">🔒 Dépendance à un éditeur ou abonnement</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-xl text-[#2C4C3B] mb-4 flex items-center"><i class="fas fa-check-circle text-[#C5A059] mr-3"></i> <span data-translate="maverick.after">Après Maverick Engine</span></h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li data-translate="maverick.after1">✅ Saisie unique, directement en base</li>
+                        <li data-translate="maverick.after2">🔐 Chaque opération est signée et horodatée</li>
+                        <li data-translate="maverick.after3">⚡ Recherche instantanée par lot, fournisseur, date</li>
+                        <li data-translate="maverick.after4">📊 Génération automatique de fichiers Excel</li>
+                        <li data-translate="maverick.after5">📲 Notifications Telegram (optionnelles)</li>
+                        <li data-translate="maverick.after6">🏠 Système libre, sans redevance, que vous possédez</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pour qui -->
+        <section class="mb-20 text-center">
+            <h2 class="serif text-4xl font-bold text-[#2C4C3B] mb-6" data-translate="maverick.target_title">Pour qui ?</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto" data-translate="maverick.target_desc">
+                Moulins à huile (artisanaux ou coopératives), producteurs souhaitant tracer leurs lots, ateliers de conditionnement, toute structure qui en a assez des solutions cloud coûteuses et peu flexibles.
+            </p>
+        </section>
+
+        <!-- CTA Contact -->
+        <section class="gradient-dark text-white p-16 rounded-3xl text-center">
+            <h2 class="serif text-4xl font-bold mb-4" data-translate="maverick.cta_title">Et après ?</h2>
+            <p class="text-xl text-gray-200 max-w-2xl mx-auto mb-8" data-translate="maverick.cta_desc">
+                Nous ne vendons pas un produit fini, nous construisons votre outil sur mesure. Contactez‑nous pour un premier échange sans engagement.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:tech@mundo-aove.com" class="bg-[#C5A059] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#b38a47] transition shadow-2xl inline-flex items-center gap-3">
+                    <i class="fas fa-envelope"></i> tech@mundo-aove.com
+                </a>
+                <a href="https://mundo-aove.com/tech" class="bg-white/10 backdrop-blur-sm text-white border border-white/30 px-10 py-4 rounded-full font-bold hover:bg-white/20 transition inline-flex items-center gap-3">
+                    <i class="fas fa-globe"></i> mundo-aove.com/tech
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======= FOOTER ======= -->
+    <footer class="bg-white border-t border-gray-100 py-12 text-center">
+        <p class="text-gray-400 text-sm font-medium tracking-widest uppercase" data-translate="tech.footer_info">© 2026 Mundo-AOVE Tech</p>
+    </footer>
+
+    <!-- ======= SCRIPTS ======= -->
+    <script>
+        // ---------- TRADUCTIONS COMPLÈTES (clés plates, comme dans Censo-Core) ----------
+        const translations = {
+            fr: {
+                "article.back": "← Retour",
+                "maverick.badge": "🫒 Système d’exploitation métier",
+                "maverick.title": "Maverick <span class='text-[#C5A059]'>Engine</span>",
+                "maverick.subtitle": "Le système d’exploitation métier pour les moulins à huile<br> Souverain, flexible, économique.",
+                "maverick.problem_text": "Vous gérez la réception, la production, le conditionnement et la traçabilité avec des outils qui ne sont pas faits pour vous ? Excel, carnets papier, solutions SaaS génériques… chacune de ces approches a ses limites : saisies multiples, perte de données, abonnements coûteux, dépendance à un éditeur.",
+                "maverick.solution_intro": "Maverick Engine change la donne.",
+                "maverick.solution_desc": "C’est un système d’exploitation métier, conçu pour tourner sur un simple Raspberry Pi (80 €), qui digitalise vos process sans vous enfermer dans un cloud ou un abonnement.",
+                "maverick.problem_title": "Le problème des solutions actuelles",
+                "maverick.table_tool": "Outil",
+                "maverick.table_limit": "Limites",
+                "maverick.table_excel": "Tableurs",
+                "maverick.table_excel_desc": "Fichiers multiples, erreurs de saisie, absence de traçabilité, difficulté à partager.",
+                "maverick.table_saas": "SaaS",
+                "maverick.table_saas_desc": "Abonnement mensuel, données hébergées chez un tiers, dépendance à une connexion internet, impossibilité de personnaliser profondément.",
+                "maverick.table_turnkey": "Solutions clé en main",
+                "maverick.table_turnkey_desc": "Souvent trop rigides, coûteuses, nécessitent un serveur dédié et des compétences informatiques.",
+                "maverick.advantages_title": "Les atouts de Maverick Engine",
+                "maverick.adv1_t": "Souveraineté totale",
+                "maverick.adv1_d": "Aucun cloud imposé. Vos données restent sur votre matériel. Base SQLite ultra‑robuste, même en cas de coupure.",
+                "maverick.adv2_t": "Zéro abonnement",
+                "maverick.adv2_d": "Une fois installé, plus de licence mensuelle. Matériel à 80 €, évolutions facturées à la carte.",
+                "maverick.adv3_t": "Adaptabilité sans recompilation",
+                "maverick.adv3_d": "Chaque formulaire est un simple fichier HTML. Modifiez, ajoutez, exportez sans dépendre d’un éditeur.",
+                "maverick.adv4_t": "Traçabilité complète",
+                "maverick.adv4_d": "Chaque saisie est horodatée et signée. Historique exhaustif, alertes Telegram optionnelles.",
+                "maverick.adv5_t": "Multi‑poste & multi‑langue",
+                "maverick.adv5_d": "Accessible depuis tout navigateur sur le réseau local. Interface en FR/ES/EN, sélectionnable en un clic.",
+                "maverick.adv6_t": "Infrastructure ultra‑légère",
+                "maverick.adv6_d": "Binaire unique en Go, démarrage en secondes. Parfait pour environnements difficiles (poussière, chaleur).",
+                "maverick.how_title": "Comment ça fonctionne ?",
+                "maverick.step1_t": "Audit",
+                "maverick.step1_d": "Analyse de vos flux : réception, production, conditionnement…",
+                "maverick.step2_t": "Formulaires",
+                "maverick.step2_d": "Création des pages HTML sur mesure + exports (PDF, Excel).",
+                "maverick.step3_t": "Installation",
+                "maverick.step3_d": "Raspberry Pi préconfiguré posé dans l’atelier, connecté au réseau.",
+                "maverick.step4_t": "Formation",
+                "maverick.step4_d": "Accès via http://maverick.local, comptes personnels, saisie immédiate.",
+                "maverick.step5_t": "Évolutions",
+                "maverick.step5_d": "Nouveaux formulaires ou exports à la carte, vous repartez avec l’outil mis à jour.",
+                "maverick.compare_title": "Ce qui change concrètement",
+                "maverick.before": "Avant",
+                "maverick.before1": "📄 Saisies papier ou Excel, ressaisies multiples",
+                "maverick.before2": "🔍 Pas de traçabilité fiable",
+                "maverick.before3": "⏳ Difficulté à retrouver un historique",
+                "maverick.before4": "📤 Export manuel pour la compta",
+                "maverick.before5": "🚫 Pas d’alertes en cas d’anomalie",
+                "maverick.before6": "🔒 Dépendance à un éditeur ou abonnement",
+                "maverick.after": "Après Maverick Engine",
+                "maverick.after1": "✅ Saisie unique, directement en base",
+                "maverick.after2": "🔐 Chaque opération est signée et horodatée",
+                "maverick.after3": "⚡ Recherche instantanée par lot, fournisseur, date",
+                "maverick.after4": "📊 Génération automatique de fichiers Excel",
+                "maverick.after5": "📲 Notifications Telegram (optionnelles)",
+                "maverick.after6": "🏠 Système libre, sans redevance, que vous possédez",
+                "maverick.target_title": "Pour qui ?",
+                "maverick.target_desc": "Moulins à huile (artisanaux ou coopératives), producteurs souhaitant tracer leurs lots, ateliers de conditionnement, toute structure qui en a assez des solutions cloud coûteuses et peu flexibles.",
+                "maverick.cta_title": "Et après ?",
+                "maverick.cta_desc": "Nous ne vendons pas un produit fini, nous construisons votre outil sur mesure. Contactez‑nous pour un premier échange sans engagement.",
+                "tech.footer_info": "© 2026 Mundo-AOVE Tech"
+            },
+            es: {
+                "article.back": "← Volver",
+                "maverick.badge": "🫒 Sistema operativo de negocio",
+                "maverick.title": "Maverick <span class='text-[#C5A059]'>Engine</span>",
+                "maverick.subtitle": "El sistema operativo de negocio para almazaras<br>Soberano, flexible, económico.",
+                "maverick.problem_text": "¿Gestiona la recepción, producción, envasado y trazabilidad con herramientas no diseñadas para usted? Hojas de cálculo, cuadernos de papel, soluciones SaaS genéricas… cada enfoque tiene sus límites: múltiples ingresos de datos, pérdida de información, suscripciones costosas, dependencia de un proveedor.",
+                "maverick.solution_intro": "Maverick Engine cambia las reglas del juego.",
+                "maverick.solution_desc": "Es un sistema operativo de negocio, diseñado para funcionar en una simple Raspberry Pi (80 €), que digitaliza sus procesos sin encerrarlo en la nube o una suscripción.",
+                "maverick.problem_title": "El problema de las soluciones actuales",
+                "maverick.table_tool": "Herramienta",
+                "maverick.table_limit": "Limitaciones",
+                "maverick.table_excel": "Hojas de cálculo",
+                "maverick.table_excel_desc": "Múltiples archivos, errores de entrada, falta de trazabilidad, difícil de compartir.",
+                "maverick.table_saas": "SaaS",
+                "maverick.table_saas_desc": "Suscripción mensual, datos alojados por un tercero, dependencia de internet, imposibilidad de personalizar profundamente.",
+                "maverick.table_turnkey": "Soluciones llave en mano",
+                "maverick.table_turnkey_desc": "A menudo demasiado rígidas, costosas, requieren un servidor dedicado y conocimientos informáticos.",
+                "maverick.advantages_title": "Ventajas de Maverick Engine",
+                "maverick.adv1_t": "Soberanía total",
+                "maverick.adv1_d": "Sin nube impuesta. Sus datos permanecen en su hardware. Base de datos SQLite ultra robusta, incluso tras un corte de luz.",
+                "maverick.adv2_t": "Cero suscripción",
+                "maverick.adv2_d": "Una vez instalado, sin licencia mensual. Hardware por 80 €, evoluciones a la carta.",
+                "maverick.adv3_t": "Adaptabilidad sin recompilación",
+                "maverick.adv3_d": "Cada formulario es un simple archivo HTML. Modifique, añada, exporte sin depender de un proveedor.",
+                "maverick.adv4_t": "Trazabilidad completa",
+                "maverick.adv4_d": "Cada entrada tiene fecha, hora y firma. Historial exhaustivo, alertas Telegram opcionales.",
+                "maverick.adv5_t": "Multipuesto y multilenguaje",
+                "maverick.adv5_d": "Accesible desde cualquier navegador en la red local. Interfaz en FR/ES/EN, seleccionable con un clic.",
+                "maverick.adv6_t": "Infraestructura ultraligera",
+                "maverick.adv6_d": "Binario único en Go, arranque en segundos. Perfecto para entornos difíciles (polvo, calor).",
+                "maverick.how_title": "¿Cómo funciona?",
+                "maverick.step1_t": "Auditoría",
+                "maverick.step1_d": "Análisis de sus flujos: recepción, producción, envasado…",
+                "maverick.step2_t": "Formularios",
+                "maverick.step2_d": "Creación de páginas HTML a medida + exportaciones (PDF, Excel).",
+                "maverick.step3_t": "Instalación",
+                "maverick.step3_d": "Raspberry Pi preconfigurada colocada en su taller, conectada a la red local.",
+                "maverick.step4_t": "Formación",
+                "maverick.step4_d": "Acceso vía http://maverick.local, cuentas personales, ingreso inmediato.",
+                "maverick.step5_t": "Evoluciones",
+                "maverick.step5_d": "Nuevos formularios o exportaciones bajo demanda, usted se lleva la herramienta actualizada.",
+                "maverick.compare_title": "Lo que cambia concretamente",
+                "maverick.before": "Antes",
+                "maverick.before1": "📄 Ingresos en papel o Excel, múltiples reingresos",
+                "maverick.before2": "🔍 Sin trazabilidad fiable",
+                "maverick.before3": "⏳ Dificultad para recuperar historial",
+                "maverick.before4": "📤 Exportación manual para contabilidad",
+                "maverick.before5": "🚫 Sin alertas en caso de anomalía",
+                "maverick.before6": "🔒 Dependencia de proveedor o suscripción",
+                "maverick.after": "Después de Maverick Engine",
+                "maverick.after1": "✅ Ingreso único, directamente en base de datos",
+                "maverick.after2": "🔐 Cada operación es firmada y fechada",
+                "maverick.after3": "⚡ Búsqueda instantánea por lote, proveedor, fecha",
+                "maverick.after4": "📊 Generación automática de archivos Excel",
+                "maverick.after5": "📲 Notificaciones Telegram (opcionales)",
+                "maverick.after6": "🏠 Sistema libre, sin cánones, usted es propietario",
+                "maverick.target_title": "¿Para quién?",
+                "maverick.target_desc": "Almazaras (artesanales o cooperativas), productores que deseen trazar sus lotes, talleres de envasado, cualquier organización harta de soluciones en la nube costosas e inflexibles.",
+                "maverick.cta_title": "¿Y después?",
+                "maverick.cta_desc": "No vendemos un producto terminado, construimos su herramienta a medida. Contáctenos para una primera charla sin compromiso.",
+                "tech.footer_info": "© 2026 Mundo-AOVE Tech"
+            },
+            en: {
+                "article.back": "← Back",
+                "maverick.badge": "🫒 Business Operating System",
+                "maverick.title": "Maverick <span class='text-[#C5A059]'>Engine</span>",
+                "maverick.subtitle": "The business operating system for oil mills<br>Sovereign, flexible, cost‑effective.",
+                "maverick.problem_text": "Do you manage reception, production, packaging and traceability with tools not designed for you? Spreadsheets, paper notebooks, generic SaaS solutions… each approach has its limits: multiple data entries, data loss, expensive subscriptions, vendor lock‑in.",
+                "maverick.solution_intro": "Maverick Engine changes the game.",
+                "maverick.solution_desc": "It is a business operating system, designed to run on a simple Raspberry Pi (€80), that digitises your processes without locking you into the cloud or a subscription.",
+                "maverick.problem_title": "The problem with current solutions",
+                "maverick.table_tool": "Tool",
+                "maverick.table_limit": "Limitations",
+                "maverick.table_excel": "Spreadsheets",
+                "maverick.table_excel_desc": "Multiple files, entry errors, lack of traceability, difficult to share.",
+                "maverick.table_saas": "SaaS",
+                "maverick.table_saas_desc": "Monthly subscription, data hosted by a third party, internet dependency, impossible to deeply customise.",
+                "maverick.table_turnkey": "Turnkey solutions",
+                "maverick.table_turnkey_desc": "Often too rigid, expensive, require a dedicated server and IT skills.",
+                "maverick.advantages_title": "Maverick Engine advantages",
+                "maverick.adv1_t": "Total sovereignty",
+                "maverick.adv1_d": "No imposed cloud. Your data stays on your hardware. Ultra‑robust SQLite database, even after a power cut.",
+                "maverick.adv2_t": "Zero subscription",
+                "maverick.adv2_d": "Once installed, no monthly licence. Hardware for €80, pay‑as‑you‑go evolutions.",
+                "maverick.adv3_t": "Adaptability without recompilation",
+                "maverick.adv3_d": "Each form is a simple HTML file. Modify, add, export without depending on a vendor.",
+                "maverick.adv4_t": "Full traceability",
+                "maverick.adv4_d": "Every entry is timestamped and signed. Complete history, optional Telegram alerts.",
+                "maverick.adv5_t": "Multi‑device & multi‑language",
+                "maverick.adv5_d": "Accessible from any browser on the local network. Interface in FR/ES/EN, switchable with one click.",
+                "maverick.adv6_t": "Ultra‑light infrastructure",
+                "maverick.adv6_d": "Single Go binary, starts in seconds. Perfect for harsh environments (dust, heat).",
+                "maverick.how_title": "How does it work?",
+                "maverick.step1_t": "Audit",
+                "maverick.step1_d": "Analysis of your workflows: reception, production, packaging…",
+                "maverick.step2_t": "Forms",
+                "maverick.step2_d": "Creation of custom HTML pages + exports (PDF, Excel).",
+                "maverick.step3_t": "Installation",
+                "maverick.step3_d": "Pre‑configured Raspberry Pi placed in your workshop, connected to the local network.",
+                "maverick.step4_t": "Training",
+                "maverick.step4_d": "Access via http://maverick.local, personal accounts, immediate data entry.",
+                "maverick.step5_t": "Evolutions",
+                "maverick.step5_d": "New forms or exports on demand, you leave with the updated tool.",
+                "maverick.compare_title": "What actually changes",
+                "maverick.before": "Before",
+                "maverick.before1": "📄 Paper or Excel entries, multiple re‑entries",
+                "maverick.before2": "🔍 No reliable traceability",
+                "maverick.before3": "⏳ Difficult to retrieve history",
+                "maverick.before4": "📤 Manual export for accounting",
+                "maverick.before5": "🚫 No alerts in case of anomaly",
+                "maverick.before6": "🔒 Vendor or subscription dependency",
+                "maverick.after": "After Maverick Engine",
+                "maverick.after1": "✅ Single entry, directly into the database",
+                "maverick.after2": "🔐 Every operation is signed and timestamped",
+                "maverick.after3": "⚡ Instant search by batch, supplier, date",
+                "maverick.after4": "📊 Automatic Excel file generation",
+                "maverick.after5": "📲 Optional Telegram notifications",
+                "maverick.after6": "🏠 Free system, no royalties, you own it",
+                "maverick.target_title": "Who is it for?",
+                "maverick.target_desc": "Oil mills (artisan or cooperative), producers wanting to trace their batches, packaging workshops, any organisation tired of expensive and inflexible cloud solutions.",
+                "maverick.cta_title": "What's next?",
+                "maverick.cta_desc": "We don't sell a finished product, we build your custom tool. Contact us for a first no‑obligation discussion.",
+                "tech.footer_info": "© 2026 Mundo-AOVE Tech"
+            }
+        };
+
+        let currentLang = 'fr';
+        function toggleTechLanguage() {
+            const langs = ['fr', 'es', 'en'];
+            currentLang = langs[(langs.indexOf(currentLang) + 1) % langs.length];
+            document.getElementById('lang-btn-tech').innerText = currentLang.toUpperCase();
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+        }
+
+        // Initialisation au chargement
+        document.addEventListener('DOMContentLoaded', () => {
+            // Appliquer la langue par défaut (fr)
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations.fr[key]) {
+                    el.innerHTML = translations.fr[key];
+                }
+            });
+        });
+    </script>
+</body>
+</html>

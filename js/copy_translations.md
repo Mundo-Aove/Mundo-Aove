@@ -1,16 +1,19 @@
 // ================================
-// SYSTÈME DE TRADUCTIONS - VERSION ROBUSTE
+// SYSTÈME DE TRADUCTIONS EXTERNALISÉ - VERSION COMPATIBLE
 // ================================
 
 const translations = {
     es: {
+        // Navigation
         nav: {
             blog: 'Blog',
-            carte: 'Olivos Centenarios',
+            carte: 'Olivos Centenarios', 
             about: 'Acerca de',
             tech: "Tech & Infra",
             contact: 'Contacto'
         },
+        
+        // Page d'accueil
         home: {
             title: 'Blog de Mundo Aove Peru',
             bubbles_title: 'Reflexiones de la Semana',
@@ -18,13 +21,15 @@ const translations = {
             loading: 'Cargando artículos...',
             rss_title: "Noticias Oleícolas Internacionales",
             rss_loading: "Cargando noticias RSS...",
-            refresh_rss: "Actualizar",
+            refresh_rss: "Actualizar", 
             rss_source: "Fuente",
             rss_updated: "Actualizado el",
             rss_error: "Error al cargar RSS",
             rss_read_more: "Leer artículo completo",
             rss_next: "Siguiente"
         },
+
+        // Page Tech & Infrastructure (Nouveau)
         tech: {
             main_title: "Ingeniería al servicio <br><span class='italic text-[#C5A059]'>de la Tierra.</span>",
             main_subtitle: "El ecosistema Maverick: una arquitectura soberana, desconectada de la nube, para una trazabilidad total desde el suelo hasta la botella.",
@@ -40,6 +45,7 @@ const translations = {
             pillar3_desc: "Interfaz unificada para ingenieros de campo y propietarios. Monitoreo de salud de cultivos y seguimiento logístico cifrado.",
             footer_info: "© 2026 Mundo-AOVE Industrial Division — Austin / Spain"
         },
+        
         maverick: {
             badge: "🫒 Sistema operativo de negocio",
             title: "Maverick <span class='text-[#C5A059]'>Engine</span>",
@@ -100,6 +106,8 @@ const translations = {
             cta_title: "¿Y después?",
             cta_desc: "No vendemos un producto terminado, construimos su herramienta a medida. Contáctenos para una primera charla sin compromiso."
         },
+
+        // Page carte
         carte: {
             title: 'Olivos Centenarios de Tacna y Moquegua',
             description: 'Descubra nuestro inventario de olivos centenarios de la región sur del Perú. Cada árbol cuenta la historia de la olivicultura peruana. En colaboración con Sud Oliva.',
@@ -114,6 +122,8 @@ const translations = {
                 poor: 'Estado preocupante (1-5/10)'
             }
         },
+        
+        // Page À propos
         about: {
             title: 'Alejandra Galván Gómez',
             bio1: 'Ingeniera colegiada y habilitada en Industrias Alimentarias con máster oficial en Olivar y Aceite de Oliva realizado en España, con mas de 12 años de experiencia en el rubro del Aceite de Oliva en el área de Aseguramiento, Gestión de la Calidad y producción, liderando auditorías y certificaciones nacionales e internacionales de calidad.',
@@ -126,18 +136,26 @@ const translations = {
             spec5: 'Elaboración de manuales e implementación de BPM, POES, PGH, HACCP',
             spec6: 'Asesoría para obtención de registro sanitario'
         },
+        
+        // Page Contact
         contact: {
             title: 'Contacto'
         },
+        
+        // Article détail
         article: {
             back: 'Volver a los artículos'
         },
+        
+        // Footer
         footer: {
             description: 'Ingeniera agroalimentaria especializada en olivicultura peruana y prácticas agrícolas sostenibles.',
             navigation: 'Navegación',
             follow: 'Sígueme',
             rights: 'Todos los derechos reservados'
         },
+        
+        // Bulles de réflexion
         bubbles: [
             "La región de Tacna alberga algunos de los olivares más antiguos del Perú, con árboles de más de 200 años.",
             "Las técnicas de prensado en frío preservan los aromas delicados del aceite de oliva extra virgen.",
@@ -146,8 +164,9 @@ const translations = {
             "La valorización de las aceitunas de mesa representa una oportunidad de diversificación para los pequeños productores locales."
         ]
     },
-
+    
     fr: {
+        // Navigation
         nav: {
             blog: 'Blog',
             carte: 'Oliviers Centenaires',
@@ -155,6 +174,8 @@ const translations = {
             tech: "Tech & Infra",
             contact: 'Contact'
         },
+        
+        // Page d'accueil
         home: {
             title: 'Blog de Mundo Aove Peru',
             bubbles_title: 'Réflexions de la Semaine',
@@ -167,8 +188,10 @@ const translations = {
             rss_updated: "Mis à jour le",
             rss_error: "Erreur de chargement RSS",
             rss_read_more: "Lire l'article complet",
-            rss_next: "Suivant"
+            rss_next: "Suivant" 
         },
+
+        // Page Tech & Infrastructure (Nouveau)
         tech: {
             main_title: "L'Ingénierie au service <br><span class='italic text-[#C5A059]'>de la Terre.</span>",
             main_subtitle: "L'écosystème Maverick : une architecture souveraine, déconnectée du cloud, pour une traçabilité totale du sol à la bouteille.",
@@ -184,6 +207,7 @@ const translations = {
             pillar3_desc: "Interface unifiée pour les ingénieurs de terrain et les propriétaires. Monitoring de santé des cultures et suivi logistique chiffré.",
             footer_info: "© 2026 Mundo-AOVE Industrial Division — Austin / Spain"
         },
+        
         maverick: {
             badge: "🫒 Système d’exploitation métier",
             title: "Maverick <span class='text-[#C5A059]'>Engine</span>",
@@ -244,6 +268,9 @@ const translations = {
             cta_title: "Et après ?",
             cta_desc: "Nous ne vendons pas un produit fini, nous construisons votre outil sur mesure. Contactez‑nous pour un premier échange sans engagement."
         },
+        
+
+        // Page carte
         carte: {
             title: 'Oliviers Centenaires de Tacna et Moquegua',
             description: 'Découvrez notre inventaire des oliviers centenaires de la région sud du Pérou. Chaque arbre raconte l\'histoire de l\'oléiculture péruvienne. En collaboration avec Sud Oliva.',
@@ -258,6 +285,8 @@ const translations = {
                 poor: 'État préoccupant (1-5/10)'
             }
         },
+        
+        // Page À propos
         about: {
             title: 'Alejandra Galván Gómez',
             bio1: 'Ingénieure agréée et habilitée en Industries Alimentaires avec master officiel en Oliviculture et Huile d\'Olive réalisé en Espagne, avec plus de 12 ans d\'expérience dans le secteur de l\'Huile d\'Olive dans le domaine de l\'Assurance, Gestion de la Qualité et production, dirigeant des audits et certifications nationales et internationales de qualité.',
@@ -270,18 +299,26 @@ const translations = {
             spec5: 'Élaboration de manuels et implémentation de BPM, POES, PGH, HACCP',
             spec6: 'Conseil pour l\'obtention d\'enregistrement sanitaire'
         },
+        
+        // Page Contact
         contact: {
             title: 'Contact'
         },
+        
+        // Article détail
         article: {
             back: 'Retour aux articles'
         },
+        
+        // Footer
         footer: {
             description: 'Ingénieure agroalimentaire spécialisée dans l\'oléiculture péruvienne et les pratiques agricoles durables.',
             navigation: 'Navigation',
             follow: 'Suivez-moi',
             rights: 'Tous droits réservés'
         },
+        
+        // Bulles de réflexion
         bubbles: [
             "La région de Tacna concentre certaines des plus anciennes oliveraies du Pérou, avec des arbres âgés de plus de 200 ans.",
             "Les techniques de pressage à froid permettent de préserver les arômes délicats de l'huile d'olive extra vierge.",
@@ -290,8 +327,8 @@ const translations = {
             "La valorisation des olives de table représente une opportunité de diversification pour les petits producteurs locaux."
         ]
     },
-
     en: {
+        // Navigation
         nav: {
             blog: 'Blog',
             carte: 'Ancient Olive Trees',
@@ -299,20 +336,8 @@ const translations = {
             tech: "Tech & Infra",
             contact: 'Contact'
         },
-        home: {
-            title: 'Mundo Aove Peru Blog',
-            bubbles_title: 'Weekly Reflections',
-            new_bubble: 'New reflection',
-            loading: 'Loading articles...',
-            rss_title: "International Olive Oil News",
-            rss_loading: "Loading RSS news...",
-            refresh_rss: "Refresh",
-            rss_source: "Source",
-            rss_updated: "Updated on",
-            rss_error: "RSS loading error",
-            rss_read_more: "Read full article",
-            rss_next: "Next"
-        },
+
+        // Page Tech & Infrastructure (Nouveau)
         tech: {
             main_title: "Engineering at the service <br><span class='italic text-[#C5A059]'>of the Earth.</span>",
             main_subtitle: "The Maverick ecosystem: a sovereign architecture, cloud-independent, for total traceability from soil to bottle.",
@@ -328,6 +353,7 @@ const translations = {
             pillar3_desc: "Unified interface for field engineers and owners. Crop health monitoring and encrypted logistics tracking.",
             footer_info: "© 2026 Mundo-AOVE Industrial Division — Austin / Spain"
         },
+
         maverick: {
             badge: "🫒 Business Operating System",
             title: "Maverick <span class='text-[#C5A059]'>Engine</span>",
@@ -388,6 +414,21 @@ const translations = {
             cta_title: "What's next?",
             cta_desc: "We don't sell a finished product, we build your custom tool. Contact us for a first no‑obligation discussion."
         },
+
+        home: {
+            title: 'Mundo Aove Peru Blog',
+            bubbles_title: 'Weekly Reflections',
+            new_bubble: 'New reflection',
+            loading: 'Loading articles...',
+            rss_title: "International Olive Oil News",
+            rss_loading: "Loading RSS news...",
+            refresh_rss: "Refresh",
+            rss_source: "Source",
+            rss_updated: "Updated on",
+            rss_error: "RSS loading error",
+            rss_read_more: "Read full article",
+            rss_next: "Next"
+        },
         carte: {
             title: 'Ancient Olive Trees of Tacna & Moquegua',
             description: 'Discover our inventory of ancient olive trees in Southern Peru. Each tree tells a story of Peruvian olive heritage.',
@@ -440,10 +481,29 @@ const translations = {
     }
 };
 
+// Fonction utilitaire pour récupérer une traduction
+function getTranslation(key, lang = 'es') {
+    const keys = key.split('.');
+    let translation = translations[lang];
+    
+    for (const k of keys) {
+        if (translation && translation[k]) {
+            translation = translation[k];
+        } else {
+            console.warn(`⚠️ Traduction manquante: ${key} (${lang})`);
+            return key;
+        }
+    }
+    
+    return translation;
+}
+
 // Export global
 window.translations = translations;
-window.getTranslation = function(key, lang = 'fr') {
-    return key.split('.').reduce((o, k) => o?.[k], translations[lang]) || key;
-};
+window.getTranslation = getTranslation;
 
-console.log('🌍 Système de traductions chargé - Version avec Maverick');
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { translations, getTranslation };
+}
+
+console.log('🌍 Système de traductions chargé - COMPATIBLE avec HTML existant');
