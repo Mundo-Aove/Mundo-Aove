@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo AOVE App – Ficha técnica</title>
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET Y ESTILOS BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fff;
+            color: #1e1e1e;
+            line-height: 1.5;
+            font-size: 10pt;
+            padding: 1.5cm 1cm;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* Variables de color */
+        :root {
+            --forest: #2C4C3B;
+            --gold: #C5A059;
+            --gold-light: #e0c284;
+            --gray-light: #f8f9fa;
+            --gray-border: #e2e8f0;
+            --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.02);
+        }
+
+        /* Contenedor de dos columnas */
+        .page {
+            max-width: 21cm;
+            margin: 0 auto;
+            column-count: 2;
+            column-gap: 1.4cm;
+            column-rule: 1px dashed rgba(197, 160, 89, 0.3);
+        }
+
+        /* Encabezado (ocupa ambas columnas) */
+        .header {
+            column-span: all;
+            margin-bottom: 1.2cm;
+            background: linear-gradient(135deg, var(--forest) 0%, #1f3a2c 100%);
+            color: white;
+            padding: 0.8cm 1cm;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32pt;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .header h1 span {
+            color: var(--gold);
+        }
+
+        .header .sub {
+            font-size: 14pt;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-top: 0.2cm;
+        }
+
+        .badge {
+            background: var(--gold);
+            color: var(--forest);
+            font-weight: 800;
+            padding: 0.2cm 1cm;
+            border-radius: 40px;
+            font-size: 12pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            white-space: nowrap;
+        }
+
+        /* Títulos de sección */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18pt;
+            font-weight: 800;
+            color: var(--forest);
+            margin: 0.6cm 0 0.4cm;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 0.2cm;
+            display: inline-block;
+            width: auto;
+        }
+
+        .section-subtitle {
+            font-weight: 700;
+            color: var(--forest);
+            font-size: 12pt;
+            margin-top: 0.3cm;
+        }
+
+        /* Texto general */
+        p {
+            text-align: justify;
+            margin-bottom: 0.3cm;
+            color: #2d3a3a;
+        }
+
+        /* Listas */
+        ul {
+            list-style: none;
+            margin-left: 0.3cm;
+        }
+
+        li {
+            margin-bottom: 0.25cm;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.3cm;
+        }
+
+        li i {
+            color: var(--gold);
+            font-size: 1.2em;
+            min-width: 0.5cm;
+        }
+
+        /* Tarjetas de módulos */
+        .module-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.4cm;
+            margin: 0.4cm 0;
+        }
+
+        .module-card {
+            background: white;
+            border: 1px solid var(--gray-border);
+            border-radius: 16px;
+            padding: 0.35cm;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s;
+            break-inside: avoid;
+        }
+
+        .module-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--gold);
+        }
+
+        .module-card h3 {
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--forest);
+            margin-bottom: 0.15cm;
+            display: flex;
+            align-items: center;
+            gap: 0.2cm;
+        }
+
+        .module-card h3 i {
+            color: var(--gold);
+            font-size: 12pt;
+        }
+
+        .module-card p {
+            font-size: 9pt;
+            margin: 0;
+            color: #4a5a5a;
+        }
+
+        /* Caja destacada */
+        .highlight-box {
+            background: linear-gradient(145deg, #f9f6ec, #fefcf5);
+            border-left: 6px solid var(--gold);
+            border-radius: 12px;
+            padding: 0.5cm;
+            margin: 0.5cm 0;
+            box-shadow: var(--shadow-sm);
+            font-size: 9.5pt;
+        }
+
+        /* Tabla comparativa */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.5cm 0;
+            font-size: 9pt;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .comparison-table th {
+            background: var(--forest);
+            color: white;
+            font-weight: 700;
+            padding: 0.3cm;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 0.3cm;
+            border-bottom: 1px solid var(--gray-border);
+            background: white;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+            background-color: #f9fafb;
+        }
+
+        /* Columnas internas */
+        .two-col {
+            column-count: 2;
+            column-gap: 0.8cm;
+            column-rule: 1px dashed rgba(197,160,89,0.2);
+            margin: 0.3cm 0;
+        }
+
+        /* Pie de página */
+        .footer {
+            column-span: all;
+            margin-top: 1cm;
+            border-top: 3px solid var(--gold);
+            padding-top: 0.5cm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 9pt;
+            color: #4a5568;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 0.8cm;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.2cm;
+        }
+
+        .contact-info i {
+            color: var(--gold);
+        }
+
+        /* Evitar saltos de página */
+        h2, h3, .module-card, .highlight-box, table {
+            break-inside: avoid;
+        }
+
+        /* Ajustes para impresión */
+        @media print {
+            body {
+                padding: 0.5cm;
+            }
+            .header {
+                background: var(--forest) !important;
+                -webkit-print-color-adjust: exact;
+            }
+            .badge {
+                background: var(--gold) !important;
+                color: var(--forest) !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- ===== CABECERA ===== -->
+        <div class="header">
+            <div>
+                <h1>Mundo AOVE <span>App</span></h1>
+                <div class="sub">10 herramientas profesionales en una sola app</div>
+            </div>
+            <div class="badge">cero suscripción</div>
+        </div>
+
+        <!-- ===== COLUMNA IZQUIERDA ===== -->
+        <div>
+            <!-- INTRO -->
+            <p style="font-size: 11pt; line-height: 1.5; background: #f0f7f0; padding: 0.4cm; border-radius: 16px;">
+                <strong style="color: var(--forest);">Mundo AOVE App</strong> es la suite móvil diseñada por y para profesionales del olivo. 
+                Olvídese de hojas de cálculo y cálculos mentales: 10 módulos específicos cubren desde el rendimiento del molino hasta el análisis económico, todo en su bolsillo, sin internet y sin suscripciones.
+            </p>
+
+            <!-- LO QUE OBTIENE (BENEFICIOS CLAVE) -->
+            <div class="section-title">Beneficios inmediatos</div>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> <strong>10 módulos especializados</strong> – cada tarea tiene su calculadora.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Resultados precisos</strong> – adiós a errores de cálculo.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Exportaciones profesionales</strong> (PDF, CSV, SVG) con su logotipo.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Sin conexión</strong> – funciona en el campo sin Internet.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Idiomas integrados</strong> – español, francés, inglés.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Pago único</strong> – licencia perpetua, sin cuotas mensuales.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Actualizaciones incluidas</strong> – mejoras continuas.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Soporte directo</strong> – vía WhatsApp o email.</li>
+            </ul>
+
+            <!-- MÓDULOS (primera tanda) -->
+            <div class="section-title">Los 10 módulos</div>
+            <div class="module-grid">
+                <div class="module-card">
+                    <h3><i class="fas fa-flask"></i> Chlorine</h3>
+                    <p>Calcula el volumen de lejía para desinfectar tanques y líneas según concentración deseada.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-thermometer-half"></i> Density Correction</h3>
+                    <p>Corrige densidad y Baumé de salmueras con la temperatura, verano e invierno.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-exchange-alt"></i> Unit Conversion</h3>
+                    <p>Más de 30 unidades (volumen, masa, temperatura, presión) con precisión de campo.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-oil-can"></i> Oil Yield Hub</h3>
+                    <p>Estima rendimiento en aceite desde peso de aceitunas y humedad, convierte kilos a litros.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-water"></i> Complete Brine Hub</h3>
+                    <p>Prepara, corrige o ajusta salmueras. ¡Cuatro herramientas en una!</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-chart-line"></i> Fermentation Tracking</h3>
+                    <p>Sigue pH, temperatura, acidez lote a lote, visualiza curvas y exporta datos.</p>
+                </div>
+            </div>
+
+            <!-- CONTINUACIÓN MÓDULOS (resto en la otra columna) -->
+        </div>
+
+        <!-- ===== COLUMNA DERECHA ===== -->
+        <div>
+            <!-- Segunda tanda de módulos -->
+            <div style="margin-top: 1.6cm;"></div> <!-- alinear con el inicio de la columna izquierda -->
+            <div class="module-grid">
+                <div class="module-card">
+                    <h3><i class="fas fa-chart-pie"></i> Economic Analysis</h3>
+                    <p>ROI, costes, márgenes, conversión a 7 divisas. Ideal para subvenciones.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-droplet"></i> Advanced Dilution Hub</h3>
+                    <p>Convierte concentraciones (%, ppm, g/L), prepara soluciones madre, calcula materia activa.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-book-open"></i> Métodos Ilustrados</h3>
+                    <p>Guía paso a paso de buenas prácticas: muestreo, medición de acidez, etc. Ideal para formar personal.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-shopping-cart"></i> Purchase Assistant</h3>
+                    <p>Compara precios reales según concentración (NPK, materia activa) y evita engaños.</p>
+                </div>
+            </div>
+
+            <!-- EXPORTACIONES PERSONALIZABLES -->
+            <div class="section-title">📄 Exportaciones profesionales</div>
+            <div class="highlight-box">
+                <p style="margin-bottom: 0.2cm;"><strong>Cada módulo genera un archivo (PDF, CSV o SVG)</strong> con los datos y resultados. Usted puede:</p>
+                <ul style="margin-bottom: 0;">
+                    <li><i class="fas fa-file-pdf"></i> Exportar un cálculo para su trazabilidad.</li>
+                    <li><i class="fas fa-chart-line"></i> Generar gráficos vectoriales de fermentación.</li>
+                    <li><i class="fas fa-file-excel"></i> Producir informes económicos para sus socios.</li>
+                </ul>
+                <p style="margin-top: 0.3cm;"><strong>Opción empresa:</strong> personalizamos encabezados, colores y logo de los informes. Consúltenos.</p>
+            </div>
+
+            <!-- ZERO SUSCRIPCIÓN -->
+            <div class="section-title">💰 Pago único, cero sorpresas</div>
+            <p>Adquiera la aplicación una vez y úsela para siempre. Sin licencias mensuales, sin costes ocultos. Las actualizaciones y el soporte están incluidos.</p>
+
+            <!-- CUADRO COMPARATIVO (opcional) -->
+            <div style="margin-top: 0.5cm; background: var(--gray-light); border-radius: 16px; padding: 0.4cm; border: 1px solid var(--gray-border);">
+                <h3 style="color: var(--forest); font-size: 12pt; margin-bottom: 0.2cm;">¿Por qué elegir Mundo AOVE App?</h3>
+                <table style="width:100%; border-collapse: collapse;">
+                    <tr><td style="padding:0.1cm 0;"><strong>Vs. tablas manuales</strong></td><td style="padding:0.1cm 0;">Error cero, ahorro de horas</td></tr>
+                    <tr><td style="padding:0.1cm 0;"><strong>Vs. apps genéricas</strong></td><td style="padding:0.1cm 0;">Específica para olivicultura, módulos exclusivos</td></tr>
+                    <tr><td style="padding:0.1cm 0;"><strong>Vs. suscripciones</strong></td><td style="padding:0.1cm 0;">Paga una sola vez, sin depender de nadie</td></tr>
+                </table>
+            </div>
+
+            <!-- LLAMADA A LA ACCIÓN -->
+            <div style="margin-top: 0.7cm; background: var(--forest); color: white; padding: 0.5cm; border-radius: 24px; text-align: center; box-shadow: var(--shadow-md);">
+                <div style="font-size: 18pt; font-weight: 800; color: var(--gold);">¿Listo para digitalizar su explotación?</div>
+                <p style="margin: 0.2cm 0; color: #e2e8f0;">Solicite una demo o un presupuesto adaptado a su estructura.</p>
+                <div style="font-size: 14pt; font-weight: 700; margin-top: 0.3cm;">
+                    <i class="fas fa-phone-alt"></i> +51 987 654 321 · <i class="fas fa-envelope"></i> app@mundo-aove.com
+                </div>
+                <div style="margin-top: 0.2cm;">Tacna, Perú</div>
+            </div>
+
+            <!-- NOTA ÉTICA -->
+            <p style="margin-top: 0.5cm; font-style: italic; color: #718096; font-size: 8pt; text-align: center;">
+                * Todos los beneficios descritos son reales, basados en pruebas con productores de Tacna. No inventamos testimonios, ofrecemos tecnología honesta.
+            </p>
+        </div>
+
+        <!-- ===== PIE DE PÁGINA ===== -->
+        <div class="footer">
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Tacna, Perú</span>
+                <span><i class="fas fa-envelope"></i> app@mundo-aove.com</span>
+                <span><i class="fas fa-phone-alt"></i> +51 987 654 321</span>
+            </div>
+            <div>© 2026 Mundo-AOVE Tech – Versión 1.0</div>
+        </div>
+
+    </div>
+    <!-- pequeño ajuste para que no se desborde -->
+    <div style="clear: both;"></div>
+</body>
+</html>

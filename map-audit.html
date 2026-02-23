@@ -87,23 +87,26 @@
 </head>
 <body class="antialiased bg-white text-gray-900">
 
-    <!-- ======= NAVIGATION ======= -->
-    <nav class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50 shadow-sm">
+    <!-- ======= NAVIGATION HARMONISÉE (COMME MAVERICK) ======= -->
+    <nav class="border-b border-gray-100 bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-4">
-                <a href="tech.html" class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-50 text-[#2C4C3B] hover:bg-[#C5A059] hover:text-white transition-all shadow-sm">
-                    <i class="fas fa-arrow-left"></i>
-                </a>
-                <div class="flex items-center gap-2 border-l border-gray-200 pl-4">
-                    <span class="serif text-2xl font-black text-[#2C4C3B]">Censo<span class="text-[#C5A059]">-Core</span></span>
-                    <span class="ml-2 text-[10px] font-bold uppercase tracking-[0.3em] text-[#C5A059]/70 border-l border-gray-300 pl-3" data-translate="nav.sub">Tech</span>
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-[#2C4C3B] rounded flex items-center justify-center text-[#C5A059]">
+                    <i class="fas fa-map-marked-alt"></i> <!-- icône adaptée -->
                 </div>
+                <span class="serif text-2xl font-bold text-[#2C4C3B]">Censo<span class="text-[#C5A059]">-Core</span></span>
             </div>
-            <div class="flex items-center gap-6">
-                <button onclick="toggleModal(true)" class="hidden md:block text-sm font-semibold text-[#2C4C3B] hover:text-[#C5A059] transition" data-translate="nav.contact">Contact</button>
-                <button onclick="toggleTechLanguage()" class="bg-[#C5A059] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#b38a47] transition shadow-lg flex items-center gap-2">
-                    <i class="fas fa-globe"></i> <span id="lang-btn-tech">FR</span>
-                </button>
+            <div class="flex items-center space-x-8">
+                <!-- Retour lien multilingue -->
+                <a href="tech.html" data-lang="fr" class="text-gray-600 hover:text-[#2C4C3B] font-medium transition">← Retour</a>
+                <a href="tech.html" data-lang="es" class="text-gray-600 hover:text-[#2C4C3B] font-medium transition">← Volver</a>
+                <a href="tech.html" data-lang="en" class="text-gray-600 hover:text-[#2C4C3B] font-medium transition">← Back</a>
+                <!-- Boutons de langue -->
+                <div class="flex space-x-2">
+                    <button onclick="setLanguage('fr')" class="px-3 py-1 rounded-full text-sm font-bold hover:bg-[#C5A059] hover:text-white transition">FR</button>
+                    <button onclick="setLanguage('es')" class="px-3 py-1 rounded-full text-sm font-bold hover:bg-[#C5A059] hover:text-white transition">ES</button>
+                    <button onclick="setLanguage('en')" class="px-3 py-1 rounded-full text-sm font-bold hover:bg-[#C5A059] hover:text-white transition">EN</button>
+                </div>
             </div>
         </div>
     </nav>
@@ -112,26 +115,34 @@
     <header class="relative gold-gradient pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
         <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1587033411391-5a9bf51e5c5c?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="inline-block px-4 py-1.5 border border-[#C5A059]/60 text-[#C5A059] text-xs font-bold tracking-[0.3em] uppercase mb-6 bg-[#2C4C3B]/20 backdrop-blur-sm rounded-full" data-translate="hero.tag">
-                🇵🇪 Projet Olivos Centenarios – CEO / Mundo‑AOVE Tech
-            </div>
-            <h1 class="serif text-5xl md:text-7xl font-black text-white leading-tight max-w-4xl" data-translate="hero.title">
-                Cartographiez votre <span class="text-[#C5A059] italic">patrimoine</span><br>avec la juste technologie
-            </h1>
-            <p class="text-gray-200 text-lg md:text-xl max-w-2xl mt-6 mb-10 leading-relaxed" data-translate="hero.desc">
-                Drone, RTK, ou simple smartphone. Nous adaptons l’outil à votre terrain et à votre budget. 
-                Une méthode éprouvée, développée pour le recensement d’oliviers centenaires au Pérou.
-            </p>
+            <div data-lang="fr" class="inline-block px-4 py-1.5 border border-[#C5A059]/60 text-[#C5A059] text-xs font-bold tracking-[0.3em] uppercase mb-6 bg-[#2C4C3B]/20 backdrop-blur-sm rounded-full">🇵🇪 Projet Olivos Centenarios – CEO / Mundo‑AOVE Tech</div>
+            <div data-lang="es" style="display:none;" class="inline-block px-4 py-1.5 border border-[#C5A059]/60 text-[#C5A059] text-xs font-bold tracking-[0.3em] uppercase mb-6 bg-[#2C4C3B]/20 backdrop-blur-sm rounded-full">🇵🇪 Proyecto Olivos Centenarios – CEO / Mundo‑AOVE Tech</div>
+            <div data-lang="en" style="display:none;" class="inline-block px-4 py-1.5 border border-[#C5A059]/60 text-[#C5A059] text-xs font-bold tracking-[0.3em] uppercase mb-6 bg-[#2C4C3B]/20 backdrop-blur-sm rounded-full">🇵🇪 Olivos Centenarios Project – CEO / Mundo‑AOVE Tech</div>
+
+            <h1 data-lang="fr" class="serif text-5xl md:text-7xl font-black text-white leading-tight max-w-4xl">Cartographiez votre <span class="text-[#C5A059] italic">patrimoine</span><br>avec la technologie qu'il mérite</h1>
+            <h1 data-lang="es" style="display:none;" class="serif text-5xl md:text-7xl font-black text-white leading-tight max-w-4xl">Mapee su <span class="text-[#C5A059] italic">patrimonio</span><br>con la tecnología que se merece</h1>
+            <h1 data-lang="en" style="display:none;" class="serif text-5xl md:text-7xl font-black text-white leading-tight max-w-4xl">Map your <span class="text-[#C5A059] italic">heritage</span><br>with the technology it deserve</h1>
+
+            <p data-lang="fr" class="text-gray-200 text-lg md:text-xl max-w-2xl mt-6 mb-10 leading-relaxed">Drone, RTK, ou simple smartphone. Nous adaptons l’outil à votre terrain et à votre budget. Une méthode éprouvée, développée pour le recensement d’oliviers centenaires au Pérou.</p>
+            <p data-lang="es" style="display:none;" class="text-gray-200 text-lg md:text-xl max-w-2xl mt-6 mb-10 leading-relaxed">Dron, RTK o simple smartphone. Adaptamos la herramienta a su terreno y presupuesto. Un método probado para el censo de olivos centenarios.</p>
+            <p data-lang="en" style="display:none;" class="text-gray-200 text-lg md:text-xl max-w-2xl mt-6 mb-10 leading-relaxed">Drone, RTK, or simple smartphone. We adapt the tool to your terrain and budget. A proven method developed for centenary olive tree inventory in Peru.</p>
+
             <div class="flex flex-col sm:flex-row gap-4">
                 <button onclick="toggleModal(true)" class="bg-[#C5A059] text-white px-8 py-4 rounded-full font-bold text-lg shadow-2xl hover:bg-[#a07e47] transition flex items-center justify-center gap-3 hover-lift">
-                    <i class="fas fa-paper-plane"></i> <span data-translate="hero.btn_case">Étudions votre cas</span>
+                    <i class="fas fa-paper-plane"></i> <span data-lang="fr">Étudions votre cas</span>
+                    <span data-lang="es" style="display:none;">Estudiemos su caso</span>
+                    <span data-lang="en" style="display:none;">Let's study your case</span>
                 </button>
                 <a href="#map-section" class="bg-white/10 backdrop-blur-sm text-white border border-white/30 px-8 py-4 rounded-full font-bold hover:bg-white/20 transition flex items-center justify-center gap-3 hover-lift">
-                    <i class="fas fa-play-circle"></i> <span data-translate="hero.btn_demo">Voir un exemple</span>
+                    <i class="fas fa-play-circle"></i> <span data-lang="fr">Voir un exemple</span>
+                    <span data-lang="es" style="display:none;">Ver ejemplo</span>
+                    <span data-lang="en" style="display:none;">See example</span>
                 </a>
             </div>
             <div class="mt-16 text-white/60 text-sm flex items-center gap-2">
-                <i class="fas fa-flask"></i> <span data-translate="hero.credits">Solution terrain développée avec le Centro Especializado del Olivo – Tacna, 2024</span>
+                <i class="fas fa-flask"></i> <span data-lang="fr">Solution terrain développée avec le Centro Especializado del Olivo – Tacna, 2024</span>
+                <span data-lang="es" style="display:none;">Solución de campo desarrollada con el Centro Especializado del Olivo – Tacna, 2024</span>
+                <span data-lang="en" style="display:none;">Field solution developed with Centro Especializado del Olivo – Tacna, 2024</span>
             </div>
         </div>
     </header>
@@ -139,30 +150,56 @@
     <!-- ======= POURQUOI CENSO-CORE ? ======= -->
     <section class="max-w-7xl mx-auto px-6 py-20">
         <div class="text-center mb-16">
-            <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase" data-translate="why.tag">Pourquoi</span>
-            <h2 class="serif text-4xl md:text-5xl font-bold text-[#2C4C3B] mt-3" data-translate="why.title">Une approche sur mesure</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto mt-4" data-translate="why.sub">Nous ne vendons pas de boîte noire. Nous concevons le protocole adapté à votre réalité.</p>
+            <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase" data-lang="fr">Pourquoi</span>
+            <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase" data-lang="es" style="display:none;">Por qué</span>
+            <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase" data-lang="en" style="display:none;">Why</span>
+            <h2 class="serif text-4xl md:text-5xl font-bold text-[#2C4C3B] mt-3" data-lang="fr">Une approche sur mesure</h2>
+            <h2 class="serif text-4xl md:text-5xl font-bold text-[#2C4C3B] mt-3" data-lang="es" style="display:none;">Un enfoque a medida</h2>
+            <h2 class="serif text-4xl md:text-5xl font-bold text-[#2C4C3B] mt-3" data-lang="en" style="display:none;">A tailor‑made approach</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto mt-4" data-lang="fr">Nous ne vendons pas de boîte noire. Nous concevons le protocole adapté à votre réalité.</p>
+            <p class="text-gray-600 max-w-2xl mx-auto mt-4" data-lang="es" style="display:none;">No vendemos una caja negra. Diseñamos el protocolo adaptado a su realidad.</p>
+            <p class="text-gray-600 max-w-2xl mx-auto mt-4" data-lang="en" style="display:none;">We don't sell a black box. We design the protocol adapted to your reality.</p>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Carte 1 -->
             <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all hover-lift">
                 <div class="w-12 h-12 bg-[#2C4C3B]/10 rounded-xl flex items-center justify-center mb-4 text-2xl">🎯</div>
-                <h3 class="font-bold text-lg text-[#2C4C3B] mb-2" data-translate="why.b1_t">Objectif terrain</h3>
-                <p class="text-sm text-gray-600" data-translate="why.b1_d">Vous souhaitez inventorier, suivre, valoriser ? Nous choisissons ensemble la précision nécessaire.</p>
+                <h3 class="font-bold text-lg text-[#2C4C3B] mb-2" data-lang="fr">Objectif terrain</h3>
+                <h3 class="font-bold text-lg text-[#2C4C3B] mb-2" data-lang="es" style="display:none;">Objetivo de campo</h3>
+                <h3 class="font-bold text-lg text-[#2C4C3B] mb-2" data-lang="en" style="display:none;">Field objective</h3>
+                <p class="text-sm text-gray-600" data-lang="fr">Vous souhaitez inventorier, suivre, valoriser ? Nous choisissons ensemble la précision nécessaire.</p>
+                <p class="text-sm text-gray-600" data-lang="es" style="display:none;">¿Inventariar, monitorear, valorizar? Elegimos juntos la precisión necesaria.</p>
+                <p class="text-sm text-gray-600" data-lang="en" style="display:none;">Inventory, monitoring, valuation? We choose the required precision together.</p>
             </div>
+            <!-- Carte 2 -->
             <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all hover-lift">
                 <div class="w-12 h-12 bg-[#C5A059]/10 rounded-xl flex items-center justify-center mb-4 text-2xl">📱🛸</div>
-                <h3 class="font-bold text-lg text-[#2C4C3B] mb-2" data-translate="why.b2_t">Hybride high‑/low‑tech</h3>
-                <p class="text-sm text-gray-600" data-translate="why.b2_d">Drone photogrammétrie, récepteur GNSS, ou simple application mobile. Vous choisissez.</p>
+                <h3 class="font-bold text-lg text-[#2C4C3B] mb-2" data-lang="fr">Hybride high‑/low‑tech</h3>
+                <h3 class="font-bold text-lg text-[#2C4C3B] mb-2" data-lang="es" style="display:none;">Híbrido high/low‑tech</h3>
+                <h3 class="font-bold text-lg text-[#2C4C3B] mb-2" data-lang="en" style="display:none;">High/low‑tech hybrid</h3>
+                <p class="text-sm text-gray-600" data-lang="fr">Drone photogrammétrie, récepteur GNSS, ou simple application mobile. Vous choisissez.</p>
+                <p class="text-sm text-gray-600" data-lang="es" style="display:none;">Dron fotogramétrico, GNSS o app móvil. Usted elige.</p>
+                <p class="text-sm text-gray-600" data-lang="en" style="display:none;">Drone, GNSS receiver, or mobile app. You choose.</p>
             </div>
+            <!-- Carte 3 -->
             <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all hover-lift">
                 <div class="w-12 h-12 bg-[#2C4C3B]/10 rounded-xl flex items-center justify-center mb-4 text-2xl">📦</div>
-                <h3 class="font-bold text-lg text-[#2C4C3B] mb-2" data-translate="why.b3_t">Livrables ouverts</h3>
-                <p class="text-sm text-gray-600" data-translate="why.b3_d">Shapefile, GeoJSON, carte interactive, rapport photo. Vous restez propriétaire de vos données.</p>
+                <h3 class="font-bold text-lg text-[#2C4C3B] mb-2" data-lang="fr">Livrables ouverts</h3>
+                <h3 class="font-bold text-lg text-[#2C4C3B] mb-2" data-lang="es" style="display:none;">Entregables abiertos</h3>
+                <h3 class="font-bold text-lg text-[#2C4C3B] mb-2" data-lang="en" style="display:none;">Open deliverables</h3>
+                <p class="text-sm text-gray-600" data-lang="fr">Shapefile, GeoJSON, carte interactive, rapport photo. Vous restez propriétaire de vos données.</p>
+                <p class="text-sm text-gray-600" data-lang="es" style="display:none;">Shapefile, GeoJSON, mapa interactivo, reporte fotográfico. Usted es dueño de sus datos.</p>
+                <p class="text-sm text-gray-600" data-lang="en" style="display:none;">Shapefile, GeoJSON, interactive map, photo report. You own your data.</p>
             </div>
+            <!-- Carte 4 -->
             <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all hover-lift">
                 <div class="w-12 h-12 bg-[#C5A059]/10 rounded-xl flex items-center justify-center mb-4 text-2xl">🤝</div>
-                <h3 class="font-bold text-lg text-[#2C4C3B] mb-2" data-translate="why.b4_t">Accompagnement</h3>
-                <p class="text-sm text-gray-600" data-translate="why.b4_d">Formation de vos équipes ou prestation complète. Nous sommes présents du terrain à la carte.</p>
+                <h3 class="font-bold text-lg text-[#2C4C3B] mb-2" data-lang="fr">Accompagnement</h3>
+                <h3 class="font-bold text-lg text-[#2C4C3B] mb-2" data-lang="es" style="display:none;">Acompañamiento</h3>
+                <h3 class="font-bold text-lg text-[#2C4C3B] mb-2" data-lang="en" style="display:none;">Support</h3>
+                <p class="text-sm text-gray-600" data-lang="fr">Formation de vos équipes ou prestation complète. Nous sommes présents du terrain à la carte.</p>
+                <p class="text-sm text-gray-600" data-lang="es" style="display:none;">Capacitación de su equipo o servicio completo. Estamos presentes del campo al mapa.</p>
+                <p class="text-sm text-gray-600" data-lang="en" style="display:none;">Training of your teams or full service. We are there from field to map.</p>
             </div>
         </div>
     </section>
@@ -171,29 +208,49 @@
     <section class="bg-gray-50 py-20">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase" data-translate="meth.tag">Méthode</span>
-                <h2 class="serif text-4xl md:text-5xl font-bold text-[#2C4C3B] mt-3" data-translate="meth.title">Du relevé à la carte</h2>
+                <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase" data-lang="fr">Méthode</span>
+                <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase" data-lang="es" style="display:none;">Método</span>
+                <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase" data-lang="en" style="display:none;">Method</span>
+                <h2 class="serif text-4xl md:text-5xl font-bold text-[#2C4C3B] mt-3" data-lang="fr">Du relevé à la carte</h2>
+                <h2 class="serif text-4xl md:text-5xl font-bold text-[#2C4C3B] mt-3" data-lang="es" style="display:none;">Del levantamiento al mapa</h2>
+                <h2 class="serif text-4xl md:text-5xl font-bold text-[#2C4C3B] mt-3" data-lang="en" style="display:none;">From survey to map</h2>
             </div>
             <div class="grid md:grid-cols-4 gap-6">
                 <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 text-center hover-lift transition-all">
                     <div class="w-16 h-16 bg-[#2C4C3B]/10 rounded-2xl flex items-center justify-center mx-auto mb-4 text-3xl">📋</div>
-                    <h3 class="font-bold text-[#2C4C3B] mb-2" data-translate="meth.s1_t">1. Audit du besoin</h3>
-                    <p class="text-sm text-gray-600" data-translate="meth.s1_d">Surface, densité, accès, objectif patrimonial. Nous définissons le protocole.</p>
+                    <h3 class="font-bold text-[#2C4C3B] mb-2" data-lang="fr">1. Audit du besoin</h3>
+                    <h3 class="font-bold text-[#2C4C3B] mb-2" data-lang="es" style="display:none;">1. Auditoría</h3>
+                    <h3 class="font-bold text-[#2C4C3B] mb-2" data-lang="en" style="display:none;">1. Needs audit</h3>
+                    <p class="text-sm text-gray-600" data-lang="fr">Surface, densité, accès, objectif patrimonial. Nous définissons le protocole.</p>
+                    <p class="text-sm text-gray-600" data-lang="es" style="display:none;">Superficie, densidad, acceso, objetivo patrimonial. Definimos el protocolo.</p>
+                    <p class="text-sm text-gray-600" data-lang="en" style="display:none;">Area, density, access, heritage goal. We define the protocol.</p>
                 </div>
                 <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 text-center hover-lift transition-all">
                     <div class="w-16 h-16 bg-[#C5A059]/10 rounded-2xl flex items-center justify-center mx-auto mb-4 text-3xl">📡</div>
-                    <h3 class="font-bold text-[#2C4C3B] mb-2" data-translate="meth.s2_t">2. Acquisition terrain</h3>
-                    <p class="text-sm text-gray-600" data-translate="meth.s2_d">Drone, RTK, smartphone. Nous réalisons le relevé ou formons vos équipes.</p>
+                    <h3 class="font-bold text-[#2C4C3B] mb-2" data-lang="fr">2. Acquisition terrain</h3>
+                    <h3 class="font-bold text-[#2C4C3B] mb-2" data-lang="es" style="display:none;">2. Adquisición</h3>
+                    <h3 class="font-bold text-[#2C4C3B] mb-2" data-lang="en" style="display:none;">2. Field acquisition</h3>
+                    <p class="text-sm text-gray-600" data-lang="fr">Drone, RTK, smartphone. Nous réalisons le relevé ou formons vos équipes.</p>
+                    <p class="text-sm text-gray-600" data-lang="es" style="display:none;">Dron, RTK o móvil. Realizamos el relevamiento o capacitamos.</p>
+                    <p class="text-sm text-gray-600" data-lang="en" style="display:none;">Drone, RTK, smartphone. We carry out the survey or train your staff.</p>
                 </div>
                 <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 text-center hover-lift transition-all">
                     <div class="w-16 h-16 bg-[#2C4C3B]/10 rounded-2xl flex items-center justify-center mx-auto mb-4 text-3xl">🖥️</div>
-                    <h3 class="font-bold text-[#2C4C3B] mb-2" data-translate="meth.s3_t">3. Traitement</h3>
-                    <p class="text-sm text-gray-600" data-translate="meth.s3_d">Géoréférencement, consolidation, extraction des métadonnées. Données brutes et structurées.</p>
+                    <h3 class="font-bold text-[#2C4C3B] mb-2" data-lang="fr">3. Traitement</h3>
+                    <h3 class="font-bold text-[#2C4C3B] mb-2" data-lang="es" style="display:none;">3. Procesamiento</h3>
+                    <h3 class="font-bold text-[#2C4C3B] mb-2" data-lang="en" style="display:none;">3. Processing</h3>
+                    <p class="text-sm text-gray-600" data-lang="fr">Géoréférencement, consolidation, extraction des métadonnées. Données brutes et structurées.</p>
+                    <p class="text-sm text-gray-600" data-lang="es" style="display:none;">Georreferenciación, consolidación, extracción de metadatos. Datos brutos y estructurados.</p>
+                    <p class="text-sm text-gray-600" data-lang="en" style="display:none;">Georeferencing, consolidation, metadata extraction. Raw and structured data.</p>
                 </div>
                 <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 text-center hover-lift transition-all">
                     <div class="w-16 h-16 bg-[#C5A059]/10 rounded-2xl flex items-center justify-center mx-auto mb-4 text-3xl">🗺️</div>
-                    <h3 class="font-bold text-[#2C4C3B] mb-2" data-translate="meth.s4_t">4. Exploitation</h3>
-                    <p class="text-sm text-gray-600" data-translate="meth.s4_d">Cartes interactives, fichiers SIG, inventaire photographique. Vous êtes autonome.</p>
+                    <h3 class="font-bold text-[#2C4C3B] mb-2" data-lang="fr">4. Exploitation</h3>
+                    <h3 class="font-bold text-[#2C4C3B] mb-2" data-lang="es" style="display:none;">4. Explotación</h3>
+                    <h3 class="font-bold text-[#2C4C3B] mb-2" data-lang="en" style="display:none;">4. Exploitation</h3>
+                    <p class="text-sm text-gray-600" data-lang="fr">Cartes interactives, fichiers SIG, inventaire photographique. Vous êtes autonome.</p>
+                    <p class="text-sm text-gray-600" data-lang="es" style="display:none;">Mapas interactivos, archivos SIG, inventario fotográfico. Usted es autónomo.</p>
+                    <p class="text-sm text-gray-600" data-lang="en" style="display:none;">Interactive maps, GIS files, photographic inventory. You are autonomous.</p>
                 </div>
             </div>
         </div>
@@ -203,76 +260,110 @@
     <section id="map-section" class="max-w-7xl mx-auto px-6 py-20">
         <div class="flex flex-col lg:flex-row justify-between items-end mb-10">
             <div>
-                <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase" data-translate="map.tag">Démonstration</span>
-                <h2 class="serif text-3xl md:text-4xl font-bold text-[#2C4C3B] mt-2" data-translate="map.title">Parcelle Tacna – 67 oliviers centenaires</h2>
-                <p class="text-gray-600 max-w-2xl mt-3" data-translate="map.desc">
-                    Données réelles issues du projet pilote. Chaque point contient une photo géolocalisée 
-                    et les observations terrain.
-                </p>
+                <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase" data-lang="fr">Démonstration</span>
+                <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase" data-lang="es" style="display:none;">Demostración</span>
+                <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase" data-lang="en" style="display:none;">Demo</span>
+                <h2 class="serif text-3xl md:text-4xl font-bold text-[#2C4C3B] mt-2" data-lang="fr">Parcelle Tacna – 67 oliviers centenaires</h2>
+                <h2 class="serif text-3xl md:text-4xl font-bold text-[#2C4C3B] mt-2" data-lang="es" style="display:none;">Parcela Tacna – 42 olivos centenarios</h2>
+                <h2 class="serif text-3xl md:text-4xl font-bold text-[#2C4C3B] mt-2" data-lang="en" style="display:none;">Tacna Plot – 42 centenary olive trees</h2>
+                <p class="text-gray-600 max-w-2xl mt-3" data-lang="fr">Données réelles issues du projet pilote. Chaque point contient une photo géolocalisée et les observations terrain.</p>
+                <p class="text-gray-600 max-w-2xl mt-3" data-lang="es" style="display:none;">Datos reales del proyecto piloto. Cada punto tiene foto geolocalizada y observaciones.</p>
+                <p class="text-gray-600 max-w-2xl mt-3" data-lang="en" style="display:none;">Real data from the pilot project. Each point contains geolocated photo and field observations.</p>
             </div>
             <div class="flex items-center gap-2 mt-4 lg:mt-0">
                 <div class="bg-white px-4 py-2 rounded-full shadow-sm border flex items-center gap-2 map-legend">
                     <span class="w-3 h-3 bg-[#C5A059] rounded-full"></span>
-                    <span class="text-xs font-medium" data-translate="map.legend">Points de relevé (exemple)</span>
+                    <span class="text-xs font-medium" data-lang="fr">Points de relevé (exemple)</span>
+                    <span class="text-xs font-medium" data-lang="es" style="display:none;">Puntos de relevamiento (ejemplo)</span>
+                    <span class="text-xs font-medium" data-lang="en" style="display:none;">Survey points (example)</span>
                 </div>
             </div>
         </div>
         <div id="map"></div>
+        <p class="text-xs text-gray-400 mt-3 text-center" data-lang="fr">Données d’exemple – chaque projet reçoit sa propre cartographie.</p>
+        <p class="text-xs text-gray-400 mt-3 text-center" data-lang="es" style="display:none;">Datos de ejemplo – cada proyecto recibe su propia cartografía.</p>
+        <p class="text-xs text-gray-400 mt-3 text-center" data-lang="en" style="display:none;">Sample data – each project receives its own cartography.</p>
     </section>
+
 
     <!-- ======= ÉQUIPE ======= -->
     <section class="bg-gray-50 py-20">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase" data-translate="team.tag">Équipe</span>
-                <h2 class="serif text-4xl md:text-5xl font-bold text-[#2C4C3B] mt-3" data-translate="team.title">Ceux qui font la carte</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto mt-4" data-translate="team.sub">Consultants terrain, ingénieurs SIG, agronomes. Nous sommes vos interlocuteurs uniques.</p>
+                <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase" data-lang="fr">Équipe</span>
+                <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase" data-lang="es" style="display:none;">Equipo</span>
+                <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase" data-lang="en" style="display:none;">Team</span>
+                <h2 class="serif text-4xl md:text-5xl font-bold text-[#2C4C3B] mt-3" data-lang="fr">Ceux qui font la carte</h2>
+                <h2 class="serif text-4xl md:text-5xl font-bold text-[#2C4C3B] mt-3" data-lang="es" style="display:none;">Quienes hacen el mapa</h2>
+                <h2 class="serif text-4xl md:text-5xl font-bold text-[#2C4C3B] mt-3" data-lang="en" style="display:none;">Those who make the map</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4" data-lang="fr">Consultants terrain, ingénieurs SIG, agronomes. Nous sommes vos interlocuteurs uniques.</p>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4" data-lang="es" style="display:none;">Consultores de campo, ingenieros SIG, agrónomos. Somos sus interlocutores únicos.</p>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4" data-lang="en" style="display:none;">Field consultants, GIS engineers, agronomists. We are your single point of contact.</p>
             </div>
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="bg-white p-6 rounded-3xl shadow-xl border border-gray-100 text-center hover-lift transition-all">
-                    <div class="w-24 h-24 mx-auto bg-[#2C4C3B]/10 rounded-full flex items-center justify-center text-4xl mb-4">🌿</div>
-                    <h3 class="font-bold text-xl text-[#2C4C3B]">Alejandra Reyes</h3>
-                    <p class="text-sm text-[#C5A059] font-semibold mb-3" data-translate="team.role1">Responsable terrain</p>
-                    <p class="text-sm text-gray-600" data-translate="team.bio1">Ingénieure agronome, 10 ans d’expérience en oléiculture. Elle a coordonné le recensement de Tacna.</p>
-                </div>
-                <div class="bg-white p-6 rounded-3xl shadow-xl border border-gray-100 text-center hover-lift transition-all">
-                    <div class="w-24 h-24 mx-auto bg-[#C5A059]/10 rounded-full flex items-center justify-center text-4xl mb-4">🛰️</div>
-                    <h3 class="font-bold text-xl text-[#2C4C3B]">Carlos Vega</h3>
-                    <p class="text-sm text-[#C5A059] font-semibold mb-3" data-translate="team.role2">Géomaticien</p>
-                    <p class="text-sm text-gray-600" data-translate="team.bio2">Spécialiste drone et RTK. Il forme les équipes locales et garantit la précision centimétrique.</p>
-                </div>
-                <div class="bg-white p-6 rounded-3xl shadow-xl border border-gray-100 text-center hover-lift transition-all">
-                    <div class="w-24 h-24 mx-auto bg-[#2C4C3B]/10 rounded-full flex items-center justify-center text-4xl mb-4">📊</div>
-                    <h3 class="font-bold text-xl text-[#2C4C3B]">Marta Sánchez</h3>
-                    <p class="text-sm text-[#C5A059] font-semibold mb-3" data-translate="team.role3">Cartographe</p>
-                    <p class="text-sm text-gray-600" data-translate="team.bio3">Conçoit les livrables interactifs et accompagne les clients dans l’appropriation des données.</p>
+            <!-- Grille centrée avec 2 colonnes en desktop -->
+            <div class="flex justify-center">
+                <div class="grid md:grid-cols-2 gap-10 max-w-3xl">
+                    <!-- Alejandra Reyes -->
+                    <div class="bg-white p-6 rounded-3xl shadow-xl border border-gray-100 text-center hover-lift transition-all flex flex-col items-center">
+                        <div class="w-24 h-24 bg-[#2C4C3B]/10 rounded-full flex items-center justify-center text-4xl mb-4">🌿</div>
+                        <h3 class="font-bold text-xl text-[#2C4C3B] text-center">Alejandra Galvan Gomez</h3>
+                        <p class="text-sm text-[#C5A059] font-semibold mb-3 text-center" data-lang="fr">Responsable terrain</p>
+                        <p class="text-sm text-[#C5A059] font-semibold mb-3 text-center" data-lang="es" style="display:none;">Responsable de campo</p>
+                        <p class="text-sm text-[#C5A059] font-semibold mb-3 text-center" data-lang="en" style="display:none;">Field Manager</p>
+                        <div data-lang="fr" class="text-sm text-gray-600 text-center">Co productrice, 12 ans d’expérience en oléiculture. Elle a coordonné le recensement de Tacna pour les oliviers centenaires.</div>
+                        <div data-lang="es" class="text-sm text-gray-600 text-center" style="display:none;">Co productora, 12 años en olivicultura. Coordinó el censo de Tacna por olivos centenarios.</div>
+                        <div data-lang="en" class="text-sm text-gray-600 text-center" style="display:none;">Co‑founder, 12 years in olive growing. She coordinated the Tacna census for centenary trees.</div>
+                    </div>
+                    <!-- Florent PLANELLS -->
+                    <div class="bg-white p-6 rounded-3xl shadow-xl border border-gray-100 text-center hover-lift transition-all flex flex-col items-center">
+                        <div class="w-24 h-24 bg-[#2C4C3B]/10 rounded-full flex items-center justify-center text-4xl mb-4">📊</div>
+                        <h3 class="font-bold text-xl text-[#2C4C3B] text-center">Florent PLANELLS</h3>
+                        <p class="text-sm text-[#C5A059] font-semibold mb-3 text-center" data-lang="fr">Informaticien</p>
+                        <p class="text-sm text-[#C5A059] font-semibold mb-3 text-center" data-lang="es" style="display:none;">Informático</p>
+                        <p class="text-sm text-[#C5A059] font-semibold mb-3 text-center" data-lang="en" style="display:none;">IT Engineer</p>
+                        <div data-lang="fr" class="text-sm text-gray-600 text-center">Conçoit les livrables interactifs et accompagne les clients dans l’appropriation des données.</div>
+                        <div data-lang="es" class="text-sm text-gray-600 text-center" style="display:none;">Diseña entregables interactivos y acompaña a los clientes en la apropiación de datos.</div>
+                        <div data-lang="en" class="text-sm text-gray-600 text-center" style="display:none;">Designs interactive deliverables and supports clients in data appropriation.</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- ======= FAQ ======= -->
     <section class="max-w-7xl mx-auto px-6 py-20">
         <div class="text-center mb-16">
-            <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase" data-translate="faq.tag">FAQ</span>
-            <h2 class="serif text-4xl md:text-5xl font-bold text-[#2C4C3B] mt-3" data-translate="faq.title">Questions fréquentes</h2>
+            <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase" data-lang="fr">FAQ</span>
+            <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase" data-lang="es" style="display:none;">Preguntas</span>
+            <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase" data-lang="en" style="display:none;">FAQ</span>
+            <h2 class="serif text-4xl md:text-5xl font-bold text-[#2C4C3B] mt-3" data-lang="fr">Questions fréquentes</h2>
+            <h2 class="serif text-4xl md:text-5xl font-bold text-[#2C4C3B] mt-3" data-lang="es" style="display:none;">Preguntas frecuentes</h2>
+            <h2 class="serif text-4xl md:text-5xl font-bold text-[#2C4C3B] mt-3" data-lang="en" style="display:none;">Frequently asked questions</h2>
         </div>
         <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
-                <h3 class="font-bold text-[#2C4C3B] mb-2 flex items-center gap-2"><i class="fas fa-circle text-[8px] text-[#C5A059]"></i> <span data-translate="faq.q1">Quel est le coût d’une mission ?</span></h3>
-                <p class="text-sm text-gray-600" data-translate="faq.a1">Il dépend de la surface, du protocole et du niveau d’accompagnement. Nous établissons un devis gratuit et transparent.</p>
+                <h3 class="font-bold text-[#2C4C3B] mb-2 flex items-center gap-2"><i class="fas fa-circle text-[8px] text-[#C5A059]"></i> <span data-lang="fr">Quel est le coût d’une mission ?</span><span data-lang="es" style="display:none;">¿Cuál es el costo de una misión?</span><span data-lang="en" style="display:none;">How much does a mission cost?</span></h3>
+                <p class="text-sm text-gray-600" data-lang="fr">Il dépend de la surface, du protocole et du niveau d’accompagnement. Nous établissons un devis gratuit et transparent.</p>
+                <p class="text-sm text-gray-600" data-lang="es" style="display:none;">Depende de la superficie, protocolo y acompañamiento. Presupuesto gratuito y transparente.</p>
+                <p class="text-sm text-gray-600" data-lang="en" style="display:none;">It depends on area, protocol and level of support. Free and transparent quote.</p>
             </div>
             <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
-                <h3 class="font-bold text-[#2C4C3B] mb-2 flex items-center gap-2"><i class="fas fa-circle text-[8px] text-[#C5A059]"></i> <span data-translate="faq.q2">Proposez-vous une certification ?</span></h3>
-                <p class="text-sm text-gray-600" data-translate="faq.a2">Non. Nous fournissons des données fiables et des méthodes, pas de label. Vous pouvez les utiliser pour vos propres démarches qualité.</p>
+                <h3 class="font-bold text-[#2C4C3B] mb-2 flex items-center gap-2"><i class="fas fa-circle text-[8px] text-[#C5A059]"></i> <span data-lang="fr">Proposez-vous une certification ?</span><span data-lang="es" style="display:none;">¿Ofrecen certificación?</span><span data-lang="en" style="display:none;">Do you offer certification?</span></h3>
+                <p class="text-sm text-gray-600" data-lang="fr">Non. Nous fournissons des données fiables et des méthodes, pas de label. Vous pouvez les utiliser pour vos propres démarches qualité.</p>
+                <p class="text-sm text-gray-600" data-lang="es" style="display:none;">No. Proporcionamos datos fiables y métodos, no sellos. Usted los usa para sus propios procesos.</p>
+                <p class="text-sm text-gray-600" data-lang="en" style="display:none;">No. We provide reliable data and methods, not labels. You can use them for your own quality processes.</p>
             </div>
             <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
-                <h3 class="font-bold text-[#2C4C3B] mb-2 flex items-center gap-2"><i class="fas fa-circle text-[8px] text-[#C5A059]"></i> <span data-translate="faq.q3">Quels formats de livraison ?</span></h3>
-                <p class="text-sm text-gray-600" data-translate="faq.a3">Shapefile, GeoJSON, KML, carte web interactive, rapport PDF. Vous repartez avec les fichiers bruts.</p>
+                <h3 class="font-bold text-[#2C4C3B] mb-2 flex items-center gap-2"><i class="fas fa-circle text-[8px] text-[#C5A059]"></i> <span data-lang="fr">Quels formats de livraison ?</span><span data-lang="es" style="display:none;">¿Formatos de entrega?</span><span data-lang="en" style="display:none;">What delivery formats?</span></h3>
+                <p class="text-sm text-gray-600" data-lang="fr">Shapefile, GeoJSON, KML, carte web interactive, rapport PDF. Vous repartez avec les fichiers bruts.</p>
+                <p class="text-sm text-gray-600" data-lang="es" style="display:none;">Shapefile, GeoJSON, KML, mapa web, PDF. Se lleva los archivos brutos.</p>
+                <p class="text-sm text-gray-600" data-lang="en" style="display:none;">Shapefile, GeoJSON, KML, interactive web map, PDF report. You leave with raw files.</p>
             </div>
             <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
-                <h3 class="font-bold text-[#2C4C3B] mb-2 flex items-center gap-2"><i class="fas fa-circle text-[8px] text-[#C5A059]"></i> <span data-translate="faq.q4">Pouvez‑vous former mon équipe ?</span></h3>
-                <p class="text-sm text-gray-600" data-translate="faq.a4">Oui, c’est notre approche privilégiée. Nous transmettons la méthode pour que vous deveniez autonomes.</p>
+                <h3 class="font-bold text-[#2C4C3B] mb-2 flex items-center gap-2"><i class="fas fa-circle text-[8px] text-[#C5A059]"></i> <span data-lang="fr">Pouvez‑vous former mon équipe ?</span><span data-lang="es" style="display:none;">¿Pueden capacitar a mi equipo?</span><span data-lang="en" style="display:none;">Can you train my team?</span></h3>
+                <p class="text-sm text-gray-600" data-lang="fr">Oui, c’est notre approche privilégiée. Nous transmettons la méthode pour que vous deveniez autonomes.</p>
+                <p class="text-sm text-gray-600" data-lang="es" style="display:none;">Sí, es nuestro enfoque preferido. Transferimos el método para que sean autónomos.</p>
+                <p class="text-sm text-gray-600" data-lang="en" style="display:none;">Yes, it's our preferred approach. We transfer the method so you become autonomous.</p>
             </div>
         </div>
     </section>
@@ -281,44 +372,28 @@
     <section id="projet" class="gold-gradient py-20 relative overflow-hidden">
         <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1587033411391-5a9bf51e5c5c?q=80&w=2070')] bg-cover bg-center opacity-5"></div>
         <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-            <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase bg-white/10 px-4 py-2 rounded-full" data-translate="contact.tag">Sans engagement</span>
-            <h2 class="serif text-4xl md:text-5xl font-bold text-white mt-6 mb-6" data-translate="contact.title">Vous avez un patrimoine à cartographier ?</h2>
-            <p class="text-gray-200 text-lg max-w-2xl mx-auto mb-10" data-translate="contact.sub">
-                Décrivez‑nous votre projet. Nous vous répondons sous 48h.
-            </p>
+            <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase bg-white/10 px-4 py-2 rounded-full" data-lang="fr">Sans engagement</span>
+            <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase bg-white/10 px-4 py-2 rounded-full" data-lang="es" style="display:none;">Sin compromiso</span>
+            <span class="text-[#C5A059] text-sm font-bold tracking-[0.3em] uppercase bg-white/10 px-4 py-2 rounded-full" data-lang="en" style="display:none;">No commitment</span>
+            <h2 class="serif text-4xl md:text-5xl font-bold text-white mt-6 mb-6" data-lang="fr">Vous avez un patrimoine à cartographier ?</h2>
+            <h2 class="serif text-4xl md:text-5xl font-bold text-white mt-6 mb-6" data-lang="es" style="display:none;">¿Tiene un patrimonio que mapear?</h2>
+            <h2 class="serif text-4xl md:text-5xl font-bold text-white mt-6 mb-6" data-lang="en" style="display:none;">Do you have heritage to map?</h2>
+            <p class="text-gray-200 text-lg max-w-2xl mx-auto mb-10" data-lang="fr">Décrivez‑nous votre projet. Nous vous répondons sous 48h.</p>
+            <p class="text-gray-200 text-lg max-w-2xl mx-auto mb-10" data-lang="es" style="display:none;">Describa su proyecto. Respondemos en 48h.</p>
+            <p class="text-gray-200 text-lg max-w-2xl mx-auto mb-10" data-lang="en" style="display:none;">Describe your project. We reply within 48h.</p>
             <button onclick="toggleModal(true)" class="bg-[#C5A059] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#b38a47] transition shadow-2xl inline-flex items-center gap-3 hover-lift">
-                <i class="fas fa-envelope"></i> <span data-translate="contact.btn">Envoyer un message à l’équipe</span>
+                <i class="fas fa-envelope"></i> <span data-lang="fr">Envoyer un message à l’équipe</span>
+                <span data-lang="es" style="display:none;">Enviar mensaje al equipo</span>
+                <span data-lang="en" style="display:none;">Send a message to the team</span>
             </button>
         </div>
     </section>
 
-    <!-- ======= FOOTER ======= -->
-    <footer class="bg-[#1a2e24] text-white/80 py-12">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center border-b border-white/20 pb-8 mb-8">
-                <div class="flex items-center gap-3">
-                    <span class="serif text-2xl font-bold text-white">Censo<span class="text-[#C5A059]">-Core</span></span>
-                    <span class="text-xs text-white/40">© 2025 – Mundo‑AOVE Consulting</span>
-                </div>
-                <div class="flex gap-6 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-[#C5A059] transition text-sm flex items-center gap-1"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="#" class="hover:text-[#C5A059] transition text-sm flex items-center gap-1"><i class="fab fa-twitter"></i> Twitter</a>
-                    <a href="#" class="hover:text-[#C5A059] transition text-sm flex items-center gap-1"><i class="fab fa-github"></i> GitHub</a>
-                </div>
-            </div>
-            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-white/60">
-                <div class="flex gap-6">
-                    <span><i class="fas fa-map-marker-alt mr-2"></i> Tacna, Pérou</span>
-                    <span><i class="fas fa-envelope mr-2"></i> censo-core@mundo-aove.com</span>
-                    <span><i class="fas fa-phone-alt mr-2"></i> +51 987 654 321</span>
-                </div>
-                <div class="flex gap-4 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-white transition" data-translate="footer.legal">Mentions légales</a>
-                    <span>•</span>
-                    <a href="#" class="hover:text-white transition" data-translate="footer.privacy">Confidentialité</a>
-                </div>
-            </div>
-        </div>
+    <!-- ======= FOOTER SIMPLIFIÉ (COMME MAVERICK) ======= -->
+    <footer class="bg-white border-t border-gray-100 py-12 text-center">
+        <p data-lang="fr" class="text-gray-400 text-sm font-medium tracking-widest uppercase">© 2026 Mundo-AOVE Tech – Censo‑Core</p>
+        <p data-lang="es" style="display:none;" class="text-gray-400 text-sm font-medium tracking-widest uppercase">© 2026 Mundo-AOVE Tech – Censo‑Core</p>
+        <p data-lang="en" style="display:none;" class="text-gray-400 text-sm font-medium tracking-widest uppercase">© 2026 Mundo-AOVE Tech – Censo‑Core</p>
     </footer>
 
     <!-- ======= MODALE DE CONTACT ======= -->
@@ -326,253 +401,78 @@
         <div class="modal-overlay absolute inset-0" onclick="toggleModal(false)"></div>
         <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl relative z-10 overflow-hidden animate__animated animate__fadeInUp">
             <div class="bg-[#2C4C3B] p-6 text-white flex justify-between items-center">
-                <h3 class="serif text-2xl font-bold" data-translate="form.title">Nouveau Projet</h3>
+                <h3 class="serif text-2xl font-bold" data-lang="fr">Nouveau Projet</h3>
+                <h3 class="serif text-2xl font-bold" data-lang="es" style="display:none;">Nuevo Proyecto</h3>
+                <h3 class="serif text-2xl font-bold" data-lang="en" style="display:none;">New Project</h3>
                 <button onclick="toggleModal(false)" class="text-white/70 hover:text-white text-3xl font-light">&times;</button>
             </div>
             <form id="techForm" class="p-8 space-y-4">
                 <div>
-                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-translate="form.name">Nom / Entreprise</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="fr">Nom / Entreprise</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="es" style="display:none;">Nombre / Empresa</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="en" style="display:none;">Name / Company</label>
                     <input type="text" id="formName" required class="w-full border-b-2 border-gray-100 focus:border-[#C5A059] outline-none py-2 transition-colors">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-translate="form.email">Email</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="fr">Email</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="es" style="display:none;">Correo</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="en" style="display:none;">Email</label>
                     <input type="email" id="formEmail" required class="w-full border-b-2 border-gray-100 focus:border-[#C5A059] outline-none py-2 transition-colors">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-translate="form.msg">Description du projet</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="fr">Description du projet</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="es" style="display:none;">Descripción del proyecto</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="en" style="display:none;">Project description</label>
                     <textarea id="formMsg" rows="4" required class="w-full bg-gray-50 rounded-xl p-3 focus:ring-2 focus:ring-[#C5A059] outline-none transition-all"></textarea>
                 </div>
-                <div class="text-xs text-gray-400 italic" data-translate="form.hint">
-                    Nous traitons votre demande manuellement. Réponse sous 48h.
-                </div>
+                <div class="text-xs text-gray-400 italic" data-lang="fr">Nous traitons votre demande manuellement. Réponse sous 48h.</div>
+                <div class="text-xs text-gray-400 italic" data-lang="es" style="display:none;">Procesamos su solicitud manualmente. Respuesta en 48h.</div>
+                <div class="text-xs text-gray-400 italic" data-lang="en" style="display:none;">We process your request manually. Reply within 48h.</div>
                 <button type="submit" id="submitBtn" class="w-full bg-[#C5A059] text-white font-bold py-4 rounded-xl hover:bg-[#b38a47] transition shadow-lg flex items-center justify-center gap-2">
-                    <i class="fas fa-paper-plane"></i> <span data-translate="form.submit">Envoyer le dossier</span>
+                    <i class="fas fa-paper-plane"></i> <span data-lang="fr">Envoyer le dossier</span>
+                    <span data-lang="es" style="display:none;">Enviar expediente</span>
+                    <span data-lang="en" style="display:none;">Send request</span>
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- ======= SCRIPTS ======= -->
+    <!-- ======= SCRIPT DE GESTION DE LANGUE ======= -->
     <script>
-        // ---------- TRADUCTIONS COMPLÈTES ----------
-        const translations = {
-            fr: {
-                "nav.sub": "Tech",
-                "nav.contact": "Contact",
-                "hero.tag": "🇵🇪 Projet Olivos Centenarios – CEO / Mundo‑AOVE Tech",
-                "hero.title": "Cartographiez votre <span class='text-[#C5A059] italic'>patrimoine</span><br>avec la juste technologie",
-                "hero.desc": "Drone, RTK, ou simple smartphone. Nous adaptons l’outil à votre terrain et à votre budget. Une méthode éprouvée, développée pour le recensement d’oliviers centenaires au Pérou.",
-                "hero.btn_case": "Étudions votre cas",
-                "hero.btn_demo": "Voir un exemple",
-                "hero.credits": "Solution terrain développée avec le Centro Especializado del Olivo – Tacna, 2024",
-                "why.tag": "Pourquoi",
-                "why.title": "Une approche sur mesure",
-                "why.sub": "Nous ne vendons pas de boîte noire. Nous concevons le protocole adapté à votre réalité.",
-                "why.b1_t": "Objectif terrain",
-                "why.b1_d": "Vous souhaitez inventorier, suivre, valoriser ? Nous choisissons ensemble la précision nécessaire.",
-                "why.b2_t": "Hybride high‑/low‑tech",
-                "why.b2_d": "Drone photogrammétrie, récepteur GNSS, ou simple application mobile. Vous choisissez.",
-                "why.b3_t": "Livrables ouverts",
-                "why.b3_d": "Shapefile, GeoJSON, carte interactive, rapport photo. Vous restez propriétaire de vos données.",
-                "why.b4_t": "Accompagnement",
-                "why.b4_d": "Formation de vos équipes ou prestation complète. Nous sommes présents du terrain à la carte.",
-                "meth.tag": "Méthode",
-                "meth.title": "Du relevé à la carte",
-                "meth.s1_t": "1. Audit du besoin",
-                "meth.s1_d": "Surface, densité, accès, objectif patrimonial. Nous définissons le protocole.",
-                "meth.s2_t": "2. Acquisition terrain",
-                "meth.s2_d": "Drone, RTK, smartphone. Nous réalisons le relevé ou formons vos équipes.",
-                "meth.s3_t": "3. Traitement",
-                "meth.s3_d": "Géoréférencement, consolidation, extraction des métadonnées. Données brutes et structurées.",
-                "meth.s4_t": "4. Exploitation",
-                "meth.s4_d": "Cartes interactives, fichiers SIG, inventaire photographique. Vous êtes autonome.",
-                "map.tag": "Démonstration",
-                "map.title": "Parcelle Tacna – 67 oliviers centenaires",
-                "map.desc": "Données réelles issues du projet pilote. Chaque point contient une photo géolocalisée et les observations terrain.",
-                "map.legend": "Points de relevé (exemple)",
-                "map.disclaimer": "Données d’exemple – chaque projet reçoit sa propre cartographie.",
-                "team.tag": "Équipe",
-                "team.title": "Ceux qui font la carte",
-                "team.sub": "Consultants terrain, ingénieurs SIG, agronomes. Nous sommes vos interlocuteurs uniques.",
-                "team.role1": "Responsable terrain",
-                "team.bio1": "Ingénieure agronome, 10 ans d’expérience en oléiculture. Elle a coordonné le recensement de Tacna.",
-                "team.role2": "Géomaticien",
-                "team.bio2": "Spécialiste drone et RTK. Il forme les équipes locales et garantit la précision centimétrique.",
-                "team.role3": "Cartographe",
-                "team.bio3": "Conçoit les livrables interactifs et accompagne les clients dans l’appropriation des données.",
-                "faq.tag": "FAQ",
-                "faq.title": "Questions fréquentes",
-                "faq.q1": "Quel est le coût d’une mission ?",
-                "faq.a1": "Il dépend de la surface, du protocole et du niveau d’accompagnement. Nous établissons un devis gratuit et transparent.",
-                "faq.q2": "Proposez-vous une certification ?",
-                "faq.a2": "Non. Nous fournissons des données fiables et des méthodes, pas de label. Vous pouvez les utiliser pour vos propres démarches qualité.",
-                "faq.q3": "Quels formats de livraison ?",
-                "faq.a3": "Shapefile, GeoJSON, KML, carte web interactive, rapport PDF. Vous repartez avec les fichiers bruts.",
-                "faq.q4": "Pouvez‑vous former mon équipe ?",
-                "faq.a4": "Oui, c’est notre approche privilégiée. Nous transmettons la méthode pour que vous deveniez autonomes.",
-                "contact.tag": "Sans engagement",
-                "contact.title": "Vous avez un patrimoine à cartographier ?",
-                "contact.sub": "Décrivez‑nous votre projet. Nous vous répondons sous 48h.",
-                "contact.btn": "Envoyer un message à l’équipe",
-                "form.title": "Nouveau Projet",
-                "form.name": "Nom / Entreprise",
-                "form.email": "Email",
-                "form.msg": "Description du projet",
-                "form.hint": "Nous traitons votre demande manuellement. Réponse sous 48h.",
-                "form.submit": "Envoyer le dossier",
-                "footer.legal": "Mentions légales",
-                "footer.privacy": "Confidentialité"
-            },
-            es: {
-                "nav.sub": "Tech",
-                "nav.contact": "Contacto",
-                "hero.tag": "🇵🇪 Proyecto Olivos Centenarios – CEO / Mundo‑AOVE Tech",
-                "hero.title": "Mapee su <span class='text-[#C5A059] italic'>patrimonio</span><br>con la tecnología adecuada",
-                "hero.desc": "Dron, RTK o simple smartphone. Adaptamos la herramienta a su terreno y presupuesto. Un método probado para el censo de olivos centenarios.",
-                "hero.btn_case": "Estudiemos su caso",
-                "hero.btn_demo": "Ver ejemplo",
-                "hero.credits": "Solución de campo desarrollada con el Centro Especializado del Olivo – Tacna, 2024",
-                "why.tag": "Por qué",
-                "why.title": "Un enfoque a medida",
-                "why.sub": "No vendemos una caja negra. Diseñamos el protocolo adaptado a su realidad.",
-                "why.b1_t": "Objetivo de campo",
-                "why.b1_d": "¿Inventariar, monitorear, valorizar? Elegimos juntos la precisión necesaria.",
-                "why.b2_t": "Híbrido high/low‑tech",
-                "why.b2_d": "Dron fotogramétrico, GNSS o app móvil. Usted elige.",
-                "why.b3_t": "Entregables abiertos",
-                "why.b3_d": "Shapefile, GeoJSON, mapa interactivo, reporte fotográfico. Usted es dueño de sus datos.",
-                "why.b4_t": "Acompañamiento",
-                "why.b4_d": "Capacitación de su equipo o servicio completo. Estamos presentes del campo al mapa.",
-                "meth.tag": "Método",
-                "meth.title": "Del levantamiento al mapa",
-                "meth.s1_t": "1. Auditoría",
-                "meth.s1_d": "Superficie, densidad, acceso, objetivo patrimonial. Definimos el protocolo.",
-                "meth.s2_t": "2. Adquisición",
-                "meth.s2_d": "Dron, RTK o móvil. Realizamos el relevamiento o capacitamos.",
-                "meth.s3_t": "3. Procesamiento",
-                "meth.s3_d": "Georreferenciación, consolidación, extracción de metadatos. Datos brutos y estructurados.",
-                "meth.s4_t": "4. Explotación",
-                "meth.s4_d": "Mapas interactivos, archivos SIG, inventario fotográfico. Usted es autónomo.",
-                "map.tag": "Demostración",
-                "map.title": "Parcela Tacna – 42 olivos centenarios",
-                "map.desc": "Datos reales del proyecto piloto. Cada punto tiene foto geolocalizada y observaciones.",
-                "map.legend": "Puntos de relevamiento (ejemplo)",
-                "map.disclaimer": "Datos de ejemplo – cada proyecto recibe su propia cartografía.",
-                "team.tag": "Equipo",
-                "team.title": "Quienes hacen el mapa",
-                "team.sub": "Consultores de campo, ingenieros SIG, agrónomos. Somos sus interlocutores únicos.",
-                "team.role1": "Responsable de campo",
-                "team.bio1": "Ingeniera agrónoma, 10 años en olivicultura. Coordinó el censo de Tacna.",
-                "team.role2": "Geomático",
-                "team.bio2": "Especialista en drones y RTK. Capacita equipos y garantiza precisión centimétrica.",
-                "team.role3": "Cartógrafa",
-                "team.bio3": "Diseña entregables interactivos y acompaña a los clientes en la apropiación de datos.",
-                "faq.tag": "Preguntas",
-                "faq.title": "Preguntas frecuentes",
-                "faq.q1": "¿Cuál es el costo de una misión?",
-                "faq.a1": "Depende de la superficie, protocolo y acompañamiento. Presupuesto gratuito y transparente.",
-                "faq.q2": "¿Ofrecen certificación?",
-                "faq.a2": "No. Proporcionamos datos fiables y métodos, no sellos. Usted los usa para sus propios procesos.",
-                "faq.q3": "¿Formatos de entrega?",
-                "faq.a3": "Shapefile, GeoJSON, KML, mapa web, PDF. Se lleva los archivos brutos.",
-                "faq.q4": "¿Pueden capacitar a mi equipo?",
-                "faq.a4": "Sí, es nuestro enfoque preferido. Transferimos el método para que sean autónomos.",
-                "contact.tag": "Sin compromiso",
-                "contact.title": "¿Tiene un patrimonio que mapear?",
-                "contact.sub": "Describa su proyecto. Respondemos en 48h.",
-                "contact.btn": "Enviar mensaje al equipo",
-                "form.title": "Nuevo Proyecto",
-                "form.name": "Nombre / Empresa",
-                "form.email": "Correo",
-                "form.msg": "Descripción del proyecto",
-                "form.hint": "Procesamos su solicitud manualmente. Respuesta en 48h.",
-                "form.submit": "Enviar expediente",
-                "footer.legal": "Aviso legal",
-                "footer.privacy": "Privacidad"
-            },
-            en: {
-                "nav.sub": "Tech",
-                "nav.contact": "Contact",
-                "hero.tag": "🇵🇪 Olivos Centenarios Project – CEO / Mundo‑AOVE Tech",
-                "hero.title": "Map your <span class='text-[#C5A059] italic'>heritage</span><br>with the right technology",
-                "hero.desc": "Drone, RTK, or simple smartphone. We adapt the tool to your terrain and budget. A proven method developed for centenary olive tree inventory in Peru.",
-                "hero.btn_case": "Let's study your case",
-                "hero.btn_demo": "See example",
-                "hero.credits": "Field solution developed with Centro Especializado del Olivo – Tacna, 2024",
-                "why.tag": "Why",
-                "why.title": "A tailor‑made approach",
-                "why.sub": "We don't sell a black box. We design the protocol adapted to your reality.",
-                "why.b1_t": "Field objective",
-                "why.b1_d": "Inventory, monitoring, valuation? We choose the required precision together.",
-                "why.b2_t": "High/low‑tech hybrid",
-                "why.b2_d": "Drone, GNSS receiver, or mobile app. You choose.",
-                "why.b3_t": "Open deliverables",
-                "why.b3_d": "Shapefile, GeoJSON, interactive map, photo report. You own your data.",
-                "why.b4_t": "Support",
-                "why.b4_d": "Training of your teams or full service. We are there from field to map.",
-                "meth.tag": "Method",
-                "meth.title": "From survey to map",
-                "meth.s1_t": "1. Needs audit",
-                "meth.s1_d": "Area, density, access, heritage goal. We define the protocol.",
-                "meth.s2_t": "2. Field acquisition",
-                "meth.s2_d": "Drone, RTK, smartphone. We carry out the survey or train your staff.",
-                "meth.s3_t": "3. Processing",
-                "meth.s3_d": "Georeferencing, consolidation, metadata extraction. Raw and structured data.",
-                "meth.s4_t": "4. Exploitation",
-                "meth.s4_d": "Interactive maps, GIS files, photographic inventory. You are autonomous.",
-                "map.tag": "Demo",
-                "map.title": "Tacna Plot – 42 centenary olive trees",
-                "map.desc": "Real data from the pilot project. Each point contains geolocated photo and field observations.",
-                "map.legend": "Survey points (example)",
-                "map.disclaimer": "Sample data – each project receives its own cartography.",
-                "team.tag": "Team",
-                "team.title": "Those who make the map",
-                "team.sub": "Field consultants, GIS engineers, agronomists. We are your single point of contact.",
-                "team.role1": "Field Manager",
-                "team.bio1": "Agricultural engineer, 10 years in olive growing. She coordinated the Tacna census.",
-                "team.role2": "Geomatics Engineer",
-                "team.bio2": "Drone and RTK specialist. He trains local teams and ensures centimeter accuracy.",
-                "team.role3": "Cartographer",
-                "team.bio3": "Designs interactive deliverables and supports clients in data appropriation.",
-                "faq.tag": "FAQ",
-                "faq.title": "Frequently asked questions",
-                "faq.q1": "How much does a mission cost?",
-                "faq.a1": "It depends on area, protocol and level of support. Free and transparent quote.",
-                "faq.q2": "Do you offer certification?",
-                "faq.a2": "No. We provide reliable data and methods, not labels. You can use them for your own quality processes.",
-                "faq.q3": "What delivery formats?",
-                "faq.a3": "Shapefile, GeoJSON, KML, interactive web map, PDF report. You leave with raw files.",
-                "faq.q4": "Can you train my team?",
-                "faq.a4": "Yes, it's our preferred approach. We transfer the method so you become autonomous.",
-                "contact.tag": "No commitment",
-                "contact.title": "Do you have heritage to map?",
-                "contact.sub": "Describe your project. We reply within 48h.",
-                "contact.btn": "Send a message to the team",
-                "form.title": "New Project",
-                "form.name": "Name / Company",
-                "form.email": "Email",
-                "form.msg": "Project description",
-                "form.hint": "We process your request manually. Reply within 48h.",
-                "form.submit": "Send request",
-                "footer.legal": "Legal notice",
-                "footer.privacy": "Privacy"
-            }
-        };
-
-        let currentLang = 'fr';
-        function toggleTechLanguage() {
-            const langs = ['fr', 'es', 'en'];
-            currentLang = langs[(langs.indexOf(currentLang) + 1) % langs.length];
-            document.getElementById('lang-btn-tech').innerText = currentLang.toUpperCase();
-            document.querySelectorAll('[data-translate]').forEach(el => {
-                const key = el.getAttribute('data-translate');
-                if (translations[currentLang] && translations[currentLang][key]) {
-                    el.innerHTML = translations[currentLang][key];
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+                if (el.classList.contains('flex')) {
+                    el.style.display = 'flex';
+                } else if (el.classList.contains('grid')) {
+                    el.style.display = 'grid';
+                } else if (el.classList.contains('inline-block')) {
+                    el.style.display = 'inline-block';
+                } else {
+                    el.style.display = 'block';
                 }
             });
+            localStorage.setItem('preferredLanguage', lang);
         }
 
-        // ---------- MODALE ET FORMULAIRE TELEGRAM ----------
+        function getInitialLanguage() {
+            const saved = localStorage.getItem('preferredLanguage');
+            if (saved && ['fr','es','en'].includes(saved)) return saved;
+            const browserLang = navigator.language.split('-')[0];
+            if (['fr','es','en'].includes(browserLang)) return browserLang;
+            return 'fr';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const lang = getInitialLanguage();
+            setLanguage(lang);
+        });
+    </script>
+
+    <!-- ======= SCRIPTS EXISTANTS POUR LA CARTE ET LA MODALE ======= -->
+    <script>
         const botConfig = {
             token: '8457793513:AAHJcyUJhsftK8txWKgBQir8qp0eDJTm1CA',
             chatId: '6051665667'
@@ -634,7 +534,6 @@
 
         // ---------- CARTE LEAFLET – VERSION COMPLÈTE AVEC ICÔNES ET POPUPS ----------
         (function() {
-            // Initialisation
             const map = L.map('map', {
                 zoomControl: true,
                 zoomAnimation: true,
@@ -642,21 +541,18 @@
                 maxZoom: 20
             }).setView([-18.044, -70.311], 14);
 
-            // --- COUCHE SATELLITE GOOGLE (sans carrés gris) ---
             const googleSat = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
                 subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
                 attribution: 'Google Satellite',
                 maxZoom: 20
             }).addTo(map);
 
-            // --- COUCHE DE LABELS (OpenStreetMap) ---
             const labels = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png', {
                 attribution: 'OpenStreetMap',
                 opacity: 0.7,
                 maxZoom: 20
             }).addTo(map);
 
-            // --- FALLBACK : si Google ne répond pas, basculer sur ESRI ---
             googleSat.on('tileerror', function(err) {
                 console.warn('Google Satellite indisponible, bascule sur ESRI');
                 map.removeLayer(googleSat);
@@ -666,7 +562,6 @@
                 }).addTo(map);
             });
 
-            // ---------- ICÔNES 3D STYLE GOOGLE EARTH ----------
             const googleEarthIcon = L.divIcon({
                 html: `
                     <div style="
@@ -765,7 +660,6 @@
                 popupAnchor: [0, -40]
             });
 
-            // ---------- CHARGEMENT DES DONNÉES ----------
             fetch('data/oliviers-processed.json')
                 .then(response => {
                     if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -776,7 +670,6 @@
                     console.log(`✅ ${oliviers.length} oliviers chargés`);
 
                     oliviers.forEach(olivo => {
-                        // --- CORRECTION DU CHEMIN DE LA PHOTO ---
                         let photoPath = olivo.photo || '';
                         if (photoPath) {
                             if (photoPath.includes('_thumb.jpg')) {
@@ -791,11 +684,9 @@
                         }
                         const finalPhotoPath = photoPath;
 
-                        // Choix de l'icône selon la région
                         const icon = (olivo.region && olivo.region.includes('Norte')) ? googleEarthIcon : greenEarthIcon;
                         const marker = L.marker([olivo.lat, olivo.lng], { icon }).addTo(map);
 
-                        // Extraction des infos
                         const nom = olivo.details?.fr?.nom || olivo.id || 'Olivier centenaire';
                         let alt = 'N/A';
                         if (olivo.details?.fr?.caracteristiques) {
@@ -806,7 +697,6 @@
                         const region = olivo.region || 'Tacna';
                         const note = olivo.note || 0;
 
-                        // --- POPUP GLASSMORPHIQUE ---
                         marker.bindPopup(`
                             <div style="
                                 width: 300px;
@@ -819,7 +709,6 @@
                                 color: white;
                                 font-family: 'Inter', sans-serif;
                             ">
-                                <!-- BADGE RÉGION FLOTTANT -->
                                 <div style="
                                     position: absolute;
                                     top: -8px;
@@ -908,7 +797,6 @@
                         });
                     });
 
-                    // Ajuster la vue
                     if (oliviers.length > 0) {
                         const group = L.featureGroup(oliviers.map(o => L.marker([o.lat, o.lng])));
                         map.fitBounds(group.getBounds(), { padding: [50, 50] });

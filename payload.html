@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayLoad-App – Suivi terrain par QR code | Mundo-AOVE Tech</title>
+    
+    <!-- Tailwind + Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --forest-green: #2C4C3B; --matte-gold: #C5A059; }
+        body { font-family: 'Inter', sans-serif; background-color: #fdfdfd; }
+        .serif { font-family: 'Playfair Display', serif; }
+        .gradient-dark { background: linear-gradient(135deg, #1a1c1b 0%, #2c4c3b 100%); }
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04); }
+        .comparison-table td { border-bottom: 1px solid #e5e7eb; padding: 1rem 0.5rem; }
+        .comparison-table th { background-color: #f9fafb; font-weight: 600; color: #2C4C3B; }
+        /* Styles pour le modal */
+        .modal-overlay {
+            background: rgba(31, 58, 44, 0.85);
+            backdrop-filter: blur(8px);
+        }
+        .modal-content {
+            animation: fadeInUp 0.3s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- ======= NAVIGATION ======= -->
+    <nav class="border-b border-gray-100 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-[#2C4C3B] rounded flex items-center justify-center text-[#C5A059]">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+                <span class="serif text-2xl font-bold text-[#2C4C3B]">Mundo-AOVE <span class="text-[#C5A059]">Tech</span></span>
+            </div>
+            <div class="flex items-center space-x-8">
+                <!-- Lien retour multilingue -->
+                <a href="tech.html" data-lang="fr" class="text-gray-600 hover:text-[#2C4C3B] font-medium transition">← Retour</a>
+                <a href="tech.html" data-lang="es" style="display:none;" class="text-gray-600 hover:text-[#2C4C3B] font-medium transition">← Volver</a>
+                <a href="tech.html" data-lang="en" style="display:none;" class="text-gray-600 hover:text-[#2C4C3B] font-medium transition">← Back</a>
+                <!-- Boutons de langue -->
+                <div class="flex space-x-2">
+                    <button onclick="setLanguage('fr')" class="px-3 py-1 rounded-full text-sm font-bold hover:bg-[#C5A059] hover:text-white transition">FR</button>
+                    <button onclick="setLanguage('es')" class="px-3 py-1 rounded-full text-sm font-bold hover:bg-[#C5A059] hover:text-white transition">ES</button>
+                    <button onclick="setLanguage('en')" class="px-3 py-1 rounded-full text-sm font-bold hover:bg-[#C5A059] hover:text-white transition">EN</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ======= HERO ======= -->
+    <header class="gradient-dark py-24 text-white overflow-hidden relative">
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+            <!-- Badge multilingue -->
+            <div data-lang="fr" class="inline-block px-4 py-1 border border-[#C5A059] text-[#C5A059] text-xs font-bold tracking-[0.2em] uppercase mb-6">📱 Application terrain</div>
+            <div data-lang="es" style="display:none;" class="inline-block px-4 py-1 border border-[#C5A059] text-[#C5A059] text-xs font-bold tracking-[0.2em] uppercase mb-6">📱 Aplicación de campo</div>
+            <div data-lang="en" style="display:none;" class="inline-block px-4 py-1 border border-[#C5A059] text-[#C5A059] text-xs font-bold tracking-[0.2em] uppercase mb-6">📱 Field application</div>
+
+            <!-- Titre multilingue -->
+            <h1 class="serif text-5xl md:text-7xl mb-8 leading-tight">
+                <span data-lang="fr">Pay<span class="text-[#C5A059]">Load</span>-App</span>
+                <span data-lang="es" style="display:none;">Pay<span class="text-[#C5A059]">Load</span>-App</span>
+                <span data-lang="en" style="display:none;">Pay<span class="text-[#C5A059]">Load</span>-App</span>
+            </h1>
+
+            <!-- Sous-titre multilingue -->
+            <p class="text-xl text-gray-300 max-w-2xl leading-relaxed font-light">
+                <span data-lang="fr">Suivi de production conçu pour les zones faiblement connectées. Envois différés & fiables</span>
+                <span data-lang="es" style="display:none;">Seguimiento de producción para zonas con poca cobertura. Envío diferido fiable</span>
+                <span data-lang="en" style="display:none;">Production tracking software for low‑connectivity areas. Reliable deferred sending</span>
+            </p>
+        </div>
+    </header>
+
+    <!-- ======= MAIN ======= -->
+    <main class="max-w-7xl mx-auto px-6 -mt-16 pb-24 relative z-10">
+
+        <!-- PROBLÈME / SOLUTION -->
+        <section class="bg-white p-10 md:p-16 rounded-3xl shadow-2xl mb-20">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Problème -->
+                <div>
+                    <h2 class="serif text-3xl font-bold text-[#2C4C3B] mb-6 flex items-center">
+                        <i class="fas fa-exclamation-triangle text-[#C5A059] mr-3"></i>
+                        <span data-lang="fr">Le problème</span>
+                        <span data-lang="es" style="display:none;">El problema</span>
+                        <span data-lang="en" style="display:none;">The problem</span>
+                    </h2>
+                    <ul class="space-y-4 text-gray-600">
+                        <li class="flex items-start"><span class="text-[#C5A059] mr-3">📝</span> <span data-lang="fr">Paperasse : fiches papier, écritures illisibles, ressaisies</span><span data-lang="es" style="display:none;">Papeleo: hojas, escritura ilegible, doble entrada</span><span data-lang="en" style="display:none;">Paperwork: paper forms, illegible handwriting, double entry</span></li>
+                        <li class="flex items-start"><span class="text-[#C5A059] mr-3">📱</span> <span data-lang="fr">Applications complexes nécessitant une formation</span><span data-lang="es" style="display:none;">Aplicaciones complejas que requieren formación</span><span data-lang="en" style="display:none;">Complex apps requiring training</span></li>
+                        <li class="flex items-start"><span class="text-[#C5A059] mr-3">🌐</span> <span data-lang="fr">Zones mal couvertes : perte de données, ressaisie ultérieure</span><span data-lang="es" style="display:none;">Zonas mal cubiertas: pérdida de datos, reingreso posterior</span><span data-lang="en" style="display:none;">Poor coverage areas: data loss, later re‑entry</span></li>
+                        <li class="flex items-start"><span class="text-[#C5A059] mr-3">💸</span> <span data-lang="fr">Développements sur‑mesure trop chers, rigides, abonnements récurrents</span><span data-lang="es" style="display:none;">Desarrollos a medida caros, rígidos, suscripciones recurrentes</span><span data-lang="en" style="display:none;">Custom development too expensive, rigid, recurring subscriptions</span></li>
+                    </ul>
+                </div>
+                <!-- Solution -->
+                <div>
+                    <h2 class="serif text-3xl font-bold text-[#2C4C3B] mb-6 flex items-center">
+                        <i class="fas fa-check-circle text-[#C5A059] mr-3"></i>
+                        <span data-lang="fr">La solution</span>
+                        <span data-lang="es" style="display:none;">La solución</span>
+                        <span data-lang="en" style="display:none;">The solution</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">
+                        <span data-lang="fr"><span class="font-bold text-[#2C4C3B]">PayLoad-App</span> est une application mobile qui remplace vos fiches papier par un système visuel, robuste et adaptable. Elle gère intelligemment la connexion : saisie en mode dégradé, mise en file d’attente, et envoi automatique dès que le réseau redevient disponible, avec accusé de réception et reprise automatique en cas d’échec.</span>
+                        <span data-lang="es" style="display:none;"><span class="font-bold text-[#2C4C3B]">PayLoad-App</span> es una aplicación móvil que reemplaza el papeleo con un sistema visual, robusto y adaptable. Gestiona la conectividad: ingreso sin conexión, cola de envíos y reenvío automático cuando hay red, con acuse de recibo.</span>
+                        <span data-lang="en" style="display:none;"><span class="font-bold text-[#2C4C3B]">PayLoad-App</span> is a mobile app that replaces paperwork with a visual, robust, adaptable system. It handles connectivity smartly: offline input, queuing, and automatic sending when network returns, with acknowledgment and retry.</span>
+                    </p>
+                    <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                        <li><span data-lang="fr">L’administrateur prépare un fichier de configuration (type Excel)</span><span data-lang="es" style="display:none;">El administrador prepara un archivo de configuración (tipo Excel)</span><span data-lang="en" style="display:none;">Admin prepares a config file (like Excel)</span></li>
+                        <li><span data-lang="fr">Il le distribue aux opérateurs (mail, clé USB, lien de téléchargement)</span><span data-lang="es" style="display:none;">Lo distribuye a los operadores (correo, USB, enlace)</span><span data-lang="en" style="display:none;">Distributes to operators (email, USB, download link)</span></li>
+                        <li><span data-lang="fr">Sur le terrain, l’opérateur scanne des QR codes, remplit les champs, prend des photos</span><span data-lang="es" style="display:none;">En campo, el operador escanea códigos QR, completa campos, toma fotos</span><span data-lang="en" style="display:none;">In the field, operator scans QR codes, fills fields, takes photos</span></li>
+                        <li><span data-lang="fr">Les données sont stockées localement puis transmises dès qu’une connexion est disponible (Telegram, Azure, Google Cloud…)</span><span data-lang="es" style="display:none;">Los datos se almacenan localmente y se envían cuando hay conexión (Telegram, Azure, Google Cloud...)</span><span data-lang="en" style="display:none;">Data is stored locally and sent when connectivity is available (Telegram, Azure, Google Cloud…)</span></li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- BÉNÉFICES METIER -->
+        <section class="grid md:grid-cols-2 gap-8 mb-20">
+            <!-- Bénéfices terrain -->
+            <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200">
+                <h3 class="serif text-2xl font-bold text-[#2C4C3B] mb-6 flex items-center">
+                    <i class="fas fa-hard-hat text-[#C5A059] mr-3 text-3xl"></i>
+                    <span data-lang="fr">Ce que vos équipes gagnent</span>
+                    <span data-lang="es" style="display:none;">Lo que ganan sus equipos</span>
+                    <span data-lang="en" style="display:none;">What your teams gain</span>
+                </h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start"><span class="bg-green-100 text-green-700 rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">⚡</span> <span data-lang="fr">Saisie instantanée, plus de ressaisie bureau</span><span data-lang="es" style="display:none;">Ingreso instantáneo, sin doble entrada</span><span data-lang="en" style="display:none;">Instant entry, no office re‑typing</span></li>
+                    <li class="flex items-start"><span class="bg-green-100 text-green-700 rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">📸</span> <span data-lang="fr">Preuve photo irréfutable attachée à chaque opération</span><span data-lang="es" style="display:none;">Foto como prueba irrefutable de cada operación</span><span data-lang="en" style="display:none;">Irrefutable photo proof attached to each operation</span></li>
+                    <li class="flex items-start"><span class="bg-green-100 text-green-700 rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">📶</span> <span data-lang="fr">Travail continu même sans réseau, synchronisation automatique</span><span data-lang="es" style="display:none;">Trabajo continuo sin red, sincronización automática</span><span data-lang="en" style="display:none;">Continuous work without network, automatic sync</span></li>
+                    <li class="flex items-start"><span class="bg-green-100 text-green-700 rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">📱</span> <span data-lang="fr">Interface intuitive : scanner, cliquer, valider</span><span data-lang="es" style="display:none;">Interfaz intuitiva: escanear, hacer clic, validar</span><span data-lang="en" style="display:none;">Intuitive interface: scan, click, validate</span></li>
+                </ul>
+            </div>
+            <!-- Bénéfices direction -->
+            <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200">
+                <h3 class="serif text-2xl font-bold text-[#2C4C3B] mb-6 flex items-center">
+                    <i class="fas fa-chart-pie text-[#C5A059] mr-3 text-3xl"></i>
+                    <span data-lang="fr">Ce que la direction gagne</span>
+                    <span data-lang="es" style="display:none;">Lo que gana la dirección</span>
+                    <span data-lang="en" style="display:none;">What management gains</span>
+                </h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start"><span class="bg-green-100 text-green-700 rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">🔒</span> <span data-lang="fr">Données en temps réel (ou différé) sans infrastructure serveur</span><span data-lang="es" style="display:none;">Datos en tiempo real (o diferido) sin servidor propio</span><span data-lang="en" style="display:none;">Real‑time (or deferred) data with no server infrastructure</span></li>
+                    <li class="flex items-start"><span class="bg-green-100 text-green-700 rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">⚙️</span> <span data-lang="fr">Configuration modifiable en 5 minutes, sans développement</span><span data-lang="es" style="display:none;">Configurable en 5 minutos, sin desarrollo</span><span data-lang="en" style="display:none;">Configurable in 5 minutes, no development</span></li>
+                    <li class="flex items-start"><span class="bg-green-100 text-green-700 rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">📬</span> <span data-lang="fr">Réception des rapports sur vos canaux habituels (Telegram, Azure, Google)</span><span data-lang="es" style="display:none;">Informes en sus canales habituales (Telegram, Azure, Google)</span><span data-lang="en" style="display:none;">Reports to your usual channels (Telegram, Azure, Google)</span></li>
+                    <li class="flex items-start"><span class="bg-green-100 text-green-700 rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">✅</span> <span data-lang="fr">Traçabilité complète, chaque action horodatée et signée</span><span data-lang="es" style="display:none;">Trazabilidad completa, cada acción con hora y firma</span><span data-lang="en" style="display:none;">Full traceability, every action timestamped and signed</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CAS CONCRETS -->
+        <section class="mb-20">
+            <h2 class="serif text-4xl font-bold text-[#2C4C3B] mb-12 text-center">
+                <span data-lang="fr">Cas concrets d’utilisation</span>
+                <span data-lang="es" style="display:none;">Casos de uso</span>
+                <span data-lang="en" style="display:none;">Use cases</span>
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 feature-card">
+                    <div class="w-12 h-12 bg-[#2C4C3B]/10 rounded-xl flex items-center justify-center text-2xl mb-4">🏭</div>
+                    <h3 class="font-bold text-lg text-[#2C4C3B] mb-2">
+                        <span data-lang="fr">Réception</span>
+                        <span data-lang="es" style="display:none;">Recepción</span>
+                        <span data-lang="en" style="display:none;">Reception</span>
+                    </h3>
+                    <p class="text-sm text-gray-600">
+                        <span data-lang="fr">Scan du QR fournisseur, photo palette, validation → rapport instantané</span>
+                        <span data-lang="es" style="display:none;">Escaneo QR proveedor, foto palet → informe inmediato</span>
+                        <span data-lang="en" style="display:none;">Scan supplier QR, pallet photo → instant report</span>
+                    </p>
+                </div>
+                <!-- 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 feature-card">
+                    <div class="w-12 h-12 bg-[#C5A059]/10 rounded-xl flex items-center justify-center text-2xl mb-4">🔧</div>
+                    <h3 class="font-bold text-lg text-[#2C4C3B] mb-2">
+                        <span data-lang="fr">Maintenance</span>
+                        <span data-lang="es" style="display:none;">Mantenimiento</span>
+                        <span data-lang="en" style="display:none;">Maintenance</span>
+                    </h3>
+                    <p class="text-sm text-gray-600">
+                        <span data-lang="fr">QR machine, heures d’intervention, photos → données centralisées</span>
+                        <span data-lang="es" style="display:none;">QR máquina, horas, fotos → datos centralizados</span>
+                        <span data-lang="en" style="display:none;">Machine QR, hours, photos → centralized data</span>
+                    </p>
+                </div>
+                <!-- 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 feature-card">
+                    <div class="w-12 h-12 bg-[#2C4C3B]/10 rounded-xl flex items-center justify-center text-2xl mb-4">📦</div>
+                    <h3 class="font-bold text-lg text-[#2C4C3B] mb-2">
+                        <span data-lang="fr">Production</span>
+                        <span data-lang="es" style="display:none;">Producción</span>
+                        <span data-lang="en" style="display:none;">Production</span>
+                    </h3>
+                    <p class="text-sm text-gray-600">
+                        <span data-lang="fr">Contrôle qualité par lot, envoi automatique en fin de poste</span>
+                        <span data-lang="es" style="display:none;">Control calidad por lote, envío automático</span>
+                        <span data-lang="en" style="display:none;">Batch quality control, automatic end‑of‑shift report</span>
+                    </p>
+                </div>
+                <!-- 4 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 feature-card">
+                    <div class="w-12 h-12 bg-[#C5A059]/10 rounded-xl flex items-center justify-center text-2xl mb-4">🍷</div>
+                    <h3 class="font-bold text-lg text-[#2C4C3B] mb-2">
+                        <span data-lang="fr">Cave</span>
+                        <span data-lang="es" style="display:none;">Bodega</span>
+                        <span data-lang="en" style="display:none;">Winery</span>
+                    </h3>
+                    <p class="text-sm text-gray-600">
+                        <span data-lang="fr">Barriques, dégustations, niveaux → historique complet</span>
+                        <span data-lang="es" style="display:none;">Barricas, catas, niveles → historial completo</span>
+                        <span data-lang="en" style="display:none;">Barrels, tastings, levels → full history</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3 ÉTAPES -->
+        <section class="bg-gray-50 p-10 rounded-3xl mb-20">
+            <h2 class="serif text-3xl font-bold text-[#2C4C3B] mb-12 text-center">
+                <span data-lang="fr">Comment ça marche en 3 étapes</span>
+                <span data-lang="es" style="display:none;">Cómo funciona en 3 pasos</span>
+                <span data-lang="en" style="display:none;">How it works in 3 steps</span>
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Étape 1 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-[#2C4C3B] rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">1</div>
+                    <h3 class="font-bold text-[#2C4C3B] mb-2">
+                        <span data-lang="fr">Admin crée la config</span>
+                        <span data-lang="es" style="display:none;">Admin crea configuración</span>
+                        <span data-lang="en" style="display:none;">Admin creates config</span>
+                    </h3>
+                    <p class="text-sm text-gray-600">
+                        <span data-lang="fr">Fichier JSON définissant les profils, champs et destinations (Telegram, Azure, Google...)</span>
+                        <span data-lang="es" style="display:none;">Archivo JSON con perfiles, campos y destinos</span>
+                        <span data-lang="en" style="display:none;">JSON file with profiles, fields, destinations</span>
+                    </p>
+                </div>
+                <!-- Étape 2 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-[#C5A059] rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">2</div>
+                    <h3 class="font-bold text-[#2C4C3B] mb-2">
+                        <span data-lang="fr">Opérateurs reçoivent</span>
+                        <span data-lang="es" style="display:none;">Operadores reciben</span>
+                        <span data-lang="en" style="display:none;">Operators receive</span>
+                    </h3>
+                    <p class="text-sm text-gray-600">
+                        <span data-lang="fr">Par mail, clé USB, lien – ils ouvrent le fichier dans l’application</span>
+                        <span data-lang="es" style="display:none;">Correo, USB – abren archivo en la app</span>
+                        <span data-lang="en" style="display:none;">Email, USB – open file in app</span>
+                    </p>
+                </div>
+                <!-- Étape 3 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-[#2C4C3B] rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">3</div>
+                    <h3 class="font-bold text-[#2C4C3B] mb-2">
+                        <span data-lang="fr">Au quotidien</span>
+                        <span data-lang="es" style="display:none;">Día a día</span>
+                        <span data-lang="en" style="display:none;">Daily use</span>
+                    </h3>
+                    <p class="text-sm text-gray-600">
+                        <span data-lang="fr">Choix du profil → scan QR → remplissage → envoi automatique (mode connecté ou différé)</span>
+                        <span data-lang="es" style="display:none;">Elegir perfil → escanear QR → completar → envío automático</span>
+                        <span data-lang="en" style="display:none;">Choose profile → scan QR → fill → automatic send (online or deferred)</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TABLEAU COMPARATIF -->
+        <section class="mb-20">
+            <h2 class="serif text-3xl font-bold text-[#2C4C3B] mb-8 text-center">
+                <span data-lang="fr">PayLoad-App vs solutions classiques</span>
+                <span data-lang="es" style="display:none;">PayLoad-App vs soluciones clásicas</span>
+                <span data-lang="en" style="display:none;">PayLoad-App vs classic solutions</span>
+            </h2>
+            <div class="overflow-x-auto">
+                <table class="w-full comparison-table">
+                    <thead>
+                        <tr class="border-b border-gray-200">
+                            <th class="text-left py-4 px-4"></th>
+                            <th class="text-left py-4 px-4 font-bold text-[#C5A059]">PayLoad-App</th>
+                            <th class="text-left py-4 px-4 font-bold text-gray-400">Solution classique</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Mise en place -->
+                        <tr>
+                            <td class="font-semibold px-4">
+                                <span data-lang="fr">Mise en place</span>
+                                <span data-lang="es" style="display:none;">Implementación</span>
+                                <span data-lang="en" style="display:none;">Setup</span>
+                            </td>
+                            <td class="px-4">
+                                <span data-lang="fr">1 heure (fichier config)</span>
+                                <span data-lang="es" style="display:none;">1 hora (archivo config)</span>
+                                <span data-lang="en" style="display:none;">1 hour (config file)</span>
+                            </td>
+                            <td class="px-4 text-gray-400">
+                                <span data-lang="fr">3 à 6 mois de développement</span>
+                                <span data-lang="es" style="display:none;">3‑6 meses desarrollo</span>
+                                <span data-lang="en" style="display:none;">3‑6 months development</span>
+                            </td>
+                        </tr>
+                        <!-- Modification -->
+                        <tr>
+                            <td class="font-semibold px-4">
+                                <span data-lang="fr">Modification</span>
+                                <span data-lang="es" style="display:none;">Modificación</span>
+                                <span data-lang="en" style="display:none;">Modification</span>
+                            </td>
+                            <td class="px-4">
+                                <span data-lang="fr">5 minutes (édition JSON)</span>
+                                <span data-lang="es" style="display:none;">5 minutos (editar JSON)</span>
+                                <span data-lang="en" style="display:none;">5 minutes (edit JSON)</span>
+                            </td>
+                            <td class="px-4 text-gray-400">
+                                <span data-lang="fr">Développement + mise à jour</span>
+                                <span data-lang="es" style="display:none;">Desarrollo + actualización</span>
+                                <span data-lang="en" style="display:none;">Development + update</span>
+                            </td>
+                        </tr>
+                        <!-- Coût -->
+                        <tr>
+                            <td class="font-semibold px-4">
+                                <span data-lang="fr">Coût</span>
+                                <span data-lang="es" style="display:none;">Costo</span>
+                                <span data-lang="en" style="display:none;">Cost</span>
+                            </td>
+                            <td class="px-4">
+                                <span data-lang="fr">Licence unique, propriété du client</span>
+                                <span data-lang="es" style="display:none;">Licencia única, propiedad del cliente</span>
+                                <span data-lang="en" style="display:none;">One‑time license, client owns it</span>
+                            </td>
+                            <td class="px-4 text-gray-400">
+                                <span data-lang="fr">Développement sur-mesure + maintenance + abonnements</span>
+                                <span data-lang="es" style="display:none;">Desarrollo a medida + mantenimiento + suscripciones</span>
+                                <span data-lang="en" style="display:none;">Custom development + maintenance + subscriptions</span>
+                            </td>
+                        </tr>
+                        <!-- Connexion -->
+                        <tr>
+                            <td class="font-semibold px-4">
+                                <span data-lang="fr">Connexion</span>
+                                <span data-lang="es" style="display:none;">Conectividad</span>
+                                <span data-lang="en" style="display:none;">Connectivity</span>
+                            </td>
+                            <td class="px-4">
+                                <span data-lang="fr">Mode connecté/différé, file d’attente, reprise automatique</span>
+                                <span data-lang="es" style="display:none;">Modo conectado/diferido, cola, reenvío automático</span>
+                                <span data-lang="en" style="display:none;">Online/deferred mode, queue, auto‑retry</span>
+                            </td>
+                            <td class="px-4 text-gray-400">
+                                <span data-lang="fr">Souvent en ligne obligatoire</span>
+                                <span data-lang="es" style="display:none;">A menudo solo en línea</span>
+                                <span data-lang="en" style="display:none;">Often online‑only</span>
+                            </td>
+                        </tr>
+                        <!-- Simplicité -->
+                        <tr>
+                            <td class="font-semibold px-4">
+                                <span data-lang="fr">Simplicité</span>
+                                <span data-lang="es" style="display:none;">Simplicidad</span>
+                                <span data-lang="en" style="display:none;">Simplicity</span>
+                            </td>
+                            <td class="px-4">
+                                <span data-lang="fr">3 écrans, 2 boutons</span>
+                                <span data-lang="es" style="display:none;">3 pantallas, 2 botones</span>
+                                <span data-lang="en" style="display:none;">3 screens, 2 buttons</span>
+                            </td>
+                            <td class="px-4 text-gray-400">
+                                <span data-lang="fr">Menus complexes, formation longue</span>
+                                <span data-lang="es" style="display:none;">Menús complejos, formación larga</span>
+                                <span data-lang="en" style="display:none;">Complex menus, lengthy training</span>
+                            </td>
+                        </tr>
+                        <!-- Propriété -->
+                        <tr>
+                            <td class="font-semibold px-4">
+                                <span data-lang="fr">Propriété</span>
+                                <span data-lang="es" style="display:none;">Propiedad</span>
+                                <span data-lang="en" style="display:none;">Ownership</span>
+                            </td>
+                            <td class="px-4">
+                                <span data-lang="fr">Vous possédez la licence, pas d’abonnement</span>
+                                <span data-lang="es" style="display:none;">Usted posee la licencia, sin cuota mensual</span>
+                                <span data-lang="en" style="display:none;">You own the license, no monthly fee</span>
+                            </td>
+                            <td class="px-4 text-gray-400">
+                                <span data-lang="fr">Location mensuelle, dépendance</span>
+                                <span data-lang="es" style="display:none;">Alquiler mensual, dependencia</span>
+                                <span data-lang="en" style="display:none;">Monthly rental, dependency</span>
+                            </td>
+                        </tr>
+                        <!-- Services annexes -->
+                        <tr>
+                            <td class="font-semibold px-4">
+                                <span data-lang="fr">Services annexes</span>
+                                <span data-lang="es" style="display:none;">Servicios adicionales</span>
+                                <span data-lang="en" style="display:none;">Ancillary services</span>
+                            </td>
+                            <td class="px-4">
+                                <span data-lang="fr">À la carte (développements spécifiques, intégrations)</span>
+                                <span data-lang="es" style="display:none;">A medida (desarrollos específicos, integraciones)</span>
+                                <span data-lang="en" style="display:none;">On‑demand (specific developments, integrations)</span>
+                            </td>
+                            <td class="px-4 text-gray-400">
+                                <span data-lang="fr">Souvent forfaitaires et rigides</span>
+                                <span data-lang="es" style="display:none;">A menudo paquetes rígidos</span>
+                                <span data-lang="en" style="display:none;">Often fixed packages</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION (bouton unique) -->
+        <section class="gradient-dark text-white p-16 rounded-3xl text-center">
+            <h2 class="serif text-4xl font-bold mb-4">
+                <span data-lang="fr">Prêt à équiper vos équipes ?</span>
+                <span data-lang="es" style="display:none;">¿Listo para equipar a sus equipos?</span>
+                <span data-lang="en" style="display:none;">Ready to equip your teams?</span>
+            </h2>
+            <p class="text-xl text-gray-200 max-w-2xl mx-auto mb-8">
+                <span data-lang="fr">Contactez‑nous pour une démo ou pour discuter de votre besoin.</span>
+                <span data-lang="es" style="display:none;">Contáctenos para una demo o para hablar de su necesidad.</span>
+                <span data-lang="en" style="display:none;">Contact us for a demo or to discuss your needs.</span>
+            </p>
+            <div class="flex justify-center">
+                <button onclick="toggleModal(true)" class="bg-[#C5A059] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#b38a47] transition shadow-2xl inline-flex items-center gap-3">
+                    <i class="fas fa-envelope"></i>
+                    <span data-lang="fr">Nous contacter</span>
+                    <span data-lang="es" style="display:none;">Contactar</span>
+                    <span data-lang="en" style="display:none;">Contact us</span>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======= FOOTER simplifié ======= -->
+    <footer class="bg-white border-t border-gray-100 py-12 text-center">
+        <p class="text-gray-400 text-sm font-medium tracking-widest uppercase">
+            <span data-lang="fr">© 2026 Mundo-AOVE Tech – PayLoad-App</span>
+            <span data-lang="es" style="display:none;">© 2026 Mundo-AOVE Tech – PayLoad-App</span>
+            <span data-lang="en" style="display:none;">© 2026 Mundo-AOVE Tech – PayLoad-App</span>
+        </p>
+    </footer>
+
+    <!-- ======= MODALE DE CONTACT (TELEGRAM) ======= -->
+    <div id="contactModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+        <div class="modal-overlay absolute inset-0" onclick="toggleModal(false)"></div>
+        <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl relative z-10 overflow-hidden modal-content">
+            <div class="bg-[#2C4C3B] p-6 text-white flex justify-between items-center">
+                <h3 class="serif text-2xl font-bold" data-lang="fr">Contact</h3>
+                <h3 class="serif text-2xl font-bold" data-lang="es" style="display:none;">Contacto</h3>
+                <h3 class="serif text-2xl font-bold" data-lang="en" style="display:none;">Contact</h3>
+                <button onclick="toggleModal(false)" class="text-white/70 hover:text-white text-3xl font-light">&times;</button>
+            </div>
+            <form id="techForm" class="p-8 space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="fr">Nom / Entreprise</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="es" style="display:none;">Nombre / Empresa</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="en" style="display:none;">Name / Company</label>
+                    <input type="text" id="formName" required class="w-full border-b-2 border-gray-100 focus:border-[#C5A059] outline-none py-2 transition-colors">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="fr">Email</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="es" style="display:none;">Correo</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="en" style="display:none;">Email</label>
+                    <input type="email" id="formEmail" required class="w-full border-b-2 border-gray-100 focus:border-[#C5A059] outline-none py-2 transition-colors">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="fr">Message</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="es" style="display:none;">Mensaje</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="en" style="display:none;">Message</label>
+                    <textarea id="formMsg" rows="4" required class="w-full bg-gray-50 rounded-xl p-3 focus:ring-2 focus:ring-[#C5A059] outline-none transition-all"></textarea>
+                </div>
+                <div class="text-xs text-gray-400 italic" data-lang="fr">Nous traitons votre demande manuellement. Réponse sous 48h.</div>
+                <div class="text-xs text-gray-400 italic" data-lang="es" style="display:none;">Procesamos su solicitud manualmente. Respuesta en 48h.</div>
+                <div class="text-xs text-gray-400 italic" data-lang="en" style="display:none;">We process your request manually. Reply within 48h.</div>
+                <button type="submit" id="submitBtn" class="w-full bg-[#C5A059] text-white font-bold py-4 rounded-xl hover:bg-[#b38a47] transition shadow-lg flex items-center justify-center gap-2">
+                    <i class="fas fa-paper-plane"></i> <span data-lang="fr">Envoyer</span>
+                    <span data-lang="es" style="display:none;">Enviar</span>
+                    <span data-lang="en" style="display:none;">Send</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ======= SCRIPT DE GESTION DE LANGUE ======= -->
+    <script>
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+                if (el.classList.contains('flex')) {
+                    el.style.display = 'flex';
+                } else if (el.classList.contains('grid')) {
+                    el.style.display = 'grid';
+                } else if (el.classList.contains('inline-block')) {
+                    el.style.display = 'inline-block';
+                } else {
+                    el.style.display = 'block';
+                }
+            });
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        function getInitialLanguage() {
+            const saved = localStorage.getItem('preferredLanguage');
+            if (saved && ['fr','es','en'].includes(saved)) return saved;
+            const browserLang = navigator.language.split('-')[0];
+            if (['fr','es','en'].includes(browserLang)) return browserLang;
+            return 'fr';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const lang = getInitialLanguage();
+            setLanguage(lang);
+        });
+    </script>
+
+    <!-- ======= SCRIPT TELEGRAM POUR LE MODAL ======= -->
+    <script>
+        const botConfig = {
+            token: '8457793513:AAHJcyUJhsftK8txWKgBQir8qp0eDJTm1CA',
+            chatId: '6051665667'
+        };
+
+        function toggleModal(show) {
+            const modal = document.getElementById('contactModal');
+            if (show) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            } else {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+        }
+
+        document.getElementById('techForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const originalText = btn.innerHTML;
+            
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Traitement...';
+
+            const name = document.getElementById('formName').value;
+            const email = document.getElementById('formEmail').value;
+            const message = document.getElementById('formMsg').value;
+            const date = new Date().toLocaleString('fr-FR');
+
+            const text = `📩 <b>CONTACT: PayLoad-App</b>\n\n📅 <b>Date:</b> ${date}\n👤 <b>Nom:</b> ${name}\n📧 <b>Email:</b> ${email}\n💬 <b>Message:</b>\n${message}`.trim();
+
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${botConfig.token}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: botConfig.chatId,
+                        text: text,
+                        parse_mode: 'HTML'
+                    })
+                });
+
+                if (response.ok) {
+                    alert("✅ Message envoyé avec succès ! L'équipe vous répondra bientôt.");
+                    toggleModal(false);
+                    e.target.reset();
+                } else {
+                    alert("❌ Erreur lors de l'envoi.");
+                }
+            } catch (error) {
+                alert("💥 Erreur réseau. Vérifiez votre connexion.");
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            }
+        });
+    </script>
+</body>
+</html>

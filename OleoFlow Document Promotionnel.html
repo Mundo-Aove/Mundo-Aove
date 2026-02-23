@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OleoFlow – Ficha técnica</title>
+    <style>
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            background: #fff;
+            color: #000;
+            line-height: 1.4;
+            font-size: 10pt; /* base para impresión */
+            padding: 1.5cm 1cm;
+        }
+
+        /* Página A4 con dos columnas */
+        .page {
+            max-width: 21cm;
+            margin: 0 auto;
+            column-count: 2;
+            column-gap: 1.2cm;
+            column-rule: 1px solid #ccc;
+        }
+
+        /* Encabezado común */
+        .header {
+            column-span: all;
+            margin-bottom: 1cm;
+            border-bottom: 3px solid #2C4C3B;
+            padding-bottom: 0.3cm;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header h1 {
+            font-size: 28pt;
+            font-weight: 900;
+            color: #2C4C3B;
+            letter-spacing: -0.5px;
+        }
+
+        .header h1 span {
+            color: #C5A059;
+        }
+
+        .header .sub {
+            font-size: 12pt;
+            color: #555;
+            text-transform: uppercase;
+        }
+
+        .badge {
+            background: #C5A059;
+            color: white;
+            padding: 0.2cm 0.8cm;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 12pt;
+        }
+
+        /* Títulos de sección */
+        .section-title {
+            font-size: 16pt;
+            font-weight: 800;
+            color: #2C4C3B;
+            margin: 0.5cm 0 0.3cm;
+            border-left: 6px solid #C5A059;
+            padding-left: 0.3cm;
+        }
+
+        .section-subtitle {
+            font-weight: 700;
+            color: #2C4C3B;
+            margin-top: 0.3cm;
+            font-size: 12pt;
+        }
+
+        p, li {
+            text-align: justify;
+            margin-bottom: 0.2cm;
+        }
+
+        ul {
+            list-style: none;
+            margin-left: 0.3cm;
+        }
+
+        li {
+            margin-bottom: 0.2cm;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.3cm;
+        }
+
+        li i {
+            color: #C5A059;
+            font-weight: bold;
+            min-width: 0.5cm;
+        }
+
+        .icon-list {
+            display: flex;
+            gap: 0.2cm;
+            align-items: center;
+        }
+
+        .highlight {
+            background: #f0f7f0;
+            padding: 0.4cm;
+            border-radius: 10px;
+            border-left: 6px solid #C5A059;
+            margin: 0.4cm 0;
+        }
+
+        .columns-2 {
+            column-count: 2;
+            column-gap: 0.6cm;
+            margin-top: 0.3cm;
+        }
+
+        /* Tablas */
+        .comparison {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.4cm 0;
+            font-size: 9pt;
+        }
+
+        .comparison td, .comparison th {
+            border: 1px solid #ddd;
+            padding: 0.2cm;
+            vertical-align: top;
+        }
+
+        .comparison th {
+            background: #2C4C3B;
+            color: white;
+            font-weight: 700;
+        }
+
+        .comparison td:first-child {
+            font-weight: 600;
+            background-color: #f9f9f9;
+        }
+
+        /* Evitar saltos de página en elementos importantes */
+        h2, h3, .highlight, table {
+            break-inside: avoid;
+        }
+
+        /* Forzar salto de columna manual si es necesario */
+        .break-before {
+            break-before: column;
+        }
+
+        /* Pie de página */
+        .footer {
+            column-span: all;
+            margin-top: 0.8cm;
+            border-top: 2px solid #2C4C3B;
+            padding-top: 0.3cm;
+            text-align: center;
+            font-size: 9pt;
+            color: #555;
+        }
+
+        .contact {
+            display: flex;
+            justify-content: center;
+            gap: 0.8cm;
+            margin: 0.3cm 0;
+            font-weight: bold;
+        }
+
+        /* Ajustes de impresión */
+        @media print {
+            body {
+                padding: 0.5cm;
+            }
+            .page {
+                max-width: 100%;
+            }
+            .badge {
+                background: #C5A059 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .highlight {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .comparison th {
+                background: #2C4C3B !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- ===== CABECERA ===== -->
+        <div class="header">
+            <div>
+                <h1>Oleo<span>Flow</span></h1>
+                <div class="sub">Seguimiento digital de la quemadura</div>
+            </div>
+            <div class="badge">Trazabilidad total</div>
+        </div>
+
+        <!-- ===== COLUMNA IZQUIERDA ===== -->
+        <div>
+            <!-- EL PROBLEMA REAL -->
+            <div class="section-title">El desafío</div>
+            <p>¿Controla el proceso de desamargado (quemadura) con papel, anotaciones sueltas o la memoria de los operarios? Los riesgos son altos:</p>
+            <ul>
+                <li><i>✖</i> Pérdida de información crítica (fechas, concentraciones, tiempos).</li>
+                <li><i>✖</i> Dificultad para rastrear un lote ante un problema de calidad.</li>
+                <li><i>✖</i> Falta de pruebas para certificaciones o reclamos comerciales.</li>
+                <li><i>✖</i> Dobles ingresos de datos, errores humanos, tiempo perdido.</li>
+            </ul>
+
+            <div class="section-title">Nuestra solución</div>
+            <p><strong>OleoFlow</strong> es una aplicación móvil diseñada específicamente para el seguimiento del proceso de desamargado (quemadura) de aceitunas de mesa. Permite registrar cada etapa, desde la inyección cáustica hasta los controles finales, con total trazabilidad, incluso sin conexión a internet.</p>
+
+            <div class="highlight">
+                <strong>🌱 Pensada para el campo:</strong> interfaz intuitiva, grandes botones, lectura de QR integrada. Los operarios la usan sin formación previa.
+            </div>
+
+            <!-- FUNCIONALIDADES CLAVE (5) -->
+            <div class="section-title">Funcionalidades principales</div>
+            <div class="columns-2">
+                <ul>
+                    <li><i>✅</i> <strong>Formularios dinámicos:</strong> registro cronológico de inyección, enjuagues, controles, ingredientes, mediciones Baumé. Cada entrada con fecha, hora y operador.</li>
+                    <li><i>✅</i> <strong>Códigos QR inteligentes:</strong> generación automática de un QR con todos los datos del lote. Estructura optimizada para mucha información.</li>
+                    <li><i>✅</i> <strong>Informes PDF multilingües:</strong> exportación del expediente completo en FR/ES/EN. Ideal para clientes y auditorías.</li>
+                </ul>
+                <ul>
+                    <li><i>✅</i> <strong>Modo offline:</strong> funciona perfectamente en zonas sin red. Los datos se sincronizan automáticamente cuando hay conexión.</li>
+                    <li><i>✅</i> <strong>Interfaz multilingüe:</strong> cambio instantáneo entre español, francés e inglés. Todos los mensajes y reportes se adaptan.</li>
+                </ul>
+            </div>
+
+            <!-- LO QUE CAMBIA (ANTES / DESPUÉS) -->
+            <div class="section-title">Antes vs. Después</div>
+            <div style="display: flex; gap: 0.3cm;">
+                <div style="flex:1; background:#f8f8f8; padding:0.2cm;">
+                    <strong style="color:#b33;">Sin OleoFlow</strong>
+                    <ul style="margin-top:0.2cm;">
+                        <li>📋 Papel y bolígrafo, datos ilegibles</li>
+                        <li>🔍 Lotes mezclados, sin trazabilidad</li>
+                        <li>⏳ Horas de re‑escritura en Excel</li>
+                        <li>🚫 Sin alertas de anomalías</li>
+                    </ul>
+                </div>
+                <div style="flex:1; background:#e6f2e6; padding:0.2cm;">
+                    <strong style="color:#2C4C3B;">Con OleoFlow</strong>
+                    <ul style="margin-top:0.2cm;">
+                        <li>✅ Entrada única, digital</li>
+                        <li>🔐 Cada operación fechada y firmada</li>
+                        <li>⚡ Búsqueda instantánea por lote</li>
+                        <li>📊 Informes PDF automáticos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== COLUMNA DERECHA ===== -->
+        <div>
+            <!-- PARA QUIÉN -->
+            <div class="section-title">¿Para quién?</div>
+            <ul>
+                <li><i>📍</i> <strong>Productores de aceitunas de mesa</strong> que externalizan la quemadura o la realizan internamente.</li>
+                <li><i>📍</i> <strong>Servicios de maquila (quemadores)</strong> que necesitan entregar trazabilidad a sus clientes.</li>
+                <li><i>📍</i> <strong>Cooperativas</strong> que quieren estandarizar el proceso y certificar calidad.</li>
+                <li><i>📍</i> <strong>Ingenieros y asesores</strong> que auditan y necesitan datos fiables.</li>
+            </ul>
+
+            <!-- VENTAJAS ADICIONALES -->
+            <div class="section-title">Beneficios que obtiene</div>
+            <ul>
+                <li><i>🔒</i> <strong>Soberanía de datos:</strong> sin nube obligatoria, la información reside en sus dispositivos.</li>
+                <li><i>💰</i> <strong>Pago único:</strong> licencia perpetua, sin suscripciones mensuales.</li>
+                <li><i>📈</i> <strong>Mejora continua:</strong> los registros permiten optimizar tiempos y consumos.</li>
+                <li><i>📸</i> <strong>Evidencia fotográfica:</strong> cada lote puede incluir fotos geolocalizadas.</li>
+                <li><i>⚙️</i> <strong>Configurable sin programar:</strong> adaptamos los formularios a su proceso exacto.</li>
+            </ul>
+
+            <!-- COMPARATIVA (tabla) -->
+            <div class="section-title">Comparación directa</div>
+            <table class="comparison">
+                <thead>
+                    <tr><th>Aspecto</th><th>OleoFlow</th><th>Método tradicional (papel/Excel)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Registro de operaciones</td><td>Automático, con fecha/hora y operador</td><td>Manual, propenso a errores</td></tr>
+                    <tr><td>Traza del lote</td><td>Completa, accesible en segundos</td><td>Inexistente o archivada en cajas</td></tr>
+                    <tr><td>Exportación de informes</td><td>PDF multilingüe con un clic</td><td>Redacción manual, horas de trabajo</td></tr>
+                    <tr><td>Conectividad</td><td>Modo offline + sincronización automática</td><td>Depende de papel o conexión</td></tr>
+                    <tr><td>Inversión</td><td>Licencia única, sin cuotas</td><td>Coste oculto (horas de administrativo)</td></tr>
+                    <tr><td>Idiomas</td><td>FR/ES/EN integrado</td><td>Un solo idioma, traducciones externas</td></tr>
+                </tbody>
+            </table>
+
+            <!-- PREGUNTAS FRECUENTES -->
+            <div class="section-title">Preguntas frecuentes</div>
+            <div style="margin-bottom:0.3cm;">
+                <p><strong>¿Puedo usar OleoFlow sin internet?</strong><br>
+                Sí, la app funciona offline y envía los datos cuando hay conexión.</p>
+                <p><strong>¿Qué pasa si un operario se equivoca?</strong><br>
+                Cada entrada puede ser corregida dejando traza (edición autorizada).</p>
+                <p><strong>¿Los QR son legibles con cualquier escáner?</strong><br>
+                Sí, son QR estándar. Además la app incluye lector integrado.</p>
+                <p><strong>¿Puedo personalizar los informes?</strong><br>
+                Sí, podemos adaptar el diseño, el logotipo y los campos a su empresa (opcional).</p>
+            </div>
+
+            <!-- POR QUÉ CONFIAR -->
+            <div class="highlight">
+                <strong>🇵🇪 Desarrollado en Tacna con productores locales:</strong> OleoFlow nace de la necesidad real de tener un control riguroso de la quemadura. Conocemos las variedades, los tiempos y los desafíos del campo peruano.
+            </div>
+
+            <!-- LLAMADA A LA ACCIÓN -->
+            <div style="margin-top: 0.6cm; background: #2C4C3B; color: white; padding: 0.4cm; border-radius: 12px; text-align: center;">
+                <div style="font-size: 18pt; font-weight: bold;">¿Listo para digitalizar su quemadura?</div>
+                <p style="margin: 0.2cm 0;">Solicite una demo o un presupuesto sin compromiso.</p>
+                <div style="font-size: 14pt; font-weight: bold; margin-top: 0.2cm;">+51 987 654 321 · oleoflow@mundo-aove.com</div>
+                <div style="margin-top: 0.3cm; font-size: 10pt;">Mundo‑AOVE Tech · Tacna, Perú</div>
+            </div>
+
+            <p style="margin-top: 0.4cm; font-style: italic; color: #444;">* OleoFlow ha sido probado en campo con productores de Tacna. No inventamos cifras, ofrecemos tecnología probada.</p>
+        </div>
+
+        <!-- ===== PIE DE PÁGINA ===== -->
+        <div class="footer">
+            <div class="contact">
+                <span>📧 oleoflow@mundo-aove.com</span>
+                <span>📞 +51 987 654 321</span>
+                <span>📍 Tacna, Perú</span>
+            </div>
+            <div>OleoFlow · Versión 1.0 · Ficha técnica · © 2026 Mundo‑AOVE Tech</div>
+        </div>
+
+    </div>
+    <!-- pequeño truco para evitar desbordes -->
+    <div style="clear: both; height: 0;"></div>
+</body>
+</html>

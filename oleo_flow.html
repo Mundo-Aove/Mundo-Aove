@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OleoFlow · Suivi de Quemadura | Mundo-AOVE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --forest-green: #2C4C3B; --matte-gold: #C5A059; }
+        body { font-family: 'Inter', sans-serif; background-color: #fdfdfd; }
+        .serif { font-family: 'Playfair Display', serif; }
+        .gradient-dark { background: linear-gradient(135deg, #1a1c1b 0%, #2c4c3b 100%); }
+        .feature-card { transition: transform 0.2s; }
+        .feature-card:hover { transform: translateY(-5px); }
+        /* Styles pour le modal */
+        .modal-overlay {
+            background: rgba(31, 58, 44, 0.85);
+            backdrop-filter: blur(8px);
+        }
+        .modal-content {
+            animation: fadeInUp 0.3s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="border-b border-gray-100 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-[#2C4C3B] rounded flex items-center justify-center text-[#C5A059]">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <span class="serif text-2xl font-bold text-[#2C4C3B]">Mundo-AOVE <span class="text-[#C5A059]">Tech</span></span>
+            </div>
+            <div class="flex items-center space-x-8">
+                <a href="tech.html" class="text-gray-600 hover:text-[#2C4C3B] font-medium transition">← Retour aux projets</a>
+                <div class="flex space-x-2">
+                    <button onclick="setLanguage('fr')" class="px-3 py-1 rounded-full text-sm font-bold hover:bg-[#C5A059] hover:text-white transition">FR</button>
+                    <button onclick="setLanguage('es')" class="px-3 py-1 rounded-full text-sm font-bold hover:bg-[#C5A059] hover:text-white transition">ES</button>
+                    <button onclick="setLanguage('en')" class="px-3 py-1 rounded-full text-sm font-bold hover:bg-[#C5A059] hover:text-white transition">EN</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="gradient-dark py-20 text-white overflow-hidden relative">
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+            <!-- Version française -->
+            <div data-lang="fr" class="lang-item">
+                <div class="inline-block px-4 py-1 border border-[#C5A059] text-[#C5A059] text-xs font-bold tracking-[0.2em] uppercase mb-6">🌿 Application métier</div>
+                <h1 class="serif text-5xl md:text-6xl mb-6 leading-tight">OleoFlow <span class="text-[#C5A059]">Quemadura</span></h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">Suivi de lots, traçabilité intégrale et génération de QR codes pour le processus de désamérisation des olives.</p>
+            </div>
+            <!-- Version espagnole -->
+            <div data-lang="es" class="lang-item">
+                <div class="inline-block px-4 py-1 border border-[#C5A059] text-[#C5A059] text-xs font-bold tracking-[0.2em] uppercase mb-6">🌿 Aplicación profesional</div>
+                <h1 class="serif text-5xl md:text-6xl mb-6 leading-tight">OleoFlow <span class="text-[#C5A059]">Quemadura</span></h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">Seguimiento de lotes, trazabilidad integral y generación de códigos QR para el proceso de desamargado de aceitunas.</p>
+            </div>
+            <!-- Version anglaise -->
+            <div data-lang="en" class="lang-item">
+                <div class="inline-block px-4 py-1 border border-[#C5A059] text-[#C5A059] text-xs font-bold tracking-[0.2em] uppercase mb-6">🌿 Business App</div>
+                <h1 class="serif text-5xl md:text-6xl mb-6 leading-tight">OleoFlow <span class="text-[#C5A059]">Quemadura</span></h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">Batch tracking, complete traceability, and QR code generation for the olive debittering process.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-16">
+        <!-- Présentation générale -->
+        <section class="mb-20">
+            <div class="bg-white p-10 rounded-2xl shadow-lg border-l-8 border-[#C5A059]">
+                <!-- FR -->
+                <div data-lang="fr" class="lang-item">
+                    <p class="text-lg text-gray-700 leading-relaxed">OleoFlow est une application mobile conçue pour les producteurs et les prestataires de service de désamérisation (quemadura). Elle permet de gérer chaque lot d'olives de la réception jusqu'à la livraison finale, avec une traçabilité complète et des outils adaptés au terrain, même sans connexion Internet.</p>
+                </div>
+                <!-- ES -->
+                <div data-lang="es" class="lang-item">
+                    <p class="text-lg text-gray-700 leading-relaxed">OleoFlow es una aplicación móvil diseñada para productores y proveedores de servicios de desamargado (quemadura). Permite gestionar cada lote de aceitunas desde la recepción hasta la entrega final, con trazabilidad completa y herramientas adaptadas al terreno, incluso sin conexión a Internet.</p>
+                </div>
+                <!-- EN -->
+                <div data-lang="en" class="lang-item">
+                    <p class="text-lg text-gray-700 leading-relaxed">OleoFlow is a mobile application designed for producers and debittering service providers (quemadura). It manages each olive batch from reception to final delivery, with full traceability and tools adapted for the field, even without Internet connection.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fonctionnalités clés -->
+        <section class="mb-20">
+            <!-- Titres -->
+            <h2 data-lang="fr" class="lang-item serif text-3xl font-bold text-center text-[#2C4C3B] mb-12">Fonctionnalités principales</h2>
+            <h2 data-lang="es" class="lang-item serif text-3xl font-bold text-center text-[#2C4C3B] mb-12">Funcionalidades principales</h2>
+            <h2 data-lang="en" class="lang-item serif text-3xl font-bold text-center text-[#2C4C3B] mb-12">Key features</h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Carte 1 -->
+                <div data-lang="fr" class="lang-item feature-card bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#C5A059] mb-6"><i class="fas fa-edit"></i></div>
+                    <h3 class="serif text-xl font-bold mb-3 text-gray-800">Formulaires de suivi</h3>
+                    <p class="text-gray-600 leading-relaxed">Saisie chronologique des étapes clés : injection caustique, rinçages, contrôles, ajouts d'ingrédients, mesures Baumé. Chaque entrée est horodatée et signée.</p>
+                </div>
+                <div data-lang="es" class="lang-item feature-card bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#C5A059] mb-6"><i class="fas fa-edit"></i></div>
+                    <h3 class="serif text-xl font-bold mb-3 text-gray-800">Formularios de seguimiento</h3>
+                    <p class="text-gray-600 leading-relaxed">Registro cronológico de las etapas clave: inyección cáustica, enjuagues, controles, adición de ingredientes, mediciones Baumé. Cada entrada lleva fecha, hora y operador.</p>
+                </div>
+                <div data-lang="en" class="lang-item feature-card bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#C5A059] mb-6"><i class="fas fa-edit"></i></div>
+                    <h3 class="serif text-xl font-bold mb-3 text-gray-800">Tracking forms</h3>
+                    <p class="text-gray-600 leading-relaxed">Chronological recording of key steps: caustic injection, rinses, checks, ingredient additions, Baumé measurements. Each entry is timestamped and signed.</p>
+                </div>
+
+                <!-- Carte 2 -->
+                <div data-lang="fr" class="lang-item feature-card bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#C5A059] mb-6"><i class="fas fa-qrcode"></i></div>
+                    <h3 class="serif text-xl font-bold mb-3 text-gray-800">QR codes intelligents</h3>
+                    <p class="text-gray-600 leading-relaxed">Génération automatique d'un QR code contenant toutes les données du lot. Structure optimisée pour rester lisible même avec beaucoup d'informations.</p>
+                </div>
+                <div data-lang="es" class="lang-item feature-card bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#C5A059] mb-6"><i class="fas fa-qrcode"></i></div>
+                    <h3 class="serif text-xl font-bold mb-3 text-gray-800">Códigos QR inteligentes</h3>
+                    <p class="text-gray-600 leading-relaxed">Generación automática de un código QR con todos los datos del lote. Estructura optimizada para mantener la legibilidad incluso con mucha información.</p>
+                </div>
+                <div data-lang="en" class="lang-item feature-card bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#C5A059] mb-6"><i class="fas fa-qrcode"></i></div>
+                    <h3 class="serif text-xl font-bold mb-3 text-gray-800">Smart QR codes</h3>
+                    <p class="text-gray-600 leading-relaxed">Automatic generation of a QR code containing all batch data. Optimized structure to remain readable even with large amounts of information.</p>
+                </div>
+
+                <!-- Carte 3 -->
+                <div data-lang="fr" class="lang-item feature-card bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#C5A059] mb-6"><i class="fas fa-file-pdf"></i></div>
+                    <h3 class="serif text-xl font-bold mb-3 text-gray-800">Rapports PDF multilingues</h3>
+                    <p class="text-gray-600 leading-relaxed">Export du dossier de lot complet en PDF, dans la langue de l'utilisateur (FR/ES/EN). Idéal pour les contrôles qualité et les clients.</p>
+                </div>
+                <div data-lang="es" class="lang-item feature-card bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#C5A059] mb-6"><i class="fas fa-file-pdf"></i></div>
+                    <h3 class="serif text-xl font-bold mb-3 text-gray-800">Informes PDF multilingües</h3>
+                    <p class="text-gray-600 leading-relaxed">Exportación del expediente completo del lote en PDF, en el idioma del usuario (FR/ES/EN). Ideal para controles de calidad y clientes.</p>
+                </div>
+                <div data-lang="en" class="lang-item feature-card bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#C5A059] mb-6"><i class="fas fa-file-pdf"></i></div>
+                    <h3 class="serif text-xl font-bold mb-3 text-gray-800">Multilingual PDF reports</h3>
+                    <p class="text-gray-600 leading-relaxed">Export complete batch file as PDF, in the user's language (FR/ES/EN). Ideal for quality controls and customers.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deuxième rangée (2 cartes) -->
+        <section class="mb-20">
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Mode hors ligne -->
+                <div data-lang="fr" class="lang-item feature-card bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#2C4C3B] mb-6"><i class="fas fa-wifi-slash"></i></div>
+                    <h3 class="serif text-xl font-bold mb-3 text-gray-800">Mode hors ligne</h3>
+                    <p class="text-gray-600 leading-relaxed">Fonctionne parfaitement dans les zones sans réseau. Les données sont synchronisées dès qu'une connexion est disponible.</p>
+                </div>
+                <div data-lang="es" class="lang-item feature-card bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#2C4C3B] mb-6"><i class="fas fa-wifi-slash"></i></div>
+                    <h3 class="serif text-xl font-bold mb-3 text-gray-800">Modo sin conexión</h3>
+                    <p class="text-gray-600 leading-relaxed">Funciona perfectamente en zonas sin red. Los datos se sincronizan automáticamente cuando hay conexión disponible.</p>
+                </div>
+                <div data-lang="en" class="lang-item feature-card bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#2C4C3B] mb-6"><i class="fas fa-wifi-slash"></i></div>
+                    <h3 class="serif text-xl font-bold mb-3 text-gray-800">Offline mode</h3>
+                    <p class="text-gray-600 leading-relaxed">Works perfectly in areas with no network. Data syncs automatically when a connection is available.</p>
+                </div>
+
+                <!-- Interface multilingue -->
+                <div data-lang="fr" class="lang-item feature-card bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#2C4C3B] mb-6"><i class="fas fa-language"></i></div>
+                    <h3 class="serif text-xl font-bold mb-3 text-gray-800">Interface multilingue</h3>
+                    <p class="text-gray-600 leading-relaxed">Bascule instantanée entre le français, l'espagnol et l'anglais. Tous les libellés, messages et rapports suivent la langue choisie.</p>
+                </div>
+                <div data-lang="es" class="lang-item feature-card bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#2C4C3B] mb-6"><i class="fas fa-language"></i></div>
+                    <h3 class="serif text-xl font-bold mb-3 text-gray-800">Interfaz multilingüe</h3>
+                    <p class="text-gray-600 leading-relaxed">Cambio instantáneo entre español, francés e inglés. Todas las etiquetas, mensajes e informes se adaptan al idioma seleccionado.</p>
+                </div>
+                <div data-lang="en" class="lang-item feature-card bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#2C4C3B] mb-6"><i class="fas fa-language"></i></div>
+                    <h3 class="serif text-xl font-bold mb-3 text-gray-800">Multilingual interface</h3>
+                    <p class="text-gray-600 leading-relaxed">Instant switch between English, French, and Spanish. All labels, messages, and reports follow the selected language.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section avantages (Pourquoi adopter OleoFlow ?) -->
+        <section class="mb-20 bg-gray-50 p-10 rounded-3xl">
+            <!-- Titre -->
+            <h2 data-lang="fr" class="lang-item serif text-3xl font-bold text-center text-[#2C4C3B] mb-8">Pourquoi adopter OleoFlow ?</h2>
+            <h2 data-lang="es" class="lang-item serif text-3xl font-bold text-center text-[#2C4C3B] mb-8">¿Por qué adoptar OleoFlow?</h2>
+            <h2 data-lang="en" class="lang-item serif text-3xl font-bold text-center text-[#2C4C3B] mb-8">Why adopt OleoFlow?</h2>
+
+            <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <!-- Avantage 1 -->
+                <div data-lang="fr" class="lang-item flex items-start gap-4">
+                    <div class="text-[#C5A059] text-2xl"><i class="fas fa-check-circle"></i></div>
+                    <div>
+                        <h4 class="font-bold text-gray-800">Traçabilité sans faille</h4>
+                        <p class="text-gray-600">Chaque opération est enregistrée avec sa date, son heure et l'opérateur. Historique complet consultable à tout moment.</p>
+                    </div>
+                </div>
+                <div data-lang="es" class="lang-item flex items-start gap-4">
+                    <div class="text-[#C5A059] text-2xl"><i class="fas fa-check-circle"></i></div>
+                    <div>
+                        <h4 class="font-bold text-gray-800">Trazabilidad sin fisuras</h4>
+                        <p class="text-gray-600">Cada operación queda registrada con su fecha, hora y operador. Historial completo consultable en todo momento.</p>
+                    </div>
+                </div>
+                <div data-lang="en" class="lang-item flex items-start gap-4">
+                    <div class="text-[#C5A059] text-2xl"><i class="fas fa-check-circle"></i></div>
+                    <div>
+                        <h4 class="font-bold text-gray-800">Flawless traceability</h4>
+                        <p class="text-gray-600">Every operation is recorded with date, time, and operator. Full history accessible at any time.</p>
+                    </div>
+                </div>
+
+                <!-- Avantage 2 -->
+                <div data-lang="fr" class="lang-item flex items-start gap-4">
+                    <div class="text-[#C5A059] text-2xl"><i class="fas fa-check-circle"></i></div>
+                    <div>
+                        <h4 class="font-bold text-gray-800">Gain de temps</h4>
+                        <p class="text-gray-600">Plus de saisies papier ni de doubles saisies. Les QR codes permettent un accès instantané à l'historique du lot.</p>
+                    </div>
+                </div>
+                <div data-lang="es" class="lang-item flex items-start gap-4">
+                    <div class="text-[#C5A059] text-2xl"><i class="fas fa-check-circle"></i></div>
+                    <div>
+                        <h4 class="font-bold text-gray-800">Ahorro de tiempo</h4>
+                        <p class="text-gray-600">No más anotaciones en papel ni doble entrada. Los códigos QR permiten acceder al instante al historial del lote.</p>
+                    </div>
+                </div>
+                <div data-lang="en" class="lang-item flex items-start gap-4">
+                    <div class="text-[#C5A059] text-2xl"><i class="fas fa-check-circle"></i></div>
+                    <div>
+                        <h4 class="font-bold text-gray-800">Time saving</h4>
+                        <p class="text-gray-600">No more paper entries or double entries. QR codes provide instant access to batch history.</p>
+                    </div>
+                </div>
+
+                <!-- Avantage 3 -->
+                <div data-lang="fr" class="lang-item flex items-start gap-4">
+                    <div class="text-[#C5A059] text-2xl"><i class="fas fa-check-circle"></i></div>
+                    <div>
+                        <h4 class="font-bold text-gray-800">Adapté au terrain</h4>
+                        <p class="text-gray-600">Interface simple, grands boutons, lecture de QR code intégrée. Utilisable par tous les opérateurs.</p>
+                    </div>
+                </div>
+                <div data-lang="es" class="lang-item flex items-start gap-4">
+                    <div class="text-[#C5A059] text-2xl"><i class="fas fa-check-circle"></i></div>
+                    <div>
+                        <h4 class="font-bold text-gray-800">Adaptado al terreno</h4>
+                        <p class="text-gray-600">Interfaz sencilla, botones grandes, lectura de QR integrada. Utilizable por cualquier operario.</p>
+                    </div>
+                </div>
+                <div data-lang="en" class="lang-item flex items-start gap-4">
+                    <div class="text-[#C5A059] text-2xl"><i class="fas fa-check-circle"></i></div>
+                    <div>
+                        <h4 class="font-bold text-gray-800">Field-adapted</h4>
+                        <p class="text-gray-600">Simple interface, large buttons, integrated QR scanning. Usable by any operator.</p>
+                    </div>
+                </div>
+
+                <!-- Avantage 4 -->
+                <div data-lang="fr" class="lang-item flex items-start gap-4">
+                    <div class="text-[#C5A059] text-2xl"><i class="fas fa-check-circle"></i></div>
+                    <div>
+                        <h4 class="font-bold text-gray-800">Indépendance</h4>
+                        <p class="text-gray-600">Aucun abonnement, aucune dépendance cloud. Les données vous appartiennent et restent sur vos appareils.</p>
+                    </div>
+                </div>
+                <div data-lang="es" class="lang-item flex items-start gap-4">
+                    <div class="text-[#C5A059] text-2xl"><i class="fas fa-check-circle"></i></div>
+                    <div>
+                        <h4 class="font-bold text-gray-800">Independencia</h4>
+                        <p class="text-gray-600">Sin suscripciones, sin dependencia de la nube. Los datos te pertenecen y permanecen en tus dispositivos.</p>
+                    </div>
+                </div>
+                <div data-lang="en" class="lang-item flex items-start gap-4">
+                    <div class="text-[#C5A059] text-2xl"><i class="fas fa-check-circle"></i></div>
+                    <div>
+                        <h4 class="font-bold text-gray-800">Independence</h4>
+                        <p class="text-gray-600">No subscription, no cloud dependency. Your data belongs to you and stays on your devices.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to action (bouton unique) -->
+        <section class="text-center">
+            <div data-lang="fr" class="lang-item">
+                <h2 class="serif text-3xl font-bold text-[#2C4C3B] mb-4">Prêt à digitaliser votre suivi ?</h2>
+                <p class="text-gray-600 mb-8 max-w-2xl mx-auto">Contactez‑nous pour une démonstration ou pour obtenir une version d'essai.</p>
+                <button onclick="toggleModal(true)" class="inline-block bg-[#C5A059] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-700 transition shadow-lg">Nous contacter</button>
+            </div>
+            <div data-lang="es" class="lang-item">
+                <h2 class="serif text-3xl font-bold text-[#2C4C3B] mb-4">¿Listo para digitalizar tu seguimiento?</h2>
+                <p class="text-gray-600 mb-8 max-w-2xl mx-auto">Contáctanos para una demostración o para obtener una versión de prueba.</p>
+                <button onclick="toggleModal(true)" class="inline-block bg-[#C5A059] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-700 transition shadow-lg">Contactar</button>
+            </div>
+            <div data-lang="en" class="lang-item">
+                <h2 class="serif text-3xl font-bold text-[#2C4C3B] mb-4">Ready to digitize your tracking?</h2>
+                <p class="text-gray-600 mb-8 max-w-2xl mx-auto">Contact us for a demo or to get a trial version.</p>
+                <button onclick="toggleModal(true)" class="inline-block bg-[#C5A059] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-700 transition shadow-lg">Contact us</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer simplifié -->
+    <footer class="bg-white border-t border-gray-100 py-12 text-center">
+        <p class="text-gray-400 text-sm font-medium tracking-widest uppercase">© 2026 Mundo-AOVE Tech – OleoFlow</p>
+    </footer>
+
+    <!-- ======= MODALE DE CONTACT (TELEGRAM) ======= -->
+    <div id="contactModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+        <div class="modal-overlay absolute inset-0" onclick="toggleModal(false)"></div>
+        <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl relative z-10 overflow-hidden modal-content">
+            <div class="bg-[#2C4C3B] p-6 text-white flex justify-between items-center">
+                <h3 class="serif text-2xl font-bold" data-lang="fr">Contact</h3>
+                <h3 class="serif text-2xl font-bold" data-lang="es" style="display:none;">Contacto</h3>
+                <h3 class="serif text-2xl font-bold" data-lang="en" style="display:none;">Contact</h3>
+                <button onclick="toggleModal(false)" class="text-white/70 hover:text-white text-3xl font-light">&times;</button>
+            </div>
+            <form id="techForm" class="p-8 space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="fr">Nom / Entreprise</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="es" style="display:none;">Nombre / Empresa</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="en" style="display:none;">Name / Company</label>
+                    <input type="text" id="formName" required class="w-full border-b-2 border-gray-100 focus:border-[#C5A059] outline-none py-2 transition-colors">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="fr">Email</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="es" style="display:none;">Correo</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="en" style="display:none;">Email</label>
+                    <input type="email" id="formEmail" required class="w-full border-b-2 border-gray-100 focus:border-[#C5A059] outline-none py-2 transition-colors">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="fr">Message</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="es" style="display:none;">Mensaje</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="en" style="display:none;">Message</label>
+                    <textarea id="formMsg" rows="4" required class="w-full bg-gray-50 rounded-xl p-3 focus:ring-2 focus:ring-[#C5A059] outline-none transition-all"></textarea>
+                </div>
+                <div class="text-xs text-gray-400 italic" data-lang="fr">Nous traitons votre demande manuellement. Réponse sous 48h.</div>
+                <div class="text-xs text-gray-400 italic" data-lang="es" style="display:none;">Procesamos su solicitud manualmente. Respuesta en 48h.</div>
+                <div class="text-xs text-gray-400 italic" data-lang="en" style="display:none;">We process your request manually. Reply within 48h.</div>
+                <button type="submit" id="submitBtn" class="w-full bg-[#C5A059] text-white font-bold py-4 rounded-xl hover:bg-[#b38a47] transition shadow-lg flex items-center justify-center gap-2">
+                    <i class="fas fa-paper-plane"></i> <span data-lang="fr">Envoyer</span>
+                    <span data-lang="es" style="display:none;">Enviar</span>
+                    <span data-lang="en" style="display:none;">Send</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script de gestion de langue (version robuste) -->
+    <script>
+        function setLanguage(lang) {
+            // Masquer tous les éléments avec l'attribut data-lang
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = 'none';
+            });
+            // Afficher ceux qui correspondent à la langue
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+                // Restaurer le display en fonction de la classe Tailwind présente
+                if (el.classList.contains('flex')) {
+                    el.style.display = 'flex';
+                } else if (el.classList.contains('grid')) {
+                    el.style.display = 'grid';
+                } else if (el.classList.contains('inline-block')) {
+                    el.style.display = 'inline-block';
+                } else {
+                    el.style.display = 'block';
+                }
+            });
+            // Sauvegarder le choix
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        function getInitialLanguage() {
+            const saved = localStorage.getItem('preferredLanguage');
+            if (saved && ['fr','es','en'].includes(saved)) return saved;
+            const browserLang = navigator.language.split('-')[0];
+            if (['fr','es','en'].includes(browserLang)) return browserLang;
+            return 'fr';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const lang = getInitialLanguage();
+            setLanguage(lang);
+        });
+    </script>
+
+    <!-- Scripts Telegram pour le modal -->
+    <script>
+        const botConfig = {
+            token: '8457793513:AAHJcyUJhsftK8txWKgBQir8qp0eDJTm1CA',
+            chatId: '6051665667'
+        };
+
+        function toggleModal(show) {
+            const modal = document.getElementById('contactModal');
+            if (show) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            } else {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+        }
+
+        document.getElementById('techForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const originalText = btn.innerHTML;
+            
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Traitement...';
+
+            const name = document.getElementById('formName').value;
+            const email = document.getElementById('formEmail').value;
+            const message = document.getElementById('formMsg').value;
+            const date = new Date().toLocaleString('fr-FR');
+
+            const text = `📩 <b>CONTACT: OleoFlow</b>\n\n📅 <b>Date:</b> ${date}\n👤 <b>Nom:</b> ${name}\n📧 <b>Email:</b> ${email}\n💬 <b>Message:</b>\n${message}`.trim();
+
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${botConfig.token}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: botConfig.chatId,
+                        text: text,
+                        parse_mode: 'HTML'
+                    })
+                });
+
+                if (response.ok) {
+                    alert("✅ Message envoyé avec succès ! L'équipe vous répondra bientôt.");
+                    toggleModal(false);
+                    e.target.reset();
+                } else {
+                    alert("❌ Erreur lors de l'envoi.");
+                }
+            } catch (error) {
+                alert("💥 Erreur réseau. Vérifiez votre connexion.");
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            }
+        });
+    </script>
+</body>
+</html>

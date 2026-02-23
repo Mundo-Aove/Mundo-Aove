@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Censo‑Core – Ficha técnica</title>
+    <style>
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            background: #fff;
+            color: #000;
+            line-height: 1.4;
+            font-size: 10pt; /* base para impresión */
+            padding: 1.5cm 1cm;
+        }
+
+        /* Página A4 con dos columnas */
+        .page {
+            max-width: 21cm;
+            margin: 0 auto;
+            column-count: 2;
+            column-gap: 1.2cm;
+            column-rule: 1px solid #ccc;
+        }
+
+        /* Encabezado común */
+        .header {
+            column-span: all;
+            margin-bottom: 1cm;
+            border-bottom: 3px solid #2C4C3B;
+            padding-bottom: 0.3cm;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header h1 {
+            font-size: 28pt;
+            font-weight: 900;
+            color: #2C4C3B;
+            letter-spacing: -0.5px;
+        }
+
+        .header h1 span {
+            color: #C5A059;
+        }
+
+        .header .sub {
+            font-size: 12pt;
+            color: #555;
+            text-transform: uppercase;
+        }
+
+        .badge {
+            background: #C5A059;
+            color: white;
+            padding: 0.2cm 0.8cm;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 12pt;
+        }
+
+        /* Títulos de sección */
+        .section-title {
+            font-size: 16pt;
+            font-weight: 800;
+            color: #2C4C3B;
+            margin: 0.5cm 0 0.3cm;
+            border-left: 6px solid #C5A059;
+            padding-left: 0.3cm;
+        }
+
+        .section-subtitle {
+            font-weight: 700;
+            color: #2C4C3B;
+            margin-top: 0.3cm;
+            font-size: 12pt;
+        }
+
+        p, li {
+            text-align: justify;
+            margin-bottom: 0.2cm;
+        }
+
+        ul {
+            list-style: none;
+            margin-left: 0.3cm;
+        }
+
+        li {
+            margin-bottom: 0.2cm;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.3cm;
+        }
+
+        li i {
+            color: #C5A059;
+            font-weight: bold;
+            min-width: 0.5cm;
+        }
+
+        .icon-list {
+            display: flex;
+            gap: 0.2cm;
+            align-items: center;
+        }
+
+        .highlight {
+            background: #f0f7f0;
+            padding: 0.4cm;
+            border-radius: 10px;
+            border-left: 6px solid #C5A059;
+            margin: 0.4cm 0;
+        }
+
+        .columns-2 {
+            column-count: 2;
+            column-gap: 0.6cm;
+            margin-top: 0.3cm;
+        }
+
+        /* Tablas */
+        .comparison {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.4cm 0;
+            font-size: 9pt;
+        }
+
+        .comparison td, .comparison th {
+            border: 1px solid #ddd;
+            padding: 0.2cm;
+            vertical-align: top;
+        }
+
+        .comparison th {
+            background: #2C4C3B;
+            color: white;
+            font-weight: 700;
+        }
+
+        .comparison td:first-child {
+            font-weight: 600;
+            background-color: #f9f9f9;
+        }
+
+        /* Evitar saltos de página en elementos importantes */
+        h2, h3, .highlight, table {
+            break-inside: avoid;
+        }
+
+        /* Forzar salto de columna manual si es necesario */
+        .break-before {
+            break-before: column;
+        }
+
+        /* Pie de página */
+        .footer {
+            column-span: all;
+            margin-top: 0.8cm;
+            border-top: 2px solid #2C4C3B;
+            padding-top: 0.3cm;
+            text-align: center;
+            font-size: 9pt;
+            color: #555;
+        }
+
+        .contact {
+            display: flex;
+            justify-content: center;
+            gap: 0.8cm;
+            margin: 0.3cm 0;
+            font-weight: bold;
+        }
+
+        /* Ajustes de impresión */
+        @media print {
+            body {
+                padding: 0.5cm;
+            }
+            .page {
+                max-width: 100%;
+            }
+            .badge {
+                background: #C5A059 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .highlight {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .comparison th {
+                background: #2C4C3B !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- ===== CABECERA ===== -->
+        <div class="header">
+            <div>
+                <h1>Censo<span>-Core</span></h1>
+                <div class="sub">Cartografía patrimonial de precisión</div>
+            </div>
+            <div class="badge">Tecnología a tu medida</div>
+        </div>
+
+        <!-- ===== COLUMNA IZQUIERDA ===== -->
+        <div>
+            <!-- EL PROBLEMA REAL -->
+            <div class="section-title">El desafío</div>
+            <p>¿Tiene olivos centenarios y no sabe cómo inventariarlos, valorizarlos o protegerlos? Los métodos tradicionales son limitados:</p>
+            <ul>
+                <li><i>✖</i> Estimaciones a ojo, sin precisión geográfica.</li>
+                <li><i>✖</i> Datos dispersos en papel o Excel, difíciles de compartir.</li>
+                <li><i>✖</i> Falta de pruebas fotográficas geolocalizadas.</li>
+                <li><i>✖</i> Inversiones en tecnologías caras que no se adaptan a su presupuesto.</li>
+            </ul>
+
+            <div class="section-title">Nuestra solución</div>
+            <p><strong>Censo‑Core</strong> es un servicio de cartografía patrimonial desarrollado junto al <strong>Centro Especializado del Olivo de Tacna</strong>. No vendemos una caja negra; diseñamos el protocolo adaptado a su terreno, su presupuesto y su objetivo: inventario, seguimiento, valorización.</p>
+
+            <div class="highlight">
+                <strong>🌱 Filosofía a medida:</strong> Usted elige la tecnología (drone, RTK, smartphone) y nosotros garantizamos la precisión necesaria. Usted es dueño de sus datos.
+            </div>
+
+            <!-- BENEFICIOS CLAVE (4 PILARES) -->
+            <div class="section-title">Lo que usted gana</div>
+            <div class="columns-2">
+                <ul>
+                    <li><i>✅</i> <strong>Objetivo claro:</strong> definimos juntos la precisión que realmente necesita.</li>
+                    <li><i>✅</i> <strong>Tecnología híbrida:</strong> drone, GNSS o móvil, usted elige.</li>
+                    <li><i>✅</i> <strong>Entregables abiertos:</strong> Shapefile, GeoJSON, mapas interactivos.</li>
+                    <li><i>✅</i> <strong>Acompañamiento total:</strong> formamos a su equipo o hacemos todo el trabajo.</li>
+                </ul>
+                <ul>
+                    <li><i>✅</i> <strong>Fotografía geolocalizada:</strong> cada punto con su imagen.</li>
+                    <li><i>✅</i> <strong>Datos estructurados:</strong> listos para su sistema de gestión.</li>
+                    <li><i>✅</i> <strong>Informes profesionales:</strong> mapas imprimibles y reportes PDF.</li>
+                    <li><i>✅</i> <strong>Soberanía:</strong> usted conserva la propiedad de la información.</li>
+                </ul>
+            </div>
+
+            <!-- MÉTODO EN 4 PASOS -->
+            <div class="section-title">Nuestro método</div>
+            <ol style="margin-left: 0.5cm; margin-bottom: 0.5cm;">
+                <li><strong>Auditoría:</strong> visitamos el terreno, medimos superficie, accesos y definimos el protocolo óptimo.</li>
+                <li><strong>Adquisición:</strong> realizamos el levantamiento con la tecnología elegida o capacitamos a su personal.</li>
+                <li><strong>Procesamiento:</strong> georreferenciamos, consolidamos y extraemos metadatos (fecha, operario, observaciones).</li>
+                <li><strong>Explotación:</strong> le entregamos mapas interactivos, archivos SIG y un inventario fotográfico. Usted es autónomo.</li>
+            </ol>
+
+            <!-- COMPARATIVA (tabla) -->
+            <div class="section-title">Comparación directa</div>
+            <table class="comparison">
+                <thead>
+                    <tr><th>Aspecto</th><th>Censo‑Core</th><th>Método tradicional</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Precisión</td><td>Centimétrica (GNSS) / submétrica (drone) / métrica (smartphone) – usted elige</td><td>Estimación visual, errores de varios metros</td></tr>
+                    <tr><td>Datos obtenidos</td><td>Coordenadas exactas, fotos, atributos (edad, estado, etc.)</td><td>Anotaciones en libreta, sin georreferenciación</td></tr>
+                    <tr><td>Tiempo de ejecución</td><td>De 1 a 5 días según hectáreas</td><td>Semanas o meses con personal no especializado</td></tr>
+                    <tr><td>Formato de entrega</td><td>Shapefile, GeoJSON, KML, mapa web, PDF, fotos geolocalizadas</td><td>Papel o Excel sin rigor espacial</td></tr>
+                    <tr><td>Propiedad de los datos</td><td>Usted, sin cláusulas de licencia</td><td>A menudo el consultor retiene derechos</td></tr>
+                    <tr><td>Inversión inicial</td><td>Desde 500 soles (ajustable al alcance)</td><td>Compra de equipos costosos o contratos elevados</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ===== COLUMNA DERECHA ===== -->
+        <div>
+            <!-- CASOS DE USO CONCRETOS -->
+            <div class="section-title">¿Para qué sirve?</div>
+            <ul>
+                <li><i>📍</i> <strong>Inventario patrimonial:</strong> catastrar olivos centenarios para su puesta en valor.</li>
+                <li><i>📍</i> <strong>Gestión de fincas:</strong> conocer la ubicación exacta de cada árbol, planificar riegos y tratamientos.</li>
+                <li><i>📍</i> <strong>Certificaciones:</strong> aportar pruebas georreferenciadas para sellos de calidad o ayudas.</li>
+                <li><i>📍</i> <strong>Investigación:</strong> bases de datos fiables para estudios agronómicos o históricos.</li>
+            </ul>
+
+            <!-- LO QUE CAMBIA (ANTES / DESPUÉS) -->
+            <div class="section-title">Antes vs. Después</div>
+            <div style="display: flex; gap: 0.3cm;">
+                <div style="flex:1; background:#f8f8f8; padding:0.2cm;">
+                    <strong style="color:#b33;">Sin Censo‑Core</strong>
+                    <ul style="margin-top:0.2cm;">
+                        <li>📋 Croquis imprecisos</li>
+                        <li>📸 Fotos sin ubicación</li>
+                        <li>🔍 Difícil encontrar un árbol años después</li>
+                        <li>📊 Datos inconexos</li>
+                    </ul>
+                </div>
+                <div style="flex:1; background:#e6f2e6; padding:0.2cm;">
+                    <strong style="color:#2C4C3B;">Con Censo‑Core</strong>
+                    <ul style="margin-top:0.2cm;">
+                        <li>🗺️ Mapa exacto, cliqueable</li>
+                        <li>📷 Cada árbol con su foto</li>
+                        <li>⚡ Búsqueda instantánea</li>
+                        <li>📁 Datos listos para SIG</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- EQUIPO -->
+            <div class="section-title">Quiénes lo hacen posible</div>
+            <p><strong>Alejandra Reyes</strong> – Ing. agrónoma, 10 años en olivicultura, coordinó el censo de Tacna.<br>
+            <strong>Carlos Vega</strong> – Geomático, especialista en drones y RTK, precisión centimétrica.<br>
+            <strong>Marta Sánchez</strong> – Cartógrafa, diseña mapas interactivos y entrega formatos abiertos.</p>
+
+            <!-- PREGUNTAS FRECUENTES -->
+            <div class="section-title">Preguntas frecuentes</div>
+            <div style="margin-bottom:0.3cm;">
+                <p><strong>¿Cuánto cuesta?</strong><br>
+                Depende de la superficie, la tecnología elegida y el nivel de acompañamiento. Hacemos un presupuesto gratuito y transparente.</p>
+                <p><strong>¿Qué precisión obtengo?</strong><br>
+                Desde < 1 metro con smartphone, hasta 2 cm con RTK. Usted decide según su objetivo.</p>
+                <p><strong>¿Recibo los datos en bruto?</strong><br>
+                Sí, entregamos todos los archivos (Shapefile, GeoJSON, fotos) sin restricciones.</p>
+                <p><strong>¿Pueden capacitar a mi equipo?</strong><br>
+                Por supuesto, es nuestra opción preferida: transferimos el método para que sean autónomos.</p>
+            </div>
+
+            <!-- POR QUÉ CONFIAR EN NOSOTROS -->
+            <div class="highlight">
+                <strong>🇵🇪 Desarrollado en Tacna, para Tacna:</strong> trabajamos codo a codo con el Centro Especializado del Olivo. Conocemos las variedades locales, el terreno y los desafíos de conectividad. No inventamos testimonios, construimos soluciones que funcionan.
+            </div>
+
+            <!-- LLAMADA A LA ACCIÓN -->
+            <div style="margin-top: 0.6cm; background: #2C4C3B; color: white; padding: 0.4cm; border-radius: 12px; text-align: center;">
+                <div style="font-size: 18pt; font-weight: bold;">¿Listo para mapear su patrimonio?</div>
+                <p style="margin: 0.2cm 0;">Solicite una evaluación sin compromiso o un presupuesto personalizado.</p>
+                <div style="font-size: 14pt; font-weight: bold; margin-top: 0.2cm;">+51 987 654 321 · censo-core@mundo-aove.com</div>
+                <div style="margin-top: 0.3cm; font-size: 10pt;">Mundo‑AOVE Tech · Tacna, Perú</div>
+            </div>
+
+            <p style="margin-top: 0.4cm; font-style: italic; color: #444;">* Todas las ventajas descritas son reales, basadas en nuestra experiencia con productores locales. No inventamos cifras ni testimonios, ofrecemos tecnología honesta.</p>
+        </div>
+
+        <!-- ===== PIE DE PÁGINA ===== -->
+        <div class="footer">
+            <div class="contact">
+                <span>📧 censo-core@mundo-aove.com</span>
+                <span>📞 +51 987 654 321</span>
+                <span>📍 Tacna, Perú</span>
+            </div>
+            <div>Censo‑Core · Versión 1.0 · Ficha técnica · © 2026 Mundo‑AOVE Tech</div>
+        </div>
+
+    </div>
+    <!-- pequeño truco para asegurar que no se desborde -->
+    <div style="clear: both; height: 0;"></div>
+</body>
+</html>

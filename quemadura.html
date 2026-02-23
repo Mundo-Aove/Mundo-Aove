@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quemadura – Désamérisation des olives | Mundo-AOVE Tech</title>
+    
+    <!-- Tailwind + Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --forest-green: #2C4C3B; --matte-gold: #C5A059; }
+        body { font-family: 'Inter', sans-serif; background-color: #fdfdfd; }
+        .serif { font-family: 'Playfair Display', serif; }
+        .gradient-dark { background: linear-gradient(135deg, #1a1c1b 0%, #2c4c3b 100%); }
+        .step-card { transition: all 0.3s ease; }
+        .step-card:hover { transform: translateY(-5px); }
+        /* Styles pour le modal */
+        .modal-overlay {
+            background: rgba(31, 58, 44, 0.85);
+            backdrop-filter: blur(8px);
+        }
+        .modal-content {
+            animation: fadeInUp 0.3s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="border-b border-gray-100 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-[#2C4C3B] rounded flex items-center justify-center text-[#C5A059]">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <span class="serif text-2xl font-bold text-[#2C4C3B]">Mundo-AOVE <span class="text-[#C5A059]">Tech</span></span>
+            </div>
+            <div class="flex items-center space-x-8">
+                <!-- Lien de retour multilingue -->
+                <a href="tech.html" data-lang="fr" class="text-gray-600 hover:text-[#2C4C3B] font-medium transition">← Retour</a>
+                <a href="tech.html" data-lang="es" style="display:none;" class="text-gray-600 hover:text-[#2C4C3B] font-medium transition">← Volver</a>
+                <a href="tech.html" data-lang="en" style="display:none;" class="text-gray-600 hover:text-[#2C4C3B] font-medium transition">← Back</a>
+                <!-- Boutons de langue -->
+                <div class="flex space-x-2">
+                    <button onclick="setLanguage('fr')" class="px-3 py-1 rounded-full text-sm font-bold hover:bg-[#C5A059] hover:text-white transition">FR</button>
+                    <button onclick="setLanguage('es')" class="px-3 py-1 rounded-full text-sm font-bold hover:bg-[#C5A059] hover:text-white transition">ES</button>
+                    <button onclick="setLanguage('en')" class="px-3 py-1 rounded-full text-sm font-bold hover:bg-[#C5A059] hover:text-white transition">EN</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="gradient-dark py-24 text-white overflow-hidden relative">
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+            <!-- Badge multilingue -->
+            <div data-lang="fr" class="inline-block px-4 py-1 border border-[#C5A059] text-[#C5A059] text-xs font-bold tracking-[0.2em] uppercase mb-6">🔥 Service de désamérisation</div>
+            <div data-lang="es" style="display:none;" class="inline-block px-4 py-1 border border-[#C5A059] text-[#C5A059] text-xs font-bold tracking-[0.2em] uppercase mb-6">🔥 Servicio de desamargado</div>
+            <div data-lang="en" style="display:none;" class="inline-block px-4 py-1 border border-[#C5A059] text-[#C5A059] text-xs font-bold tracking-[0.2em] uppercase mb-6">🔥 Debittering service</div>
+
+            <!-- Titre multilingue -->
+            <h1 class="serif text-5xl md:text-7xl mb-8 leading-tight">
+                <span data-lang="fr">Que<span class="text-[#C5A059]">madura</span></span>
+                <span data-lang="es" style="display:none;">Que<span class="text-[#C5A059]">madura</span></span>
+                <span data-lang="en" style="display:none;">Que<span class="text-[#C5A059]">madura</span></span>
+            </h1>
+
+            <!-- Sous-titre multilingue -->
+            <p class="text-xl text-gray-300 max-w-2xl leading-relaxed font-light">
+                <span data-lang="fr">Transformation d'olives de table par procédé à la soude caustique • Maquila sur site • Contrôle qualité</span>
+                <span data-lang="es" style="display:none;">Transformación de aceitunas con sosa cáustica • Maquila en sitio • Control de calidad</span>
+                <span data-lang="en" style="display:none;">Table olive processing with caustic soda • On‑site maquila • Quality control</span>
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 -mt-16 pb-24 relative z-10">
+
+        <!-- Introduction service -->
+        <section class="bg-white p-10 md:p-16 rounded-3xl shadow-2xl mb-20">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <!-- Titre multilingue -->
+                    <h2 class="serif text-3xl font-bold text-[#2C4C3B] mb-4">
+                        <span data-lang="fr">Un service de maîtrise complet</span>
+                        <span data-lang="es" style="display:none;">Un servicio de maestría completo</span>
+                        <span data-lang="en" style="display:none;">A complete mastery service</span>
+                    </h2>
+                    <!-- Description multilingue -->
+                    <p class="text-gray-600 mb-4">
+                        <span data-lang="fr">Forte d'une expertise agronomique reconnue, notre équipe intervient directement sur vos sites pour réaliser la désamérisation des olives de table (quemadura) selon un protocole rigoureux et sécurisé.</span>
+                        <span data-lang="es" style="display:none;">Con una reconocida experiencia agroindustrial olivicola, nuestro equipo interviene directamente en sus instalaciones para realizar el desamargado de aceitunas de mesa (quemadura) siguiendo un protocolo riguroso y seguro.</span>
+                        <span data-lang="en" style="display:none;">With recognized agronomic expertise, our team intervenes directly on your sites to carry out the debittering of table olives (quemadura) following a rigorous and safe protocol.</span>
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        <span data-lang="fr">Nous prenons en charge l'intégralité du processus : préparation des solutions de soude, désinfection des équipements, immersion contrôlée, rinçage et suivi analytique. Vous repartez avec un produit prêt à être conditionné, sans risque ni investissement en matériel.</span>
+                        <span data-lang="es" style="display:none;">Nos encargamos de todo el proceso: preparación de soluciones de sosa, desinfección de equipos, inmersión controlada, enjuague y seguimiento analítico. Usted obtiene un producto listo para envasar, sin riesgo ni inversión en equipamiento.</span>
+                        <span data-lang="en" style="display:none;">We take care of the entire process: preparation of soda solutions, disinfection of equipment, controlled immersion, rinsing and analytical monitoring. You get a product ready for packaging, with no risk or equipment investment.</span>
+                    </p>
+                    <div class="bg-[#2C4C3B]/10 p-4 rounded-xl mt-4">
+                        <p class="text-lg font-bold text-[#2C4C3B]">
+                            <span data-lang="fr">Devis personnalisé selon volume et cahier des charges</span>
+                            <span data-lang="es" style="display:none;">Presupuesto personalizado según volumen y pliego de condiciones</span>
+                            <span data-lang="en" style="display:none;">Custom quote according to volume and specifications</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 rounded-2xl h-64 flex items-center justify-center text-gray-400">
+                    <span data-lang="fr">[Photo du processus]</span>
+                    <span data-lang="es" style="display:none;">[Foto del proceso]</span>
+                    <span data-lang="en" style="display:none;">[Process photo]</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pourquoi externaliser (3 arguments) -->
+        <section class="grid md:grid-cols-3 gap-6 mb-20">
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 step-card">
+                <i class="fas fa-shield-alt text-3xl text-[#C5A059] mb-4"></i>
+                <h3 class="font-bold text-lg text-[#2C4C3B] mb-2">
+                    <span data-lang="fr">Sécurité maximale</span>
+                    <span data-lang="es" style="display:none;">Máxima seguridad</span>
+                    <span data-lang="en" style="display:none;">Maximum safety</span>
+                </h3>
+                <p class="text-sm text-gray-600">
+                    <span data-lang="fr">La manipulation de soude caustique nécessite un savoir‑faire précis. Nous appliquons des procédures éprouvées pour éviter tout accident ou perte de lot.</span>
+                    <span data-lang="es" style="display:none;">La manipulación de sosa cáustica exige un saber hacer preciso. Aplicamos procedimientos probados para evitar accidentes o pérdidas de lote.</span>
+                    <span data-lang="en" style="display:none;">Handling caustic soda requires precise know‑how. We apply proven procedures to avoid any accident or batch loss.</span>
+                </p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 step-card">
+                <i class="fas fa-flask text-3xl text-[#C5A059] mb-4"></i>
+                <h3 class="font-bold text-lg text-[#2C4C3B] mb-2">
+                    <span data-lang="fr">Régularité & traçabilité</span>
+                    <span data-lang="es" style="display:none;">Regularidad y trazabilidad</span>
+                    <span data-lang="en" style="display:none;">Consistency & traceability</span>
+                </h3>
+                <p class="text-sm text-gray-600">
+                    <span data-lang="fr">Chaque lot est suivi avec des contrôles physico‑chimiques (pH, température, concentration) et des analyses sensorielles, garantissant une qualité constante.</span>
+                    <span data-lang="es" style="display:none;">Cada lote se sigue con controles físico‑químicos (pH, temperatura, concentración) y análisis sensoriales, garantizando una calidad constante.</span>
+                    <span data-lang="en" style="display:none;">Each batch is monitored with physico‑chemical checks (pH, temperature, concentration) and sensory analysis, ensuring constant quality.</span>
+                </p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 step-card">
+                <i class="fas fa-truck text-3xl text-[#C5A059] mb-4"></i>
+                <h3 class="font-bold text-lg text-[#2C4C3B] mb-2">
+                    <span data-lang="fr">Intervention sur site</span>
+                    <span data-lang="es" style="display:none;">Intervención en sitio</span>
+                    <span data-lang="en" style="display:none;">On‑site intervention</span>
+                </h3>
+                <p class="text-sm text-gray-600">
+                    <span data-lang="fr">Nos équipes se déplacent avec leur propre matériel d'analyses. Vous n'avez aucun investissement à réaliser, nous travaillons dans vos installations.</span>
+                    <span data-lang="es" style="display:none;">Nuestros equipos se desplazan con su propio material de control. Usted no necesita invertir en nada, trabajamos en sus instalaciones.</span>
+                    <span data-lang="en" style="display:none;">Our teams bring their own analysis equipment. You make no investment, we work in your facilities.</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- Processus en images -->
+        <section class="mb-20">
+            <h2 class="serif text-3xl font-bold text-[#2C4C3B] mb-12 text-center">
+                <span data-lang="fr">Le processus en images</span>
+                <span data-lang="es" style="display:none;">El proceso en imágenes</span>
+                <span data-lang="en" style="display:none;">The process in pictures</span>
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="bg-gray-200 rounded-xl h-40 mb-4 flex items-center justify-center text-gray-400">
+                        <span data-lang="fr">[Photo 1]</span>
+                        <span data-lang="es" style="display:none;">[Foto 1]</span>
+                        <span data-lang="en" style="display:none;">[Photo 1]</span>
+                    </div>
+                    <h3 class="font-bold text-[#2C4C3B] mb-2">
+                        <span data-lang="fr">1. Préparation</span>
+                        <span data-lang="es" style="display:none;">1. Preparación</span>
+                        <span data-lang="en" style="display:none;">1. Preparation</span>
+                    </h3>
+                    <p class="text-sm text-gray-600">
+                        <span data-lang="fr">Désinfection des cuves, calcul précis de la concentration de soude en fonction du lot.</span>
+                        <span data-lang="es" style="display:none;">Desinfección de tanques, cálculo preciso de la concentración de sosa según el lote.</span>
+                        <span data-lang="en" style="display:none;">Tank disinfection, precise calculation of soda concentration according to batch.</span>
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-gray-200 rounded-xl h-40 mb-4 flex items-center justify-center text-gray-400">
+                        <span data-lang="fr">[Photo 2]</span>
+                        <span data-lang="es" style="display:none;">[Foto 2]</span>
+                        <span data-lang="en" style="display:none;">[Photo 2]</span>
+                    </div>
+                    <h3 class="font-bold text-[#2C4C3B] mb-2">
+                        <span data-lang="fr">2. Brûlage</span>
+                        <span data-lang="es" style="display:none;">2. Quemado</span>
+                        <span data-lang="en" style="display:none;">2. Burning</span>
+                    </h3>
+                    <p class="text-sm text-gray-600">
+                        <span data-lang="fr">Immersion des olives, contrôle du temps et de la température, rinçage abondant.</span>
+                        <span data-lang="es" style="display:none;">Inmersión de aceitunas, control de tiempo y temperatura, enjuague abundante.</span>
+                        <span data-lang="en" style="display:none;">Olive immersion, time and temperature control, thorough rinsing.</span>
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-gray-200 rounded-xl h-40 mb-4 flex items-center justify-center text-gray-400">
+                        <span data-lang="fr">[Photo 3]</span>
+                        <span data-lang="es" style="display:none;">[Foto 3]</span>
+                        <span data-lang="en" style="display:none;">[Photo 3]</span>
+                    </div>
+                    <h3 class="font-bold text-[#2C4C3B] mb-2">
+                        <span data-lang="fr">3. Finition</span>
+                        <span data-lang="es" style="display:none;">3. Finalización</span>
+                        <span data-lang="en" style="display:none;">3. Finishing</span>
+                    </h3>
+                    <p class="text-sm text-gray-600">
+                        <span data-lang="fr">Mise en saumure, analyse finale et conseils pour la conservation et le conditionnement.</span>
+                        <span data-lang="es" style="display:none;">Salmuera, análisis final y consejos para conservación y envasado.</span>
+                        <span data-lang="en" style="display:none;">Brine, final analysis and advice for storage and packaging.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to action final (bouton unique) -->
+        <section class="gradient-dark text-white p-16 rounded-3xl text-center">
+            <h2 class="serif text-4xl font-bold mb-4">
+                <span data-lang="fr">Vous souhaitez externaliser la désamérisation ?</span>
+                <span data-lang="es" style="display:none;">¿Desea externalizar el desamargado?</span>
+                <span data-lang="en" style="display:none;">Would you like to outsource debittering?</span>
+            </h2>
+            <p class="text-xl text-gray-200 max-w-2xl mx-auto mb-8">
+                <span data-lang="fr">Contactez notre équipe technique pour une évaluation personnalisée et un devis adapté à votre production.</span>
+                <span data-lang="es" style="display:none;">Contacte a nuestro equipo técnico para una evaluación personalizada y un presupuesto adaptado a su producción.</span>
+                <span data-lang="en" style="display:none;">Contact our technical team for a personalized assessment and a quote adapted to your production.</span>
+            </p>
+            <div class="flex justify-center">
+                <button onclick="toggleModal(true)" class="bg-[#C5A059] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#b38a47] transition shadow-2xl inline-flex items-center gap-3">
+                    <i class="fas fa-envelope"></i>
+                    <span data-lang="fr">Nous contacter</span>
+                    <span data-lang="es" style="display:none;">Contactar</span>
+                    <span data-lang="en" style="display:none;">Contact us</span>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer simplifié -->
+    <footer class="bg-white border-t border-gray-100 py-12 text-center">
+        <p class="text-gray-400 text-sm font-medium tracking-widest uppercase">
+            <span data-lang="fr">© 2026 Mundo-AOVE Tech – Quemadura</span>
+            <span data-lang="es" style="display:none;">© 2026 Mundo-AOVE Tech – Quemadura</span>
+            <span data-lang="en" style="display:none;">© 2026 Mundo-AOVE Tech – Quemadura</span>
+        </p>
+    </footer>
+
+    <!-- ======= MODALE DE CONTACT (TELEGRAM) ======= -->
+    <div id="contactModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+        <div class="modal-overlay absolute inset-0" onclick="toggleModal(false)"></div>
+        <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl relative z-10 overflow-hidden modal-content">
+            <div class="bg-[#2C4C3B] p-6 text-white flex justify-between items-center">
+                <h3 class="serif text-2xl font-bold" data-lang="fr">Contact</h3>
+                <h3 class="serif text-2xl font-bold" data-lang="es" style="display:none;">Contacto</h3>
+                <h3 class="serif text-2xl font-bold" data-lang="en" style="display:none;">Contact</h3>
+                <button onclick="toggleModal(false)" class="text-white/70 hover:text-white text-3xl font-light">&times;</button>
+            </div>
+            <form id="techForm" class="p-8 space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="fr">Nom / Entreprise</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="es" style="display:none;">Nombre / Empresa</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="en" style="display:none;">Name / Company</label>
+                    <input type="text" id="formName" required class="w-full border-b-2 border-gray-100 focus:border-[#C5A059] outline-none py-2 transition-colors">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="fr">Email</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="es" style="display:none;">Correo</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="en" style="display:none;">Email</label>
+                    <input type="email" id="formEmail" required class="w-full border-b-2 border-gray-100 focus:border-[#C5A059] outline-none py-2 transition-colors">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="fr">Message</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="es" style="display:none;">Mensaje</label>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1" data-lang="en" style="display:none;">Message</label>
+                    <textarea id="formMsg" rows="4" required class="w-full bg-gray-50 rounded-xl p-3 focus:ring-2 focus:ring-[#C5A059] outline-none transition-all"></textarea>
+                </div>
+                <div class="text-xs text-gray-400 italic" data-lang="fr">Nous traitons votre demande manuellement. Réponse sous 48h.</div>
+                <div class="text-xs text-gray-400 italic" data-lang="es" style="display:none;">Procesamos su solicitud manualmente. Respuesta en 48h.</div>
+                <div class="text-xs text-gray-400 italic" data-lang="en" style="display:none;">We process your request manually. Reply within 48h.</div>
+                <button type="submit" id="submitBtn" class="w-full bg-[#C5A059] text-white font-bold py-4 rounded-xl hover:bg-[#b38a47] transition shadow-lg flex items-center justify-center gap-2">
+                    <i class="fas fa-paper-plane"></i> <span data-lang="fr">Envoyer</span>
+                    <span data-lang="es" style="display:none;">Enviar</span>
+                    <span data-lang="en" style="display:none;">Send</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ======= SCRIPT DE GESTION DE LANGUE ======= -->
+    <script>
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+                if (el.classList.contains('flex')) {
+                    el.style.display = 'flex';
+                } else if (el.classList.contains('grid')) {
+                    el.style.display = 'grid';
+                } else if (el.classList.contains('inline-block')) {
+                    el.style.display = 'inline-block';
+                } else {
+                    el.style.display = 'block';
+                }
+            });
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        function getInitialLanguage() {
+            const saved = localStorage.getItem('preferredLanguage');
+            if (saved && ['fr','es','en'].includes(saved)) return saved;
+            const browserLang = navigator.language.split('-')[0];
+            if (['fr','es','en'].includes(browserLang)) return browserLang;
+            return 'fr';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const lang = getInitialLanguage();
+            setLanguage(lang);
+        });
+    </script>
+
+    <!-- ======= SCRIPT TELEGRAM POUR LE MODAL ======= -->
+    <script>
+        const botConfig = {
+            token: '8457793513:AAHJcyUJhsftK8txWKgBQir8qp0eDJTm1CA',
+            chatId: '6051665667'
+        };
+
+        function toggleModal(show) {
+            const modal = document.getElementById('contactModal');
+            if (show) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            } else {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+        }
+
+        document.getElementById('techForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const originalText = btn.innerHTML;
+            
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Traitement...';
+
+            const name = document.getElementById('formName').value;
+            const email = document.getElementById('formEmail').value;
+            const message = document.getElementById('formMsg').value;
+            const date = new Date().toLocaleString('fr-FR');
+
+            const text = `📩 <b>CONTACT: Quemadura</b>\n\n📅 <b>Date:</b> ${date}\n👤 <b>Nom:</b> ${name}\n📧 <b>Email:</b> ${email}\n💬 <b>Message:</b>\n${message}`.trim();
+
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${botConfig.token}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: botConfig.chatId,
+                        text: text,
+                        parse_mode: 'HTML'
+                    })
+                });
+
+                if (response.ok) {
+                    alert("✅ Message envoyé avec succès ! L'équipe vous répondra bientôt.");
+                    toggleModal(false);
+                    e.target.reset();
+                } else {
+                    alert("❌ Erreur lors de l'envoi.");
+                }
+            } catch (error) {
+                alert("💥 Erreur réseau. Vérifiez votre connexion.");
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            }
+        });
+    </script>
+</body>
+</html>

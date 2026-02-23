@@ -12,9 +12,11 @@
         body { font-family: 'Inter', sans-serif; background-color: #fdfdfd; }
         .serif { font-family: 'Playfair Display', serif; }
         .mono { font-family: 'JetBrains Mono', monospace; }
-        .tech-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .tech-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; height: 100%; }
         .tech-card:hover { transform: translateY(-10px); }
         .gradient-dark { background: linear-gradient(135deg, #1a1c1b 0%, #2c4c3b 100%); }
+        .card-footer { margin-top: auto; }
+        /* Aucun masquage par défaut, tout est géré par JS */
     </style>
 </head>
 <body class="antialiased">
@@ -28,59 +30,304 @@
                 <span class="serif text-2xl font-bold text-[#2C4C3B]">Mundo-AOVE <span class="text-[#C5A059]">Tech</span></span>
             </div>
             <div class="flex items-center space-x-8">
-                <a href="index.html" class="text-gray-600 hover:text-[#2C4C3B] font-medium transition" data-translate="article.back">Retour au Blog</a>
-                <button onclick="toggleTechLanguage()" class="bg-[#C5A059] text-white px-5 py-2 rounded-full text-sm font-bold hover:shadow-lg transition">
-                    <span id="lang-btn-tech">FR</span>
-                </button>
+                <a href="index.html" class="text-gray-600 hover:text-[#2C4C3B] font-medium transition" data-lang="fr">Retour au Blog</a>
+                <a href="index.html" class="text-gray-600 hover:text-[#2C4C3B] font-medium transition" data-lang="es">Volver al Blog</a>
+                <a href="index.html" class="text-gray-600 hover:text-[#2C4C3B] font-medium transition" data-lang="en">Back to Blog</a>
+                <div class="flex space-x-2">
+                    <button onclick="setLanguage('fr')" class="px-3 py-1 rounded-full text-sm font-bold hover:bg-[#C5A059] hover:text-white transition">FR</button>
+                    <button onclick="setLanguage('es')" class="px-3 py-1 rounded-full text-sm font-bold hover:bg-[#C5A059] hover:text-white transition">ES</button>
+                    <button onclick="setLanguage('en')" class="px-3 py-1 rounded-full text-sm font-bold hover:bg-[#C5A059] hover:text-white transition">EN</button>
+                </div>
             </div>
         </div>
     </nav>
 
     <header class="gradient-dark py-24 text-white overflow-hidden relative">
         <div class="max-w-5xl mx-auto px-6 relative z-10">
-            <div class="inline-block px-4 py-1 border border-[#C5A059] text-[#C5A059] text-xs font-bold tracking-[0.2em] uppercase mb-6">Infrastructure & Edge Computing</div>
-            <h1 class="serif text-5xl md:text-7xl mb-8 leading-tight" data-translate="tech.main_title">L'Ingénierie au service de la Terre</h1>
-            <p class="text-xl text-gray-300 max-w-2xl leading-relaxed font-light" data-translate="tech.main_subtitle">Chargement...</p>
+            <!-- FR -->
+            <div data-lang="fr">
+                <div class="inline-block px-4 py-1 border border-[#C5A059] text-[#C5A059] text-xs font-bold tracking-[0.2em] uppercase mb-6">Infrastructure & Edge Computing</div>
+                <h1 class="serif text-5xl md:text-7xl mb-8 leading-tight">L'Ingénierie au service de la Terre</h1>
+                <p class="text-xl text-gray-300 max-w-2xl leading-relaxed font-light">Des solutions souveraines, économiques et adaptées au terrain.</p>
+            </div>
+            <!-- ES -->
+            <div data-lang="es">
+                <div class="inline-block px-4 py-1 border border-[#C5A059] text-[#C5A059] text-xs font-bold tracking-[0.2em] uppercase mb-6">Infraestructura & Edge Computing</div>
+                <h1 class="serif text-5xl md:text-7xl mb-8 leading-tight">Ingeniería al servicio de la Tierra</h1>
+                <p class="text-xl text-gray-300 max-w-2xl leading-relaxed font-light">Soluciones soberanas, económicas y adaptadas al terreno.</p>
+            </div>
+            <!-- EN -->
+            <div data-lang="en">
+                <div class="inline-block px-4 py-1 border border-[#C5A059] text-[#C5A059] text-xs font-bold tracking-[0.2em] uppercase mb-6">Infrastructure & Edge Computing</div>
+                <h1 class="serif text-5xl md:text-7xl mb-8 leading-tight">Engineering at the service of the Earth</h1>
+                <p class="text-xl text-gray-300 max-w-2xl leading-relaxed font-light">Sovereign, economical solutions adapted to the field.</p>
+            </div>
         </div>
     </header>
 
     <main class="max-w-7xl mx-auto px-6 -mt-16 pb-24 relative z-10">
+        <!-- Première ligne : 3 produits phares -->
         <div class="grid md:grid-cols-3 gap-8">
-            
+            <!-- Carte Maverick Engine -->
             <a href="maverick.html" class="tech-card block bg-white p-10 shadow-2xl rounded-xl border-b-4 border-[#2C4C3B] hover:border-[#C5A059] no-underline">
-                <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#2C4C3B] mb-8"><i class="fas fa-server"></i></div>
-                <h3 class="serif text-2xl font-bold mb-4 text-gray-800" data-translate="tech.pillar1_title">Maverick OS</h3>
-                <p class="text-gray-500 mb-6 leading-relaxed" data-translate="tech.pillar1_desc">Chargement...</p>
-                <ul class="space-y-3 mb-8 text-sm font-semibold text-gray-600">
-                    <li><i class="fas fa-check text-[#C5A059] mr-2"></i> <span data-translate="tech.pillar1_spec1">Edge</span></li>
-                    <li><i class="fas fa-check text-[#C5A059] mr-2"></i> <span data-translate="tech.pillar1_spec2">Souveraineté</span></li>
-                    <li><i class="fas fa-check text-[#C5A059] mr-2"></i> <span data-translate="tech.pillar1_spec3">Hardware</span></li>
-                </ul>
-                <div class="text-[#C5A059] font-bold text-sm uppercase tracking-wider">Explorer le système →</div>
+                <!-- FR -->
+                <div data-lang="fr">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#2C4C3B] mb-8"><i class="fas fa-server"></i></div>
+                    <h3 class="serif text-2xl font-bold mb-4 text-gray-800">Maverick Engine</h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed">Système d’exploitation métier pour moulins à huile. Souverain, zéro abonnement, tourne sur Raspberry Pi.</p>
+                    <ul class="space-y-3 mb-8 text-sm font-semibold text-gray-600">
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Edge / hors ligne</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Données propriétaires</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Matériel low‑cost</li>
+                    </ul>
+                    <div class="text-[#C5A059] font-bold text-sm uppercase tracking-wider card-footer">Explorer le système →</div>
+                </div>
+                <!-- ES -->
+                <div data-lang="es" style="display:none;">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#2C4C3B] mb-8"><i class="fas fa-server"></i></div>
+                    <h3 class="serif text-2xl font-bold mb-4 text-gray-800">Maverick Engine</h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed">Sistema operativo de negocio para almazaras. Soberano, cero suscripción, funciona en Raspberry Pi.</p>
+                    <ul class="space-y-3 mb-8 text-sm font-semibold text-gray-600">
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Edge / sin conexión</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Datos propietarios</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Hardware low‑cost</li>
+                    </ul>
+                    <div class="text-[#C5A059] font-bold text-sm uppercase tracking-wider card-footer">Explorar el sistema →</div>
+                </div>
+                <!-- EN -->
+                <div data-lang="en" style="display:none;">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#2C4C3B] mb-8"><i class="fas fa-server"></i></div>
+                    <h3 class="serif text-2xl font-bold mb-4 text-gray-800">Maverick Engine</h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed">Business operating system for oil mills. Sovereign, no subscription, runs on Raspberry Pi.</p>
+                    <ul class="space-y-3 mb-8 text-sm font-semibold text-gray-600">
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Edge / offline</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Proprietary data</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Low‑cost hardware</li>
+                    </ul>
+                    <div class="text-[#C5A059] font-bold text-sm uppercase tracking-wider card-footer">Explore the system →</div>
+                </div>
             </a>
 
+            <!-- Carte Censo‑Core -->
             <a href="map-audit.html" class="tech-card block bg-white p-10 shadow-2xl rounded-xl border-b-4 border-[#C5A059] hover:border-[#2C4C3B] no-underline">
-                <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#C5A059] mb-8"><i class="fas fa-satellite-dish"></i></div>
-                <h3 class="serif text-2xl font-bold mb-4 text-gray-800" data-translate="tech.pillar2_title">Geo-Tech Audit</h3>
-                <p class="text-gray-500 mb-6 leading-relaxed" data-translate="tech.pillar2_desc">Chargement...</p>
-                <div class="text-[#2C4C3B] font-bold text-sm uppercase tracking-wider" data-translate="tech.pillar2_btn">Voir la Carte →</div>
+                <!-- FR -->
+                <div data-lang="fr">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#C5A059] mb-8"><i class="fas fa-satellite-dish"></i></div>
+                    <h3 class="serif text-2xl font-bold mb-4 text-gray-800">Censo‑Core</h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed">Inventaire géolocalisé d’oliviers centenaires par drone, RTK ou smartphone. Données terrain exploitables.</p>
+                    <div class="text-[#2C4C3B] font-bold text-sm uppercase tracking-wider card-footer">Voir la Carte →</div>
+                </div>
+                <!-- ES -->
+                <div data-lang="es" style="display:none;">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#C5A059] mb-8"><i class="fas fa-satellite-dish"></i></div>
+                    <h3 class="serif text-2xl font-bold mb-4 text-gray-800">Censo‑Core</h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed">Inventario geolocalizado de olivos centenarios por drone, RTK o smartphone. Datos de campo explotables.</p>
+                    <div class="text-[#2C4C3B] font-bold text-sm uppercase tracking-wider card-footer">Ver el Mapa →</div>
+                </div>
+                <!-- EN -->
+                <div data-lang="en" style="display:none;">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#C5A059] mb-8"><i class="fas fa-satellite-dish"></i></div>
+                    <h3 class="serif text-2xl font-bold mb-4 text-gray-800">Censo‑Core</h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed">Geolocated inventory of ancient olive trees by drone, RTK or smartphone. Exploitable field data.</p>
+                    <div class="text-[#2C4C3B] font-bold text-sm uppercase tracking-wider card-footer">View the Map →</div>
+                </div>
             </a>
 
+            <!-- Carte OleoSuite -->
             <a href="oleosuite_app.html" class="tech-card block bg-white p-10 shadow-2xl rounded-xl border-b-4 border-[#2C4C3B] hover:border-[#C5A059] no-underline">
-                <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#2C4C3B] mb-8"><i class="fas fa-mobile-alt"></i></div>
-                <h3 class="serif text-2xl font-bold mb-4 text-gray-800" data-translate="tech.pillar3_title">OleoSuite</h3>
-                <p class="text-gray-500 mb-6 leading-relaxed" data-translate="tech.pillar3_desc">L'application métier pour l'oléiculture : 10 modules, zéro abonnement, exports personnalisables.</p>
-                <div class="text-[#C5A059] font-bold text-sm uppercase tracking-wider text-right">Découvrir →</div>
+                <!-- FR -->
+                <div data-lang="fr">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#2C4C3B] mb-8"><i class="fas fa-mobile-alt"></i></div>
+                    <h3 class="serif text-2xl font-bold mb-4 text-gray-800">OleoSuite</h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed">10 calculateurs métier pour l’oléiculture : rendement, saumures, conversions, analyses économiques. Exports PDF.</p>
+                    <div class="text-[#C5A059] font-bold text-sm uppercase tracking-wider text-right card-footer">Découvrir →</div>
+                </div>
+                <!-- ES -->
+                <div data-lang="es" style="display:none;">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#2C4C3B] mb-8"><i class="fas fa-mobile-alt"></i></div>
+                    <h3 class="serif text-2xl font-bold mb-4 text-gray-800">OleoSuite</h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed">10 calculadoras profesionales para olivicultura: rendimiento, salmueras, conversiones, análisis económicos. Exportaciones PDF.</p>
+                    <div class="text-[#C5A059] font-bold text-sm uppercase tracking-wider text-right card-footer">Descubrir →</div>
+                </div>
+                <!-- EN -->
+                <div data-lang="en" style="display:none;">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#2C4C3B] mb-8"><i class="fas fa-mobile-alt"></i></div>
+                    <h3 class="serif text-2xl font-bold mb-4 text-gray-800">OleoSuite</h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed">10 business calculators for olive growing: yield, brines, conversions, economic analysis. PDF exports.</p>
+                    <div class="text-[#C5A059] font-bold text-sm uppercase tracking-wider text-right card-footer">Discover →</div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Deuxième ligne : 3 offres -->
+        <div class="grid md:grid-cols-3 gap-8 mt-12">
+            <!-- PayLoad-App -->
+            <a href="payload.html" class="tech-card block bg-white p-10 shadow-2xl rounded-xl border-b-4 border-[#2C4C3B] hover:border-[#C5A059] no-underline">
+                <!-- FR -->
+                <div data-lang="fr">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#2C4C3B] mb-8"><i class="fas fa-qrcode"></i></div>
+                    <h3 class="serif text-2xl font-bold mb-4 text-gray-800">PayLoad‑App</h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed">Suivi de production conçu pour les zones à faible couverture réseau. Gestion intelligente des envois (mode connecté/différé) avec accusé de réception et reprise automatique. Zéro abonnement, configuration flexible.</p>
+                    <ul class="space-y-3 mb-8 text-sm font-semibold text-gray-600">
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Mode connecté/différé</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Photos intégrées + géolocalisation</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Envoi Telegram / Azure / Google</li>
+                    </ul>
+                    <div class="text-[#C5A059] font-bold text-sm uppercase tracking-wider card-footer">Découvrir →</div>
+                </div>
+                <!-- ES -->
+                <div data-lang="es" style="display:none;">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#2C4C3B] mb-8"><i class="fas fa-qrcode"></i></div>
+                    <h3 class="serif text-2xl font-bold mb-4 text-gray-800">PayLoad‑App</h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed">Seguimiento de producción diseñado para zonas con baja cobertura de red. Gestión inteligente de envíos (modo conectado/diferido) con acuse de recibo y reanudación automática. Cero suscripción, configuración flexible.</p>
+                    <ul class="space-y-3 mb-8 text-sm font-semibold text-gray-600">
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Modo conectado/diferido</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Fotos integradas + geolocalización</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Envío Telegram / Azure / Google</li>
+                    </ul>
+                    <div class="text-[#C5A059] font-bold text-sm uppercase tracking-wider card-footer">Descubrir →</div>
+                </div>
+                <!-- EN -->
+                <div data-lang="en" style="display:none;">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#2C4C3B] mb-8"><i class="fas fa-qrcode"></i></div>
+                    <h3 class="serif text-2xl font-bold mb-4 text-gray-800">PayLoad‑App</h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed">Production tracking designed for low network coverage areas. Smart shipment management (connected/deferred mode) with acknowledgment and automatic resumption. No subscription, flexible configuration.</p>
+                    <ul class="space-y-3 mb-8 text-sm font-semibold text-gray-600">
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Connected/deferred mode</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Integrated photos + geolocation</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Send to Telegram / Azure / Google</li>
+                    </ul>
+                    <div class="text-[#C5A059] font-bold text-sm uppercase tracking-wider card-footer">Discover →</div>
+                </div>
             </a>
 
+            <!-- Quemadura (service de maquila) -->
+            <a href="quemadura.html" class="tech-card block bg-white p-10 shadow-2xl rounded-xl border-b-4 border-[#C5A059] hover:border-[#2C4C3B] no-underline">
+                <!-- FR -->
+                <div data-lang="fr">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#C5A059] mb-8"><i class="fas fa-flask"></i></div>
+                    <h3 class="serif text-2xl font-bold mb-4 text-gray-800">Quemadura</h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed">Service de désamérisation des olives à la soude (maquila) réalisé sur site par nos équipes. Intervention rapide, contrôle physico‑chimique et traçabilité complète.</p>
+                    <ul class="space-y-3 mb-8 text-sm font-semibold text-gray-600">
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Intervention sur site</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Contrôle qualité</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Traçabilité intégrale</li>
+                    </ul>
+                    <div class="text-[#2C4C3B] font-bold text-sm uppercase tracking-wider card-footer">En savoir plus →</div>
+                </div>
+                <!-- ES -->
+                <div data-lang="es" style="display:none;">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#C5A059] mb-8"><i class="fas fa-flask"></i></div>
+                    <h3 class="serif text-2xl font-bold mb-4 text-gray-800">Quemadura</h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed">Servicio de desamargado de aceitunas con sosa (maquila) realizado in situ por nuestros equipos. Intervención rápida, control fisicoquímico y trazabilidad completa.</p>
+                    <ul class="space-y-3 mb-8 text-sm font-semibold text-gray-600">
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Intervención in situ</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Control de calidad</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Trazabilidad integral</li>
+                    </ul>
+                    <div class="text-[#2C4C3B] font-bold text-sm uppercase tracking-wider card-footer">Más información →</div>
+                </div>
+                <!-- EN -->
+                <div data-lang="en" style="display:none;">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#C5A059] mb-8"><i class="fas fa-flask"></i></div>
+                    <h3 class="serif text-2xl font-bold mb-4 text-gray-800">Quemadura</h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed">Olive debittering service with lye (maquila) carried out on site by our teams. Fast intervention, physicochemical control, and full traceability.</p>
+                    <ul class="space-y-3 mb-8 text-sm font-semibold text-gray-600">
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> On-site intervention</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Quality control</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Full traceability</li>
+                    </ul>
+                    <div class="text-[#2C4C3B] font-bold text-sm uppercase tracking-wider card-footer">Learn more →</div>
+                </div>
+            </a>
+
+            <!-- OleoFlow -->
+            <a href="oleo_flow.html" class="tech-card block bg-white p-10 shadow-2xl rounded-xl border-b-4 border-[#C5A059] hover:border-[#2C4C3B] no-underline">
+                <!-- FR -->
+                <div data-lang="fr">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#C5A059] mb-8"><i class="fas fa-leaf"></i></div>
+                    <h3 class="serif text-2xl font-bold mb-4 text-gray-800">OleoFlow</h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed">Application mobile de suivi de lots pour le processus de désamérisation (quemadura). Gestion complète par formulaires dynamiques, génération de QR codes pour traçabilité, rapports PDF multilingues et mode hors ligne.</p>
+                    <ul class="space-y-3 mb-8 text-sm font-semibold text-gray-600">
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Formulaires de suivi</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Génération QR codes</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Rapports PDF & multilingue</li>
+                    </ul>
+                    <div class="text-[#2C4C3B] font-bold text-sm uppercase tracking-wider card-footer">Découvrir →</div>
+                </div>
+                <!-- ES -->
+                <div data-lang="es" style="display:none;">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#C5A059] mb-8"><i class="fas fa-leaf"></i></div>
+                    <h3 class="serif text-2xl font-bold mb-4 text-gray-800">OleoFlow</h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed">Aplicación móvil de seguimiento de lotes para el proceso de desamargado (quemadura). Gestión completa mediante formularios dinámicos, generación de códigos QR para trazabilidad, informes PDF multilingües y modo sin conexión.</p>
+                    <ul class="space-y-3 mb-8 text-sm font-semibold text-gray-600">
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Formularios de seguimiento</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Generación de códigos QR</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Informes PDF multilingües</li>
+                    </ul>
+                    <div class="text-[#2C4C3B] font-bold text-sm uppercase tracking-wider card-footer">Descubrir →</div>
+                </div>
+                <!-- EN -->
+                <div data-lang="en" style="display:none;">
+                    <div class="w-14 h-14 bg-gray-50 rounded-lg flex items-center justify-center text-3xl text-[#C5A059] mb-8"><i class="fas fa-leaf"></i></div>
+                    <h3 class="serif text-2xl font-bold mb-4 text-gray-800">OleoFlow</h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed">Mobile application for batch tracking during the debittering process (quemadura). Complete management with dynamic forms, QR code generation for traceability, multilingual PDF reports, and offline mode.</p>
+                    <ul class="space-y-3 mb-8 text-sm font-semibold text-gray-600">
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Tracking forms</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> QR code generation</li>
+                        <li><i class="fas fa-check text-[#C5A059] mr-2"></i> Multilingual PDF reports</li>
+                    </ul>
+                    <div class="text-[#2C4C3B] font-bold text-sm uppercase tracking-wider card-footer">Discover →</div>
+                </div>
+            </a>
         </div>
     </main>
 
     <footer class="bg-white border-t border-gray-100 py-12 text-center">
-        <p class="text-gray-400 text-sm font-medium tracking-widest uppercase" data-translate="tech.footer_info">© 2026 Mundo-AOVE</p>
+        <!-- FR -->
+        <p data-lang="fr" class="text-gray-400 text-sm font-medium tracking-widest uppercase">© 2026 Mundo-AOVE</p>
+        <!-- ES -->
+        <p data-lang="es" style="display:none;" class="text-gray-400 text-sm font-medium tracking-widest uppercase">© 2026 Mundo-AOVE</p>
+        <!-- EN -->
+        <p data-lang="en" style="display:none;" class="text-gray-400 text-sm font-medium tracking-widest uppercase">© 2026 Mundo-AOVE</p>
     </footer>
 
-    <script src="js/translations.js"></script>
-    <script src="js/tech-page.js"></script>
+    <script>
+        function setLanguage(lang) {
+            // Masquer tous les éléments avec l'attribut data-lang
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = 'none';
+            });
+            // Afficher ceux qui correspondent à la langue
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+                // Restaurer le display en fonction de la classe
+                if (el.classList.contains('flex')) {
+                    el.style.display = 'flex';
+                } else if (el.classList.contains('grid')) {
+                    el.style.display = 'grid';
+                } else if (el.classList.contains('inline-block')) {
+                    el.style.display = 'inline-block';
+                } else {
+                    el.style.display = 'block';
+                }
+            });
+            // Sauvegarder le choix
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        function getInitialLanguage() {
+            const saved = localStorage.getItem('preferredLanguage');
+            if (saved && ['fr','es','en'].includes(saved)) return saved;
+            const browserLang = navigator.language.split('-')[0];
+            if (['fr','es','en'].includes(browserLang)) return browserLang;
+            return 'fr';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const lang = getInitialLanguage();
+            setLanguage(lang);
+        });
+    </script>
+    <!-- Les scripts externes translations.js et tech-page.js ne sont plus nécessaires -->
 </body>
 </html>
