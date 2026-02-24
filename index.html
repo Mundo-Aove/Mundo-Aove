@@ -453,7 +453,7 @@
     <script src="js/telegram-contact.js"></script>
     <script src="js/rss-loader.js"></script>
 
-    <!-- Nouveau script de gestion de langue (harmonisé) -->
+    <!-- Nouveau script de gestion de langue (harmonisé) avec notification du blog -->
     <script>
         // Fonction principale de changement de langue
         window.setLanguage = function(lang) {
@@ -461,7 +461,6 @@
                 console.error('Langue non disponible:', lang);
                 return;
             }
-            // Utiliser getTranslation si disponible, sinon parcours manuel
             const getTrans = window.getTranslation || function(key, l) {
                 return key.split('.').reduce((o, k) => o?.[k], window.translations[l]) || key;
             };
@@ -474,7 +473,22 @@
                     console.warn('Traduction manquante pour', key, 'en', lang);
                 }
             });
+
             localStorage.setItem('preferredLanguage', lang);
+
+            // Notifier le blog du changement de langue
+            if (window.blogApp) {
+                window.blogApp.currentLang = lang;                // met à jour la langue du blog
+                if (typeof window.blogApp.updateLanguage === 'function') {
+                    window.blogApp.updateLanguage();              // met à jour les textes fixes du blog
+                }
+                // Forcer le re‑rendu des articles si on est sur la page blog
+                if (window.blogApp.currentPage === 'blog' && window.blogApp.articleManager) {
+                    window.blogApp.articleManager.renderArticles(lang);
+                }
+            } else {
+                window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
+            }
         };
 
         // Initialisation de la langue au chargement
