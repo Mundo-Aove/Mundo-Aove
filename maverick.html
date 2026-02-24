@@ -384,14 +384,27 @@
             <h2 data-lang="fr" class="serif text-4xl font-bold mb-4">Et après ?</h2>
             <h2 data-lang="es" style="display:none;" class="serif text-4xl font-bold mb-4">¿Y después?</h2>
             <h2 data-lang="en" style="display:none;" class="serif text-4xl font-bold mb-4">What's next?</h2>
+            
             <p data-lang="fr" class="text-xl text-gray-200 max-w-2xl mx-auto mb-8">Nous ne vendons pas un produit fini, nous construisons votre outil sur mesure. Contactez‑nous pour un premier échange sans engagement.</p>
             <p data-lang="es" style="display:none;" class="text-xl text-gray-200 max-w-2xl mx-auto mb-8">No vendemos un producto terminado, construimos su herramienta a medida. Contáctenos para una primera charla sin compromiso.</p>
             <p data-lang="en" style="display:none;" class="text-xl text-gray-200 max-w-2xl mx-auto mb-8">We don't sell a finished product, we build your custom tool. Contact us for a first no‑obligation discussion.</p>
+            
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <!-- Bouton unique qui ouvre le modal de contact -->
+                <!-- Bouton contact (ouvre le modal) -->
                 <button onclick="toggleModal(true)" class="bg-[#C5A059] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#b38a47] transition shadow-2xl inline-flex items-center gap-3">
-                    <i class="fas fa-envelope"></i> Contact(o)
+                    <i class="fas fa-envelope"></i> 
+                    <span data-lang="fr">Contact</span>
+                    <span data-lang="es" style="display:none;">Contacto</span>
+                    <span data-lang="en" style="display:none;">Contact</span>
                 </button>
+                
+                <!-- Bouton fiche technique -->
+                <a href="maverick-ficha.html" class="bg-white/10 backdrop-blur-sm text-white border border-white/30 px-10 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition shadow-2xl inline-flex items-center gap-3">
+                    <i class="fas fa-file-pdf"></i>
+                    <span data-lang="fr">Fiche technique</span>
+                    <span data-lang="es" style="display:none;">Ficha técnica</span>
+                    <span data-lang="en" style="display:none;">Tech sheet</span>
+                </a>
             </div>
         </section>
 

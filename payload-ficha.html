@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayLoad-App – Ficha técnica</title>
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET Y ESTILOS BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fff;
+            color: #1e1e1e;
+            line-height: 1.5;
+            font-size: 10pt;
+            padding: 1.5cm 1cm;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* Variables de color */
+        :root {
+            --forest: #2C4C3B;
+            --gold: #C5A059;
+            --gold-light: #e0c284;
+            --gray-light: #f8f9fa;
+            --gray-border: #e2e8f0;
+            --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.02);
+        }
+
+        /* Contenedor principal (una sola columna) */
+        .page {
+            max-width: 18cm;
+            margin: 0 auto;
+        }
+
+        /* Encabezado */
+        .header {
+            margin-bottom: 1.2cm;
+            background: linear-gradient(135deg, var(--forest) 0%, #1f3a2c 100%);
+            color: white;
+            padding: 0.8cm 1cm;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32pt;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .header h1 span {
+            color: var(--gold);
+        }
+
+        .header .sub {
+            font-size: 14pt;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-top: 0.2cm;
+        }
+
+        .badge {
+            background: var(--gold);
+            color: var(--forest);
+            font-weight: 800;
+            padding: 0.2cm 1cm;
+            border-radius: 40px;
+            font-size: 12pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            white-space: nowrap;
+        }
+
+        /* Botón de impresión */
+        .print-button-container {
+            text-align: center;
+            margin: 0.5cm 0 1cm;
+        }
+        .print-button {
+            background: var(--gold);
+            color: var(--forest);
+            border: none;
+            padding: 0.5cm 1.5cm;
+            border-radius: 40px;
+            font-size: 14pt;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5cm;
+        }
+        .print-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .print-button i {
+            font-size: 16pt;
+        }
+        @media print {
+            .print-button-container {
+                display: none;
+            }
+        }
+
+        /* Botones de idioma */
+        .lang-switcher {
+            text-align: center;
+            margin-bottom: 0.8cm;
+        }
+        .lang-btn {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--forest);
+            padding: 0.2cm 0.8cm;
+            border-radius: 40px;
+            font-size: 12pt;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0 0.2cm;
+            transition: all 0.2s;
+        }
+        .lang-btn:hover {
+            background: var(--gold);
+            color: white;
+        }
+        .lang-btn.active {
+            background: var(--gold);
+            color: white;
+        }
+        @media print {
+            .lang-switcher {
+                display: none;
+            }
+        }
+
+        /* Títulos de sección */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18pt;
+            font-weight: 800;
+            color: var(--forest);
+            margin: 0.8cm 0 0.4cm;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 0.2cm;
+            display: inline-block;
+            width: auto;
+        }
+
+        /* Texto general */
+        p {
+            text-align: justify;
+            margin-bottom: 0.3cm;
+            color: #2d3a3a;
+        }
+
+        /* Listas */
+        ul, ol {
+            margin-left: 0.8cm;
+            margin-bottom: 0.5cm;
+        }
+
+        li {
+            margin-bottom: 0.2cm;
+        }
+
+        .list-icon {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .list-icon li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.3cm;
+        }
+
+        .list-icon li i {
+            color: var(--gold);
+            font-size: 1.2em;
+            min-width: 0.5cm;
+        }
+
+        /* Tarjetas de casos de uso */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6cm;
+            margin: 0.5cm 0;
+        }
+
+        .case-card {
+            background: white;
+            border: 1px solid var(--gray-border);
+            border-radius: 16px;
+            padding: 0.5cm;
+            box-shadow: var(--shadow-sm);
+            break-inside: avoid;
+        }
+
+        .case-card h3 {
+            font-size: 12pt;
+            font-weight: 700;
+            color: var(--forest);
+            margin-bottom: 0.2cm;
+            display: flex;
+            align-items: center;
+            gap: 0.3cm;
+        }
+
+        .case-card h3 i {
+            color: var(--gold);
+            font-size: 16pt;
+        }
+
+        .case-card p {
+            font-size: 9pt;
+            margin: 0;
+            text-align: left;
+        }
+
+        /* Caja destacada */
+        .highlight-box {
+            background: linear-gradient(145deg, #f9f6ec, #fefcf5);
+            border-left: 6px solid var(--gold);
+            border-radius: 12px;
+            padding: 0.5cm;
+            margin: 0.5cm 0;
+            box-shadow: var(--shadow-sm);
+            font-size: 9.5pt;
+        }
+
+        /* Tabla comparativa */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.5cm 0;
+            font-size: 9pt;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .comparison-table th {
+            background: var(--forest);
+            color: white;
+            font-weight: 700;
+            padding: 0.3cm;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 0.3cm;
+            border-bottom: 1px solid var(--gray-border);
+            background: white;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+            background-color: #f9fafb;
+        }
+
+        /* Beneficios dos columnas */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8cm;
+            margin: 0.5cm 0;
+        }
+
+        /* Llamada a la acción */
+        .cta-box {
+            background: var(--forest);
+            color: white;
+            padding: 0.6cm;
+            border-radius: 24px;
+            text-align: center;
+            margin: 0.7cm 0;
+            box-shadow: var(--shadow-md);
+        }
+        .cta-box .cta-title {
+            font-size: 18pt;
+            font-weight: 800;
+            color: var(--gold);
+        }
+        .cta-box p {
+            color: white;
+            margin: 0.2cm 0;
+            text-align: center;
+        }
+        .cta-box .contact-details {
+            font-size: 14pt;
+            font-weight: 700;
+            margin-top: 0.3cm;
+        }
+        .cta-box .contact-details i {
+            margin-right: 0.2cm;
+        }
+
+        /* Pie de página */
+        .footer {
+            margin-top: 1cm;
+            border-top: 3px solid var(--gold);
+            padding-top: 0.5cm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 9pt;
+            color: #4a5568;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 0.8cm;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.2cm;
+        }
+
+        .contact-info i {
+            color: var(--gold);
+        }
+
+        /* Evitar saltos de página no deseados */
+        h2, h3, .case-card, .highlight-box, table {
+            break-inside: avoid;
+        }
+
+        /* Elementos con data-lang: por defecto ocultos, se muestran con JS */
+        [data-lang] {
+            display: none;
+        }
+        [data-lang].active {
+            display: block;
+        }
+        /* Ajustes para elementos que no son block */
+        .two-col[data-lang].active {
+            display: grid;
+        }
+        .cases-grid[data-lang].active {
+            display: grid;
+        }
+        .cta-box[data-lang].active {
+            display: block;
+        }
+        .footer[data-lang].active {
+            display: flex;
+        }
+        .header[data-lang].active {
+            display: flex;
+        }
+
+        /* Ajustes para impresión */
+        @media print {
+            .lang-switcher {
+                display: none;
+            }
+            .print-button-container {
+                display: none;
+            }
+            /* On imprime la langue active */
+            [data-lang] {
+                display: none !important;
+            }
+            [data-lang].active {
+                display: block !important;
+            }
+            .two-col[data-lang].active {
+                display: grid !important;
+            }
+            .cases-grid[data-lang].active {
+                display: grid !important;
+            }
+            .cta-box[data-lang].active {
+                display: block !important;
+            }
+            .footer[data-lang].active {
+                display: flex !important;
+            }
+            .header[data-lang].active {
+                display: flex !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- SELECTOR DE IDIOMA -->
+        <div class="lang-switcher">
+            <button class="lang-btn active" onclick="setLanguage('es')">ES</button>
+            <button class="lang-btn" onclick="setLanguage('fr')">FR</button>
+            <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+        </div>
+
+        <!-- BOTÓN DE IMPRESIÓN -->
+        <div class="print-button-container">
+            <button onclick="window.print()" class="print-button">
+                <i class="fas fa-print"></i> Imprimir / Guardar como PDF
+            </button>
+        </div>
+
+        <!-- ===== CABECERA ===== -->
+        <!-- Español -->
+        <div data-lang="es" class="header active">
+            <div>
+                <h1>Pay<span>Load</span>-App</h1>
+                <div class="sub">Seguimiento de producción con código QR</div>
+            </div>
+            <div class="badge">Trazabilidad de campo</div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr" class="header">
+            <div>
+                <h1>Pay<span>Load</span>-App</h1>
+                <div class="sub">Suivi de production par QR code</div>
+            </div>
+            <div class="badge">Traçabilité terrain</div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en" class="header">
+            <div>
+                <h1>Pay<span>Load</span>-App</h1>
+                <div class="sub">Production tracking with QR code</div>
+            </div>
+            <div class="badge">Field traceability</div>
+        </div>
+
+        <!-- PROBLEMA Y SOLUCIÓN -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="section-title">El problema</div>
+            <ul class="list-icon">
+                <li><i class="fas fa-times-circle"></i> Papeleo: hojas, escritura ilegible, doble entrada.</li>
+                <li><i class="fas fa-times-circle"></i> Aplicaciones complejas que requieren formación.</li>
+                <li><i class="fas fa-times-circle"></i> Zonas mal cubiertas: pérdida de datos, reingreso posterior.</li>
+                <li><i class="fas fa-times-circle"></i> Desarrollos a medida caros, rígidos, suscripciones recurrentes.</li>
+            </ul>
+
+            <div class="section-title">La solución</div>
+            <p><strong style="color:var(--forest);">PayLoad-App</strong> es una aplicación móvil que reemplaza el papeleo con un sistema visual, robusto y adaptable. Gestiona la conectividad: ingreso sin conexión, cola de envíos y reenvío automático cuando hay red, con acuse de recibo. <strong>Nosotros (Florent y Alejandra) nos encargamos de la configuración inicial de todos los dispositivos</strong>; usted solo tiene que usarlos.</p>
+            <ol>
+                <li>El administrador (nuestro equipo) prepara un archivo de configuración (tipo Excel).</li>
+                <li>Lo distribuye a los operadores (correo, USB, enlace) o lo deja preinstalado en los equipos.</li>
+                <li>En campo, el operador escanea códigos QR, completa campos, toma fotos.</li>
+                <li>Los datos se almacenan localmente y se envían cuando hay conexión (Telegram, Azure, Google Cloud…).</li>
+            </ol>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="section-title">Le problème</div>
+            <ul class="list-icon">
+                <li><i class="fas fa-times-circle"></i> Paperasse : fiches papier, écritures illisibles, ressaisies.</li>
+                <li><i class="fas fa-times-circle"></i> Applications complexes nécessitant une formation.</li>
+                <li><i class="fas fa-times-circle"></i> Zones mal couvertes : perte de données, ressaisie ultérieure.</li>
+                <li><i class="fas fa-times-circle"></i> Développements sur‑mesure trop chers, rigides, abonnements récurrents.</li>
+            </ul>
+
+            <div class="section-title">La solution</div>
+            <p><strong style="color:var(--forest);">PayLoad-App</strong> est une application mobile qui remplace vos fiches papier par un système visuel, robuste et adaptable. Elle gère intelligemment la connexion : saisie en mode dégradé, file d’attente, et envoi automatique dès que le réseau revient, avec accusé de réception. <strong>Nous (Florent et Alejandra) nous chargeons de la configuration initiale de tous les appareils</strong> ; vous n'avez qu'à les utiliser.</p>
+            <ol>
+                <li>L'administrateur (notre équipe) prépare un fichier de configuration (type Excel).</li>
+                <li>Il le distribue aux opérateurs (email, clé USB, lien) ou le préinstalle.</li>
+                <li>Sur le terrain, l'opérateur scanne des QR codes, remplit les champs, prend des photos.</li>
+                <li>Les données sont stockées localement puis transmises dès qu'une connexion est disponible (Telegram, Azure, Google Cloud…).</li>
+            </ol>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="section-title">The problem</div>
+            <ul class="list-icon">
+                <li><i class="fas fa-times-circle"></i> Paperwork: forms, illegible handwriting, double entry.</li>
+                <li><i class="fas fa-times-circle"></i> Complex apps requiring training.</li>
+                <li><i class="fas fa-times-circle"></i> Poor coverage areas: data loss, later re‑entry.</li>
+                <li><i class="fas fa-times-circle"></i> Custom developments too expensive, rigid, recurring subscriptions.</li>
+            </ul>
+
+            <div class="section-title">The solution</div>
+            <p><strong style="color:var(--forest);">PayLoad-App</strong> is a mobile app that replaces paperwork with a visual, robust, adaptable system. It handles connectivity: offline input, queuing, and automatic sending when network returns, with acknowledgment. <strong>We (Florent and Alejandra) handle the initial configuration of all devices</strong>; you just use them.</p>
+            <ol>
+                <li>The administrator (our team) prepares a config file (like Excel).</li>
+                <li>Distributes it to operators (email, USB, link) or preinstalls it.</li>
+                <li>In the field, the operator scans QR codes, fills fields, takes photos.</li>
+                <li>Data is stored locally and sent when connectivity is available (Telegram, Azure, Google Cloud…).</li>
+            </ol>
+        </div>
+
+        <!-- BENEFICIOS CLAVE (dos columnas internas) -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="section-title">Lo que gana</div>
+            <div class="two-col">
+                <div>
+                    <p><strong>Equipo de campo</strong></p>
+                    <ul class="list-icon">
+                        <li><i class="fas fa-bolt"></i> Ingreso instantáneo, sin doble entrada.</li>
+                        <li><i class="fas fa-camera"></i> Foto como prueba irrefutable.</li>
+                        <li><i class="fas fa-wifi-slash"></i> Trabajo continuo sin red.</li>
+                        <li><i class="fas fa-mobile-alt"></i> Interfaz intuitiva: escanear, hacer clic, validar.</li>
+                    </ul>
+                </div>
+                <div>
+                    <p><strong>Dirección</strong></p>
+                    <ul class="list-icon">
+                        <li><i class="fas fa-database"></i> Datos en tiempo real (o diferido) sin servidor propio.</li>
+                        <li><i class="fas fa-cog"></i> Configurable en 5 minutos, sin desarrollo.</li>
+                        <li><i class="fas fa-paper-plane"></i> Informes a Telegram, Azure, Google.</li>
+                        <li><i class="fas fa-check-circle"></i> Trazabilidad completa, cada acción con hora y firma.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="section-title">Ce que vous gagnez</div>
+            <div class="two-col">
+                <div>
+                    <p><strong>Équipe terrain</strong></p>
+                    <ul class="list-icon">
+                        <li><i class="fas fa-bolt"></i> Saisie instantanée, plus de ressaisie.</li>
+                        <li><i class="fas fa-camera"></i> Preuve photo irréfutable.</li>
+                        <li><i class="fas fa-wifi-slash"></i> Travail continu sans réseau.</li>
+                        <li><i class="fas fa-mobile-alt"></i> Interface intuitive : scanner, cliquer, valider.</li>
+                    </ul>
+                </div>
+                <div>
+                    <p><strong>Direction</strong></p>
+                    <ul class="list-icon">
+                        <li><i class="fas fa-database"></i> Données en temps réel (ou différé) sans serveur.</li>
+                        <li><i class="fas fa-cog"></i> Configurable en 5 minutes, sans développement.</li>
+                        <li><i class="fas fa-paper-plane"></i> Rapports sur vos canaux (Telegram, Azure, Google).</li>
+                        <li><i class="fas fa-check-circle"></i> Traçabilité complète, chaque action horodatée.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="section-title">What you gain</div>
+            <div class="two-col">
+                <div>
+                    <p><strong>Field team</strong></p>
+                    <ul class="list-icon">
+                        <li><i class="fas fa-bolt"></i> Instant entry, no re‑typing.</li>
+                        <li><i class="fas fa-camera"></i> Irrefutable photo proof.</li>
+                        <li><i class="fas fa-wifi-slash"></i> Continuous work without network.</li>
+                        <li><i class="fas fa-mobile-alt"></i> Intuitive interface: scan, click, validate.</li>
+                    </ul>
+                </div>
+                <div>
+                    <p><strong>Management</strong></p>
+                    <ul class="list-icon">
+                        <li><i class="fas fa-database"></i> Real‑time (or deferred) data with no server.</li>
+                        <li><i class="fas fa-cog"></i> Configurable in 5 minutes, no development.</li>
+                        <li><i class="fas fa-paper-plane"></i> Reports to your channels (Telegram, Azure, Google).</li>
+                        <li><i class="fas fa-check-circle"></i> Full traceability, every action timestamped.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- CASOS DE USO (grid 2x2) -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="section-title">Casos de uso</div>
+            <div class="cases-grid">
+                <div class="case-card">
+                    <h3><i class="fas fa-warehouse"></i> Recepción</h3>
+                    <p>Escaneo QR proveedor, foto palet → informe inmediato.</p>
+                </div>
+                <div class="case-card">
+                    <h3><i class="fas fa-tools"></i> Mantenimiento</h3>
+                    <p>QR máquina, horas, fotos → datos centralizados.</p>
+                </div>
+                <div class="case-card">
+                    <h3><i class="fas fa-boxes"></i> Producción</h3>
+                    <p>Control calidad por lote, envío automático.</p>
+                </div>
+                <div class="case-card">
+                    <h3><i class="fas fa-wine-bottle"></i> Bodega</h3>
+                    <p>Barricas, catas, niveles → historial completo.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="section-title">Cas d'usage</div>
+            <div class="cases-grid">
+                <div class="case-card">
+                    <h3><i class="fas fa-warehouse"></i> Réception</h3>
+                    <p>Scan QR fournisseur, photo palette → rapport instantané.</p>
+                </div>
+                <div class="case-card">
+                    <h3><i class="fas fa-tools"></i> Maintenance</h3>
+                    <p>QR machine, heures, photos → données centralisées.</p>
+                </div>
+                <div class="case-card">
+                    <h3><i class="fas fa-boxes"></i> Production</h3>
+                    <p>Contrôle qualité par lot, envoi automatique.</p>
+                </div>
+                <div class="case-card">
+                    <h3><i class="fas fa-wine-bottle"></i> Cave</h3>
+                    <p>Barriques, dégustations, niveaux → historique complet.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="section-title">Use cases</div>
+            <div class="cases-grid">
+                <div class="case-card">
+                    <h3><i class="fas fa-warehouse"></i> Reception</h3>
+                    <p>Scan supplier QR, pallet photo → instant report.</p>
+                </div>
+                <div class="case-card">
+                    <h3><i class="fas fa-tools"></i> Maintenance</h3>
+                    <p>Machine QR, hours, photos → centralized data.</p>
+                </div>
+                <div class="case-card">
+                    <h3><i class="fas fa-boxes"></i> Production</h3>
+                    <p>Batch quality control, automatic report.</p>
+                </div>
+                <div class="case-card">
+                    <h3><i class="fas fa-wine-bottle"></i> Winery</h3>
+                    <p>Barrels, tastings, levels → full history.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CÓMO FUNCIONA (3 PASOS) -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="section-title">Cómo funciona</div>
+            <div style="margin-bottom:0.5cm;">
+                <div style="display:flex; align-items:center; gap:0.3cm; margin-bottom:0.3cm;">
+                    <span style="background:var(--forest); color:white; width:0.8cm; height:0.8cm; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold;">1</span>
+                    <strong style="color:var(--forest);">Nosotros creamos la configuración</strong>
+                </div>
+                <p style="margin-left:1.1cm;">Archivo JSON con perfiles, campos y destinos (Telegram, Azure, Google...).</p>
+
+                <div style="display:flex; align-items:center; gap:0.3cm; margin:0.3cm 0;">
+                    <span style="background:var(--gold); color:white; width:0.8cm; height:0.8cm; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold;">2</span>
+                    <strong style="color:var(--forest);">Operadores reciben</strong>
+                </div>
+                <p style="margin-left:1.1cm;">Correo, USB – abren archivo en la app (o ya viene preinstalado).</p>
+
+                <div style="display:flex; align-items:center; gap:0.3cm; margin:0.3cm 0;">
+                    <span style="background:var(--forest); color:white; width:0.8cm; height:0.8cm; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold;">3</span>
+                    <strong style="color:var(--forest);">Día a día</strong>
+                </div>
+                <p style="margin-left:1.1cm;">Elegir perfil → escanear QR → completar → envío automático (online o diferido).</p>
+            </div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="section-title">Comment ça marche</div>
+            <div style="margin-bottom:0.5cm;">
+                <div style="display:flex; align-items:center; gap:0.3cm; margin-bottom:0.3cm;">
+                    <span style="background:var(--forest); color:white; width:0.8cm; height:0.8cm; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold;">1</span>
+                    <strong style="color:var(--forest);">Nous créons la config</strong>
+                </div>
+                <p style="margin-left:1.1cm;">Fichier JSON avec profils, champs, destinations (Telegram, Azure, Google...).</p>
+
+                <div style="display:flex; align-items:center; gap:0.3cm; margin:0.3cm 0;">
+                    <span style="background:var(--gold); color:white; width:0.8cm; height:0.8cm; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold;">2</span>
+                    <strong style="color:var(--forest);">Opérateurs reçoivent</strong>
+                </div>
+                <p style="margin-left:1.1cm;">Email, USB – ouvrent le fichier (ou préinstallé).</p>
+
+                <div style="display:flex; align-items:center; gap:0.3cm; margin:0.3cm 0;">
+                    <span style="background:var(--forest); color:white; width:0.8cm; height:0.8cm; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold;">3</span>
+                    <strong style="color:var(--forest);">Au quotidien</strong>
+                </div>
+                <p style="margin-left:1.1cm;">Choix profil → scan QR → remplissage → envoi auto (connecté/différé).</p>
+            </div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="section-title">How it works</div>
+            <div style="margin-bottom:0.5cm;">
+                <div style="display:flex; align-items:center; gap:0.3cm; margin-bottom:0.3cm;">
+                    <span style="background:var(--forest); color:white; width:0.8cm; height:0.8cm; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold;">1</span>
+                    <strong style="color:var(--forest);">We create the config</strong>
+                </div>
+                <p style="margin-left:1.1cm;">JSON file with profiles, fields, destinations (Telegram, Azure, Google...).</p>
+
+                <div style="display:flex; align-items:center; gap:0.3cm; margin:0.3cm 0;">
+                    <span style="background:var(--gold); color:white; width:0.8cm; height:0.8cm; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold;">2</span>
+                    <strong style="color:var(--forest);">Operators receive</strong>
+                </div>
+                <p style="margin-left:1.1cm;">Email, USB – open file (or preinstalled).</p>
+
+                <div style="display:flex; align-items:center; gap:0.3cm; margin:0.3cm 0;">
+                    <span style="background:var(--forest); color:white; width:0.8cm; height:0.8cm; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold;">3</span>
+                    <strong style="color:var(--forest);">Daily use</strong>
+                </div>
+                <p style="margin-left:1.1cm;">Choose profile → scan QR → fill → auto send (online/deferred).</p>
+            </div>
+        </div>
+
+        <!-- TABLA COMPARATIVA -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="section-title">Comparativa</div>
+            <table class="comparison-table">
+                <thead>
+                    <tr><th>Aspecto</th><th>PayLoad-App</th><th>Solución clásica</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Implementación</td><td>1 hora (archivo config)</td><td>3‑6 meses desarrollo</td></tr>
+                    <tr><td>Modificación</td><td>5 minutos (editar JSON)</td><td>Desarrollo + actualización</td></tr>
+                    <tr><td>Costo</td><td>Licencia única, propiedad del cliente</td><td>Desarrollo a medida + mantenimiento + suscripciones</td></tr>
+                    <tr><td>Conectividad</td><td>Modo conectado/diferido, cola, reenvío automático</td><td>A menudo solo en línea</td></tr>
+                    <tr><td>Simplicidad</td><td>3 pantallas, 2 botones</td><td>Menús complejos, formación larga</td></tr>
+                    <tr><td>Propiedad</td><td>Usted posee la licencia, sin cuota mensual</td><td>Alquiler mensual, dependencia</td></tr>
+                    <tr><td>Servicios adicionales</td><td>A medida (desarrollos específicos, integraciones)</td><td>A menudo paquetes rígidos</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="section-title">Comparaison</div>
+            <table class="comparison-table">
+                <thead>
+                    <tr><th>Aspect</th><th>PayLoad-App</th><th>Solution classique</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Mise en place</td><td>1 heure (fichier config)</td><td>3‑6 mois de développement</td></tr>
+                    <tr><td>Modification</td><td>5 minutes (édition JSON)</td><td>Développement + mise à jour</td></tr>
+                    <tr><td>Coût</td><td>Licence unique, propriété du client</td><td>Développement sur-mesure + maintenance + abonnements</td></tr>
+                    <tr><td>Connexion</td><td>Mode connecté/différé, file d'attente, reprise auto</td><td>Souvent en ligne obligatoire</td></tr>
+                    <tr><td>Simplicité</td><td>3 écrans, 2 boutons</td><td>Menus complexes, formation longue</td></tr>
+                    <tr><td>Propriété</td><td>Vous possédez la licence, sans abonnement</td><td>Location mensuelle, dépendance</td></tr>
+                    <tr><td>Services annexes</td><td>À la carte (développements spécifiques)</td><td>Souvent forfaitaires et rigides</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="section-title">Comparison</div>
+            <table class="comparison-table">
+                <thead>
+                    <tr><th>Aspect</th><th>PayLoad-App</th><th>Classic solution</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Setup</td><td>1 hour (config file)</td><td>3‑6 months development</td></tr>
+                    <tr><td>Modification</td><td>5 minutes (edit JSON)</td><td>Development + update</td></tr>
+                    <tr><td>Cost</td><td>One‑time license, client owns it</td><td>Custom development + maintenance + subscriptions</td></tr>
+                    <tr><td>Connectivity</td><td>Online/deferred mode, queue, auto‑retry</td><td>Often online‑only</td></tr>
+                    <tr><td>Simplicity</td><td>3 screens, 2 buttons</td><td>Complex menus, lengthy training</td></tr>
+                    <tr><td>Ownership</td><td>You own the license, no monthly fee</td><td>Monthly rental, dependency</td></tr>
+                    <tr><td>Additional services</td><td>On‑demand (specific developments)</td><td>Often fixed packages</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- DESTACADO -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="highlight-box">
+                <p><strong>🌱 Desarrollado en Tacna con productores locales</strong><br>
+                PayLoad-App nace de la necesidad real de tener un sistema robusto en zonas sin cobertura. Probado en campo con productores peruanos. <strong>Nosotros nos encargamos de toda la configuración, usted solo trabaja.</strong></p>
+            </div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="highlight-box">
+                <p><strong>🌱 Développé à Tacna avec des producteurs locaux</strong><br>
+                PayLoad-App est né du besoin réel d'un système robuste dans les zones sans couverture. Testé sur le terrain avec des producteurs péruviens. <strong>Nous nous chargeons de toute la configuration, vous n'avez qu'à travailler.</strong></p>
+            </div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="highlight-box">
+                <p><strong>🌱 Developed in Tacna with local producers</strong><br>
+                PayLoad-App was born from the real need for a robust system in areas with no coverage. Field‑tested with Peruvian producers. <strong>We handle all configuration, you just work.</strong></p>
+            </div>
+        </div>
+
+        <!-- LLAMADA A LA ACCIÓN -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="cta-box">
+                <div class="cta-title">¿Listo para equipar su equipo?</div>
+                <p>Solicite una demo o contáctenos para discutir su necesidad.</p>
+                <div class="contact-details">
+                    <i class="fas fa-phone-alt"></i> +51 979 580 500 · <i class="fas fa-envelope"></i> mundo.aove.tacna@gmail.com
+                </div>
+                <p style="margin-top:0.2cm;">Tacna, Perú</p>
+            </div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="cta-box">
+                <div class="cta-title">Prêt à équiper vos équipes ?</div>
+                <p>Demandez une démo ou contactez-nous pour discuter de vos besoins.</p>
+                <div class="contact-details">
+                    <i class="fas fa-phone-alt"></i> +51 979 580 500 · <i class="fas fa-envelope"></i> mundo.aove.tacna@gmail.com
+                </div>
+                <p style="margin-top:0.2cm;">Tacna, Pérou</p>
+            </div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="cta-box">
+                <div class="cta-title">Ready to equip your team?</div>
+                <p>Request a demo or contact us to discuss your needs.</p>
+                <div class="contact-details">
+                    <i class="fas fa-phone-alt"></i> +51 979 580 500 · <i class="fas fa-envelope"></i> mundo.aove.tacna@gmail.com
+                </div>
+                <p style="margin-top:0.2cm;">Tacna, Peru</p>
+            </div>
+        </div>
+
+        <!-- PIE DE PÁGINA (commun à toutes les langues, car contact info identique) -->
+        <div class="footer" data-lang="es active">
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Tacna, Perú</span>
+                <span><i class="fas fa-envelope"></i> mundo.aove.tacna@gmail.com</span>
+                <span><i class="fas fa-phone-alt"></i> +51 979 580 500</span>
+            </div>
+            <div>© 2026 Mundo-AOVE Tech – Versión 1.0</div>
+        </div>
+        <div class="footer" data-lang="fr">
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Tacna, Pérou</span>
+                <span><i class="fas fa-envelope"></i> mundo.aove.tacna@gmail.com</span>
+                <span><i class="fas fa-phone-alt"></i> +51 979 580 500</span>
+            </div>
+            <div>© 2026 Mundo-AOVE Tech – Version 1.0</div>
+        </div>
+        <div class="footer" data-lang="en">
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Tacna, Peru</span>
+                <span><i class="fas fa-envelope"></i> mundo.aove.tacna@gmail.com</span>
+                <span><i class="fas fa-phone-alt"></i> +51 979 580 500</span>
+            </div>
+            <div>© 2026 Mundo-AOVE Tech – Version 1.0</div>
+        </div>
+
+    </div>
+
+    <script>
+        function setLanguage(lang) {
+            // Mettre à jour les classes actives
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+                el.classList.add('active');
+            });
+            // Mettre à jour les boutons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            // Sauvegarder dans localStorage
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        function getInitialLanguage() {
+            const saved = localStorage.getItem('preferredLanguage');
+            if (saved && ['es','fr','en'].includes(saved)) return saved;
+            const browserLang = navigator.language.split('-')[0];
+            if (browserLang === 'es') return 'es';
+            if (browserLang === 'fr') return 'fr';
+            if (browserLang === 'en') return 'en';
+            return 'es'; // défaut
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const lang = getInitialLanguage();
+            // Afficher la bonne langue
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+                el.classList.add('active');
+            });
+            // Mettre le bouton correspondant en actif
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.trim().toLowerCase() === lang) {
+                    btn.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

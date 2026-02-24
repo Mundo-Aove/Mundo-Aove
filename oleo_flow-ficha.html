@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OleoFlow – Ficha técnica</title>
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET Y ESTILOS BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fff;
+            color: #1e1e1e;
+            line-height: 1.5;
+            font-size: 10pt;
+            padding: 1.5cm 1cm;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* Variables de color */
+        :root {
+            --forest: #2C4C3B;
+            --gold: #C5A059;
+            --light-bg: #f8f9fa;
+            --gray-border: #e2e8f0;
+            --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.02);
+        }
+
+        /* Contenedor principal (una sola columna) */
+        .page {
+            max-width: 18cm;
+            margin: 0 auto;
+        }
+
+        /* Selector de idioma */
+        .lang-switcher {
+            text-align: center;
+            margin-bottom: 0.8cm;
+        }
+        .lang-btn {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--forest);
+            padding: 0.2cm 0.8cm;
+            border-radius: 40px;
+            font-size: 12pt;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0 0.2cm;
+            transition: all 0.2s;
+        }
+        .lang-btn:hover {
+            background: var(--gold);
+            color: white;
+        }
+        .lang-btn.active {
+            background: var(--gold);
+            color: white;
+        }
+        @media print {
+            .lang-switcher {
+                display: none;
+            }
+        }
+
+        /* Botón de impresión */
+        .print-button-container {
+            text-align: center;
+            margin: 0.5cm 0 1cm;
+        }
+        .print-button {
+            background: var(--gold);
+            color: var(--forest);
+            border: none;
+            padding: 0.4cm 1.5cm;
+            border-radius: 40px;
+            font-size: 14pt;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5cm;
+        }
+        .print-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .print-button i {
+            font-size: 16pt;
+        }
+        @media print {
+            .print-button-container {
+                display: none;
+            }
+        }
+
+        /* Encabezado */
+        .header {
+            margin-bottom: 1.2cm;
+            background: linear-gradient(135deg, var(--forest) 0%, #1f3a2c 100%);
+            color: white;
+            padding: 0.8cm 1cm;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32pt;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .header h1 span {
+            color: var(--gold);
+        }
+
+        .header .sub {
+            font-size: 14pt;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-top: 0.2cm;
+        }
+
+        .badge {
+            background: var(--gold);
+            color: var(--forest);
+            font-weight: 800;
+            padding: 0.2cm 1cm;
+            border-radius: 40px;
+            font-size: 12pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            white-space: nowrap;
+        }
+
+        /* Títulos de sección */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18pt;
+            font-weight: 800;
+            color: var(--forest);
+            margin: 0.8cm 0 0.4cm;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 0.2cm;
+            display: inline-block;
+            width: auto;
+        }
+
+        /* Texto general */
+        p {
+            text-align: justify;
+            margin-bottom: 0.3cm;
+            color: #2d3a3a;
+        }
+
+        /* Listas */
+        ul {
+            list-style: none;
+            margin-left: 0.3cm;
+            margin-bottom: 0.3cm;
+        }
+
+        li {
+            margin-bottom: 0.25cm;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.3cm;
+        }
+
+        li i {
+            color: var(--gold);
+            font-size: 1.2em;
+            min-width: 0.5cm;
+        }
+
+        /* Columnas internas para funcionalidades */
+        .inner-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6cm;
+            margin: 0.4cm 0;
+        }
+
+        /* Caja destacada */
+        .highlight-box {
+            background: linear-gradient(145deg, #f9f6ec, #fefcf5);
+            border-left: 6px solid var(--gold);
+            border-radius: 12px;
+            padding: 0.5cm;
+            margin: 0.5cm 0;
+            box-shadow: var(--shadow-sm);
+            font-size: 9.5pt;
+        }
+
+        /* Comparación antes/después */
+        .compare-box {
+            display: flex;
+            gap: 0.5cm;
+            margin: 0.5cm 0;
+        }
+        .compare-col {
+            flex: 1;
+            padding: 0.4cm;
+            border-radius: 12px;
+        }
+        .compare-col.before {
+            background: #f8f8f8;
+        }
+        .compare-col.after {
+            background: #e6f2e6;
+        }
+        .compare-col h4 {
+            font-size: 12pt;
+            font-weight: 700;
+            margin-bottom: 0.3cm;
+            display: flex;
+            align-items: center;
+            gap: 0.3cm;
+        }
+        .compare-col ul {
+            margin-left: 0;
+        }
+
+        /* Tabla comparativa */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.5cm 0;
+            font-size: 9pt;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .comparison-table th {
+            background: var(--forest);
+            color: white;
+            font-weight: 700;
+            padding: 0.3cm;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 0.3cm;
+            border-bottom: 1px solid var(--gray-border);
+            background: white;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+            background-color: #f9fafb;
+        }
+
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 0.4cm;
+        }
+        .faq-item p {
+            margin-bottom: 0.1cm;
+        }
+        .faq-item strong {
+            color: var(--forest);
+        }
+
+        /* Llamada a la acción */
+        .cta-box {
+            background: var(--forest);
+            color: white;
+            padding: 0.6cm;
+            border-radius: 24px;
+            text-align: center;
+            margin: 0.7cm 0;
+            box-shadow: var(--shadow-md);
+        }
+        .cta-box .cta-title {
+            font-size: 18pt;
+            font-weight: 800;
+            color: var(--gold);
+        }
+        .cta-box p {
+            color: white;
+            margin: 0.2cm 0;
+            text-align: center;
+        }
+        .cta-box .contact-details {
+            font-size: 14pt;
+            font-weight: 700;
+            margin-top: 0.3cm;
+        }
+        .cta-box .contact-details i {
+            margin-right: 0.2cm;
+        }
+
+        /* Pie de página */
+        .footer {
+            margin-top: 1cm;
+            border-top: 3px solid var(--gold);
+            padding-top: 0.5cm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 9pt;
+            color: #4a5568;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 0.8cm;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.2cm;
+        }
+
+        .contact-info i {
+            color: var(--gold);
+        }
+
+        /* Elementos multilingües */
+        [data-lang] {
+            display: none;
+        }
+        [data-lang].active {
+            display: block;
+        }
+        .header[data-lang].active {
+            display: flex;
+        }
+        .footer[data-lang].active {
+            display: flex;
+        }
+        .inner-columns[data-lang].active {
+            display: grid;
+        }
+        .compare-box[data-lang].active {
+            display: flex;
+        }
+        .cta-box[data-lang].active {
+            display: block;
+        }
+
+        /* Evitar saltos de página */
+        h2, h3, .highlight-box, table, .compare-box {
+            break-inside: avoid;
+        }
+
+        @media print {
+            body {
+                padding: 0.5cm;
+            }
+            .header {
+                background: var(--forest) !important;
+                -webkit-print-color-adjust: exact;
+            }
+            .badge {
+                background: var(--gold) !important;
+                color: var(--forest) !important;
+            }
+            .lang-switcher, .print-button-container {
+                display: none;
+            }
+            [data-lang] {
+                display: none !important;
+            }
+            [data-lang].active {
+                display: block !important;
+            }
+            .header[data-lang].active {
+                display: flex !important;
+            }
+            .footer[data-lang].active {
+                display: flex !important;
+            }
+            .inner-columns[data-lang].active {
+                display: grid !important;
+            }
+            .compare-box[data-lang].active {
+                display: flex !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- SELECTOR DE IDIOMA -->
+        <div class="lang-switcher">
+            <button class="lang-btn active" onclick="setLanguage('es')">ES</button>
+            <button class="lang-btn" onclick="setLanguage('fr')">FR</button>
+            <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+        </div>
+
+        <!-- BOTÓN DE IMPRESIÓN -->
+        <div class="print-button-container">
+            <button onclick="window.print()" class="print-button">
+                <i class="fas fa-print"></i> Imprimir / Guardar como PDF
+            </button>
+        </div>
+
+        <!-- ===== CABECERA ===== -->
+        <!-- Español -->
+        <div data-lang="es" class="header active">
+            <div>
+                <h1>Oleo<span>Flow</span></h1>
+                <div class="sub">Seguimiento digital de la quemadura</div>
+            </div>
+            <div class="badge">Trazabilidad total</div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr" class="header">
+            <div>
+                <h1>Oleo<span>Flow</span></h1>
+                <div class="sub">Suivi numérique de la quemadura</div>
+            </div>
+            <div class="badge">Traçabilité totale</div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en" class="header">
+            <div>
+                <h1>Oleo<span>Flow</span></h1>
+                <div class="sub">Digital tracking of debittering</div>
+            </div>
+            <div class="badge">Full traceability</div>
+        </div>
+
+        <!-- INTRO / PROBLEMA -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="section-title">El desafío</div>
+            <p>¿Controla el proceso de desamargado (quemadura) con papel, anotaciones sueltas o la memoria de los operarios? Los riesgos son altos:</p>
+            <ul>
+                <li><i class="fas fa-times-circle"></i> Pérdida de información crítica (fechas, concentraciones, tiempos).</li>
+                <li><i class="fas fa-times-circle"></i> Dificultad para rastrear un lote ante un problema de calidad.</li>
+                <li><i class="fas fa-times-circle"></i> Falta de pruebas para certificaciones o reclamos comerciales.</li>
+                <li><i class="fas fa-times-circle"></i> Dobles ingresos de datos, errores humanos, tiempo perdido.</li>
+            </ul>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="section-title">Le défi</div>
+            <p>Contrôlez-vous le processus de désamérisation (quemadura) avec du papier, des notes éparses ou la mémoire des opérateurs ? Les risques sont élevés :</p>
+            <ul>
+                <li><i class="fas fa-times-circle"></i> Perte d'informations critiques (dates, concentrations, temps).</li>
+                <li><i class="fas fa-times-circle"></i> Difficulté à tracer un lot en cas de problème qualité.</li>
+                <li><i class="fas fa-times-circle"></i> Manque de preuves pour les certifications ou réclamations.</li>
+                <li><i class="fas fa-times-circle"></i> Double saisie, erreurs humaines, perte de temps.</li>
+            </ul>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="section-title">The challenge</div>
+            <p>Do you control the debittering process (quemadura) with paper, loose notes, or operator memory? The risks are high:</p>
+            <ul>
+                <li><i class="fas fa-times-circle"></i> Loss of critical information (dates, concentrations, times).</li>
+                <li><i class="fas fa-times-circle"></i> Difficulty tracing a batch in case of quality issues.</li>
+                <li><i class="fas fa-times-circle"></i> Lack of evidence for certifications or commercial claims.</li>
+                <li><i class="fas fa-times-circle"></i> Double data entry, human errors, wasted time.</li>
+            </ul>
+        </div>
+
+        <!-- NUESTRA SOLUCIÓN -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="section-title">Nuestra solución</div>
+            <p><strong>OleoFlow</strong> es una aplicación móvil diseñada específicamente para el seguimiento del proceso de desamargado (quemadura) de aceitunas de mesa. Permite registrar cada etapa, desde la inyección cáustica hasta los controles finales, con total trazabilidad, incluso sin conexión a internet.</p>
+            <div class="highlight-box">
+                <p><strong>🌱 Pensada para el campo:</strong> interfaz intuitiva, grandes botones, lectura de QR integrada. Los operarios la usan sin formación previa.</p>
+            </div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="section-title">Notre solution</div>
+            <p><strong>OleoFlow</strong> est une application mobile conçue spécifiquement pour le suivi du processus de désamérisation (quemadura) des olives de table. Elle permet d'enregistrer chaque étape, de l'injection caustique aux contrôles finaux, avec une traçabilité totale, même sans connexion internet.</p>
+            <div class="highlight-box">
+                <p><strong>🌱 Conçue pour le terrain :</strong> interface intuitive, gros boutons, lecture QR intégrée. Les opérateurs l'utilisent sans formation.</p>
+            </div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="section-title">Our solution</div>
+            <p><strong>OleoFlow</strong> is a mobile app specifically designed for tracking the debittering process (quemadura) of table olives. It records each stage, from caustic injection to final checks, with full traceability, even without internet connection.</p>
+            <div class="highlight-box">
+                <p><strong>🌱 Field‑designed:</strong> intuitive interface, large buttons, built‑in QR scanning. Operators use it with no training.</p>
+            </div>
+        </div>
+
+        <!-- FUNCIONALIDADES CLAVE -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="section-title">Funcionalidades principales</div>
+            <div class="inner-columns">
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <strong>Formularios dinámicos:</strong> registro cronológico de inyección, enjuagues, controles, ingredientes, mediciones Baumé. Cada entrada con fecha, hora y operador.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Códigos QR inteligentes:</strong> generación automática de un QR con todos los datos del lote. Estructura optimizada para mucha información.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Informes PDF multilingües:</strong> exportación del expediente completo en FR/ES/EN. Ideal para clientes y auditorías.</li>
+                </ul>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <strong>Modo offline:</strong> funciona perfectamente en zonas sin red. Los datos se sincronizan automáticamente cuando hay conexión.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Interfaz multilingüe:</strong> cambio instantáneo entre español, francés e inglés. Todos los mensajes y reportes se adaptan.</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="section-title">Fonctionnalités principales</div>
+            <div class="inner-columns">
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <strong>Formulaires dynamiques :</strong> enregistrement chronologique de l'injection, rinçages, contrôles, ingrédients, mesures Baumé. Chaque entrée avec date, heure et opérateur.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>QR codes intelligents :</strong> génération automatique d'un QR avec toutes les données du lot. Structure optimisée pour beaucoup d'informations.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Rapports PDF multilingues :</strong> export du dossier complet en FR/ES/EN. Idéal pour clients et audits.</li>
+                </ul>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <strong>Mode hors ligne :</strong> fonctionne parfaitement en zones sans réseau. Synchronisation automatique à la reconnexion.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Interface multilingue :</strong> bascule instantanée entre français, espagnol, anglais. Tous les messages et rapports s'adaptent.</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="section-title">Key features</div>
+            <div class="inner-columns">
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <strong>Dynamic forms:</strong> chronological recording of injection, rinses, checks, ingredients, Baumé measurements. Each entry with date, time and operator.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Smart QR codes:</strong> automatic generation of a QR with all batch data. Optimized structure for large amounts of information.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Multilingual PDF reports:</strong> export complete file in FR/ES/EN. Ideal for clients and audits.</li>
+                </ul>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <strong>Offline mode:</strong> works perfectly in areas with no network. Data syncs automatically when connection is available.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Multilingual interface:</strong> instant switch between English, French, Spanish. All messages and reports adapt.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- LO QUE CAMBIA (ANTES / DESPUÉS) -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="section-title">Antes vs. Después</div>
+            <div class="compare-box">
+                <div class="compare-col before">
+                    <h4><i class="fas fa-times-circle" style="color:#b33;"></i> Sin OleoFlow</h4>
+                    <ul>
+                        <li>📋 Papel y bolígrafo, datos ilegibles</li>
+                        <li>🔍 Lotes mezclados, sin trazabilidad</li>
+                        <li>⏳ Horas de re‑escritura en Excel</li>
+                        <li>🚫 Sin alertas de anomalías</li>
+                    </ul>
+                </div>
+                <div class="compare-col after">
+                    <h4><i class="fas fa-check-circle" style="color:var(--gold);"></i> Con OleoFlow</h4>
+                    <ul>
+                        <li>✅ Entrada única, digital</li>
+                        <li>🔐 Cada operación fechada y firmada</li>
+                        <li>⚡ Búsqueda instantánea por lote</li>
+                        <li>📊 Informes PDF automáticos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="section-title">Avant vs. Après</div>
+            <div class="compare-box">
+                <div class="compare-col before">
+                    <h4><i class="fas fa-times-circle" style="color:#b33;"></i> Sans OleoFlow</h4>
+                    <ul>
+                        <li>📋 Papier et stylo, données illisibles</li>
+                        <li>🔍 Lots mélangés, sans traçabilité</li>
+                        <li>⏳ Heures de ressaisie Excel</li>
+                        <li>🚫 Pas d'alertes d'anomalies</li>
+                    </ul>
+                </div>
+                <div class="compare-col after">
+                    <h4><i class="fas fa-check-circle" style="color:var(--gold);"></i> Avec OleoFlow</h4>
+                    <ul>
+                        <li>✅ Saisie unique, numérique</li>
+                        <li>🔐 Chaque opération datée et signée</li>
+                        <li>⚡ Recherche instantanée par lot</li>
+                        <li>📊 Rapports PDF automatiques</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="section-title">Before vs. After</div>
+            <div class="compare-box">
+                <div class="compare-col before">
+                    <h4><i class="fas fa-times-circle" style="color:#b33;"></i> Without OleoFlow</h4>
+                    <ul>
+                        <li>📋 Paper and pen, illegible data</li>
+                        <li>🔍 Mixed batches, no traceability</li>
+                        <li>⏳ Hours of re‑entry in Excel</li>
+                        <li>🚫 No anomaly alerts</li>
+                    </ul>
+                </div>
+                <div class="compare-col after">
+                    <h4><i class="fas fa-check-circle" style="color:var(--gold);"></i> With OleoFlow</h4>
+                    <ul>
+                        <li>✅ Single digital entry</li>
+                        <li>🔐 Each operation dated and signed</li>
+                        <li>⚡ Instant batch search</li>
+                        <li>📊 Automatic PDF reports</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- PARA QUIÉN -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="section-title">¿Para quién?</div>
+            <ul>
+                <li><i class="fas fa-users"></i> <strong>Productores de aceitunas de mesa</strong> que externalizan la quemadura o la realizan internamente.</li>
+                <li><i class="fas fa-industry"></i> <strong>Servicios de maquila (quemadores)</strong> que necesitan entregar trazabilidad a sus clientes.</li>
+                <li><i class="fas fa-handshake"></i> <strong>Cooperativas</strong> que quieren estandarizar el proceso y certificar calidad.</li>
+                <li><i class="fas fa-user-tie"></i> <strong>Ingenieros y asesores</strong> que auditan y necesitan datos fiables.</li>
+            </ul>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="section-title">Pour qui ?</div>
+            <ul>
+                <li><i class="fas fa-users"></i> <strong>Producteurs d'olives de table</strong> qui externalisent la quemadura ou la réalisent en interne.</li>
+                <li><i class="fas fa-industry"></i> <strong>Services de maquila</strong> qui doivent fournir une traçabilité à leurs clients.</li>
+                <li><i class="fas fa-handshake"></i> <strong>Coopératives</strong> souhaitant standardiser le processus et certifier la qualité.</li>
+                <li><i class="fas fa-user-tie"></i> <strong>Ingénieurs et conseillers</strong> qui auditent et ont besoin de données fiables.</li>
+            </ul>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="section-title">Who is it for?</div>
+            <ul>
+                <li><i class="fas fa-users"></i> <strong>Table olive producers</strong> who outsource or do in‑house debittering.</li>
+                <li><i class="fas fa-industry"></i> <strong>Maquila services</strong> needing to provide traceability to clients.</li>
+                <li><i class="fas fa-handshake"></i> <strong>Cooperatives</strong> wanting to standardize the process and certify quality.</li>
+                <li><i class="fas fa-user-tie"></i> <strong>Engineers and consultants</strong> who audit and need reliable data.</li>
+            </ul>
+        </div>
+
+        <!-- VENTAJAS ADICIONALES -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="section-title">Beneficios que obtiene</div>
+            <ul>
+                <li><i class="fas fa-lock"></i> <strong>Soberanía de datos:</strong> sin nube obligatoria, la información reside en sus dispositivos.</li>
+                <li><i class="fas fa-coins"></i> <strong>Pago único:</strong> licencia perpetua, sin suscripciones mensuales.</li>
+                <li><i class="fas fa-chart-line"></i> <strong>Mejora continua:</strong> los registros permiten optimizar tiempos y consumos.</li>
+                <li><i class="fas fa-camera"></i> <strong>Evidencia fotográfica:</strong> cada lote puede incluir fotos geolocalizadas.</li>
+                <li><i class="fas fa-sliders-h"></i> <strong>Configurable sin programar:</strong> adaptamos los formularios a su proceso exacto.</li>
+            </ul>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="section-title">Avantages supplémentaires</div>
+            <ul>
+                <li><i class="fas fa-lock"></i> <strong>Souveraineté des données :</strong> pas de cloud imposé, les données restent sur vos appareils.</li>
+                <li><i class="fas fa-coins"></i> <strong>Paiement unique :</strong> licence perpétuelle, sans abonnement.</li>
+                <li><i class="fas fa-chart-line"></i> <strong>Amélioration continue :</strong> les enregistrements permettent d'optimiser temps et consommations.</li>
+                <li><i class="fas fa-camera"></i> <strong>Preuve photographique :</strong> chaque lot peut inclure des photos géolocalisées.</li>
+                <li><i class="fas fa-sliders-h"></i> <strong>Configurable sans code :</strong> adaptation des formulaires à votre processus.</li>
+            </ul>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="section-title">Additional benefits</div>
+            <ul>
+                <li><i class="fas fa-lock"></i> <strong>Data sovereignty:</strong> no mandatory cloud, data stays on your devices.</li>
+                <li><i class="fas fa-coins"></i> <strong>One‑time payment:</strong> perpetual license, no monthly fees.</li>
+                <li><i class="fas fa-chart-line"></i> <strong>Continuous improvement:</strong> records help optimize times and consumptions.</li>
+                <li><i class="fas fa-camera"></i> <strong>Photographic evidence:</strong> each batch can include geolocated photos.</li>
+                <li><i class="fas fa-sliders-h"></i> <strong>Configurable without coding:</strong> forms adapted to your exact process.</li>
+            </ul>
+        </div>
+
+        <!-- TABLA COMPARATIVA -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="section-title">Comparación directa</div>
+            <table class="comparison-table">
+                <thead>
+                    <tr><th>Aspecto</th><th>OleoFlow</th><th>Método tradicional</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Registro de operaciones</td><td>Automático, con fecha/hora y operador</td><td>Manual, propenso a errores</td></tr>
+                    <tr><td>Traza del lote</td><td>Completa, accesible en segundos</td><td>Inexistente o archivada en cajas</td></tr>
+                    <tr><td>Exportación de informes</td><td>PDF multilingüe con un clic</td><td>Redacción manual, horas de trabajo</td></tr>
+                    <tr><td>Conectividad</td><td>Modo offline + sincronización automática</td><td>Depende de papel o conexión</td></tr>
+                    <tr><td>Inversión</td><td>Licencia única, sin cuotas</td><td>Coste oculto (horas de administrativo)</td></tr>
+                    <tr><td>Idiomas</td><td>FR/ES/EN integrado</td><td>Un solo idioma, traducciones externas</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="section-title">Comparaison directe</div>
+            <table class="comparison-table">
+                <thead>
+                    <tr><th>Aspect</th><th>OleoFlow</th><th>Méthode traditionnelle</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Enregistrement des opérations</td><td>Automatique, avec date/heure et opérateur</td><td>Manuel, sujet aux erreurs</td></tr>
+                    <tr><td>Traçabilité du lot</td><td>Complete, accessible en secondes</td><td>Inexistante ou archivée</td></tr>
+                    <tr><td>Export des rapports</td><td>PDF multilingue en un clic</td><td>Rédaction manuelle, heures de travail</td></tr>
+                    <tr><td>Connectivité</td><td>Mode hors ligne + synchronisation auto</td><td>Dépend du papier ou connexion</td></tr>
+                    <tr><td>Investissement</td><td>Licence unique, sans frais récurrents</td><td>Coût caché (heures administratives)</td></tr>
+                    <tr><td>Langues</td><td>FR/ES/EN intégré</td><td>Une seule langue, traductions externes</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="section-title">Direct comparison</div>
+            <table class="comparison-table">
+                <thead>
+                    <tr><th>Aspect</th><th>OleoFlow</th><th>Traditional method</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Operation recording</td><td>Automatic, with date/time and operator</td><td>Manual, error‑prone</td></tr>
+                    <tr><td>Batch traceability</td><td>Complete, accessible in seconds</td><td>None or archived in boxes</td></tr>
+                    <tr><td>Report export</td><td>Multilingual PDF with one click</td><td>Manual writing, hours of work</td></tr>
+                    <tr><td>Connectivity</td><td>Offline mode + auto‑sync</td><td>Depends on paper or connection</td></tr>
+                    <tr><td>Investment</td><td>One‑time license, no fees</td><td>Hidden cost (admin hours)</td></tr>
+                    <tr><td>Languages</td><td>FR/ES/EN built‑in</td><td>Single language, external translations</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- PREGUNTAS FRECUENTES -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="section-title">Preguntas frecuentes</div>
+            <div class="faq-item">
+                <p><strong>¿Puedo usar OleoFlow sin internet?</strong><br> Sí, la app funciona offline y envía los datos cuando hay conexión.</p>
+                <p><strong>¿Qué pasa si un operario se equivoca?</strong><br> Cada entrada puede ser corregida dejando traza (edición autorizada).</p>
+                <p><strong>¿Los QR son legibles con cualquier escáner?</strong><br> Sí, son QR estándar. Además la app incluye lector integrado.</p>
+                <p><strong>¿Puedo personalizar los informes?</strong><br> Sí, podemos adaptar el diseño, el logotipo y los campos a su empresa (opcional).</p>
+            </div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="section-title">Questions fréquentes</div>
+            <div class="faq-item">
+                <p><strong>Puis‑je utiliser OleoFlow sans internet ?</strong><br> Oui, l'application fonctionne hors ligne et envoie les données à la reconnexion.</p>
+                <p><strong>Que faire si un opérateur se trompe ?</strong><br> Chaque saisie peut être corrigée en gardant une trace (édition autorisée).</p>
+                <p><strong>Les QR sont‑ils lisibles par n'importe quel scanner ?</strong><br> Oui, ce sont des QR standards. L'app inclut aussi un lecteur intégré.</p>
+                <p><strong>Puis‑je personnaliser les rapports ?</strong><br> Oui, nous pouvons adapter le design, le logo et les champs (optionnel).</p>
+            </div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="section-title">Frequently asked questions</div>
+            <div class="faq-item">
+                <p><strong>Can I use OleoFlow without internet?</strong><br> Yes, the app works offline and sends data when connection is available.</p>
+                <p><strong>What if an operator makes a mistake?</strong><br> Each entry can be corrected leaving a trace (authorized edit).</p>
+                <p><strong>Are the QR codes readable by any scanner?</strong><br> Yes, they are standard QR codes. The app also includes a built‑in scanner.</p>
+                <p><strong>Can I customize the reports?</strong><br> Yes, we can adapt the design, logo and fields to your company (optional).</p>
+            </div>
+        </div>
+
+        <!-- POR QUÉ CONFIAR -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="highlight-box">
+                <p><strong>🇵🇪 Desarrollado en Tacna con productores locales:</strong> OleoFlow nace de la necesidad real de tener un control riguroso de la quemadura. Conocemos las variedades, los tiempos y los desafíos del campo peruano.</p>
+            </div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="highlight-box">
+                <p><strong>🇵🇪 Développé à Tacna avec des producteurs locaux :</strong> OleoFlow est né du besoin réel d'un contrôle rigoureux de la quemadura. Nous connaissons les variétés, les temps et les défis du terrain péruvien.</p>
+            </div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="highlight-box">
+                <p><strong>🇵🇪 Developed in Tacna with local producers:</strong> OleoFlow was born from the real need for rigorous control of debittering. We know the varieties, timings and challenges of Peruvian fields.</p>
+            </div>
+        </div>
+
+        <!-- LLAMADA A LA ACCIÓN (con datos actualizados) -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="cta-box">
+                <div class="cta-title">¿Listo para digitalizar su quemadura?</div>
+                <p>Solicite una demo o un presupuesto sin compromiso.</p>
+                <div class="contact-details">
+                    <i class="fas fa-phone-alt"></i> +51 979 580 500 · <i class="fas fa-envelope"></i> mundo.aove.tacna@gmail.com
+                </div>
+                <p style="margin-top:0.2cm;">Tacna, Perú</p>
+            </div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="cta-box">
+                <div class="cta-title">Prêt à digitaliser votre quemadura ?</div>
+                <p>Demandez une démo ou un devis sans engagement.</p>
+                <div class="contact-details">
+                    <i class="fas fa-phone-alt"></i> +51 979 580 500 · <i class="fas fa-envelope"></i> mundo.aove.tacna@gmail.com
+                </div>
+                <p style="margin-top:0.2cm;">Tacna, Pérou</p>
+            </div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="cta-box">
+                <div class="cta-title">Ready to digitize your debittering?</div>
+                <p>Request a demo or a no‑obligation quote.</p>
+                <div class="contact-details">
+                    <i class="fas fa-phone-alt"></i> +51 979 580 500 · <i class="fas fa-envelope"></i> mundo.aove.tacna@gmail.com
+                </div>
+                <p style="margin-top:0.2cm;">Tacna, Peru</p>
+            </div>
+        </div>
+
+        <!-- PIE DE PÁGINA -->
+        <!-- Español -->
+        <div data-lang="es" class="footer active">
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Tacna, Perú</span>
+                <span><i class="fas fa-envelope"></i> mundo.aove.tacna@gmail.com</span>
+                <span><i class="fas fa-phone-alt"></i> +51 979 580 500</span>
+            </div>
+            <div>OleoFlow · Versión 1.0 · Ficha técnica · © 2026 Mundo‑AOVE Tech</div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr" class="footer">
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Tacna, Pérou</span>
+                <span><i class="fas fa-envelope"></i> mundo.aove.tacna@gmail.com</span>
+                <span><i class="fas fa-phone-alt"></i> +51 979 580 500</span>
+            </div>
+            <div>OleoFlow · Version 1.0 · Fiche technique · © 2026 Mundo‑AOVE Tech</div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en" class="footer">
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Tacna, Peru</span>
+                <span><i class="fas fa-envelope"></i> mundo.aove.tacna@gmail.com</span>
+                <span><i class="fas fa-phone-alt"></i> +51 979 580 500</span>
+            </div>
+            <div>OleoFlow · Version 1.0 · Technical sheet · © 2026 Mundo‑AOVE Tech</div>
+        </div>
+
+    </div>
+
+    <script>
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+                el.classList.add('active');
+            });
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.lang-btn[onclick="setLanguage('${lang}')"]`).classList.add('active');
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        function getInitialLanguage() {
+            const saved = localStorage.getItem('preferredLanguage');
+            if (saved && ['es','fr','en'].includes(saved)) return saved;
+            const browserLang = navigator.language.split('-')[0];
+            if (browserLang === 'es') return 'es';
+            if (browserLang === 'fr') return 'fr';
+            if (browserLang === 'en') return 'en';
+            return 'es';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const lang = getInitialLanguage();
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+                el.classList.add('active');
+            });
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.trim().toLowerCase() === lang) {
+                    btn.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -429,7 +429,7 @@
             </div>
         </section>
 
-        <!-- CALL TO ACTION (bouton unique) -->
+        <!-- CALL TO ACTION (deux boutons) -->
         <section class="gradient-dark text-white p-16 rounded-3xl text-center">
             <h2 class="serif text-4xl font-bold mb-4">
                 <span data-lang="fr">Prêt à équiper vos équipes ?</span>
@@ -441,18 +441,21 @@
                 <span data-lang="es" style="display:none;">Contáctenos para una demo o para hablar de su necesidad.</span>
                 <span data-lang="en" style="display:none;">Contact us for a demo or to discuss your needs.</span>
             </p>
-            <div class="flex justify-center">
+            <div class="flex justify-center gap-4">
                 <button onclick="toggleModal(true)" class="bg-[#C5A059] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#b38a47] transition shadow-2xl inline-flex items-center gap-3">
                     <i class="fas fa-envelope"></i>
                     <span data-lang="fr">Nous contacter</span>
                     <span data-lang="es" style="display:none;">Contactar</span>
                     <span data-lang="en" style="display:none;">Contact us</span>
                 </button>
+                <a href="payload-ficha.html" class="bg-[#C5A059] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#b38a47] transition shadow-2xl inline-flex items-center gap-3">
+                    <i class="fas fa-file-pdf"></i>
+                    <span data-lang="fr">Fiche technique</span>
+                    <span data-lang="es" style="display:none;">Ficha técnica</span>
+                    <span data-lang="en" style="display:none;">Tech sheet</span>
+                </a>
             </div>
         </section>
-
-    </main>
-
     <!-- ======= FOOTER simplifié ======= -->
     <footer class="bg-white border-t border-gray-100 py-12 text-center">
         <p class="text-gray-400 text-sm font-medium tracking-widest uppercase">

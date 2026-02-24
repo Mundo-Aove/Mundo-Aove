@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo AOVE App – Ficha técnica</title>
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET Y ESTILOS BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fff;
+            color: #1e1e1e;
+            line-height: 1.5;
+            font-size: 10pt;
+            padding: 1.5cm 1cm;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* Variables de color */
+        :root {
+            --forest: #2C4C3B;
+            --gold: #C5A059;
+            --light-bg: #f8f9fa;
+            --gray-border: #e2e8f0;
+            --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.02);
+        }
+
+        /* Contenedor principal (una sola columna) */
+        .page {
+            max-width: 18cm;
+            margin: 0 auto;
+        }
+
+        /* Selector de idioma */
+        .lang-switcher {
+            text-align: center;
+            margin-bottom: 0.8cm;
+        }
+        .lang-btn {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--forest);
+            padding: 0.2cm 0.8cm;
+            border-radius: 40px;
+            font-size: 12pt;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0 0.2cm;
+            transition: all 0.2s;
+        }
+        .lang-btn:hover {
+            background: var(--gold);
+            color: white;
+        }
+        .lang-btn.active {
+            background: var(--gold);
+            color: white;
+        }
+        @media print {
+            .lang-switcher {
+                display: none;
+            }
+        }
+
+        /* Botón de impresión */
+        .print-button-container {
+            text-align: center;
+            margin: 0.5cm 0 1cm;
+        }
+        .print-button {
+            background: var(--gold);
+            color: var(--forest);
+            border: none;
+            padding: 0.4cm 1.5cm;
+            border-radius: 40px;
+            font-size: 14pt;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5cm;
+        }
+        .print-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .print-button i {
+            font-size: 16pt;
+        }
+        @media print {
+            .print-button-container {
+                display: none;
+            }
+        }
+
+        /* Encabezado */
+        .header {
+            margin-bottom: 1.2cm;
+            background: linear-gradient(135deg, var(--forest) 0%, #1f3a2c 100%);
+            color: white;
+            padding: 0.8cm 1cm;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32pt;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .header h1 span {
+            color: var(--gold);
+        }
+
+        .header .sub {
+            font-size: 14pt;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-top: 0.2cm;
+        }
+
+        .badge {
+            background: var(--gold);
+            color: var(--forest);
+            font-weight: 800;
+            padding: 0.2cm 1cm;
+            border-radius: 40px;
+            font-size: 12pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            white-space: nowrap;
+        }
+
+        /* Títulos de sección */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18pt;
+            font-weight: 800;
+            color: var(--forest);
+            margin: 0.8cm 0 0.4cm;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 0.2cm;
+            display: inline-block;
+            width: auto;
+        }
+
+        /* Texto general */
+        p {
+            text-align: justify;
+            margin-bottom: 0.3cm;
+            color: #2d3a3a;
+        }
+
+        /* Listas */
+        ul {
+            list-style: none;
+            margin-left: 0.3cm;
+            margin-bottom: 0.3cm;
+        }
+
+        li {
+            margin-bottom: 0.25cm;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.3cm;
+        }
+
+        li i {
+            color: var(--gold);
+            font-size: 1.2em;
+            min-width: 0.5cm;
+        }
+
+        /* Tarjetas de módulos */
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5cm;
+            margin: 0.5cm 0;
+        }
+
+        .module-card {
+            background: white;
+            border: 1px solid var(--gray-border);
+            border-radius: 16px;
+            padding: 0.4cm;
+            box-shadow: var(--shadow-sm);
+            break-inside: avoid;
+        }
+
+        .module-card h3 {
+            font-size: 12pt;
+            font-weight: 700;
+            color: var(--forest);
+            margin-bottom: 0.2cm;
+            display: flex;
+            align-items: center;
+            gap: 0.3cm;
+        }
+
+        .module-card h3 i {
+            color: var(--gold);
+            font-size: 14pt;
+        }
+
+        .module-card p {
+            font-size: 9pt;
+            margin: 0;
+            text-align: left;
+        }
+
+        /* Caja destacada */
+        .highlight-box {
+            background: linear-gradient(145deg, #f9f6ec, #fefcf5);
+            border-left: 6px solid var(--gold);
+            border-radius: 12px;
+            padding: 0.5cm;
+            margin: 0.5cm 0;
+            box-shadow: var(--shadow-sm);
+            font-size: 9.5pt;
+        }
+
+        /* Tabla comparativa simple */
+        .comparison-simple {
+            background: var(--light-bg);
+            border-radius: 16px;
+            padding: 0.4cm;
+            border: 1px solid var(--gray-border);
+            margin: 0.5cm 0;
+        }
+        .comparison-simple table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .comparison-simple td {
+            padding: 0.2cm 0;
+            border-bottom: 1px dashed #ccc;
+        }
+        .comparison-simple tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Llamada a la acción */
+        .cta-box {
+            background: var(--forest);
+            color: white;
+            padding: 0.6cm;
+            border-radius: 24px;
+            text-align: center;
+            margin: 0.7cm 0;
+            box-shadow: var(--shadow-md);
+        }
+        .cta-box .cta-title {
+            font-size: 18pt;
+            font-weight: 800;
+            color: var(--gold);
+        }
+        .cta-box p {
+            color: white;
+            margin: 0.2cm 0;
+            text-align: center;
+        }
+        .cta-box .contact-details {
+            font-size: 14pt;
+            font-weight: 700;
+            margin-top: 0.3cm;
+        }
+        .cta-box .contact-details i {
+            margin-right: 0.2cm;
+        }
+
+        /* Pie de página */
+        .footer {
+            margin-top: 1cm;
+            border-top: 3px solid var(--gold);
+            padding-top: 0.5cm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 9pt;
+            color: #4a5568;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 0.8cm;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.2cm;
+        }
+
+        .contact-info i {
+            color: var(--gold);
+        }
+
+        /* Elementos multilingües */
+        [data-lang] {
+            display: none;
+        }
+        [data-lang].active {
+            display: block;
+        }
+        .header[data-lang].active {
+            display: flex;
+        }
+        .footer[data-lang].active {
+            display: flex;
+        }
+        .module-grid[data-lang].active {
+            display: grid;
+        }
+        .cta-box[data-lang].active {
+            display: block;
+        }
+        .comparison-simple[data-lang].active {
+            display: block;
+        }
+
+        /* Evitar saltos de página */
+        h2, h3, .module-card, .highlight-box, .cta-box {
+            break-inside: avoid;
+        }
+
+        @media print {
+            body {
+                padding: 0.5cm;
+            }
+            .header {
+                background: var(--forest) !important;
+                -webkit-print-color-adjust: exact;
+            }
+            .badge {
+                background: var(--gold) !important;
+                color: var(--forest) !important;
+            }
+            .lang-switcher, .print-button-container {
+                display: none;
+            }
+            [data-lang] {
+                display: none !important;
+            }
+            [data-lang].active {
+                display: block !important;
+            }
+            .header[data-lang].active {
+                display: flex !important;
+            }
+            .footer[data-lang].active {
+                display: flex !important;
+            }
+            .module-grid[data-lang].active {
+                display: grid !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- SELECTOR DE IDIOMA -->
+        <div class="lang-switcher">
+            <button class="lang-btn active" onclick="setLanguage('es')">ES</button>
+            <button class="lang-btn" onclick="setLanguage('fr')">FR</button>
+            <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+        </div>
+
+        <!-- BOTÓN DE IMPRESIÓN -->
+        <div class="print-button-container">
+            <button onclick="window.print()" class="print-button">
+                <i class="fas fa-print"></i> Imprimir / Guardar como PDF
+            </button>
+        </div>
+
+        <!-- ===== CABECERA ===== -->
+        <!-- Español -->
+        <div data-lang="es" class="header active">
+            <div>
+                <h1>Mundo AOVE <span>App</span></h1>
+                <div class="sub">10 herramientas profesionales en una sola app</div>
+            </div>
+            <div class="badge">cero suscripción</div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr" class="header">
+            <div>
+                <h1>Mundo AOVE <span>App</span></h1>
+                <div class="sub">10 outils professionnels en une seule app</div>
+            </div>
+            <div class="badge">zéro abonnement</div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en" class="header">
+            <div>
+                <h1>Mundo AOVE <span>App</span></h1>
+                <div class="sub">10 professional tools in one app</div>
+            </div>
+            <div class="badge">zero subscription</div>
+        </div>
+
+        <!-- INTRO (partie commune traduite) -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <p style="font-size: 11pt; line-height: 1.5; background: #f0f7f0; padding: 0.4cm; border-radius: 16px;">
+                <strong style="color: var(--forest);">Mundo AOVE App</strong> es la suite móvil diseñada por y para profesionales del olivo. 
+                Olvídese de hojas de cálculo y cálculos mentales: 10 módulos específicos cubren desde el rendimiento del molino hasta el análisis económico, todo en su bolsillo, sin internet y sin suscripciones.
+            </p>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <p style="font-size: 11pt; line-height: 1.5; background: #f0f7f0; padding: 0.4cm; border-radius: 16px;">
+                <strong style="color: var(--forest);">Mundo AOVE App</strong> est la suite mobile conçue par et pour les professionnels de l'olivier.
+                Fini les tableurs et les calculs mentaux : 10 modules spécifiques couvrent du rendement du moulin à l'analyse économique, tout dans votre poche, sans internet et sans abonnement.
+            </p>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <p style="font-size: 11pt; line-height: 1.5; background: #f0f7f0; padding: 0.4cm; border-radius: 16px;">
+                <strong style="color: var(--forest);">Mundo AOVE App</strong> is the mobile suite designed by and for olive professionals.
+                Forget spreadsheets and mental calculations: 10 specific modules cover from mill yield to economic analysis, all in your pocket, offline and subscription‑free.
+            </p>
+        </div>
+
+        <!-- BENEFICIOS INMEDIATOS -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="section-title">Beneficios inmediatos</div>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> <strong>10 módulos especializados</strong> – cada tarea tiene su calculadora.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Resultados precisos</strong> – adiós a errores de cálculo.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Exportaciones profesionales</strong> (PDF, CSV, SVG) con su logotipo.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Sin conexión</strong> – funciona en el campo sin Internet.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Idiomas integrados</strong> – español, francés, inglés.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Pago único</strong> – licencia perpetua, sin cuotas mensuales.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Actualizaciones incluidas</strong> – mejoras continuas.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Soporte directo</strong> – vía WhatsApp o email.</li>
+            </ul>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="section-title">Bénéfices immédiats</div>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> <strong>10 modules spécialisés</strong> – chaque tâche a son calculateur.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Résultats précis</strong> – fini les erreurs de calcul.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Exports professionnels</strong> (PDF, CSV, SVG) avec votre logo.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Hors ligne</strong> – fonctionne sur le terrain sans Internet.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Langues intégrées</strong> – français, espagnol, anglais.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Paiement unique</strong> – licence perpétuelle, sans frais mensuels.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Mises à jour incluses</strong> – améliorations continues.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Support direct</strong> – par WhatsApp ou email.</li>
+            </ul>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="section-title">Immediate benefits</div>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> <strong>10 specialized modules</strong> – each task has its calculator.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Accurate results</strong> – no more calculation errors.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Professional exports</strong> (PDF, CSV, SVG) with your logo.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Offline</strong> – works in the field without Internet.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Built‑in languages</strong> – English, Spanish, French.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>One‑time payment</strong> – perpetual license, no monthly fees.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Updates included</strong> – continuous improvements.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Direct support</strong> – via WhatsApp or email.</li>
+            </ul>
+        </div>
+
+        <!-- MÓDULOS (los 10 en dos columnas internas) -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="section-title">Los 10 módulos</div>
+            <div class="module-grid">
+                <div class="module-card">
+                    <h3><i class="fas fa-flask"></i> Chlorine</h3>
+                    <p>Calcula el volumen de lejía para desinfectar tanques y líneas según concentración deseada.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-thermometer-half"></i> Density Correction</h3>
+                    <p>Corrige densidad y Baumé de salmueras con la temperatura, verano e invierno.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-exchange-alt"></i> Unit Conversion</h3>
+                    <p>Más de 30 unidades (volumen, masa, temperatura, presión) con precisión de campo.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-oil-can"></i> Oil Yield Hub</h3>
+                    <p>Estima rendimiento en aceite desde peso de aceitunas y humedad, convierte kilos a litros.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-water"></i> Complete Brine Hub</h3>
+                    <p>Prepara, corrige o ajusta salmueras. ¡Cuatro herramientas en una!</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-chart-line"></i> Fermentation Tracking</h3>
+                    <p>Sigue pH, temperatura, acidez lote a lote, visualiza curvas y exporta datos.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-chart-pie"></i> Economic Analysis</h3>
+                    <p>ROI, costes, márgenes, conversión a 7 divisas. Ideal para subvenciones.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-droplet"></i> Advanced Dilution Hub</h3>
+                    <p>Convierte concentraciones (%, ppm, g/L), prepara soluciones madre, calcula materia activa.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-book-open"></i> Métodos Ilustrados</h3>
+                    <p>Guía paso a paso de buenas prácticas: muestreo, medición de acidez, etc. Ideal para formar personal.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-shopping-cart"></i> Purchase Assistant</h3>
+                    <p>Compara precios reales según concentración (NPK, materia activa) y evita engaños.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="section-title">Les 10 modules</div>
+            <div class="module-grid">
+                <div class="module-card">
+                    <h3><i class="fas fa-flask"></i> Chlore</h3>
+                    <p>Calcule le volume d'eau de Javel pour désinfecter cuves et lignes selon la concentration souhaitée.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-thermometer-half"></i> Correction densité</h3>
+                    <p>Corrige densité et Baumé des saumures avec la température, été comme hiver.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-exchange-alt"></i> Conversion d'unités</h3>
+                    <p>Plus de 30 unités (volume, masse, température, pression) avec précision terrain.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-oil-can"></i> Calcul rendement</h3>
+                    <p>Estime le rendement en huile depuis le poids d'olives et l'humidité, convertit kilos en litres.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-water"></i> Gestion des saumures</h3>
+                    <p>Prépare, corrige ou ajuste les saumures. Quatre outils en un !</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-chart-line"></i> Suivi fermentation</h3>
+                    <p>Suit pH, température, acidité lot par lot, visualise les courbes et exporte.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-chart-pie"></i> Analyse économique</h3>
+                    <p>ROI, coûts, marges, conversion en 7 devises. Idéal pour subventions.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-droplet"></i> Dilutions avancées</h3>
+                    <p>Convertit les concentrations (%, ppm, g/L), prépare des solutions mères, calcule la matière active.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-book-open"></i> Méthodes illustrées</h3>
+                    <p>Guide pas à pas des bonnes pratiques : échantillonnage, mesure d'acidité, etc. Idéal pour former.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-shopping-cart"></i> Assistant achats</h3>
+                    <p>Compare les prix réels selon la concentration (NPK, matière active) et détecte les offres trompeuses.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="section-title">The 10 modules</div>
+            <div class="module-grid">
+                <div class="module-card">
+                    <h3><i class="fas fa-flask"></i> Chlorine</h3>
+                    <p>Calculates bleach volume to disinfect tanks and lines based on desired concentration.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-thermometer-half"></i> Density Correction</h3>
+                    <p>Corrects density and Baumé of brines with temperature, summer and winter.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-exchange-alt"></i> Unit Conversion</h3>
+                    <p>Over 30 units (volume, mass, temperature, pressure) with field precision.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-oil-can"></i> Oil Yield Hub</h3>
+                    <p>Estimates oil yield from olive weight and moisture, converts kilos to liters.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-water"></i> Complete Brine Hub</h3>
+                    <p>Prepares, corrects or adjusts brines. Four tools in one!</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-chart-line"></i> Fermentation Tracking</h3>
+                    <p>Tracks pH, temperature, acidity batch by batch, views curves and exports data.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-chart-pie"></i> Economic Analysis</h3>
+                    <p>ROI, costs, margins, conversion to 7 currencies. Ideal for grants.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-droplet"></i> Advanced Dilution Hub</h3>
+                    <p>Converts concentrations (%, ppm, g/L), prepares mother solutions, calculates active ingredient.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-book-open"></i> Illustrated Methods</h3>
+                    <p>Step‑by‑step guide to good practices: sampling, acidity measurement, etc. Perfect for training.</p>
+                </div>
+                <div class="module-card">
+                    <h3><i class="fas fa-shopping-cart"></i> Purchase Assistant</h3>
+                    <p>Compares real prices based on concentration (NPK, active ingredient) and detects misleading offers.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXPORTACIONES PERSONALIZABLES -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="section-title">📄 Exportaciones profesionales</div>
+            <div class="highlight-box">
+                <p><strong>Cada módulo genera un archivo (PDF, CSV o SVG)</strong> con los datos y resultados. Usted puede:</p>
+                <ul>
+                    <li><i class="fas fa-file-pdf"></i> Exportar un cálculo para su trazabilidad.</li>
+                    <li><i class="fas fa-chart-line"></i> Generar gráficos vectoriales de fermentación.</li>
+                    <li><i class="fas fa-file-excel"></i> Producir informes económicos para sus socios.</li>
+                </ul>
+                <p><strong>Opción empresa:</strong> personalizamos encabezados, colores y logo de los informes. Consúltenos.</p>
+            </div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="section-title">📄 Exports professionnels</div>
+            <div class="highlight-box">
+                <p><strong>Chaque module génère un fichier (PDF, CSV ou SVG)</strong> avec les données et résultats. Vous pouvez :</p>
+                <ul>
+                    <li><i class="fas fa-file-pdf"></i> Exporter un calcul pour votre traçabilité.</li>
+                    <li><i class="fas fa-chart-line"></i> Générer des graphiques vectoriels de fermentation.</li>
+                    <li><i class="fas fa-file-excel"></i> Produire des rapports économiques pour vos partenaires.</li>
+                </ul>
+                <p><strong>Option entreprise :</strong> personnalisation des en‑têtes, couleurs et logo. Contactez‑nous.</p>
+            </div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="section-title">📄 Professional exports</div>
+            <div class="highlight-box">
+                <p><strong>Each module generates a file (PDF, CSV or SVG)</strong> with data and results. You can:</p>
+                <ul>
+                    <li><i class="fas fa-file-pdf"></i> Export a calculation for traceability.</li>
+                    <li><i class="fas fa-chart-line"></i> Generate vector fermentation charts.</li>
+                    <li><i class="fas fa-file-excel"></i> Produce economic reports for your partners.</li>
+                </ul>
+                <p><strong>Company option:</strong> customize headers, colors and logo. Contact us.</p>
+            </div>
+        </div>
+
+        <!-- PAGO ÚNICO -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="section-title">💰 Pago único, cero sorpresas</div>
+            <p>Adquiera la aplicación una vez y úsela para siempre. Sin licencias mensuales, sin costes ocultos. Las actualizaciones y el soporte están incluidos.</p>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="section-title">💰 Paiement unique, zéro surprise</div>
+            <p>Achetez l'application une fois et utilisez‑la pour toujours. Sans frais mensuels, sans coûts cachés. Mises à jour et support inclus.</p>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="section-title">💰 One‑time payment, no surprises</div>
+            <p>Buy the app once and use it forever. No monthly fees, no hidden costs. Updates and support included.</p>
+        </div>
+
+        <!-- POR QUÉ ELEGIR (comparativa simple) -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="comparison-simple">
+                <h3 style="color: var(--forest); font-size: 12pt; margin-bottom: 0.3cm;">¿Por qué elegir Mundo AOVE App?</h3>
+                <table>
+                    <tr><td><strong>Vs. tablas manuales</strong></td><td>Error cero, ahorro de horas</td></tr>
+                    <tr><td><strong>Vs. apps genéricas</strong></td><td>Específica para olivicultura, módulos exclusivos</td></tr>
+                    <tr><td><strong>Vs. suscripciones</strong></td><td>Paga una sola vez, sin depender de nadie</td></tr>
+                </table>
+            </div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="comparison-simple">
+                <h3 style="color: var(--forest); font-size: 12pt; margin-bottom: 0.3cm;">Pourquoi choisir Mundo AOVE App ?</h3>
+                <table>
+                    <tr><td><strong>Vs. tableaux manuels</strong></td><td>Zéro erreur, gain de temps</td></tr>
+                    <tr><td><strong>Vs. apps génériques</strong></td><td>Spécifique à l'oliviculture, modules exclusifs</td></tr>
+                    <tr><td><strong>Vs. abonnements</strong></td><td>Paiement unique, indépendance totale</td></tr>
+                </table>
+            </div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="comparison-simple">
+                <h3 style="color: var(--forest); font-size: 12pt; margin-bottom: 0.3cm;">Why choose Mundo AOVE App?</h3>
+                <table>
+                    <tr><td><strong>Vs. manual tables</strong></td><td>Zero error, hours saved</td></tr>
+                    <tr><td><strong>Vs. generic apps</strong></td><td>Olive‑growing specific, exclusive modules</td></tr>
+                    <tr><td><strong>Vs. subscriptions</strong></td><td>One‑time payment, no dependency</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- LLAMADA A LA ACCIÓN (con datos actualizados) -->
+        <!-- Español -->
+        <div data-lang="es" class="active">
+            <div class="cta-box">
+                <div class="cta-title">¿Listo para digitalizar su explotación?</div>
+                <p>Solicite una demo o un presupuesto adaptado a su estructura.</p>
+                <div class="contact-details">
+                    <i class="fas fa-phone-alt"></i> +51 979 580 500 · <i class="fas fa-envelope"></i> mundo.aove.tacna@gmail.com
+                </div>
+                <p style="margin-top:0.2cm;">Tacna, Perú</p>
+            </div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr">
+            <div class="cta-box">
+                <div class="cta-title">Prêt à digitaliser votre exploitation ?</div>
+                <p>Demandez une démo ou un devis adapté à votre structure.</p>
+                <div class="contact-details">
+                    <i class="fas fa-phone-alt"></i> +51 979 580 500 · <i class="fas fa-envelope"></i> mundo.aove.tacna@gmail.com
+                </div>
+                <p style="margin-top:0.2cm;">Tacna, Pérou</p>
+            </div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en">
+            <div class="cta-box">
+                <div class="cta-title">Ready to digitize your farm?</div>
+                <p>Request a demo or a quote tailored to your operation.</p>
+                <div class="contact-details">
+                    <i class="fas fa-phone-alt"></i> +51 979 580 500 · <i class="fas fa-envelope"></i> mundo.aove.tacna@gmail.com
+                </div>
+                <p style="margin-top:0.2cm;">Tacna, Peru</p>
+            </div>
+        </div>
+
+        <!-- PIE DE PÁGINA (multilingüe) -->
+        <!-- Español -->
+        <div data-lang="es" class="footer active">
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Tacna, Perú</span>
+                <span><i class="fas fa-envelope"></i> mundo.aove.tacna@gmail.com</span>
+                <span><i class="fas fa-phone-alt"></i> +51 979 580 500</span>
+            </div>
+            <div>© 2026 Mundo-AOVE Tech – Versión 1.0</div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr" class="footer">
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Tacna, Pérou</span>
+                <span><i class="fas fa-envelope"></i> mundo.aove.tacna@gmail.com</span>
+                <span><i class="fas fa-phone-alt"></i> +51 979 580 500</span>
+            </div>
+            <div>© 2026 Mundo-AOVE Tech – Version 1.0</div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en" class="footer">
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Tacna, Peru</span>
+                <span><i class="fas fa-envelope"></i> mundo.aove.tacna@gmail.com</span>
+                <span><i class="fas fa-phone-alt"></i> +51 979 580 500</span>
+            </div>
+            <div>© 2026 Mundo-AOVE Tech – Version 1.0</div>
+        </div>
+
+    </div>
+
+    <script>
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+                el.classList.add('active');
+            });
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.lang-btn[onclick="setLanguage('${lang}')"]`).classList.add('active');
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        function getInitialLanguage() {
+            const saved = localStorage.getItem('preferredLanguage');
+            if (saved && ['es','fr','en'].includes(saved)) return saved;
+            const browserLang = navigator.language.split('-')[0];
+            if (browserLang === 'es') return 'es';
+            if (browserLang === 'fr') return 'fr';
+            if (browserLang === 'en') return 'en';
+            return 'es';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const lang = getInitialLanguage();
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+                el.classList.add('active');
+            });
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.trim().toLowerCase() === lang) {
+                    btn.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

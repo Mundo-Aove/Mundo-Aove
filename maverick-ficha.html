@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maverick Engine – Ficha técnica</title>
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET Y ESTILOS BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Arial', sans-serif;
+            background: #ffffff;
+            color: #1e1e1e;
+            line-height: 1.5;
+            font-size: 10pt;
+            padding: 1.5cm 1cm;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* Variables de color */
+        :root {
+            --forest: #2C4C3B;
+            --gold: #C5A059;
+            --light-bg: #f9fafb;
+        }
+
+        /* Diseño de dos columnas */
+        .page {
+            max-width: 21cm;
+            margin: 0 auto;
+            column-count: 2;
+            column-gap: 1.2cm;
+            column-rule: 1px solid #ddd;
+        }
+
+        /* Elementos que abarcan ambas columnas */
+        .header, .footer, .lang-switcher, .print-button-container {
+            column-span: all;
+        }
+
+        /* Selector de idioma */
+        .lang-switcher {
+            text-align: center;
+            margin-bottom: 0.8cm;
+        }
+        .lang-btn {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--forest);
+            padding: 0.2cm 0.8cm;
+            border-radius: 40px;
+            font-size: 12pt;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0 0.2cm;
+            transition: all 0.2s;
+        }
+        .lang-btn:hover {
+            background: var(--gold);
+            color: white;
+        }
+        .lang-btn.active {
+            background: var(--gold);
+            color: white;
+        }
+        @media print {
+            .lang-switcher {
+                display: none;
+            }
+        }
+
+        /* Botón de impresión */
+        .print-button-container {
+            text-align: center;
+            margin: 0.5cm 0 1cm;
+        }
+        .print-button {
+            background: var(--gold);
+            color: var(--forest);
+            border: none;
+            padding: 0.4cm 1.5cm;
+            border-radius: 40px;
+            font-size: 14pt;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5cm;
+        }
+        .print-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .print-button i {
+            font-size: 16pt;
+        }
+        @media print {
+            .print-button-container {
+                display: none;
+            }
+        }
+
+        /* ===== CABECERA ===== */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--gold);
+            padding-bottom: 0.3cm;
+            margin-bottom: 0.8cm;
+        }
+
+        .logo-area h1 {
+            font-size: 32pt;
+            font-weight: 900;
+            color: var(--forest);
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .logo-area h1 span {
+            color: var(--gold);
+        }
+
+        .logo-area .sub {
+            font-size: 12pt;
+            color: #4a5568;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .badge {
+            background: var(--gold);
+            color: white;
+            padding: 0.3cm 1cm;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 14pt;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            white-space: nowrap;
+        }
+
+        /* ===== TÍTULOS DE SECCIÓN ===== */
+        .section-title {
+            font-size: 16pt;
+            font-weight: 800;
+            color: var(--forest);
+            margin: 0.6cm 0 0.3cm;
+            border-left: 6px solid var(--gold);
+            padding-left: 0.3cm;
+            break-inside: avoid;
+        }
+
+        .section-subtitle {
+            font-weight: 700;
+            color: var(--forest);
+            margin-top: 0.4cm;
+            font-size: 12pt;
+            break-inside: avoid;
+        }
+
+        /* ===== PARRAFOS Y LISTAS ===== */
+        p {
+            text-align: justify;
+            margin-bottom: 0.2cm;
+        }
+
+        ul, ol {
+            margin-left: 0.5cm;
+            margin-bottom: 0.3cm;
+        }
+
+        li {
+            margin-bottom: 0.15cm;
+        }
+
+        .check-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .check-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.3cm;
+            margin-bottom: 0.2cm;
+        }
+
+        .check-list li::before {
+            content: "✅";
+            color: var(--gold);
+            font-weight: bold;
+            min-width: 0.5cm;
+        }
+
+        /* ===== TABLAS ===== */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.4cm 0;
+            font-size: 9.5pt;
+            break-inside: avoid;
+        }
+
+        .comparison-table th {
+            background: var(--forest);
+            color: white;
+            font-weight: 700;
+            padding: 0.3cm 0.2cm;
+            text-align: left;
+            border: 1px solid var(--forest);
+        }
+
+        .comparison-table td {
+            border: 1px solid #ccc;
+            padding: 0.3cm 0.2cm;
+            vertical-align: top;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+
+        .comparison-mini {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.3cm 0;
+            font-size: 9pt;
+        }
+
+        .comparison-mini th {
+            background: var(--gold);
+            color: white;
+            padding: 0.2cm;
+            text-align: left;
+        }
+
+        .comparison-mini td {
+            border: 1px solid #ddd;
+            padding: 0.2cm;
+        }
+
+        /* ===== DESTACADOS ===== */
+        .highlight-box {
+            background: var(--light-bg);
+            border-left: 6px solid var(--gold);
+            padding: 0.4cm;
+            margin: 0.5cm 0;
+            border-radius: 0 10px 10px 0;
+            break-inside: avoid;
+        }
+
+        .stats-box {
+            display: flex;
+            justify-content: space-around;
+            margin: 0.5cm 0;
+            break-inside: avoid;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 0.3cm;
+            width: 30%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .stat-item .number {
+            font-size: 18pt;
+            font-weight: 800;
+            color: var(--forest);
+        }
+
+        .stat-item .label {
+            font-size: 8pt;
+            color: #4a5568;
+        }
+
+        /* ===== COLUMNAS INTERNAS ===== */
+        .inner-columns {
+            column-count: 2;
+            column-gap: 0.6cm;
+            margin: 0.3cm 0;
+        }
+
+        /* ===== PIE DE PÁGINA ===== */
+        .footer {
+            border-top: 3px solid var(--forest);
+            margin-top: 1cm;
+            padding-top: 0.4cm;
+            text-align: center;
+            font-size: 9pt;
+            color: #4a5568;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 1cm;
+            font-weight: 600;
+            margin: 0.2cm 0;
+            color: var(--forest);
+        }
+
+        /* ===== ELEMENTOS MULTILINGUA ===== */
+        [data-lang] {
+            display: none;
+        }
+        [data-lang].active {
+            display: block;
+        }
+        .header[data-lang].active {
+            display: flex;
+        }
+        .footer[data-lang].active {
+            display: block;
+        }
+        .stats-box[data-lang].active {
+            display: flex;
+        }
+        .inner-columns[data-lang].active {
+            display: block;
+        }
+
+        /* ===== AJUSTES DE IMPRESIÓN ===== */
+        @media print {
+            body {
+                padding: 0.5cm;
+            }
+            .badge, .comparison-table th, .comparison-mini th {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            [data-lang] {
+                display: none !important;
+            }
+            [data-lang].active {
+                display: block !important;
+            }
+            .header[data-lang].active {
+                display: flex !important;
+            }
+            .footer[data-lang].active {
+                display: block !important;
+            }
+            .stats-box[data-lang].active {
+                display: flex !important;
+            }
+        }
+
+        /* Evitar saltos de página molestos */
+        h2, h3, .highlight-box, table, .stats-box {
+            break-inside: avoid;
+        }
+
+        .page {
+            widows: 3;
+            orphans: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- SELECTOR DE IDIOMA -->
+        <div class="lang-switcher">
+            <button class="lang-btn active" onclick="setLanguage('es')">ES</button>
+            <button class="lang-btn" onclick="setLanguage('fr')">FR</button>
+            <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+        </div>
+
+        <!-- BOTÓN DE IMPRESIÓN -->
+        <div class="print-button-container">
+            <button onclick="window.print()" class="print-button">
+                <i class="fas fa-print"></i> Imprimir / Guardar como PDF
+            </button>
+        </div>
+
+        <!-- ===== CABECERA ===== -->
+        <!-- Español -->
+        <div data-lang="es" class="header active">
+            <div class="logo-area">
+                <h1>Maverick <span>Engine</span></h1>
+                <div class="sub">Sistema operativo de negocio para almazaras</div>
+            </div>
+            <div class="badge">Tecnología soberana</div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr" class="header">
+            <div class="logo-area">
+                <h1>Maverick <span>Engine</span></h1>
+                <div class="sub">Système d'exploitation métier pour moulins à huile</div>
+            </div>
+            <div class="badge">Souveraineté numérique</div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en" class="header">
+            <div class="logo-area">
+                <h1>Maverick <span>Engine</span></h1>
+                <div class="sub">Business operating system for oil mills</div>
+            </div>
+            <div class="badge">Digital sovereignty</div>
+        </div>
+
+        <!-- ===== COLUMNA IZQUIERDA ===== -->
+        <div>
+            <!-- INTRODUCCIÓN / PROBLEMA -->
+            <!-- Español -->
+            <div data-lang="es" class="active">
+                <div class="section-title">El problema real (sin rodeos)</div>
+                <p>Usted gestiona recepción, producción, envasado y trazabilidad con herramientas que no fueron diseñadas para su negocio: hojas de cálculo, cuadernos de campo, soluciones SaaS genéricas… cada una tiene límites evidentes:</p>
+                <ul class="check-list">
+                    <li>Múltiples ingresos de datos y errores humanos.</li>
+                    <li>Pérdida de información, trazabilidad inexistente o poco fiable.</li>
+                    <li>Suscripciones caras, dependencia de internet y de proveedores externos.</li>
+                    <li>Imposibilidad de personalizar sin recurrir a costosos desarrollos.</li>
+                </ul>
+            </div>
+            <!-- Francés -->
+            <div data-lang="fr">
+                <div class="section-title">Le vrai problème</div>
+                <p>Vous gérez la réception, la production, le conditionnement et la traçabilité avec des outils qui ne sont pas faits pour vous : tableurs, carnets papier, solutions SaaS génériques… chacune a ses limites :</p>
+                <ul class="check-list">
+                    <li>Saisies multiples et erreurs humaines.</li>
+                    <li>Perte d'informations, traçabilité inexistante.</li>
+                    <li>Abonnements coûteux, dépendance à Internet.</li>
+                    <li>Impossible à personnaliser sans développement.</li>
+                </ul>
+            </div>
+            <!-- Inglés -->
+            <div data-lang="en">
+                <div class="section-title">The real problem</div>
+                <p>You manage reception, production, packaging and traceability with tools not designed for your business: spreadsheets, paper notebooks, generic SaaS… each has clear limits:</p>
+                <ul class="check-list">
+                    <li>Multiple data entries and human errors.</li>
+                    <li>Data loss, unreliable traceability.</li>
+                    <li>Expensive subscriptions, internet dependency.</li>
+                    <li>Impossible to customize without costly development.</li>
+                </ul>
+            </div>
+
+            <!-- NUESTRA SOLUCIÓN -->
+            <!-- Español -->
+            <div data-lang="es" class="active">
+                <div class="section-title">La solución: Maverick Engine</div>
+                <p><strong>Maverick Engine</strong> no es un simple programa, es un <span style="background: var(--gold); color: white; padding: 0.1cm 0.3cm; border-radius: 6px;">sistema operativo de negocio</span> diseñado para ejecutarse en un hardware de bajo costo (una Raspberry Pi de 80 €). Digitaliza todos sus procesos sin encerrarlo en la nube ni en suscripciones mensuales.</p>
+                <div class="highlight-box">
+                    <p style="font-weight: 700; color: var(--forest);">🛡️ Filosofía Local‑First</p>
+                    <p>Todos sus datos permanecen en su propiedad, en su propio hardware. Usted es el único dueño. Ni siquiera nosotros tenemos acceso. Base de datos SQLite, robusta incluso tras cortes de luz.</p>
+                </div>
+            </div>
+            <!-- Francés -->
+            <div data-lang="fr">
+                <div class="section-title">La solution : Maverick Engine</div>
+                <p><strong>Maverick Engine</strong> n'est pas un simple logiciel, c'est un <span style="background: var(--gold); color: white; padding: 0.1cm 0.3cm; border-radius: 6px;">système d'exploitation métier</span> conçu pour tourner sur un Raspberry Pi à 80 €. Il digitalise vos processus sans vous enfermer dans le cloud ni dans des abonnements.</p>
+                <div class="highlight-box">
+                    <p style="font-weight: 700; color: var(--forest);">🛡️ Philosophie Local‑First</p>
+                    <p>Toutes vos données restent chez vous, sur votre matériel. Vous êtes l'unique propriétaire. Base SQLite robuste, même après une coupure.</p>
+                </div>
+            </div>
+            <!-- Inglés -->
+            <div data-lang="en">
+                <div class="section-title">The solution: Maverick Engine</div>
+                <p><strong>Maverick Engine</strong> is not just software, it's a <span style="background: var(--gold); color: white; padding: 0.1cm 0.3cm; border-radius: 6px;">business operating system</span> designed to run on a low‑cost Raspberry Pi (€80). It digitizes your processes without locking you into the cloud or subscriptions.</p>
+                <div class="highlight-box">
+                    <p style="font-weight: 700; color: var(--forest);">🛡️ Local‑First philosophy</p>
+                    <p>All your data stays on your hardware. You are the sole owner. Robust SQLite database, even after power cuts.</p>
+                </div>
+            </div>
+
+            <!-- BENEFICIOS CLAVE -->
+            <!-- Español -->
+            <div data-lang="es" class="active">
+                <div class="stats-box">
+                    <div class="stat-item">
+                        <div class="number">0€</div>
+                        <div class="label">abono mensual</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">80€</div>
+                        <div class="label">hardware único</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">100%</div>
+                        <div class="label">datos suyos</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Francés -->
+            <div data-lang="fr">
+                <div class="stats-box">
+                    <div class="stat-item">
+                        <div class="number">0€</div>
+                        <div class="label">par mois</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">80€</div>
+                        <div class="label">matériel unique</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">100%</div>
+                        <div class="label">vos données</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Inglés -->
+            <div data-lang="en">
+                <div class="stats-box">
+                    <div class="stat-item">
+                        <div class="number">0€</div>
+                        <div class="label">monthly fee</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">80€</div>
+                        <div class="label">one‑time hardware</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">100%</div>
+                        <div class="label">your data</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LISTA DE VENTAJAS -->
+            <!-- Español -->
+            <div data-lang="es" class="active">
+                <div class="section-subtitle">Ventajas concretas</div>
+                <div class="inner-columns">
+                    <ul class="check-list">
+                        <li><strong>Soberanía total:</strong> sin cloud impuesto.</li>
+                        <li><strong>Sin suscripción:</strong> paga una sola vez.</li>
+                        <li><strong>Hardware ultra económico:</strong> Raspberry Pi.</li>
+                        <li><strong>Personalizable sin programar:</strong> HTML.</li>
+                        <li><strong>Multilingüe:</strong> FR/ES/EN integrado.</li>
+                        <li><strong>Notificaciones Telegram</strong> opcionales.</li>
+                    </ul>
+                    <ul class="check-list">
+                        <li><strong>Acceso local multipuesto:</strong> navegador.</li>
+                        <li><strong>Exportaciones automáticas</strong> Excel/PDF.</li>
+                        <li><strong>Resistente a cortes de luz:</strong> SQLite.</li>
+                        <li><strong>Infraestructura ultraligera:</strong> arranque rápido.</li>
+                        <li><strong>Ideal para entornos rudos</strong> (polvo, calor).</li>
+                        <li><strong>Sin límite de usuarios</strong> internos.</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Francés -->
+            <div data-lang="fr">
+                <div class="section-subtitle">Avantages concrets</div>
+                <div class="inner-columns">
+                    <ul class="check-list">
+                        <li><strong>Souveraineté totale :</strong> pas de cloud imposé.</li>
+                        <li><strong>Sans abonnement :</strong> paiement unique.</li>
+                        <li><strong>Hardware low‑cost :</strong> Raspberry Pi.</li>
+                        <li><strong>Personnalisable sans code :</strong> HTML.</li>
+                        <li><strong>Multilingue :</strong> FR/ES/EN intégré.</li>
+                        <li><strong>Notifications Telegram</strong> optionnelles.</li>
+                    </ul>
+                    <ul class="check-list">
+                        <li><strong>Accès local multi‑poste :</strong> navigateur.</li>
+                        <li><strong>Exports automatiques</strong> Excel/PDF.</li>
+                        <li><strong>Résistant aux coupures :</strong> SQLite.</li>
+                        <li><strong>Infrastructure ultra‑légère :</strong> démarrage rapide.</li>
+                        <li><strong>Idéal pour environnements rudes.</strong></li>
+                        <li><strong>Sans limite d'utilisateurs.</strong></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Inglés -->
+            <div data-lang="en">
+                <div class="section-subtitle">Key advantages</div>
+                <div class="inner-columns">
+                    <ul class="check-list">
+                        <li><strong>Total sovereignty:</strong> no imposed cloud.</li>
+                        <li><strong>No subscription:</strong> one‑time payment.</li>
+                        <li><strong>Ultra‑low cost hardware:</strong> Raspberry Pi.</li>
+                        <li><strong>Customizable without coding:</strong> HTML.</li>
+                        <li><strong>Multilingual:</strong> FR/ES/EN built‑in.</li>
+                        <li><strong>Telegram notifications</strong> optional.</li>
+                    </ul>
+                    <ul class="check-list">
+                        <li><strong>Multi‑device local access:</strong> browser.</li>
+                        <li><strong>Automatic exports</strong> Excel/PDF.</li>
+                        <li><strong>Power‑cut resistant:</strong> SQLite.</li>
+                        <li><strong>Ultra‑light infrastructure:</strong> fast boot.</li>
+                        <li><strong>Ideal for harsh environments.</strong></li>
+                        <li><strong>No limit on internal users.</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- TABLA COMPARATIVA -->
+            <!-- Español -->
+            <div data-lang="es" class="active">
+                <div class="section-title">Comparación directa</div>
+                <table class="comparison-table">
+                    <thead>
+                        <tr><th>Aspecto</th><th>Maverick Engine</th><th>Excel / SaaS genérico</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Licencia</td><td>Única, perpetua</td><td>Mensual / anual</td></tr>
+                        <tr><td>Dependencia de internet</td><td>Ninguna (offline)</td><td>Obligatoria</td></tr>
+                        <tr><td>Propiedad de datos</td><td>Usted (local)</td><td>El proveedor (nube)</td></tr>
+                        <tr><td>Personalización</td><td>Ilimitada (HTML)</td><td>Rígida o costosa</td></tr>
+                        <tr><td>Implantación</td><td>1 semana</td><td>3‑6 meses</td></tr>
+                        <tr><td>Actualizaciones</td><td>A la carta, sin coste</td><td>Forzadas, a veces de pago</td></tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 0.2cm; font-style: italic;">* Basado en casos reales de productores peruanos.</p>
+            </div>
+            <!-- Francés -->
+            <div data-lang="fr">
+                <div class="section-title">Comparaison directe</div>
+                <table class="comparison-table">
+                    <thead>
+                        <tr><th>Aspect</th><th>Maverick Engine</th><th>Excel / SaaS générique</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Licence</td><td>Unique, perpétuelle</td><td>Mensuelle / annuelle</td></tr>
+                        <tr><td>Dépendance internet</td><td>Aucune (offline)</td><td>Obligatoire</td></tr>
+                        <tr><td>Propriété des données</td><td>Vous (local)</td><td>Le fournisseur (cloud)</td></tr>
+                        <tr><td>Personnalisation</td><td>Illimitée (HTML)</td><td>Rigide ou coûteuse</td></tr>
+                        <tr><td>Mise en place</td><td>1 semaine</td><td>3‑6 mois</td></tr>
+                        <tr><td>Mises à jour</td><td>À la carte, sans frais</td><td>Forcées, parfois payantes</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Inglés -->
+            <div data-lang="en">
+                <div class="section-title">Direct comparison</div>
+                <table class="comparison-table">
+                    <thead>
+                        <tr><th>Aspect</th><th>Maverick Engine</th><th>Excel / generic SaaS</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>License</td><td>One‑time, perpetual</td><td>Monthly / yearly</td></tr>
+                        <tr><td>Internet dependency</td><td>None (offline)</td><td>Mandatory</td></tr>
+                        <tr><td>Data ownership</td><td>You (local)</td><td>Provider (cloud)</td></tr>
+                        <tr><td>Customization</td><td>Unlimited (HTML)</td><td>Rigid or costly</td></tr>
+                        <tr><td>Setup time</td><td>1 week</td><td>3‑6 months</td></tr>
+                        <tr><td>Updates</td><td>On‑demand, no extra cost</td><td>Forced, sometimes paid</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ===== COLUMNA DERECHA ===== -->
+        <div>
+            <!-- PROCESO DE IMPLANTACIÓN -->
+            <!-- Español -->
+            <div data-lang="es" class="active">
+                <div class="section-title">Cómo lo hacemos realidad</div>
+                <ol>
+                    <li><strong>Auditoría inicial (1 día):</strong> analizamos sus flujos.</li>
+                    <li><strong>Formularios a medida:</strong> creamos pantallas HTML + exportes.</li>
+                    <li><strong>Instalación:</strong> Raspberry Pi preconfigurada en su red.</li>
+                    <li><strong>Formación in situ (2 horas).</strong></li>
+                    <li><strong>Soporte y evoluciones:</strong> a petición, presupuesto cerrado.</li>
+                </ol>
+            </div>
+            <!-- Francés -->
+            <div data-lang="fr">
+                <div class="section-title">Comment nous procédons</div>
+                <ol>
+                    <li><strong>Audit initial (1 jour) :</strong> analyse de vos flux.</li>
+                    <li><strong>Formulaires sur mesure :</strong> création des pages HTML + exports.</li>
+                    <li><strong>Installation :</strong> Raspberry Pi préconfigurée.</li>
+                    <li><strong>Formation sur site (2 heures).</strong></li>
+                    <li><strong>Support et évolutions :</strong> sur demande, devis ferme.</li>
+                </ol>
+            </div>
+            <!-- Inglés -->
+            <div data-lang="en">
+                <div class="section-title">How we make it happen</div>
+                <ol>
+                    <li><strong>Initial audit (1 day):</strong> analyze your workflows.</li>
+                    <li><strong>Custom forms:</strong> create HTML pages + exports.</li>
+                    <li><strong>Installation:</strong> pre‑configured Raspberry Pi.</li>
+                    <li><strong>On‑site training (2 hours).</strong></li>
+                    <li><strong>Support and evolutions:</strong> on request, fixed price.</li>
+                </ol>
+            </div>
+
+            <!-- LO QUE CAMBIA (tabla mini) -->
+            <!-- Español -->
+            <div data-lang="es" class="active">
+                <div class="section-title">Antes vs. Después</div>
+                <table class="comparison-mini">
+                    <thead><tr><th>Antes</th><th>Después</th></tr></thead>
+                    <tbody>
+                        <tr><td>📄 Múltiples ingresos, errores</td><td>✅ Entrada única, validada</td></tr>
+                        <tr><td>🔍 Trazabilidad nula</td><td>🔐 Cada operación firmada</td></tr>
+                        <tr><td>⏳ Horas para encontrar un lote</td><td>⚡ Búsqueda instantánea</td></tr>
+                        <tr><td>📤 Export manual a contabilidad</td><td>📊 Excel automático</td></tr>
+                        <tr><td>🚫 Sin alertas</td><td>📲 Telegram opcional</td></tr>
+                        <tr><td>🔒 Dependencia externa</td><td>🏠 Usted controla todo</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Francés -->
+            <div data-lang="fr">
+                <div class="section-title">Avant vs. Après</div>
+                <table class="comparison-mini">
+                    <thead><tr><th>Avant</th><th>Après</th></tr></thead>
+                    <tbody>
+                        <tr><td>📄 Saisies multiples, erreurs</td><td>✅ Saisie unique</td></tr>
+                        <tr><td>🔍 Traçabilité inexistante</td><td>🔐 Opérations signées</td></tr>
+                        <tr><td>⏳ Recherche longue</td><td>⚡ Recherche instantanée</td></tr>
+                        <tr><td>📤 Export manuel</td><td>📊 Excel automatique</td></tr>
+                        <tr><td>🚫 Pas d'alertes</td><td>📲 Telegram optionnel</td></tr>
+                        <tr><td>🔒 Dépendance</td><td>🏠 Vous contrôlez</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Inglés -->
+            <div data-lang="en">
+                <div class="section-title">Before vs. After</div>
+                <table class="comparison-mini">
+                    <thead><tr><th>Before</th><th>After</th></tr></thead>
+                    <tbody>
+                        <tr><td>📄 Multiple entries, errors</td><td>✅ Single validated entry</td></tr>
+                        <tr><td>🔍 No traceability</td><td>🔐 Each operation signed</td></tr>
+                        <tr><td>⏳ Slow batch search</td><td>⚡ Instant search</td></tr>
+                        <tr><td>📤 Manual export</td><td>📊 Auto Excel</td></tr>
+                        <tr><td>🚫 No alerts</td><td>📲 Optional Telegram</td></tr>
+                        <tr><td>🔒 External dependency</td><td>🏠 You own it</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- DESTINATARIOS -->
+            <!-- Español -->
+            <div data-lang="es" class="active">
+                <div class="section-title">¿Para quién es?</div>
+                <p>Almazaras artesanales o cooperativas, productores que quieran trazar sus lotes, talleres de envasado, empresas harta de soluciones caras e inflexibles.</p>
+            </div>
+            <!-- Francés -->
+            <div data-lang="fr">
+                <div class="section-title">Pour qui ?</div>
+                <p>Moulins artisanaux ou coopératifs, producteurs souhaitant tracer leurs lots, ateliers de conditionnement, toute organisation fatiguée des solutions cloud coûteuses.</p>
+            </div>
+            <!-- Inglés -->
+            <div data-lang="en">
+                <div class="section-title">Who is it for?</div>
+                <p>Artisan or cooperative mills, producers wanting batch traceability, packaging workshops, any organization tired of expensive cloud solutions.</p>
+            </div>
+
+            <!-- DESTACADO LOCAL -->
+            <!-- Español -->
+            <div data-lang="es" class="active">
+                <div class="highlight-box">
+                    <p style="font-weight: 700; color: var(--forest);">🇵🇪 Desarrollado en Tacna para el mundo</p>
+                    <p>Trabajamos con el Centro Especializado del Olivo y productores locales. Conocemos las variedades, el terreno y los desafíos de conectividad.</p>
+                </div>
+            </div>
+            <!-- Francés -->
+            <div data-lang="fr">
+                <div class="highlight-box">
+                    <p style="font-weight: 700; color: var(--forest);">🇵🇪 Développé à Tacna pour le monde</p>
+                    <p>Nous travaillons avec le Centro Especializado del Olivo et les producteurs locaux. Nous connaissons les variétés, le terrain et les défis de connectivité.</p>
+                </div>
+            </div>
+            <!-- Inglés -->
+            <div data-lang="en">
+                <div class="highlight-box">
+                    <p style="font-weight: 700; color: var(--forest);">🇵🇪 Developed in Tacna for the world</p>
+                    <p>We work with the Centro Especializado del Olivo and local producers. We know the varieties, the terrain and the connectivity challenges.</p>
+                </div>
+            </div>
+
+            <!-- NOUVEAU: SECTION SUR LE COÛT DU MATÉRIEL ET DE LA LICENCE -->
+            <!-- Español -->
+            <div data-lang="es" class="active">
+                <div class="section-title">Inversión necesaria</div>
+                <p>El hardware (Raspberry Pi) tiene un costo aproximado de <strong>80 €</strong> (unos <strong>100 USD</strong> o <strong>300 PEN</strong>). La licencia del software se vende por separado: el precio se adapta a las necesidades de cada cliente (número de usuarios, módulos, personalizaciones). <strong>Las actualizaciones y nuevas funcionalidades se facturan aparte, siempre con presupuesto previo.</strong> Contáctenos para un estudio personalizado sin compromiso.</p>
+            </div>
+            <!-- Francés -->
+            <div data-lang="fr">
+                <div class="section-title">Investissement</div>
+                <p>Le matériel (Raspberry Pi) coûte environ <strong>80 €</strong> (soit <strong>100 USD</strong> ou <strong>300 PEN</strong>). La licence du logiciel est vendue séparément : le prix est adapté aux besoins de chaque client (nombre d'utilisateurs, modules, personnalisations). <strong>Les mises à jour et nouvelles fonctionnalités sont facturées en sus, toujours sur devis.</strong> Contactez-nous pour une étude personnalisée sans engagement.</p>
+            </div>
+            <!-- Inglés -->
+            <div data-lang="en">
+                <div class="section-title">Investment</div>
+                <p>The hardware (Raspberry Pi) costs approximately <strong>80 €</strong> (about <strong>100 USD</strong> or <strong>300 PEN</strong>). The software license is sold separately: the price is tailored to each client's needs (number of users, modules, customizations). <strong>Updates and new features are billed separately, always with a prior quote.</strong> Contact us for a personalized, no‑obligation study.</p>
+            </div>
+
+            <!-- LLAMADA A LA ACCIÓN -->
+            <!-- Español -->
+            <div data-lang="es" class="active">
+                <div style="background: var(--forest); color: white; padding: 0.5cm; border-radius: 12px; text-align: center; margin-top: 0.6cm;">
+                    <div style="font-size: 22pt; font-weight: 800; line-height: 1.2;">¿Listo para dar el salto?</div>
+                    <p style="margin: 0.3cm 0; font-size: 12pt;">Solicite una demostración sin compromiso o un presupuesto ajustado a su volumen.</p>
+                    <div style="background: var(--gold); display: inline-block; padding: 0.3cm 1cm; border-radius: 40px; font-weight: 700; margin-top: 0.2cm; color: var(--forest);">
+                        📞 +51 979 580 500 · mundo.aove.tacna@gmail.com
+                    </div>
+                    <p style="margin-top: 0.3cm; font-size: 9pt;">📍 Tacna, Perú · Atención personalizada en español</p>
+                </div>
+            </div>
+            <!-- Francés -->
+            <div data-lang="fr">
+                <div style="background: var(--forest); color: white; padding: 0.5cm; border-radius: 12px; text-align: center; margin-top: 0.6cm;">
+                    <div style="font-size: 22pt; font-weight: 800; line-height: 1.2;">Prêt à franchir le pas ?</div>
+                    <p style="margin: 0.3cm 0; font-size: 12pt;">Demandez une démo sans engagement ou un devis adapté à votre volume.</p>
+                    <div style="background: var(--gold); display: inline-block; padding: 0.3cm 1cm; border-radius: 40px; font-weight: 700; margin-top: 0.2cm; color: var(--forest);">
+                        📞 +51 979 580 500 · mundo.aove.tacna@gmail.com
+                    </div>
+                    <p style="margin-top: 0.3cm; font-size: 9pt;">📍 Tacna, Pérou · Accompagnement personnalisé en français</p>
+                </div>
+            </div>
+            <!-- Inglés -->
+            <div data-lang="en">
+                <div style="background: var(--forest); color: white; padding: 0.5cm; border-radius: 12px; text-align: center; margin-top: 0.6cm;">
+                    <div style="font-size: 22pt; font-weight: 800; line-height: 1.2;">Ready to take the leap?</div>
+                    <p style="margin: 0.3cm 0; font-size: 12pt;">Request a no‑obligation demo or a quote tailored to your volume.</p>
+                    <div style="background: var(--gold); display: inline-block; padding: 0.3cm 1cm; border-radius: 40px; font-weight: 700; margin-top: 0.2cm; color: var(--forest);">
+                        📞 +51 979 580 500 · mundo.aove.tacna@gmail.com
+                    </div>
+                    <p style="margin-top: 0.3cm; font-size: 9pt;">📍 Tacna, Peru · Personalized support in English</p>
+                </div>
+            </div>
+
+            <!-- La note finale éthique a été supprimée -->
+        </div>
+
+        <!-- ===== PIE DE PÁGINA ===== -->
+        <!-- Español -->
+        <div data-lang="es" class="footer active">
+            <div class="contact-info">
+                <span>📧 mundo.aove.tacna@gmail.com</span>
+                <span>📞 +51 979 580 500</span>
+                <span>📍 Tacna, Perú</span>
+            </div>
+            <div>Maverick Engine · Versión 2.0 · Ficha técnica detallada · © 2026 Mundo‑AOVE Tech</div>
+        </div>
+        <!-- Francés -->
+        <div data-lang="fr" class="footer">
+            <div class="contact-info">
+                <span>📧 mundo.aove.tacna@gmail.com</span>
+                <span>📞 +51 979 580 500</span>
+                <span>📍 Tacna, Pérou</span>
+            </div>
+            <div>Maverick Engine · Version 2.0 · Fiche technique détaillée · © 2026 Mundo‑AOVE Tech</div>
+        </div>
+        <!-- Inglés -->
+        <div data-lang="en" class="footer">
+            <div class="contact-info">
+                <span>📧 mundo.aove.tacna@gmail.com</span>
+                <span>📞 +51 979 580 500</span>
+                <span>📍 Tacna, Peru</span>
+            </div>
+            <div>Maverick Engine · Version 2.0 · Detailed technical sheet · © 2026 Mundo‑AOVE Tech</div>
+        </div>
+
+    </div>
+
+    <script>
+        function setLanguage(lang) {
+            // Mettre à jour les classes actives
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+                el.classList.add('active');
+            });
+            // Mettre à jour les boutons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.lang-btn[onclick="setLanguage('${lang}')"]`).classList.add('active');
+            // Sauvegarder dans localStorage
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        function getInitialLanguage() {
+            const saved = localStorage.getItem('preferredLanguage');
+            if (saved && ['es','fr','en'].includes(saved)) return saved;
+            const browserLang = navigator.language.split('-')[0];
+            if (browserLang === 'es') return 'es';
+            if (browserLang === 'fr') return 'fr';
+            if (browserLang === 'en') return 'en';
+            return 'es'; // défaut
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const lang = getInitialLanguage();
+            // Afficher la bonne langue
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+                el.classList.add('active');
+            });
+            // Mettre le bouton correspondant en actif
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.trim().toLowerCase() === lang) {
+                    btn.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
