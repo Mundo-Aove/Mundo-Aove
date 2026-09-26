@@ -1,6 +1,12 @@
 {
-  "updated": "2026-09-25T13:34:38.422Z",
+  "updated": "2026-09-26T12:56:34.969Z",
   "items": [
+    {
+      "title": "Esta semana en el OHIS",
+      "link": "https://www.internationaloliveoil.org/esta-semana-en-el-ohis-26/?lang=es",
+      "description": "",
+      "pubDate": "Fri, 25 Sep 2026 15:00:02 +0000"
+    },
     {
       "title": "Ganadores del Premio a la Calidad Mario Solinas para el Hemisferio Sur 2026",
       "link": "https://www.internationaloliveoil.org/ganadores-del-premio-a-la-calidad-mario-solinas-para-el-hemisferio-sur-2026/?lang=es",
@@ -54,12 +60,6 @@
       "link": "https://www.internationaloliveoil.org/nueva-convocatoria-de-subvenciones-del-coi-para-impulsar-la-promocion-del-aceite-de-oliva-y-las-aceitunas-de-mesa/?lang=es",
       "description": "",
       "pubDate": "Wed, 05 Aug 2026 08:46:01 +0000"
-    },
-    {
-      "title": "Estadísticas del sector oleícola – junio/julio 2026",
-      "link": "https://www.internationaloliveoil.org/estadisticas-del-sector-oleicola-junio-julio-2026/?lang=es",
-      "description": "",
-      "pubDate": "Wed, 22 Jul 2026 06:37:32 +0000"
     }
   ]
 }
